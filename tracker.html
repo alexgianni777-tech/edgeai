@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survival Challenge · Tracker</title>
+<meta name="theme-color" content="#0E1116">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1116; --panel:#161B22; --panel2:#1B222B; --line:#232A33;
+    --text:#C9D1D9; --muted:#6E7681; --dim:#484F58;
+    --edge:#3FB950; --warn:#D29922; --danger:#F85149; --cold:#58A6FF;
+    --mono:'IBM Plex Mono',ui-monospace,monospace; --disp:'Archivo',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--ink);color:var(--text);font-family:var(--disp);line-height:1.5;
+    padding:20px 16px 90px;max-width:760px;margin:0 auto;
+    background-image:radial-gradient(circle at 50% -10%,rgba(88,166,255,.06),transparent 60%)}
+  header{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+  h1{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .sub{font-size:12px;color:var(--muted);font-family:var(--mono);margin-top:2px}
+  .sub a{color:var(--cold);text-decoration:none}
+  .eq{text-align:right}
+  .eq .lab{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .eq .num{font-family:var(--mono);font-size:30px;font-weight:600;line-height:1}
+  .eq .delta{font-family:var(--mono);font-size:12px;margin-top:4px}
+  .startedit{display:flex;align-items:center;gap:6px;margin-top:7px;justify-content:flex-end;flex-wrap:wrap}
+  .startedit label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+  .startedit input{width:84px;background:#0c1014;border:1px solid var(--line);color:var(--text);
+    font-family:var(--mono);font-size:12px;padding:4px 7px;border-radius:6px;text-align:right;-webkit-appearance:none}
+  .pos{color:var(--edge)} .neg{color:var(--danger)} .neu{color:var(--muted)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+  .panel h2{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+  .breaker{border-color:var(--danger);background:linear-gradient(180deg,rgba(248,81,73,.10),rgba(248,81,73,.03))}
+  .breaker .msg{font-size:13px;font-weight:600;color:var(--danger)}
+  .breaker .why{font-size:12px;color:var(--muted);margin-top:4px}
+  .curve svg{width:100%;height:120px;display:block}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  @media(max-width:480px){.tiles{grid-template-columns:repeat(2,1fr)}}
+  .tile{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:9px 10px}
+  .tile .l{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+  .tile .v{font-family:var(--mono);font-size:16px;font-weight:600;margin-top:3px}
+  .tile .s{font-size:10px;color:var(--muted);font-family:var(--mono)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .side{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:10px}
+  .side.win{border-color:rgba(63,185,80,.4)} .side.lose{border-color:rgba(248,81,73,.35)}
+  .side .t{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .side .big{font-family:var(--mono);font-size:20px;font-weight:600;margin:4px 0 2px}
+  .side .d{font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .verdict{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.45}
+  .verdict b{color:var(--text)}
+  .ladder{display:flex;flex-direction:column;gap:6px}
+  .rung{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px}
+  .rung .bar{flex:1;height:6px;background:#0c1014;border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+  .rung .fill{height:100%;background:var(--cold);border-radius:99px}
+  .rung.done .fill{background:var(--edge)}
+  .rung.done .amt{color:var(--edge)}
+  .rung .amt{width:74px;text-align:right;color:var(--muted)}
+  .rung .chk{width:16px;text-align:center;color:var(--dim)}
+  .rung.done .chk{color:var(--edge)}
+  .rung.next .amt{color:var(--cold);font-weight:600}
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  form .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+  label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:3px}
+  input,select{width:100%;background:#0c1014;border:1px solid var(--line);color:var(--text);
+    font-family:var(--mono);font-size:13px;padding:8px 9px;border-radius:8px;-webkit-appearance:none}
+  input:focus,select:focus{outline:none;border-color:var(--cold)}
+  .flag{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  .flag button{padding:10px;border-radius:8px;border:1px solid var(--line);background:#0c1014;color:var(--muted);
+    font-family:var(--disp);font-weight:600;font-size:12px;cursor:pointer}
+  .flag button.on-last{border-color:var(--edge);color:var(--edge);background:rgba(63,185,80,.08)}
+  .flag button.on-reflex{border-color:var(--warn);color:var(--warn);background:rgba(210,153,34,.08)}
+  .plan{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+  .plan span{font-size:11px;color:var(--muted)}
+  .plan button{flex:0 0 auto;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:#0c1014;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer}
+  .plan button.yes{border-color:var(--edge);color:var(--edge)} .plan button.no{border-color:var(--danger);color:var(--danger)}
+  .add{width:100%;padding:12px;border-radius:9px;border:none;background:var(--cold);color:#08111d;
+    font-family:var(--disp);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+  .add:disabled{opacity:.4}
+  .log .item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px}
+  .log .item:last-child{border-bottom:none}
+  .log .meta{color:var(--muted);font-size:10.5px;margin-top:1px}
+  .log .kr{font-weight:600;white-space:nowrap}
+  .log .tagL{color:var(--edge)} .log .tagR{color:var(--warn)}
+  .log .del{background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;padding:2px 6px}
+  .actions{display:flex;gap:8px;margin-top:10px}
+  .ghost{flex:1;padding:9px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer}
+  .empty{color:var(--dim);font-size:12px;font-family:var(--mono);text-align:center;padding:14px 0}
+  .disc{font-size:10.5px;color:var(--dim);text-align:center;margin-top:16px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Survival Challenge</h1>
+    <div class="sub">tracker v3 · <a href="edgeai.html">← EdgeAI</a></div>
+  </div>
+  <div class="eq">
+    <div class="lab">Kapital</div>
+    <div class="num" id="equity">—</div>
+    <div class="delta" id="delta"></div>
+    <div class="startedit">
+      <label>Start</label><input type="number" id="startCap" inputmode="decimal">
+      <label>Mål</label><input type="number" id="goalCap" inputmode="decimal">
+    </div>
+  </div>
+</header>
+
+<div class="panel breaker" id="breaker" style="display:none">
+  <div class="msg">⛔ Circuit breaker: <span id="streakN"></span> förluster i rad</div>
+  <div class="why">Stanna. Ingen ny trade idag. Sviter är när reflex-trades föds och stoppar breddas — det är matematiken som säger paus, inte känslan. Kom tillbaka imorgon med en läst setup.</div>
+</div>
+
+<div class="panel curve">
+  <h2>Equity-kurva</h2>
+  <div id="curve"><div class="empty">Logga första traden så ritas kurvan.</div></div>
+</div>
+
+<div class="panel">
+  <h2>Läget</h2>
+  <div class="tiles" id="tiles"></div>
+</div>
+
+<div class="panel">
+  <h2>Läst vs Reflex — där utfallet avgörs</h2>
+  <div class="split" id="split"></div>
+  <div class="verdict" id="verdict"></div>
+</div>
+
+<div class="panel">
+  <h2>Milstolpsstege</h2>
+  <div class="ladder" id="ladder"></div>
+</div>
+
+<div class="panel">
+  <h2>Logga trade</h2>
+  <form id="f" onsubmit="return false">
+    <div class="row">
+      <div><label>Ticker (valfritt)</label><input id="tk" placeholder="VOLV-B" autocapitalize="characters"></div>
+      <div><label>Setup</label><select id="st"><option>Pullback</option><option>Breakout</option><option>Bollinger</option><option>Annat</option></select></div>
+    </div>
+    <div class="row3">
+      <div><label>Riktning</label><select id="dir"><option>Long</option><option>Short</option></select></div>
+      <div><label>Hävstång</label><input id="lev" type="number" inputmode="decimal" placeholder="5" min="1" step="0.1"></div>
+      <div><label>Resultat kr (+/−)</label><input id="kr" type="number" inputmode="numeric" placeholder="-350" step="1"></div>
+    </div>
+    <div class="flag">
+      <button type="button" id="bLast">📖 Läst (planerad)</button>
+      <button type="button" id="bReflex">⚡ Reflex (impuls)</button>
+    </div>
+    <div class="plan"><span>Följde du planen (stop &amp; target)?</span>
+      <button type="button" id="pYes">Ja</button><button type="button" id="pNo">Nej</button>
+    </div>
+    <button class="add" id="add" disabled>Logga trade</button>
+  </form>
+</div>
+
+<div class="panel log">
+  <h2>Logg</h2>
+  <div id="log"><div class="empty">Tomt. Överlevnad räknas per trade — börja logga.</div></div>
+  <div class="actions">
+    <button class="ghost" id="csv">Exportera CSV</button>
+    <button class="ghost" id="wipe">Rensa allt</button>
+  </div>
+</div>
+
+<p class="disc">Sparas privat i denna webbläsare (per enhet). Belönar överlevnad och disciplin — inte fantasivinster.</p>
+
+<script>
+const $ = s => document.querySelector(s);
+const KEY = "edgeai-tracker-v3";
+const fmt = n => Math.round(n).toLocaleString("sv-SE") + " kr";
+const sgn = n => (n >= 0 ? "+" : "") + fmt(n).replace("−","-");
+
+let state = { start: 5000, goal: 1000000, trades: [] };
+try { const s = localStorage.getItem(KEY); if (s) state = { ...state, ...JSON.parse(s) }; } catch(e){}
+let flag = null, plan = null;
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function equity(){ return state.start + state.trades.reduce((a,t)=>a+t.kr,0); }
+
+function lossStreak(){ let s=0; for(let i=state.trades.length-1;i>=0;i--){ if(state.trades[i].kr<0)s++; else break; } return s; }
+
+function stats(arr){
+  const n=arr.length; if(!n) return {n:0};
+  const w=arr.filter(t=>t.kr>0).length, sum=arr.reduce((a,t)=>a+t.kr,0);
+  return {n, win:Math.round(w/n*100), avg:sum/n, sum};
+}
+
+function render(){
+  $("#startCap").value = state.start;
+  $("#goalCap").value = state.goal;
+  const eq = equity(), d = eq - state.start;
+  $("#equity").textContent = fmt(eq);
+  const del = $("#delta");
+  del.textContent = state.trades.length ? sgn(d) + " · " + (d>=0?"+":"") + (state.start? (d/state.start*100).toFixed(1):0) + "%" : "";
+  del.className = "delta " + (d>0?"pos":d<0?"neg":"neu");
+
+  // circuit breaker
+  const ls = lossStreak();
+  $("#breaker").style.display = ls>=3 ? "block" : "none";
+  $("#streakN").textContent = ls;
+
+  // equity curve
+  if(state.trades.length){
+    const pts=[state.start]; state.trades.forEach(t=>pts.push(pts[pts.length-1]+t.kr));
+    const min=Math.min(...pts), max=Math.max(...pts), W=600,H=120,p=6;
+    const x=i=>p+i*(W-2*p)/(pts.length-1||1), y=v=>H-p-(v-min)*(H-2*p)/((max-min)||1);
+    let path="M"+pts.map((v,i)=>x(i).toFixed(1)+","+y(v).toFixed(1)).join(" L");
+    const sy=y(state.start).toFixed(1);
+    const up = pts[pts.length-1]>=state.start;
+    $("#curve").innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <line x1="${p}" x2="${W-p}" y1="${sy}" y2="${sy}" stroke="#484F58" stroke-dasharray="3 4" stroke-width="1"/>
+      <path d="${path}" fill="none" stroke="${up?'#3FB950':'#F85149'}" stroke-width="2" stroke-linejoin="round"/></svg>`;
+  } else $("#curve").innerHTML='<div class="empty">Logga första traden så ritas kurvan.</div>';
+
+  // tiles
+  const all=stats(state.trades);
+  const planned=state.trades.filter(t=>t.plan!==false);
+  const discRate = state.trades.length? Math.round(state.trades.filter(t=>t.plan).length/state.trades.length*100):null;
+  const wl=state.trades.filter(t=>t.kr>0), ll=state.trades.filter(t=>t.kr<0);
+  const levW=wl.length? (wl.reduce((a,t)=>a+(+t.lev||1),0)/wl.length):null;
+  const levL=ll.length? (ll.reduce((a,t)=>a+(+t.lev||1),0)/ll.length):null;
+  let maxS=0,cur=0; state.trades.forEach(t=>{ if(t.kr<0){cur++; maxS=Math.max(maxS,cur);} else cur=0; });
+  $("#tiles").innerHTML = `
+    <div class="tile"><div class="l">Trades</div><div class="v">${all.n||0}</div></div>
+    <div class="tile"><div class="l">Träffprocent</div><div class="v">${all.n?all.win+"%":"—"}</div></div>
+    <div class="tile"><div class="l">Snitt / trade</div><div class="v ${all.n&&all.avg>=0?"pos":all.n?"neg":""}">${all.n?sgn(all.avg):"—"}</div></div>
+    <div class="tile"><div class="l">Plandisciplin</div><div class="v">${discRate==null?"—":discRate+"%"}</div><div class="s">stop &amp; target hölls</div></div>
+    <div class="tile"><div class="l">Förluststreak</div><div class="v ${ls>=3?"neg":""}">${ls} <span class="s">(max ${maxS})</span></div></div>
+    <div class="tile"><div class="l">Hävstång V/F</div><div class="v">${levW!=null?levW.toFixed(1)+"x":"—"} / ${levL!=null?levL.toFixed(1)+"x":"—"}</div><div class="s">${levW!=null&&levL!=null&&levL>levW?"förluster bär mer hävstång ⚠":"snitt vinster / förluster"}</div></div>`;
+
+  // läst vs reflex
+  const L=stats(state.trades.filter(t=>t.flag==="läst"));
+  const R=stats(state.trades.filter(t=>t.flag==="reflex"));
+  $("#split").innerHTML = `
+    <div class="side ${L.n&&L.avg>=0?"win":L.n?"lose":""}"><div class="t" style="color:var(--edge)">📖 Läst</div>
+      <div class="big ${L.n?(L.avg>=0?"pos":"neg"):"neu"}">${L.n?sgn(L.avg):"—"}</div>
+      <div class="d">${L.n?L.n+" trades · "+L.win+"% · tot "+sgn(L.sum):"inga än"}</div></div>
+    <div class="side ${R.n&&R.avg>=0?"win":R.n?"lose":""}"><div class="t" style="color:var(--warn)">⚡ Reflex</div>
+      <div class="big ${R.n?(R.avg>=0?"pos":"neg"):"neu"}">${R.n?sgn(R.avg):"—"}</div>
+      <div class="d">${R.n?R.n+" trades · "+R.win+"% · tot "+sgn(R.sum):"inga än"}</div></div>`;
+  let v="";
+  if(L.n>=3&&R.n>=3){
+    const gap=L.avg-R.avg;
+    v = gap>0 ? `Dina <b>lästa</b> trades slår reflex med <b>${sgn(gap)}</b> per trade. Varje reflex-entry du hoppar över är i snitt värd det.` :
+                `Just nu går reflex bättre — men på n=${R.n} är det brus, inte bevis. Edgen byggs i det lästa.`;
+  } else if(state.trades.length) v="Splitten blir meningsfull från ~3 trades per kategori. Flagga ärligt — mätaren är bara så bra som din ärlighet.";
+  $("#verdict").innerHTML=v;
+
+  // ladder: start → dubbleringar → mål
+  const rungs=[]; let r=state.start*2;
+  while(r<state.goal && rungs.length<8){ rungs.push(r); r*=2; }
+  rungs.push(state.goal);
+  let nextMarked=false;
+  $("#ladder").innerHTML = rungs.map(v0=>{
+    const done=eq>=v0, pctv=Math.max(0,Math.min(1,eq/v0));
+    const next=!done&&!nextMarked; if(next)nextMarked=true;
+    return `<div class="rung ${done?"done":""} ${next?"next":""}">
+      <span class="chk">${done?"✓":"·"}</span>
+      <div class="bar"><div class="fill" style="width:${(pctv*100).toFixed(1)}%"></div></div>
+      <span class="amt">${v0>=1e6?(v0/1e6).toFixed(v0%1e6?1:0)+"M":Math.round(v0/1000)+"k"}</span></div>`;
+  }).join("");
+
+  // log
+  if(state.trades.length){
+    $("#log").innerHTML = state.trades.slice().reverse().map((t,ri)=>{
+      const i=state.trades.length-1-ri;
+      return `<div class="item"><div>
+        <div>${t.tk||t.st} <span class="${t.flag==="läst"?"tagL":"tagR"}">${t.flag==="läst"?"📖":"⚡"}</span>${t.plan===false?' <span class="neg" title="plan bröts">✗plan</span>':""}</div>
+        <div class="meta">${t.date} · ${t.st} · ${t.dir}${t.lev?" · "+t.lev+"x":""}</div></div>
+        <div style="display:flex;align-items:center;gap:4px"><span class="kr ${t.kr>=0?"pos":"neg"}">${sgn(t.kr)}</span>
+        <button class="del" data-i="${i}">✕</button></div></div>`;
+    }).join("");
+  } else $("#log").innerHTML='<div class="empty">Tomt. Överlevnad räknas per trade — börja logga.</div>';
+
+  $("#add").disabled = !(flag && plan!==null && $("#kr").value!=="");
+}
+
+// events
+$("#startCap").addEventListener("change",e=>{ state.start=+e.target.value||0; save(); render(); });
+$("#goalCap").addEventListener("change",e=>{ state.goal=Math.max(+e.target.value||0,state.start*2); save(); render(); });
+$("#bLast").addEventListener("click",()=>{ flag="läst"; $("#bLast").classList.add("on-last"); $("#bReflex").classList.remove("on-reflex"); render(); });
+$("#bReflex").addEventListener("click",()=>{ flag="reflex"; $("#bReflex").classList.add("on-reflex"); $("#bLast").classList.remove("on-last"); render(); });
+$("#pYes").addEventListener("click",()=>{ plan=true; $("#pYes").classList.add("yes"); $("#pNo").classList.remove("no"); render(); });
+$("#pNo").addEventListener("click",()=>{ plan=false; $("#pNo").classList.add("no"); $("#pYes").classList.remove("yes"); render(); });
+$("#kr").addEventListener("input",render);
+$("#add").addEventListener("click",()=>{
+  const t={ date:new Date().toISOString().slice(0,10), tk:($("#tk").value||"").toUpperCase().trim(),
+    st:$("#st").value, dir:$("#dir").value, lev:+$("#lev").value||null, kr:Math.round(+$("#kr").value||0), flag, plan };
+  state.trades.push(t); save();
+  $("#tk").value=""; $("#kr").value=""; flag=null; plan=null;
+  $("#bLast").classList.remove("on-last"); $("#bReflex").classList.remove("on-reflex");
+  $("#pYes").classList.remove("yes"); $("#pNo").classList.remove("no");
+  render();
+});
+document.addEventListener("click",e=>{
+  const d=e.target.closest(".del"); if(!d) return;
+  state.trades.splice(+d.dataset.i,1); save(); render();
+});
+$("#csv").addEventListener("click",()=>{
+  const rows=[["Datum","Ticker","Setup","Riktning","Hävstång","Resultat kr","Flagga","Plan hölls"],
+    ...state.trades.map(t=>[t.date,t.tk,t.st,t.dir,t.lev||"",t.kr,t.flag,t.plan?"ja":"nej"])];
+  const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
+  const url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+  const a=document.createElement("a"); a.href=url; a.download="survival-challenge.csv";
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+});
+$("#wipe").addEventListener("click",()=>{
+  if(confirm("Rensa alla trades? Kan inte ångras.")){ state.trades=[]; save(); render(); }
+});
+
+render();
+</script>
+</body>
+</html>

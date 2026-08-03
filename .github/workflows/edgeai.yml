@@ -1,0 +1,38 @@
+name: EdgeAI daily
+
+# Kör gratis på GitHubs servrar — de når Yahoo (till skillnad från Claudes sandlåda).
+on:
+  schedule:
+    - cron: "0 6 * * 1-5"   # 06:00 UTC vardagar = 08:00 svensk sommartid
+  workflow_dispatch: {}
+
+permissions:
+  contents: write            # behövs för att committa data.json
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+
+      # 1) Bygg hemsidans data (USA + Sverige) och committa den
+      - name: Build site data (US + SE)
+        run: node build-data.js
+      - name: Commit data.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A public/
+          git diff --staged --quiet || git commit -m "chore: update data.json"
+          git push
+
+      # 2) Skicka veckans setups till Telegram
+      - name: Telegram digest
+        run: node notify.js
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
