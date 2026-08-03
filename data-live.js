@@ -28,18 +28,40 @@ async function loadBars(ticker, { years = 3 } = {}) {
     .map(q => ({ t: q.date, open: q.open, high: q.high, low: q.low, close: q.close }));
 }
 
-// Hämtar hela universumet (med liten paus för att vara snäll mot Yahoo).
+// Hämtar hela universumet. Försöker om vid tillfälliga fel (Yahoo svarar ofta
+// 429/401 mot datacenter-IP:n som GitHub Actions kör på). Rapporterar tydligt —
+// och KRASCHAR hellre än att leverera tom data, så att en grön körning aldrig
+// kan betyda "n=0 överallt".
 async function loadUniverse(tickers = OMXS30, opts = {}) {
   const out = {};
+  const fails = [];
   for (const tk of tickers) {
-    try {
-      const bars = await loadBars(tk, opts);
-      if (bars.length > 300) out[tk] = bars;
-      else console.error(`  (för lite data, hoppar) ${tk}: ${bars.length} barer`);
-    } catch (e) {
-      console.error(`  (fel, hoppar) ${tk}: ${e.message}`);
+    let bars = null, lastErr = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try { bars = await loadBars(tk, opts); break; }
+      catch (e) {
+        lastErr = e;
+        if (attempt < 3) await sleep(1200 * attempt);   // backoff 1.2s, 2.4s
+      }
     }
+    if (bars == null) fails.push(`${tk}: ${lastErr && lastErr.message}`);
+    else if (bars.length > 300) out[tk] = bars;
+    else fails.push(`${tk}: bara ${bars.length} barer`);
     await sleep(350);
+  }
+
+  const ok = Object.keys(out).length;
+  console.log(`  hämtade ${ok}/${tickers.length} tickers`);
+  if (fails.length) {
+    console.error(`  ${fails.length} misslyckades — första felen:`);
+    fails.slice(0, 5).forEach(f => console.error(`    - ${f}`));
+  }
+  if (ok < Math.max(5, tickers.length * 0.4)) {
+    throw new Error(
+      `Datahämtning misslyckades: bara ${ok}/${tickers.length} tickers gick igenom. ` +
+      `Skriver INTE över data.json med tomt underlag. Vanligaste orsak: Yahoo ` +
+      `blockerar eller stryper anrop från GitHubs servrar. Se felen ovan.`
+    );
   }
   return out;
 }
