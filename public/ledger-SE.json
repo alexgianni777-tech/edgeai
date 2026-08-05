@@ -1,1 +1,101 @@
-[]
+[
+  {
+    "ticker": "ALFA.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 570.2,
+    "stop": 551.73,
+    "target": 597.9,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "ATCO-A.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 200.2,
+    "stop": 191.96,
+    "target": 212.56,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "ATCO-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 175.6,
+    "stop": 169.04,
+    "target": 185.44,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "ESSITY-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 280.2,
+    "stop": 272.59,
+    "target": 291.61,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "EVO.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 741.6,
+    "stop": 707.29,
+    "target": 793.06,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "HM-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 169.25,
+    "stop": 163.83,
+    "target": 177.38,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 54.36,
+    "stop": 51.95,
+    "target": 57.98,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "SINCH.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 40.05,
+    "stop": 37.34,
+    "target": 44.11,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  },
+  {
+    "ticker": "SKF-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 264.8,
+    "stop": 255.29,
+    "target": 279.07,
+    "barT": "Wed Aug 05 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-05T09:44:30.068Z",
+    "r": null
+  }
+]
