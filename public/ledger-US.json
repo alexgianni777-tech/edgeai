@@ -6,9 +6,10 @@
     "stop": 294.1,
     "target": 353.33,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "NVDA",
@@ -17,9 +18,10 @@
     "stop": 185.66,
     "target": 231.04,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "UNH",
@@ -28,9 +30,10 @@
     "stop": 402.82,
     "target": 477.43,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": 3,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "PG",
@@ -39,9 +42,10 @@
     "stop": 140.66,
     "target": 162.41,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": 3,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "ABBV",
@@ -50,9 +54,10 @@
     "stop": 234.59,
     "target": 276.63,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "AMD",
@@ -61,9 +66,10 @@
     "stop": 424.64,
     "target": 664.63,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "AMAT",
@@ -72,9 +78,10 @@
     "stop": 453.8,
     "target": 706.17,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "GS",
@@ -83,9 +90,10 @@
     "stop": 922.78,
     "target": 1154.67,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "MS",
@@ -94,9 +102,10 @@
     "stop": 201.24,
     "target": 242.61,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "SPGI",
@@ -105,9 +114,10 @@
     "stop": 402.73,
     "target": 489.25,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "NEE",
@@ -116,9 +126,10 @@
     "stop": 85.24,
     "target": 96,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "MU",
@@ -127,9 +138,10 @@
     "stop": 695.83,
     "target": 1194.64,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "PANW",
@@ -138,9 +150,10 @@
     "stop": 293.54,
     "target": 388.66,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "ANET",
@@ -149,9 +162,10 @@
     "stop": 155.33,
     "target": 212.85,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "SO",
@@ -160,9 +174,10 @@
     "stop": 91.43,
     "target": 103.07,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "SBUX",
@@ -171,9 +186,10 @@
     "stop": 100.36,
     "target": 118.81,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
   },
   {
     "ticker": "GILD",
@@ -182,8 +198,174 @@
     "stop": 125.58,
     "target": 148.38,
     "barT": "Tue Aug 04 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-05T09:44:16.722Z",
+    "r": -1,
+    "closedAt": "2026-08-06T08:12:13.833Z"
+  },
+  {
+    "ticker": "AAPL",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 308.91,
+    "stop": 294.1,
+    "target": 353.33,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "NVDA",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 197.01,
+    "stop": 185.66,
+    "target": 231.04,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "UNH",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 421.47,
+    "stop": 402.82,
+    "target": 477.43,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "PG",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 146.1,
+    "stop": 140.66,
+    "target": 162.41,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "ABBV",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 245.1,
+    "stop": 234.59,
+    "target": 276.63,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "AMD",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 484.64,
+    "stop": 424.64,
+    "target": 664.63,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "GS",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 980.75,
+    "stop": 922.78,
+    "target": 1154.67,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "MS",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 211.58,
+    "stop": 201.24,
+    "target": 242.61,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "SPGI",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 410.03,
+    "stop": 390.41,
+    "target": 468.89,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "NEE",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 87.93,
+    "stop": 85.24,
+    "target": 96,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.833Z",
+    "r": null
+  },
+  {
+    "ticker": "MU",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 820.53,
+    "stop": 695.83,
+    "target": 1194.64,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.834Z",
+    "r": null
+  },
+  {
+    "ticker": "ANET",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 169.71,
+    "stop": 155.33,
+    "target": 212.85,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.834Z",
+    "r": null
+  },
+  {
+    "ticker": "SO",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 94.34,
+    "stop": 91.43,
+    "target": 103.07,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.834Z",
+    "r": null
+  },
+  {
+    "ticker": "SBUX",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 104.97,
+    "stop": 100.36,
+    "target": 118.81,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.834Z",
+    "r": null
+  },
+  {
+    "ticker": "GILD",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 131.28,
+    "stop": 125.58,
+    "target": 148.38,
+    "barT": "Wed Aug 05 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-06T08:12:13.834Z",
     "r": null
   }
 ]
