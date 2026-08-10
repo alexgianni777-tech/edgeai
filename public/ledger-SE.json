@@ -214,5 +214,192 @@
     "loggedAt": "2026-08-06T08:12:27.214Z",
     "r": -1,
     "closedAt": "2026-08-07T06:58:14.661Z"
+  },
+  {
+    "ticker": "ASSA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 366,
+    "stop": 356.09,
+    "target": 380.87,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "ATCO-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 210.2,
+    "stop": 202.13,
+    "target": 222.31,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "ATCO-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 184,
+    "stop": 177.45,
+    "target": 193.83,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "EQT.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 345.2,
+    "stop": 331.42,
+    "target": 365.87,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "GETI-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 239.7,
+    "stop": 232.28,
+    "target": 250.82,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "HM-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 179.9,
+    "stop": 174.51,
+    "target": 187.99,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "HEXA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 98.1,
+    "stop": 93.94,
+    "target": 104.34,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "INVE-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 424.05,
+    "stop": 414.84,
+    "target": 437.86,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 56.42,
+    "stop": 54.04,
+    "target": 59.99,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "NDA-SE.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 194.85,
+    "stop": 190.73,
+    "target": 201.03,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "NIBE-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 40.18,
+    "stop": 38.67,
+    "target": 42.44,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "SCA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 110.65,
+    "stop": 106.98,
+    "target": 116.16,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "SEB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 227.1,
+    "stop": 222.04,
+    "target": 234.69,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "SHB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 148.9,
+    "stop": 145.71,
+    "target": 153.68,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "SINCH.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 44.19,
+    "stop": 41.55,
+    "target": 48.15,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "SKF-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 266.5,
+    "stop": 257.17,
+    "target": 280.49,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
+  },
+  {
+    "ticker": "SWED-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 388.4,
+    "stop": 379.95,
+    "target": 401.07,
+    "barT": "Mon Aug 10 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-10T07:05:29.455Z",
+    "r": null
   }
 ]
