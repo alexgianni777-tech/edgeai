@@ -418,5 +418,71 @@
     "loggedAt": "2026-08-10T07:05:29.455Z",
     "r": -1,
     "closedAt": "2026-08-11T06:44:22.560Z"
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 967.8,
+    "stop": 929.11,
+    "target": 1064.51,
+    "barT": "Fri Aug 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-17T06:29:27.080Z",
+    "r": null
+  },
+  {
+    "ticker": "ESSITY-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 277.4,
+    "stop": 270.71,
+    "target": 294.14,
+    "barT": "Fri Aug 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-17T06:29:27.080Z",
+    "r": null
+  },
+  {
+    "ticker": "BOL.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 539,
+    "stop": 511.65,
+    "target": 593.7,
+    "barT": "Fri Aug 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-17T06:29:27.080Z",
+    "r": null
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 57.98,
+    "stop": 55.62,
+    "target": 62.7,
+    "barT": "Fri Aug 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-17T06:29:27.080Z",
+    "r": null
+  },
+  {
+    "ticker": "SHB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 148.9,
+    "stop": 145.71,
+    "target": 155.27,
+    "barT": "Fri Aug 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-17T06:29:27.080Z",
+    "r": null
+  },
+  {
+    "ticker": "SINCH.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 44.19,
+    "stop": 41.55,
+    "target": 49.46,
+    "barT": "Fri Aug 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-17T06:29:27.080Z",
+    "r": null
   }
 ]
