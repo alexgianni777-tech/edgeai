@@ -1,11 +1,10 @@
-// strategy-short.js — femte setup-typen: breakdown short (endast björnmarknad).
+// strategy-short.js — Burry-filtret: short i enskilda, tydligt svaga aktier.
 //
 // Setup (short-only): i nedåttrend (close < EMA50) rallyr priset upp och
 // nuddar EMA20 medan RSI reser sig över tröskeln — säljarens motsvarighet
 // till pullbacken. Entry short på nästa open, stop ÖVER entry (ATR-baserad),
-// target under. Byggd för att bara räknas/visas när index är under sitt
-// 200-dagarssnitt (inverterat regimfilter i build-data) — din mekaniska
-// regel: inga shorts i tjurmarknad.
+// target under. build-data begränsar den vidare till den svagaste tredjedelen
+// av relativ styrka, men den blockeras inte av att hela indexet är risk-on.
 //
 // Samma strategi-interface + { dir: "short" }.
 
@@ -89,4 +88,4 @@ function latestSignal(bars, params = {}, freshness = 1) {
   return null;
 }
 
-module.exports = { name: "Breakdown short — rally in downtrend", dir: "short", runStrategy, latestSignal, DEFAULT_PARAMS, GRID };
+module.exports = { name: "Burry filter — weak-stock rally short", dir: "short", runStrategy, latestSignal, DEFAULT_PARAMS, GRID };
