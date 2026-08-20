@@ -139,7 +139,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const regime = indexBars && indexBars.length > 200 ? regimeFrom(indexBars) : { map: {}, on: true };
 
   // 1-3) Validera + screena VARJE strategi för sig (oberoende edge), slå ihop
-  const STRATS = [require("./strategy"), require("./strategy-breakout"), require("./strategy-bollinger"), require("./strategy-momentum"), require("./strategy-short")];
+  const STRATS = [require("./strategy"), require("./strategy-breakout"), require("./strategy-bollinger"), require("./strategy-momentum"), require("./strategy-short"), require("./strategy-big-short")];
   const pooledOOS = [];
   let allSetups = [];
   // ── Relative strength (63d avkastning, percentilrankad över universum) + bredd ──
@@ -184,7 +184,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     // Momentum handlar bara ledare. Burry-filtret handlar bara laggards:
     // den nedre tredjedelen av 63-dagars relativ styrka i respektive marknad.
     const gated = isShort
-      ? setups.filter(x => (x.rs ?? 50) <= 35)
+      ? setups.filter(x => (x.rs ?? 50) <= (strat.shortRsMax ?? 35))
       : /momentum/i.test(strat.name)
         ? setups.filter(x => (x.rs ?? 50) >= 60)
         : setups;
