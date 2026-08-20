@@ -642,9 +642,10 @@
     "stop": 928.91,
     "target": 1065.02,
     "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-20T06:24:02.378Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T12:13:14.122Z"
   },
   {
     "ticker": "ESSITY-B.ST",
@@ -653,9 +654,10 @@
     "stop": 270.71,
     "target": 294.14,
     "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-20T06:24:02.378Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T12:13:14.122Z"
   },
   {
     "ticker": "BOL.ST",
@@ -664,9 +666,10 @@
     "stop": 511.6,
     "target": 593.8,
     "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-20T06:24:02.378Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T12:13:14.122Z"
   },
   {
     "ticker": "EVO.ST",
@@ -675,9 +678,10 @@
     "stop": 756.81,
     "target": 849.19,
     "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-20T06:24:02.378Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-08-20T12:13:14.122Z"
   },
   {
     "ticker": "KINV-B.ST",
@@ -686,8 +690,105 @@
     "stop": 55.59,
     "target": 62.76,
     "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-20T06:24:02.378Z",
+    "r": 2,
+    "closedAt": "2026-08-20T12:13:14.122Z"
+  },
+  {
+    "ticker": "ESSITY-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 277.4,
+    "stop": 270.56,
+    "target": 294.49,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "NIBE-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 38.2,
+    "stop": 36.88,
+    "target": 41.49,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "BOL.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 539,
+    "stop": 511.75,
+    "target": 593.49,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "EVO.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 808.8,
+    "stop": 777.3,
+    "target": 871.81,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "GETI-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 244.1,
+    "stop": 237.93,
+    "target": 256.43,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "HM-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 182.65,
+    "stop": 177.26,
+    "target": 193.43,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "HEXA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 99,
+    "stop": 95.54,
+    "target": 105.92,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
+    "r": null
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 57.98,
+    "stop": 55.6,
+    "target": 62.74,
+    "barT": "Thu Aug 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T12:13:14.122Z",
     "r": null
   }
 ]
