@@ -71,14 +71,25 @@ function updateLedger(ledgerPath, universe, setups) {
     if (row.status !== "open") continue;
     const bars = universe[row.ticker];
     if (!bars) continue;
-    const risk = row.entry - row.stop;
+    const isShort = row.dir === "short";
+    const risk = Math.abs(row.entry - row.stop);
+    if (risk <= 0) continue;
     let exit = null;
     for (const b of bars) {
       if (String(b.t) <= String(row.barT)) continue;     // bara barer EFTER loggning
-      if (b.low <= row.stop) { exit = row.stop; break; }
-      if (b.high >= row.target) { exit = row.target; break; }
+      if (isShort) {
+        if (b.high >= row.stop) { exit = row.stop; break; } // stop först, konservativt
+        if (b.low <= row.target) { exit = row.target; break; }
+      } else {
+        if (b.low <= row.stop) { exit = row.stop; break; }
+        if (b.high >= row.target) { exit = row.target; break; }
+      }
     }
-    if (exit != null) { row.r = round((exit - row.entry) / risk); row.status = "closed"; row.closedAt = new Date().toISOString(); }
+    if (exit != null) {
+      row.r = round(isShort ? (row.entry - exit) / risk : (exit - row.entry) / risk);
+      row.status = "closed";
+      row.closedAt = new Date().toISOString();
+    }
   }
 
   // logga nya (hoppa över om redan öppen för samma ticker+setup)
@@ -86,7 +97,7 @@ function updateLedger(ledgerPath, universe, setups) {
   for (const s of setups) {
     if (openT.has(s.ticker + "|" + s.setup)) continue;
     const bars = universe[s.ticker];
-    rows.push({ ticker: s.ticker, setup: s.setup, entry: s.entry, stop: s.stop, target: s.target,
+    rows.push({ ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long", entry: s.entry, stop: s.stop, target: s.target,
       barT: String(bars[bars.length - 1].t), status: "open", loggedAt: new Date().toISOString(), r: null });
   }
   fs.writeFileSync(ledgerPath, JSON.stringify(rows, null, 2));
@@ -148,10 +159,10 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const stratParams = [];
   for (const strat of STRATS) {
     const v = validateUniverse(universe, strat);
-    // regimfilter: räkna bara OOS-trades när indexet var i uppåttrend
+    // Longs valideras i risk-on. Burry-filtret valideras i alla indexregimer:
+    // en enskild akties nedtrend kan vara shortbar även när hela indexet är starkt.
     const isShort = strat.dir === "short";
-    // longs räknas bara i risk-on; shorts bara i risk-off — aldrig mot regimen
-    const filtered = v.oosTrades.filter(t => isShort ? regime.map[String(t.t)] === false : regime.map[String(t.t)] !== false);
+    const filtered = v.oosTrades.filter(t => isShort || regime.map[String(t.t)] !== false);
     const fm = metrics(filtered);
     const stratHolds = (fm.n ?? 0) >= 30 && (fm.expectancy ?? 0) > 0.03 && (fm.profitFactor ?? 0) > 1.1;
     if (stratHolds) pooledOOS.push(...filtered);   // bara validerade edges i poolen
@@ -159,8 +170,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     // typisk tid till target: median håll-tid bland vinnarna (fallback: alla)
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
     const typicalDays = median(winHeld) ?? median(filtered.map(t => t.held).filter(h => h != null));
-    // visa setups bara om regimen är PÅ OCH strategin validerat
-    const setups = (!stratHolds || (isShort ? regime.on : !regime.on)) ? [] : screen(universe, fm, v.params, 7, strat).map(s => ({
+    // Longs visas bara i risk-on. Burry-filtret använder aktiens egen svaghet,
+    // inte indexets globala regim, och får därför visas även i en stark marknad.
+    const setups = (!stratHolds || (!isShort && !regime.on)) ? [] : screen(universe, fm, v.params, 7, strat).map(s => ({
       dir: isShort ? "short" : "long",
       ticker: s.ticker, setup: s.setup, grade: s.grade, barsAgo: s.barsAgo, typicalDays,
       rs: rsRank[s.ticker] ?? 50,
@@ -169,8 +181,13 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       above200: (() => { const b = universe[s.ticker] || []; const c = b.map(x => x.close); const ma = sma(c, 200); const i = b.length - 1; return i >= 0 && ma[i] != null ? c[i] > ma[i] : true; })(),
       chart: (universe[s.ticker] || []).slice(-22).map(b => ({ o: round(b.open), h: round(b.high), l: round(b.low), c: round(b.close) })),
     }));
-    // Momentum-flaggan handlar bara ledare: kräver RS >= 60
-    const gated = /momentum/i.test(strat.name) ? setups.filter(x => (x.rs ?? 50) >= 60) : setups;
+    // Momentum handlar bara ledare. Burry-filtret handlar bara laggards:
+    // den nedre tredjedelen av 63-dagars relativ styrka i respektive marknad.
+    const gated = isShort
+      ? setups.filter(x => (x.rs ?? 50) <= 35)
+      : /momentum/i.test(strat.name)
+        ? setups.filter(x => (x.rs ?? 50) >= 60)
+        : setups;
     allSetups.push(...gated);
   }
 
