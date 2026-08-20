@@ -570,9 +570,10 @@
     "stop": 928.91,
     "target": 1065.02,
     "barT": "Mon Aug 17 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:57.229Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:24:02.378Z"
   },
   {
     "ticker": "ESSITY-B.ST",
@@ -581,9 +582,10 @@
     "stop": 270.45,
     "target": 294.77,
     "barT": "Mon Aug 17 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:57.229Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:24:02.378Z"
   },
   {
     "ticker": "BOL.ST",
@@ -592,9 +594,10 @@
     "stop": 511.6,
     "target": 593.8,
     "barT": "Mon Aug 17 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:57.229Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:24:02.378Z"
   },
   {
     "ticker": "EVO.ST",
@@ -603,9 +606,10 @@
     "stop": 756.81,
     "target": 849.19,
     "barT": "Mon Aug 17 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:57.229Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-08-20T06:24:02.378Z"
   },
   {
     "ticker": "KINV-B.ST",
@@ -614,9 +618,10 @@
     "stop": 55.59,
     "target": 62.76,
     "barT": "Mon Aug 17 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:57.229Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-08-20T06:24:02.378Z"
   },
   {
     "ticker": "SINCH.ST",
@@ -625,8 +630,64 @@
     "stop": 41.55,
     "target": 49.46,
     "barT": "Mon Aug 17 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:57.229Z",
+    "r": -1,
+    "closedAt": "2026-08-20T06:24:02.378Z"
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 967.8,
+    "stop": 928.91,
+    "target": 1065.02,
+    "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:24:02.378Z",
+    "r": null
+  },
+  {
+    "ticker": "ESSITY-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "entry": 277.4,
+    "stop": 270.71,
+    "target": 294.14,
+    "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:24:02.378Z",
+    "r": null
+  },
+  {
+    "ticker": "BOL.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 539,
+    "stop": 511.6,
+    "target": 593.8,
+    "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:24:02.378Z",
+    "r": null
+  },
+  {
+    "ticker": "EVO.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 787.6,
+    "stop": 756.81,
+    "target": 849.19,
+    "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:24:02.378Z",
+    "r": null
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 57.98,
+    "stop": 55.59,
+    "target": 62.76,
+    "barT": "Tue Aug 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:24:02.378Z",
     "r": null
   }
 ]

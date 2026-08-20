@@ -1746,9 +1746,10 @@
     "stop": 482.56,
     "target": 541.31,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "NVDA",
@@ -1757,9 +1758,10 @@
     "stop": 214.46,
     "target": 241.57,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "JPM",
@@ -1768,9 +1770,10 @@
     "stop": 355.29,
     "target": 380.02,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "XOM",
@@ -1779,9 +1782,10 @@
     "stop": 153.74,
     "target": 168.87,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "HD",
@@ -1790,9 +1794,10 @@
     "stop": 342.43,
     "target": 375.41,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "BAC",
@@ -1801,9 +1806,10 @@
     "stop": 63.24,
     "target": 67.17,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "CRM",
@@ -1812,9 +1818,10 @@
     "stop": 189.27,
     "target": 219.52,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "NFLX",
@@ -1823,9 +1830,10 @@
     "stop": 74.58,
     "target": 83.72,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "DIS",
@@ -1834,9 +1842,10 @@
     "stop": 103.5,
     "target": 111.88,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "ADBE",
@@ -1845,9 +1854,10 @@
     "stop": 255.87,
     "target": 298.59,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "ORCL",
@@ -1856,9 +1866,10 @@
     "stop": 144.85,
     "target": 173.27,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "MRK",
@@ -1867,9 +1878,10 @@
     "stop": 130.89,
     "target": 143.26,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "TMO",
@@ -1878,9 +1890,10 @@
     "stop": 575.15,
     "target": 636.5,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "ACN",
@@ -1889,9 +1902,10 @@
     "stop": 167.8,
     "target": 197.85,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "ABT",
@@ -1900,9 +1914,10 @@
     "stop": 106.62,
     "target": 117.35,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "NOW",
@@ -1911,9 +1926,10 @@
     "stop": 117.53,
     "target": 142.3,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "UBER",
@@ -1922,9 +1938,10 @@
     "stop": 74.56,
     "target": 84.51,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "PLTR",
@@ -1933,9 +1950,10 @@
     "stop": 161.81,
     "target": 195.36,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "BLK",
@@ -1944,9 +1962,10 @@
     "stop": 1144.36,
     "target": 1240.56,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "LOW",
@@ -1955,9 +1974,10 @@
     "stop": 214.72,
     "target": 236.3,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "SCHW",
@@ -1966,9 +1986,10 @@
     "stop": 107.93,
     "target": 115.83,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "C",
@@ -1977,9 +1998,10 @@
     "stop": 134.49,
     "target": 146.6,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "BSX",
@@ -1988,9 +2010,10 @@
     "stop": 48.6,
     "target": 55.07,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "PFE",
@@ -1999,9 +2022,10 @@
     "stop": 26.42,
     "target": 28.49,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": 1.49,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "LRCX",
@@ -2010,9 +2034,10 @@
     "stop": 303.01,
     "target": 388.01,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "PANW",
@@ -2021,9 +2046,10 @@
     "stop": 373.45,
     "target": 429.82,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "COP",
@@ -2032,9 +2058,10 @@
     "stop": 122.52,
     "target": 135.12,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "MDT",
@@ -2043,9 +2070,10 @@
     "stop": 87.38,
     "target": 95.83,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "GILD",
@@ -2054,9 +2082,10 @@
     "stop": 137.62,
     "target": 152.16,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "AAPL",
@@ -2065,9 +2094,10 @@
     "stop": 294.85,
     "target": 348.49,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "UNH",
@@ -2076,9 +2106,10 @@
     "stop": 384.94,
     "target": 453.93,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": 3,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "CSCO",
@@ -2087,9 +2118,10 @@
     "stop": 105.06,
     "target": 131.53,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "PM",
@@ -2098,9 +2130,10 @@
     "stop": 178.76,
     "target": 208.47,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "HON",
@@ -2109,9 +2142,10 @@
     "stop": 218.9,
     "target": 261.09,
     "barT": "Mon Aug 17 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
   },
   {
     "ticker": "TJX",
@@ -2120,8 +2154,361 @@
     "stop": 147.46,
     "target": 168.06,
     "barT": "Tue Aug 18 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-08-19T06:22:43.701Z",
+    "r": -1,
+    "closedAt": "2026-08-20T06:23:48.916Z"
+  },
+  {
+    "ticker": "NVDA",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 225.3,
+    "stop": 214.46,
+    "target": 241.57,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "JPM",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 365.18,
+    "stop": 355.29,
+    "target": 380.02,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "XOM",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 165.56,
+    "stop": 160.05,
+    "target": 173.82,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "BAC",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 64.81,
+    "stop": 63.24,
+    "target": 67.17,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "CRM",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 206.09,
+    "stop": 193.42,
+    "target": 225.1,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "NFLX",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 80.22,
+    "stop": 76.47,
+    "target": 85.85,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "DIS",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 106.85,
+    "stop": 103.5,
+    "target": 111.88,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "ORCL",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 156.22,
+    "stop": 144.85,
+    "target": 173.27,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "MRK",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 152.2,
+    "stop": 145.73,
+    "target": 161.91,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "TMO",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 613.54,
+    "stop": 590.39,
+    "target": 648.27,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "ACN",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 179.82,
+    "stop": 167.8,
+    "target": 197.85,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "ABT",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 114.43,
+    "stop": 110.37,
+    "target": 120.52,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "DHR",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 211.5,
+    "stop": 201.68,
+    "target": 226.23,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "VZ",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 49.36,
+    "stop": 47.66,
+    "target": 51.91,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "UBER",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 78.54,
+    "stop": 74.56,
+    "target": 84.51,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "BLK",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 1182.84,
+    "stop": 1145.05,
+    "target": 1239.53,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "SCHW",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 111.68,
+    "stop": 108.66,
+    "target": 116.21,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "C",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 139.33,
+    "stop": 134.49,
+    "target": 146.6,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "BSX",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 51.19,
+    "stop": 48.6,
+    "target": 55.07,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "PFE",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 28.24,
+    "stop": 27.35,
+    "target": 29.58,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "LRCX",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 337.01,
+    "stop": 303.01,
+    "target": 388.01,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "PANW",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 396,
+    "stop": 373.45,
+    "target": 429.82,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "COP",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 130.58,
+    "stop": 125.69,
+    "target": 137.91,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "MDT",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 94.13,
+    "stop": 90.86,
+    "target": 99.03,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "GILD",
+    "setup": "Breakout — fresh N-day high",
+    "entry": 147.6,
+    "stop": 141.61,
+    "target": 156.59,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "AVGO",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 362.48,
+    "stop": 337.84,
+    "target": 436.41,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "UNH",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 402.19,
+    "stop": 384.94,
+    "target": 453.93,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "CSCO",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 111.68,
+    "stop": 105.06,
+    "target": 131.53,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "PM",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 186.19,
+    "stop": 178.76,
+    "target": 208.47,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "HON",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 229.45,
+    "stop": 218.9,
+    "target": 261.09,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "TJX",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 153.81,
+    "stop": 148.73,
+    "target": 169.04,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
+    "r": null
+  },
+  {
+    "ticker": "DE",
+    "setup": "Bollinger reversion in uptrend",
+    "entry": 588.72,
+    "stop": 564.33,
+    "target": 661.88,
+    "barT": "Wed Aug 19 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-08-20T06:23:48.916Z",
     "r": null
   }
 ]
