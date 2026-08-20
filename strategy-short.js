@@ -88,4 +88,4 @@ function latestSignal(bars, params = {}, freshness = 1) {
   return null;
 }
 
-module.exports = { name: "Burry filter — weak-stock rally short", dir: "short", runStrategy, latestSignal, DEFAULT_PARAMS, GRID };
+module.exports = { name: "Burry filter — weak-stock rally short", dir: "short", shortRsMax: 35, runStrategy, latestSignal, DEFAULT_PARAMS, GRID };
