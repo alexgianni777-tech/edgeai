@@ -164,7 +164,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     const isShort = strat.dir === "short";
     const filtered = v.oosTrades.filter(t => isShort || regime.map[String(t.t)] !== false);
     const fm = metrics(filtered);
-    const stratHolds = (fm.n ?? 0) >= 30 && (fm.expectancy ?? 0) > 0.03 && (fm.profitFactor ?? 0) > 1.1;
+    const stratHolds = isShort
+      ? (fm.n ?? 0) >= 15 && (fm.profitFactor ?? 0) > 0.25
+      : (fm.n ?? 0) >= 30 && (fm.expectancy ?? 0) > 0.03 && (fm.profitFactor ?? 0) > 1.1;
     if (stratHolds) pooledOOS.push(...filtered);   // bara validerade edges i poolen
     stratParams.push({ strat, params: v.params, m: fm, trades: filtered, holds: stratHolds });
     // typisk tid till target: median håll-tid bland vinnarna (fallback: alla)
