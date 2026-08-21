@@ -12,13 +12,13 @@ const { ema, rsi, atr } = require("./indicators");
 
 const DEFAULT_PARAMS = {
   emaSlow: 50, emaFast: 20, rsiPeriod: 14, rsiUp: 45,
-  atrPeriod: 14, atrMult: 2.0, rrTarget: 2.0, maxBars: 20,
+  atrPeriod: 14, atrMult: 2.0, rrTarget: 2.0, maxBars: 10,
   courtage: 0.0025, slippage: 0.0005,
 };
 
 const GRID = [];
 for (const rrTarget of [1.5, 2.0, 2.5])
-  for (const atrMult of [1.5, 2.0, 2.5])
+  for (const atrMult of [1.0, 1.5, 2.0])
     for (const rsiUp of [35, 40, 45, 50])
       GRID.push({ rrTarget, atrMult, rsiUp });
 
