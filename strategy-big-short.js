@@ -11,13 +11,13 @@
     const DEFAULT_PARAMS = {
     emaSlow: 50, emaFast: 20, rsiPeriod: 14, rsiUp: 40,
     rallyTolerance: 0.015, nearSlowPct: 0.02,
-    atrPeriod: 14, atrMult: 2.0, rrTarget: 1.5, maxBars: 20,
+    atrPeriod: 14, atrMult: 2.0, rrTarget: 1.5, maxBars: 10,
     courtage: 0.0025, slippage: 0.0005,
     };
 
     const GRID = [];
     for (const rrTarget of [1.25, 1.5, 2.0])
-    for (const atrMult of [1.5, 2.0, 2.5])
+    for (const atrMult of [1.0, 1.5, 2.0])
       for (const rsiUp of [30, 35, 40, 45])
         for (const rallyTolerance of [0, 0.01, 0.02])
           for (const nearSlowPct of [0, 0.01, 0.02])
