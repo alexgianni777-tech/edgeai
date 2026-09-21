@@ -10219,9 +10219,10 @@
     "stop": 929.82,
     "target": 1035.36,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "AZN.ST",
@@ -10231,9 +10232,10 @@
     "stop": 1581.82,
     "target": 1765.36,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "ERIC-B.ST",
@@ -10243,9 +10245,10 @@
     "stop": 98.53,
     "target": 107.14,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "EVO.ST",
@@ -10255,9 +10258,10 @@
     "stop": 871.78,
     "target": 952.25,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "NDA-SE.ST",
@@ -10267,9 +10271,10 @@
     "stop": 196.3,
     "target": 208.29,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "SCA-B.ST",
@@ -10279,9 +10284,10 @@
     "stop": 116.73,
     "target": 125.93,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "SEB-A.ST",
@@ -10291,9 +10297,10 @@
     "stop": 223.5,
     "target": 237.01,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "SHB-A.ST",
@@ -10303,9 +10310,10 @@
     "stop": 150.75,
     "target": 159.9,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "SWED-A.ST",
@@ -10315,9 +10323,10 @@
     "stop": 392.31,
     "target": 420.18,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "TELIA.ST",
@@ -10327,9 +10336,10 @@
     "stop": 46.49,
     "target": 50.1,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "ABB.ST",
@@ -10339,9 +10349,10 @@
     "stop": 957.49,
     "target": 900.27,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "AZN.ST",
@@ -10351,9 +10362,10 @@
     "stop": 1632.42,
     "target": 1533.86,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "ERIC-B.ST",
@@ -10363,9 +10375,10 @@
     "stop": 100.81,
     "target": 96.18,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "SAND.ST",
@@ -10375,9 +10388,10 @@
     "stop": 378.7,
     "target": 350.95,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "TEL2-B.ST",
@@ -10387,9 +10401,10 @@
     "stop": 169.55,
     "target": 161.8,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "TELIA.ST",
@@ -10399,9 +10414,10 @@
     "stop": 45.39,
     "target": 43.66,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 1.51,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "ABB.ST",
@@ -10411,9 +10427,10 @@
     "stop": 980.38,
     "target": 843.04,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "ALFA.ST",
@@ -10423,9 +10440,10 @@
     "stop": 570.74,
     "target": 509.11,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "AZN.ST",
@@ -10435,9 +10453,10 @@
     "stop": 1671.85,
     "target": 1435.3,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "ERIC-B.ST",
@@ -10447,9 +10466,10 @@
     "stop": 102.67,
     "target": 91.54,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
-    "r": null
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
   },
   {
     "ticker": "TELIA.ST",
@@ -10459,8 +10479,261 @@
     "stop": 46.09,
     "target": 41.92,
     "barT": "Fri Sep 18 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-18T10:10:40.908Z",
+    "r": 2,
+    "closedAt": "2026-09-21T11:17:01.934Z"
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 985.2,
+    "stop": 951.61,
+    "target": 1052.38,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "AZN.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 1638.5,
+    "stop": 1581.24,
+    "target": 1753.02,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ERIC-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 101.25,
+    "stop": 98.38,
+    "target": 106.98,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "EVO.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 898.6,
+    "stop": 872.02,
+    "target": 951.75,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "NDA-SE.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 202.8,
+    "stop": 198.43,
+    "target": 211.53,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "SCA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 119.8,
+    "stop": 116.76,
+    "target": 125.87,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "SEB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 234,
+    "stop": 228.98,
+    "target": 244.03,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "SHB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 155.05,
+    "stop": 152.09,
+    "target": 160.97,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "SWED-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 410.8,
+    "stop": 401.07,
+    "target": 430.26,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "TELIA.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 47.89,
+    "stop": 46.72,
+    "target": 50.24,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 934.6,
+    "stop": 956.88,
+    "target": 901.18,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ALFA.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 555.6,
+    "stop": 566.18,
+    "target": 539.74,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "AZN.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 1593,
+    "stop": 1632.3,
+    "target": 1534.05,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ERIC-B.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 98.96,
+    "stop": 100.77,
+    "target": 96.25,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "SAND.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 373.1,
+    "stop": 383.61,
+    "target": 357.33,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "TEL2-B.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 168.5,
+    "stop": 171.56,
+    "target": 163.91,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 934.6,
+    "stop": 979.16,
+    "target": 845.47,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ALFA.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 555.6,
+    "stop": 576.75,
+    "target": 513.3,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ASSA-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 347.8,
+    "stop": 359.17,
+    "target": 325.06,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "AZN.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 1593,
+    "stop": 1671.6,
+    "target": 1435.81,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
+    "r": null
+  },
+  {
+    "ticker": "ERIC-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 98.96,
+    "stop": 102.58,
+    "target": 91.73,
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-21T11:17:01.934Z",
     "r": null
   }
 ]
