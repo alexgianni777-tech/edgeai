@@ -40,23 +40,42 @@ function buildMessage(data) {
 }
 
 async function send(text) {
-  const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chat) { console.log("(ingen Telegram-secret satt — skriver bara ut)\n"); console.log(text); return; }
-  try {
-    const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chat, text }),
-    });
-    console.log(r.ok ? "Telegram-digest skickad ✓" : `Telegram-fel: ${r.status}`);
-  } catch (e) {
-    console.error("Telegram-nätverksfel (datan är ändå byggd & committad):", e.message);
-  }
-}
-
+      const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
+      if (!token || !chat) throw new Error('Telegram-secrets saknas; kan inte markera utskicket som lyckat');
+      const r = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chat, text }),
+      });
+      if (!r.ok) throw new Error('Telegram avvisade digest: HTTP ' + r.status);
+      const response = await r.json();
+      if (!response.ok) throw new Error('Telegram svarade utan bekräftad leverans');
+      console.log('Telegram-digest bekräftad av Telegram');
+    }
+    
 (async () => {
   const p = path.join(__dirname, "public", "data.json");
   let data;
   try { data = JSON.parse(fs.readFileSync(p, "utf8")); }
   catch { console.error("Hittar inte public/data.json — kör 'node build-data.js' först."); process.exit(1); }
-  await send(buildMessage(data));
-})();
+  if (data.demo || !data.markets?.US?.dataAsOf || !data.markets?.SE?.dataAsOf) {
+        throw new Error('EdgeAI-data saknar verifierat kursdatum för båda marknaderna; inget utskick');
+      }
+      const created = new Date(data.generatedAt);
+      const now = new Date();
+      const stockholmDay = date => new Intl.DateTimeFormat('sv-SE', {
+        timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).format(date);
+      if (Number.isNaN(created.getTime()) || created > now ||
+          now.getTime() - created.getTime() > 24 * 60 * 60 * 1000 ||
+          stockholmDay(created) !== stockholmDay(now)) {
+        throw new Error('EdgeAI-filen är inte skapad idag; inget Telegram-utskick');
+      }
+      const day = stockholmDay(created);
+      const receipt = path.join(__dirname, 'sent-digests', day + '.json');
+      if (fs.existsSync(receipt)) { console.log('EdgeAI-digest redan levererad för ' + day); return; }
+      await send(buildMessage(data));
+      fs.mkdirSync(path.dirname(receipt), { recursive: true });
+      fs.writeFileSync(receipt, JSON.stringify({ day, generatedAt: data.generatedAt,
+        dataAsOf: { US: data.markets.US.dataAsOf, SE: data.markets.SE.dataAsOf },
+        deliveredAt: new Date().toISOString() }) + '\n');
+    })().catch(error => { console.error(error.message); process.exitCode = 1; });
