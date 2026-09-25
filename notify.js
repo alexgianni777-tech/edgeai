@@ -6,6 +6,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const FLAG = { US: "🇺🇸", SE: "🇸🇪" };
 const fmt = (v, cur) => (cur === "$" ? "$" + v.toFixed(2) : v.toFixed(2) + " kr");
@@ -14,6 +15,7 @@ function buildMessage(data) {
   const date = new Date(data.generatedAt).toLocaleDateString("sv-SE", { day: "numeric", month: "short" });
   let msg = `📊 EdgeAI — ${date}${data.demo ? "  (demo)" : ""}\n`;
 
+  msg += 'Dagskurser t.o.m. 🇺🇸 ' + data.markets.US.dataAsOf + ' · 🇸🇪 ' + data.markets.SE.dataAsOf + '\n';
   for (const key of ["US", "SE"]) {
     const m = data.markets[key];
     if (!m) continue;
@@ -78,4 +80,17 @@ async function send(text) {
       fs.writeFileSync(receipt, JSON.stringify({ day, generatedAt: data.generatedAt,
         dataAsOf: { US: data.markets.US.dataAsOf, SE: data.markets.SE.dataAsOf },
         deliveredAt: new Date().toISOString() }) + '\n');
-    })().catch(error => { console.error(error.message); process.exitCode = 1; });
+      // Commit the confirmed delivery receipt while Actions checkout credentials
+          // are available; the next run will see it before attempting another send.
+          if (process.env.GITHUB_ACTIONS === 'true') {
+            const git = (...args) => execFileSync('git', args, { cwd: __dirname, stdio: 'inherit' });
+            git('config', 'user.name', 'github-actions');
+            git('config', 'user.email', 'actions@github.com');
+            git('add', '--', path.relative(__dirname, receipt));
+            git('commit', '-m', 'Record delivered EdgeAI digest ' + day);
+            git('pull', '--rebase', 'origin', 'main');
+            git('push', 'origin', 'HEAD:main');
+          } else {
+            console.log('Lokalt leveranskvitto sparat; omkörning på annan maskin kräver kontroll');
+          }
+        })().catch(error => { console.error(error.message); process.exitCode = 1; });
