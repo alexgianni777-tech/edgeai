@@ -4,7 +4,12 @@ name: EdgeAI daily
 on:
   schedule:
     - cron: "0 6 * * 1-5"   # 06:00 UTC vardagar = 08:00 svensk sommartid
+    - cron: "37 9,12 * * 1-5" # UTC-reservstarter om GitHub försenar/tappar morgonjobbet
   workflow_dispatch: {}
+
+concurrency:
+  group: edgeai-daily
+  cancel-in-progress: false
 
 permissions:
   contents: write            # behövs för att committa data.json
