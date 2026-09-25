@@ -169,7 +169,20 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     universe = await loadUniverse(realTickers, { years: 3 });
     try { indexBars = await loadBars(indexSymbol, { years: 3 }); } catch (e) { console.error("  (index-fel)", e.message); }
   }
-  const dataAsOf = demo ? null : assertCompleteDailyBars(key, realTickers, universe, indexSymbol, indexBars);
+  // Yahoo can already include today's *incomplete* candle during market hours.
+      // Remove it before both validation and strategy calculations; yesterday's
+      // complete bar can still be used if every symbol has it.
+      if (!demo) {
+        const expected = expectedClosedSession(key);
+        const completedOnly = bars => (bars || []).filter(bar => {
+          const date = new Date(bar.t);
+          if (Number.isNaN(date.getTime())) throw new Error('Ogiltigt Yahoo-kursdatum för ' + key);
+          return date.toISOString().slice(0, 10) <= expected;
+        });
+        for (const ticker of Object.keys(universe)) universe[ticker] = completedOnly(universe[ticker]);
+        indexBars = completedOnly(indexBars);
+      }
+      const dataAsOf = demo ? null : assertCompleteDailyBars(key, realTickers, universe, indexSymbol, indexBars);
   const regime = indexBars && indexBars.length > 200 ? regimeFrom(indexBars) : { map: {}, on: true };
 
   // 1-3) Validera + screena VARJE strategi för sig (oberoende edge), slå ihop
