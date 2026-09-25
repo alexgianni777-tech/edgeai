@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T08:38:15.897Z",
+  "generatedAt": "2026-09-25T10:42:43.430Z",
   "demo": false,
   "markets": {
     "US": {
@@ -12050,44 +12050,44 @@
       ],
       "trackRecord": [
         {
+          "ticker": "SO",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "r": 2
+        },
+        {
           "ticker": "ADI",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": 2
         },
         {
           "ticker": "KLAC",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": 2
         },
         {
           "ticker": "LRCX",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": 2
         },
         {
-          "ticker": "BLK",
+          "ticker": "TJX",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": 2
         },
         {
-          "ticker": "ISRG",
+          "ticker": "BSX",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": -1
         },
         {
-          "ticker": "HON",
+          "ticker": "C",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": 2
         },
         {
-          "ticker": "AMAT",
+          "ticker": "AXP",
           "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
-        },
-        {
-          "ticker": "CAT",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.5
+          "r": 2
         }
       ]
     },
@@ -17727,6 +17727,11 @@
       ],
       "trackRecord": [
         {
+          "ticker": "HM-B.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "r": 2
+        },
+        {
           "ticker": "ERIC-B.ST",
           "setup": "The Big Short — broader weak-stock rally short",
           "r": 2
@@ -17758,11 +17763,6 @@
         },
         {
           "ticker": "TEL2-B.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "r": 2.5
-        },
-        {
-          "ticker": "SAND.ST",
           "setup": "Burry filter — weak-stock rally short",
           "r": 2.5
         }
