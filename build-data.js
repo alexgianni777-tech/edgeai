@@ -21,6 +21,39 @@ const round = (x, d = 2) => +(+x).toFixed(d);
 const median = arr => { if (!arr.length) return null; const a = arr.slice().sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2); };
 const sizeFor = (e, s) => (Math.abs(e - s) > 0 ? Math.floor((ACCOUNT * RISK) / Math.abs(e - s)) : 0);
 
+// Publish only after every ticker and index has the last completed daily candle.
+    // Allow 90 minutes after each market's close for the final bar to settle.
+    function expectedClosedSession(key, at = new Date()) {
+      const zone = key === 'SE' ? 'Europe/Stockholm' : 'America/New_York';
+      const cutoff = key === 'SE' ? 19 * 60 : 17 * 60 + 30;
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {
+        timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+      }).formatToParts(at).map(p => [p.type, p.value]));
+      const day = new Date([parts.year, parts.month, parts.day].join('-') + 'T00:00:00Z');
+      if (Number(parts.hour) * 60 + Number(parts.minute) < cutoff) day.setUTCDate(day.getUTCDate() - 1);
+      while (day.getUTCDay() === 0 || day.getUTCDay() === 6) day.setUTCDate(day.getUTCDate() - 1);
+      return day.toISOString().slice(0, 10);
+    }
+    function assertCompleteDailyBars(key, tickers, universe, indexSymbol, indexBars, at = new Date()) {
+      const expected = expectedClosedSession(key, at);
+      const dateOf = bars => {
+        const last = bars && bars[bars.length - 1];
+        const date = last && new Date(last.t);
+        return date && !Number.isNaN(date.getTime()) ? date.toISOString().slice(0, 10) : 'saknas';
+      };
+      const mismatches = [];
+      const indexDate = dateOf(indexBars);
+      if (indexDate !== expected) mismatches.push(indexSymbol + '=' + indexDate);
+      for (const ticker of tickers) {
+        const actual = dateOf(universe[ticker]);
+        if (actual !== expected) mismatches.push(ticker + '=' + actual);
+      }
+      if (mismatches.length) throw new Error('[DATA_NOT_READY] ' + key + ' behöver kompletta dagskurser ' + expected + ', men ' + mismatches.length + ' symboler saknas/är gamla: ' + mismatches.slice(0, 12).join(', '));
+      console.log('  [' + key + '] verifierade dagskurser för ' + expected + ' (' + tickers.length + ' aktier + index)');
+      return expected;
+    }
+    
 // ---- Marknadsregim: handla bara när indexet självt trendar (close > SMA200) ----
 function sma(vals, p) {
   const out = new Array(vals.length).fill(null);
@@ -136,6 +169,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     universe = await loadUniverse(realTickers, { years: 3 });
     try { indexBars = await loadBars(indexSymbol, { years: 3 }); } catch (e) { console.error("  (index-fel)", e.message); }
   }
+  const dataAsOf = demo ? null : assertCompleteDailyBars(key, realTickers, universe, indexSymbol, indexBars);
   const regime = indexBars && indexBars.length > 200 ? regimeFrom(indexBars) : { map: {}, on: true };
 
   // 1-3) Validera + screena VARJE strategi för sig (oberoende edge), slå ihop
@@ -233,7 +267,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   });
 
   return {
-    label, currency,
+    label, currency, dataAsOf,
     edge: {
       expectancyR: round(m.expectancy ?? 0), winRate: Math.round((m.winRate ?? 0) * 100),
       profitFactor: round(m.profitFactor ?? 0), maxDDR: round(-(m.maxDD_R ?? 0), 1),
