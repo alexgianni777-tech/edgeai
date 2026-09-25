@@ -283,7 +283,16 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 }
 
 (async () => {
-  const dl = require("./data-live");
+      if (!demo) {
+        const day = new Intl.DateTimeFormat('sv-SE', {
+          timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit',
+        }).format(new Date());
+        if (fs.existsSync(path.join(__dirname, 'sent-digests', day + '.json'))) {
+          console.log('EdgeAI-digest redan levererad för ' + day + ' — ingen ny signal skapas');
+          return;
+        }
+      }
+      const dl = require("./data-live");
   const US = await buildMarket({
     key: "US", label: "United States", currency: "$",
     realTickers: demo ? [] : dl.US_LARGE, demoTickers: dl.US_LARGE, demoEdge: 0.9, demoSeed: 300,
