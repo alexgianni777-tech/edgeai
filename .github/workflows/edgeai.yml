@@ -35,9 +35,3 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: update data.json"
           git push
 
-      # 2) Skicka veckans setups till Telegram
-      - name: Telegram digest
-        run: node notify.js
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
