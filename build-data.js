@@ -94,12 +94,53 @@ function validateUniverse(universe, strat, isLen = 378, oosLen = 126) {
   return { oosTrades: pooled, m: metrics(pooled), params };
 }
 
+// ---- Point-in-time relative strength for OOS validation ----
+const dateKey = t => {
+  const d = new Date(t);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+};
+
+function historicalRsRank(universe, ticker, at, cache) {
+  const day = dateKey(at);
+  if (!day) return null;
+  if (!cache.has(day)) {
+    const rets = [];
+    for (const [tk, bars] of Object.entries(universe)) {
+      const idx = bars.findIndex(b => dateKey(b.t) === day);
+      if (idx >= 63) {
+        const prev = bars[idx - 63]?.close;
+        const cur = bars[idx]?.close;
+        if (prev > 0 && cur > 0) rets.push([tk, cur / prev - 1]);
+      }
+    }
+    rets.sort((a, b) => a[1] - b[1]);
+    const ranks = {};
+    rets.forEach(([tk], i) => {
+      ranks[tk] = rets.length > 1 ? Math.round((i / (rets.length - 1)) * 100) : 50;
+    });
+    cache.set(day, ranks);
+  }
+  return cache.get(day)[ticker] ?? null;
+}
+
 // ---- Växande track record-ledger (resolvar öppna, loggar nya) ----
 function updateLedger(ledgerPath, universe, setups) {
   let rows = [];
   try { rows = JSON.parse(fs.readFileSync(ledgerPath, "utf8")); } catch {}
 
-  // resolva öppna mot färsk data (pris-nivåer, funkar över flera körningar)
+  // Remove exact historical duplicates without rewriting unique legacy rows.
+  const seenLegacy = new Set();
+  rows = rows.filter(row => {
+    const key = row.signalId || [
+      row.ticker, row.setup, row.entry, row.stop, row.target, row.signalT || row.barT
+    ].join("|");
+    if (seenLegacy.has(key)) return false;
+    seenLegacy.add(key);
+    return true;
+  });
+
+  // Resolve only from bars AFTER the signal close. New v2 rows therefore
+  // represent the same "yesterday close -> next-session proposal" shown live.
   for (const row of rows) {
     if (row.status !== "open") continue;
     const bars = universe[row.ticker];
@@ -107,34 +148,55 @@ function updateLedger(ledgerPath, universe, setups) {
     const isShort = row.dir === "short";
     const risk = Math.abs(row.entry - row.stop);
     if (risk <= 0) continue;
-    let exit = null;
-    for (const b of bars) {
-      if (String(b.t) <= String(row.barT)) continue;     // bara barer EFTER loggning
+
+    const startT = row.signalT || row.barT;
+    const future = bars.filter(b => String(b.t) > String(startT));
+    const maxBars = Math.max(1, Number(row.maxBars || 20));
+    let exit = null, exitBar = null;
+    const observed = future.slice(0, maxBars);
+
+    for (const b of observed) {
       if (isShort) {
-        if (b.high >= row.stop) { exit = row.stop; break; } // stop först, konservativt
-        if (b.low <= row.target) { exit = row.target; break; }
+        if (b.high >= row.stop) { exit = row.stop; exitBar = b; break; }
+        if (b.low <= row.target) { exit = row.target; exitBar = b; break; }
       } else {
-        if (b.low <= row.stop) { exit = row.stop; break; }
-        if (b.high >= row.target) { exit = row.target; break; }
+        if (b.low <= row.stop) { exit = row.stop; exitBar = b; break; }
+        if (b.high >= row.target) { exit = row.target; exitBar = b; break; }
       }
     }
+
+    // Time-stop when the full holding window has elapsed.
+    if (exit == null && future.length >= maxBars && observed.length) {
+      exitBar = observed[observed.length - 1];
+      exit = exitBar.close;
+    }
+
     if (exit != null) {
       row.r = round(isShort ? (row.entry - exit) / risk : (exit - row.entry) / risk);
       row.status = "closed";
-      row.closedAt = new Date().toISOString();
+      row.closedAt = String(exitBar?.t || new Date().toISOString());
     }
   }
 
-  // logga nya (hoppa över om redan öppen för samma ticker+setup)
-  const openT = new Set(rows.filter(r => r.status === "open").map(r => r.ticker + "|" + r.setup));
+  // Signal identity is immutable: ticker + setup + actual signal bar.
+  // A closed signal can never be re-added just because freshness spans 7 bars.
+  const knownSignals = new Set(rows.map(r => r.signalId).filter(Boolean));
   for (const s of setups) {
-    if (openT.has(s.ticker + "|" + s.setup)) continue;
-    const bars = universe[s.ticker];
-    rows.push({ ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long", entry: s.entry, stop: s.stop, target: s.target,
-      barT: String(bars[bars.length - 1].t), status: "open", loggedAt: new Date().toISOString(), r: null });
+    const signalT = s.signalT || null;
+    const signalId = [s.ticker, s.setup, signalT].join("|");
+    if (!signalT || knownSignals.has(signalId)) continue;
+    rows.push({
+      signalId, ledgerVersion: 2,
+      ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long",
+      entry: s.entry, stop: s.stop, target: s.target,
+      signalT, barT: signalT, maxBars: s.maxBars ?? 20,
+      status: "open", loggedAt: new Date().toISOString(), r: null,
+    });
+    knownSignals.add(signalId);
   }
+
   fs.writeFileSync(ledgerPath, JSON.stringify(rows, null, 2));
-  return rows.filter(r => r.status === "closed");
+  return rows.filter(r => r.status === "closed" && r.ledgerVersion === 2);
 }
 
 // fallback: härleda ett trovärdigt track record från backtest (för demo/tomt ledger)
@@ -202,30 +264,54 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const rsRank = {};
   rsSorted.forEach((tk, i) => { rsRank[tk] = rsSorted.length > 1 ? Math.round((i / (rsSorted.length - 1)) * 100) : 50; });
   const breadth = total ? Math.round((above / total) * 100) : null;
+  const rsHistoryCache = new Map();
 
   const stratParams = [];
   for (const strat of STRATS) {
     const v = validateUniverse(universe, strat);
-    // Longs valideras i risk-on. Burry-filtret valideras i alla indexregimer:
-    // en enskild akties nedtrend kan vara shortbar även när hela indexet är starkt.
+    // Validation uses only information known on the SIGNAL bar. The live
+    // proposal remains yesterday's close and is intentionally not changed.
     const isShort = strat.dir === "short";
-    const filtered = v.oosTrades.filter(t => isShort || regime.map[String(t.t)] !== false);
+    const regimeFiltered = v.oosTrades.filter(t =>
+      isShort || regime.map[String(t.signalT || t.t)] !== false
+    );
+
+    // Validate the same point-in-time RS gate that is used live.
+    const filtered = regimeFiltered.filter(t => {
+      const rank = historicalRsRank(universe, t.ticker, t.signalT || t.t, rsHistoryCache);
+      if (rank == null) return false;
+      if (isShort) return rank <= (strat.shortRsMax ?? 35);
+      if (/momentum/i.test(strat.name)) return rank >= 60;
+      return true;
+    }).sort((a, b) => new Date(a.t) - new Date(b.t));
+
     const fm = metrics(filtered);
-    const stratHolds = isShort
-      ? (fm.n ?? 0) >= 15 && (fm.profitFactor ?? 0) > 0.25
-      : (fm.n ?? 0) >= 30 && (fm.expectancy ?? 0) > 0.03 && (fm.profitFactor ?? 0) > 1.1;
-    if (stratHolds) pooledOOS.push(...filtered);   // bara validerade edges i poolen
+    const stratHolds =
+      (fm.n ?? 0) >= 30 &&
+      (fm.expectancy ?? 0) > 0.03 &&
+      (fm.profitFactor ?? 0) > 1.1;
+
+    if (stratHolds) pooledOOS.push(...filtered);
     stratParams.push({ strat, params: v.params, m: fm, trades: filtered, holds: stratHolds });
-    // typisk tid till target: median håll-tid bland vinnarna (fallback: alla)
+
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
     const typicalDays = median(winHeld) ?? median(filtered.map(t => t.held).filter(h => h != null));
-    // Longs visas bara i risk-on. Burry-filtret använder aktiens egen svaghet,
-    // inte indexets globala regim, och får därför visas även i en stark marknad.
-    const setups = (!stratHolds || (!isShort && !regime.on)) ? [] : screen(universe, fm, v.params, 7, strat).map(s => ({
+
+    // IMPORTANT: proposals are never removed merely because validation is weak.
+    // A weak/negative strategy remains visible as WATCH; "validatedEdge" tells
+    // consumers whether its OOS evidence currently passes the quality gate.
+    const mergedParams = { ...(strat.DEFAULT_PARAMS || {}), ...(v.params || {}) };
+    const setups = screen(universe, fm, v.params, 7, strat).map(s => ({
       dir: isShort ? "short" : "long",
-      ticker: s.ticker, setup: s.setup, grade: s.grade, barsAgo: s.barsAgo, typicalDays,
+      ticker: s.ticker, setup: s.setup,
+      grade: stratHolds ? "A" : "WATCH",
+      validatedEdge: stratHolds,
+      regimeAligned: isShort ? true : regime.on,
+      signalT: s.signalT,
+      barsAgo: s.barsAgo, typicalDays,
       rs: rsRank[s.ticker] ?? 50,
       entry: s.entryRef, stop: s.stop, target: s.target, rr: s.rr,
+      maxBars: mergedParams.maxBars ?? 20,
       size: sizeFor(s.entryRef, s.stop), edge: s.edge,
       above200: (() => { const b = universe[s.ticker] || []; const c = b.map(x => x.close); const ma = sma(c, 200); const i = b.length - 1; return i >= 0 && ma[i] != null ? c[i] > ma[i] : true; })(),
       chart: (universe[s.ticker] || []).slice(-22).map(b => ({ o: round(b.open), h: round(b.high), l: round(b.low), c: round(b.close) })),
@@ -240,7 +326,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     allSetups.push(...gated);
   }
 
-  // marknadens samlade edge (båda strategierna poolade) + equity-kurva
+  // Chronological ordering is required for any path-dependent metric such as DD.
+  pooledOOS.sort((a, b) => new Date(a.t) - new Date(b.t));
   const m = metrics(pooledOOS);
   let eq = 0;
   const equityCurve = pooledOOS.map(t => { eq += t.r; return round(eq); });
@@ -260,9 +347,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const ledgerPath = path.join(__dirname, "public", `ledger-${key}.json`);
   fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
   const closed = updateLedger(ledgerPath, universe, setups);
-  const trackRecord = closed.length >= 4
-    ? closed.slice(-8).reverse().map(r => ({ ticker: r.ticker, setup: r.setup, r: r.r }))
-    : backtestTrack(universe, stratParams);
+  const trackRecord = closed.slice(-8).reverse().map(r => ({
+    ticker: r.ticker, setup: r.setup, r: r.r
+  }));
 
   // per-strategi-sammanfattning (för loggning)
   const strategies = stratParams.map(sp => {
@@ -291,7 +378,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
     rTrades: pooledOOS.map(t => round(t.r)),
-    equityCurve, setups, trackRecord,
+    equityCurve, setups, trackRecord, trackRecordSource: "live-ledger-v2",
   };
 }
 
