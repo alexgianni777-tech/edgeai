@@ -172,7 +172,9 @@ function updateLedger(ledgerPath, universe, setups) {
     }
 
     if (exit != null) {
-      row.r = round(isShort ? (row.entry - exit) / risk : (exit - row.entry) / risk);
+      const grossR = isShort ? (row.entry - exit) / risk : (exit - row.entry) / risk;
+      const roundTripCostR = ((Number(row.costRate || 0) * 2) * row.entry) / risk;
+      row.r = round(grossR - roundTripCostR);
       row.status = "closed";
       row.closedAt = String(exitBar?.t || new Date().toISOString());
     }
@@ -191,6 +193,7 @@ function updateLedger(ledgerPath, universe, setups) {
       ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long",
       entry: s.entry, stop: s.stop, target: s.target,
       signalT, barT: signalT, maxBars: s.maxBars ?? 20,
+      costRate: Number(s.costRate || 0), ledgerMode: s.ledgerMode || "published-levels",
       status: "open", loggedAt: new Date().toISOString(), r: null,
     });
     knownSignals.add(signalId);
@@ -256,23 +259,25 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
   const stratParams = [];
   for (const strat of STRATS) {
-    const v = validateUniverse(universe, strat, { calendarDates: indexBars.map(b => b.t) });
-    const legacyParams = legacyVotedParams(universe, strat);
-    // Validation uses only information known on the SIGNAL bar. The live
-    // proposal remains yesterday's close and is intentionally not changed.
+    // The exact same fixed deployment filters are applied inside BOTH the
+    // in-sample parameter selection and the unseen OOS evaluation.
     const isShort = strat.dir === "short";
-    const regimeFiltered = v.oosTrades.filter(t =>
-      isShort || regime.map[dateKey(t.signalT || t.t)] === true
-    );
-
-    // Validate the same point-in-time RS gate that is used live.
-    const filtered = regimeFiltered.filter(t => {
+    const deploymentFilter = t => {
+      const signalDay = dateKey(t.signalT || t.t);
+      if (!signalDay) return false;
+      if (!isShort && regime.map[signalDay] !== true) return false;
       const rank = historicalRsRank(universe, t.ticker, t.signalT || t.t, rsHistoryCache);
       if (rank == null) return false;
       if (isShort) return rank <= (strat.shortRsMax ?? 35);
       if (/momentum/i.test(strat.name)) return rank >= 60;
       return true;
-    }).sort((a, b) => new Date(a.t) - new Date(b.t));
+    };
+    const v = validateUniverse(universe, strat, {
+      calendarDates: indexBars.map(b => b.t),
+      tradeFilter: deploymentFilter,
+    });
+    const legacyParams = legacyVotedParams(universe, strat);
+    const filtered = v.oosTrades.slice().sort((a, b) => new Date(a.t) - new Date(b.t));
 
     const fm = metrics(filtered);
     const filteredWindowMetrics = (v.windows || []).map(w => {
@@ -331,6 +336,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         rs: rsRank[s.ticker] ?? 50,
         entry: s.entryRef, stop: s.stop, target: s.target, rr: s.rr,
         maxBars: mergedParams.maxBars ?? 20,
+        costRate: (mergedParams.courtage ?? 0) + (mergedParams.slippage ?? 0),
+        ledgerMode: "published-levels",
         size: sizeFor(s.entryRef, s.stop), edge: s.edge,
         above200: (() => {
           const b = universe[s.ticker] || [];
@@ -432,9 +439,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
     validation: {
-      procedure: "market-level calendar-aligned walk-forward",
-      rs: "point-in-time cross-sectional 63-session rank",
-      regime: "signal-bar index close vs SMA200",
+      procedure: "market-level calendar-aligned walk-forward; deployment filters applied in IS selection and OOS",
+      rs: "point-in-time cross-sectional 63-session rank, applied in IS and OOS",
+      regime: "signal-bar index close vs SMA200, applied in IS and OOS",
       executionReference: "proposal levels anchored to latest completed close",
       caveats: [
         "Historical validation uses the current/curated universe; survivorship bias is not fully eliminated.",
