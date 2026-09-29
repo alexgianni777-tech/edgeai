@@ -18,6 +18,7 @@ function screen(universe, edgeStats, params = {}, freshness = 3, strat = pullbac
         ticker,
         setup: strat.name,
         grade: "A",
+        signalT: sig.signalT ?? null,
         barsAgo: sig.barsAgo ?? 0,
         entryRef: sig.entryRef,
         stop: sig.stop,
@@ -37,7 +38,7 @@ function screen(universe, edgeStats, params = {}, freshness = 3, strat = pullbac
 
 // positionsstorlek för given risk
 function sizePosition(setup, capital, riskPct = 0.01) {
-  const riskPerShare = setup.entryRef - setup.stop;
+  const riskPerShare = Math.abs(setup.entryRef - setup.stop);
   if (riskPerShare <= 0) return 0;
   return Math.floor((capital * riskPct) / riskPerShare);
 }

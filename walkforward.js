@@ -28,11 +28,18 @@ function walkForward(bars, opts = {}, strat = pullback) {
   let start = 0;
   while (start + isLen + oosLen <= bars.length) {
     const isBars = bars.slice(start, start + isLen);
-    const oosBars = bars.slice(start + isLen, start + isLen + oosLen);
+    const oosStart = start + isLen;
+    const oosEnd = oosStart + oosLen;
+    const warmup = Math.min(220, isLen);
+    const oosWithWarmup = bars.slice(oosStart - warmup, oosEnd);
+    const firstOosT = String(bars[oosStart].t);
     const params = pickBestParams(isBars, strat);
     if (params) {
       const isM = metrics(strat.runStrategy(isBars, params));
-      const oosT = strat.runStrategy(oosBars, params);
+      // Indicators are warmed with only already-known history, while only
+      // trades whose ENTRY belongs to the unseen OOS segment are counted.
+      const oosT = strat.runStrategy(oosWithWarmup, params)
+        .filter(t => String(t.t) >= firstOosT);
       const oosM = metrics(oosT);
       oosTrades.push(...oosT);
       windows.push({

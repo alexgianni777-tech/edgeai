@@ -1,7 +1,7 @@
-// metrics.js — ärliga nyckeltal i R från en lista trades.
+// metrics.js — transparent performance metrics in R.
 
 function metrics(trades) {
-  const rs = trades.map(t => t.r);
+  const rs = (trades || []).map(t => Number(t.r)).filter(Number.isFinite);
   const n = rs.length;
   if (n === 0) return { n: 0 };
 
@@ -11,7 +11,6 @@ function metrics(trades) {
   const grossWin = wins.reduce((a, b) => a + b, 0);
   const grossLoss = Math.abs(losses.reduce((a, b) => a + b, 0));
 
-  // equity i R + max drawdown
   let eq = 0, peak = 0, maxDD = 0;
   for (const r of rs) {
     eq += r;
@@ -21,18 +20,24 @@ function metrics(trades) {
   }
 
   const mean = sum / n;
-  const sd = Math.sqrt(rs.reduce((a, b) => a + (b - mean) ** 2, 0) / n) || 1e-9;
+  const variance = rs.reduce((a, b) => a + (b - mean) ** 2, 0) / Math.max(1, n - 1);
+  const sd = Math.sqrt(variance) || 1e-9;
+  const se = sd / Math.sqrt(n);
+  const ci = 1.96 * se;
 
   return {
     n,
-    expectancy: mean,                      // förväntat R per trade
+    expectancy: mean,
+    expectancySE: se,
+    expectancyLow95: mean - ci,
+    expectancyHigh95: mean + ci,
     winRate: wins.length / n,
     profitFactor: grossLoss === 0 ? Infinity : grossWin / grossLoss,
     avgWin: wins.length ? grossWin / wins.length : 0,
     avgLoss: losses.length ? -grossLoss / losses.length : 0,
     totalR: sum,
     maxDD_R: maxDD,
-    sqn: (mean / sd) * Math.sqrt(n),       // System Quality Number (Van Tharp-stil)
+    sqn: (mean / sd) * Math.sqrt(n),
   };
 }
 

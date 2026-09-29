@@ -82,7 +82,7 @@ function simulateTrade(bars, ctx, entryIdx, p) {
   const costFrac = (p.courtage + p.slippage) * 2;
   const costInR = (costFrac * entry) / risk;
   rMult -= costInR;
-  return { r: rMult, held: exitK - entryIdx + 1 };
+  return { r: rMult, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
 }
 
 // Kör hela serien och returnera en lista trades (icke-överlappande).
@@ -98,8 +98,8 @@ function runStrategy(bars, params = {}) {
       const entryIdx = i + 1;
       const res = simulateTrade(bars, ctx, entryIdx, p);
       if (res != null) {
-        trades.push({ entryIdx, t: bars[entryIdx].t, r: res.r, held: res.held });
-        blockUntil = entryIdx + p.maxBars; // ingen överlappning
+        trades.push({ entryIdx, t: bars[entryIdx].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held });
+        blockUntil = res.exitIdx; // ingen överlappning
       }
     }
   }
@@ -118,6 +118,7 @@ function latestSignal(bars, params = {}, freshness = 1) {
     const ref = bars[i].close;
     const risk = a * p.atrMult;
     return {
+      signalT: String(bars[i].t),
       barsAgo: bars.length - 1 - i,
       entryRef: +ref.toFixed(2),
       stop: +(ref - risk).toFixed(2),

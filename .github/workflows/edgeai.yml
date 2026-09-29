@@ -21,12 +21,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       - run: npm install
+      - name: Run regression tests
+        run: npm test
 
       # 1) Bygg hemsidans data (USA + Sverige) och committa den
       - name: Build site data (US + SE)
         run: node build-data.js
+      - name: Validate output contract
+        run: npm run verify:data
       - name: Commit data.json
         run: |
           git config user.name "github-actions"
