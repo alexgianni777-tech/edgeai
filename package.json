@@ -10,7 +10,8 @@
     "serve": "node server.js",
     "validate": "node build-data.js",
     "notify": "node notify.js",
-    "daily": "node build-data.js && node notify.js"
+    "daily": "node build-data.js && node notify.js",
+    "test": "node tests.js"
   },
   "keywords": [],
   "author": "",
