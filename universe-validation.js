@@ -1,8 +1,7 @@
 // universe-validation.js
-// Market-level walk-forward validation.
-// One common parameter set is selected from the preceding in-sample window
-// across the whole universe, then applied unchanged to the next unseen period.
-// This mirrors how live screening uses one parameter set per strategy/market.
+// Market-level, calendar-aligned walk-forward validation.
+// One common parameter set is selected across the whole market from the
+// preceding in-sample period, then applied unchanged to the next unseen period.
 
 const { metrics } = require("./metrics");
 
@@ -12,7 +11,7 @@ const dateKey = t => {
 };
 
 function chronological(trades) {
-  return trades.slice().sort((a, b) => {
+  return (trades || []).slice().sort((a, b) => {
     const ta = new Date(a.t).getTime();
     const tb = new Date(b.t).getTime();
     if (ta !== tb) return ta - tb;
@@ -20,26 +19,31 @@ function chronological(trades) {
   });
 }
 
-function runWindow(universeEntries, strat, params, {
-  minLen, from, to, warmup = 220,
+function boundsForDates(bars, fromDate, toDate) {
+  let start = -1, end = -1;
+  for (let i = 0; i < bars.length; i++) {
+    const d = dateKey(bars[i].t);
+    if (start < 0 && d >= fromDate) start = i;
+    if (d <= toDate) end = i;
+    if (d > toDate) break;
+  }
+  return start >= 0 && end >= start ? { start, end: end + 1 } : null;
+}
+
+function runDateWindow(universeEntries, strat, params, {
+  fromDate,
+  toDate,
+  warmup = 220,
 } = {}) {
   const pooled = [];
   for (const [ticker, bars] of universeEntries) {
-    const offset = bars.length - minLen;
-    const start = offset + from;
-    const end = offset + to;
-    if (start < 0 || end > bars.length || start >= end) continue;
+    const bounds = boundsForDates(bars, fromDate, toDate);
+    if (!bounds) continue;
 
-    const firstCounted = bars[start];
-    if (!firstCounted) continue;
-
-    const slice = bars.slice(Math.max(0, start - warmup), end);
-    const firstT = new Date(firstCounted.t).getTime();
-    const lastT = new Date(bars[end - 1].t).getTime();
-
+    const slice = bars.slice(Math.max(0, bounds.start - warmup), bounds.end);
     for (const trade of strat.runStrategy(slice, params)) {
-      const t = new Date(trade.t).getTime();
-      if (!Number.isFinite(t) || t < firstT || t > lastT) continue;
+      const d = dateKey(trade.t);
+      if (!d || d < fromDate || d > toDate) continue;
       pooled.push({ ...trade, ticker });
     }
   }
@@ -52,16 +56,15 @@ function selectParams(universeEntries, strat, opts) {
   let bestMetrics = null;
 
   for (const params of strat.GRID || []) {
-    const trades = runWindow(universeEntries, strat, params, opts);
+    const trades = runDateWindow(universeEntries, strat, params, opts);
     const m = metrics(trades);
     const minTrades = opts.minTrades ?? 20;
     if ((m.n ?? 0) < minTrades) continue;
 
-    // SQN is used only for parameter selection inside the IS window.
-    // Small complexity tie-break keeps selection deterministic.
+    // SQN is used only inside the preceding IS period.
     const score = Number.isFinite(m.sqn) ? m.sqn : -Infinity;
-    const complexityPenalty = JSON.stringify(params).length * 1e-9;
-    const adjusted = score - complexityPenalty;
+    const deterministicTieBreak = JSON.stringify(params).length * 1e-9;
+    const adjusted = score - deterministicTieBreak;
     if (adjusted > bestScore) {
       bestScore = adjusted;
       best = params;
@@ -76,15 +79,23 @@ function selectParams(universeEntries, strat, opts) {
   };
 }
 
+function normalizeCalendar(calendarDates, entries) {
+  const source = (calendarDates && calendarDates.length)
+    ? calendarDates
+    : (entries[0]?.[1] || []).map(b => b.t);
+  return [...new Set(source.map(dateKey).filter(Boolean))].sort();
+}
+
 function validateUniverse(universe, strat, {
   isLen = 378,
   oosLen = 126,
   step = oosLen,
   warmup = 220,
   minTrades = 20,
+  calendarDates = null,
 } = {}) {
   const entries = Object.entries(universe)
-    .filter(([, bars]) => Array.isArray(bars) && bars.length >= isLen + oosLen + 10);
+    .filter(([, bars]) => Array.isArray(bars) && bars.length >= 100);
 
   if (!entries.length) {
     return {
@@ -92,36 +103,51 @@ function validateUniverse(universe, strat, {
       m: metrics([]),
       params: strat.DEFAULT_PARAMS,
       windows: [],
-      procedure: "market-level walk-forward",
+      procedure: "market-level calendar-aligned walk-forward",
     };
   }
 
-  const minLen = Math.min(...entries.map(([, bars]) => bars.length));
+  const calendar = normalizeCalendar(calendarDates, entries);
+  if (calendar.length < isLen + oosLen) {
+    return {
+      oosTrades: [],
+      m: metrics([]),
+      params: strat.DEFAULT_PARAMS,
+      windows: [],
+      procedure: "market-level calendar-aligned walk-forward",
+    };
+  }
+
   const oosTrades = [];
   const windows = [];
   let start = 0;
 
-  while (start + isLen + oosLen <= minLen) {
-    const isFrom = start;
-    const isTo = start + isLen;
-    const oosFrom = isTo;
-    const oosTo = isTo + oosLen;
+  while (start + isLen + oosLen <= calendar.length) {
+    const isFrom = calendar[start];
+    const isTo = calendar[start + isLen - 1];
+    const oosFrom = calendar[start + isLen];
+    const oosTo = calendar[start + isLen + oosLen - 1];
 
     const chosen = selectParams(entries, strat, {
-      minLen, from: isFrom, to: isTo, warmup, minTrades,
+      fromDate: isFrom,
+      toDate: isTo,
+      warmup,
+      minTrades,
     });
 
-    const unseen = runWindow(entries, strat, chosen.params, {
-      minLen, from: oosFrom, to: oosTo, warmup,
+    const unseen = runDateWindow(entries, strat, chosen.params, {
+      fromDate: oosFrom,
+      toDate: oosTo,
+      warmup,
     });
     const oosM = metrics(unseen);
     oosTrades.push(...unseen);
 
-    const anchorBars = entries[0][1];
-    const anchorOffset = anchorBars.length - minLen;
     windows.push({
-      from: dateKey(anchorBars[anchorOffset + oosFrom]?.t),
-      to: dateKey(anchorBars[anchorOffset + oosTo - 1]?.t),
+      isFrom,
+      isTo,
+      from: oosFrom,
+      to: oosTo,
       params: chosen.params,
       is: {
         n: chosen.metrics.n ?? 0,
@@ -144,8 +170,14 @@ function validateUniverse(universe, strat, {
     m: metrics(sorted),
     params: windows.length ? windows[windows.length - 1].params : strat.DEFAULT_PARAMS,
     windows,
-    procedure: "market-level walk-forward",
+    procedure: "market-level calendar-aligned walk-forward",
   };
 }
 
-module.exports = { validateUniverse, runWindow, selectParams, chronological };
+module.exports = {
+  validateUniverse,
+  runDateWindow,
+  selectParams,
+  chronological,
+  boundsForDates,
+};
