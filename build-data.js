@@ -148,7 +148,9 @@ function updateLedger(ledgerPath, universe, setups) {
     if (risk <= 0) continue;
 
     const startT = row.signalT || row.barT;
-    const future = bars.filter(b => String(b.t) > String(startT));
+    const startMs = new Date(startT).getTime();
+    if (!Number.isFinite(startMs)) continue;
+    const future = bars.filter(b => new Date(b.t).getTime() > startMs);
     const maxBars = Math.max(1, Number(row.maxBars || 20));
     let exit = null, exitBar = null;
     const observed = future.slice(0, maxBars);
@@ -181,8 +183,9 @@ function updateLedger(ledgerPath, universe, setups) {
   const knownSignals = new Set(rows.map(r => r.signalId).filter(Boolean));
   for (const s of setups) {
     const signalT = s.signalT || null;
-    const signalId = [s.ticker, s.setup, signalT].join("|");
-    if (!signalT || knownSignals.has(signalId)) continue;
+    const signalDate = signalT ? dateKey(signalT) : null;
+    const signalId = [s.ticker, s.setup, signalDate].join("|");
+    if (!signalDate || knownSignals.has(signalId)) continue;
     rows.push({
       signalId, ledgerVersion: 2,
       ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long",
@@ -259,7 +262,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     // proposal remains yesterday's close and is intentionally not changed.
     const isShort = strat.dir === "short";
     const regimeFiltered = v.oosTrades.filter(t =>
-      isShort || regime.map[dateKey(t.signalT || t.t)] !== false
+      isShort || regime.map[dateKey(t.signalT || t.t)] === true
     );
 
     // Validate the same point-in-time RS gate that is used live.
@@ -384,7 +387,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     ruinProb: round(mc.ruinProb * 100, 1),
   } : null;
 
-  // 4) track record: växande ledger (per ticker+setup); fall tillbaka på backtest
+  // 4) proposal ledger: only immutable v2 proposal outcomes are displayed
   const ledgerPath = path.join(__dirname, "public", `ledger-${key}.json`);
   fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
   const closed = updateLedger(ledgerPath, universe, setups);
@@ -445,16 +448,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 }
 
 (async () => {
-      if (!demo) {
-        const day = new Intl.DateTimeFormat('sv-SE', {
-          timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit',
-        }).format(new Date());
-        if (fs.existsSync(path.join(__dirname, 'sent-digests', day + '.json'))) {
-          console.log('EdgeAI-digest redan levererad för ' + day + ' — ingen ny signal skapas');
-          return;
-        }
-      }
-      const dl = require("./data-live");
+  const dl = require("./data-live");
   const US = await buildMarket({
     key: "US", label: "United States", currency: "$",
     realTickers: demo ? [] : dl.US_LARGE, demoTickers: dl.US_LARGE, demoEdge: 0.9, demoSeed: 300,
