@@ -20,6 +20,7 @@ const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 const demo = process.argv.includes("--demo");
 const ACCOUNT = 100000, RISK = 0.01;
 const round = (x, d = 2) => +(+x).toFixed(d);
+const pfOut = x => Number.isFinite(x) ? round(x) : (x === Infinity ? 99 : 0);
 const median = arr => { if (!arr.length) return null; const a = arr.slice().sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2); };
 const sizeFor = (e, s) => (Math.abs(e - s) > 0 ? Math.floor((ACCOUNT * RISK) / Math.abs(e - s)) : 0);
 
@@ -395,7 +396,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       name: sp.strat.name,
       expectancyR: round(sp.m.expectancy ?? 0),
       winRate: Math.round((sp.m.winRate ?? 0) * 100),
-      profitFactor: round(sp.m.profitFactor ?? 0),
+      profitFactor: pfOut(sp.m.profitFactor ?? 0),
       n: sp.m.n ?? 0,
       holds: sp.holds,
       evidenceStatus: sp.holds ? "VALIDATED" : (sp.promising ? "PROMISING" : "WATCH"),
@@ -413,7 +414,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     label, currency, dataAsOf,
     edge: {
       expectancyR: round(m.expectancy ?? 0), winRate: Math.round((m.winRate ?? 0) * 100),
-      profitFactor: round(m.profitFactor ?? 0), maxDDR: round(-cohortDrawdownR(cohorts), 1),
+      profitFactor: pfOut(m.profitFactor ?? 0), maxDDR: round(-cohortDrawdownR(cohorts), 1),
       expectancyLow95: round(m.expectancyLow95 ?? 0),
       expectancyHigh95: round(m.expectancyHigh95 ?? 0),
       n: m.n ?? 0, oosLabel: "market-level calendar-aligned walk-forward (OOS)",
