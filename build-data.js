@@ -506,6 +506,6 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   for (const k of ["US", "SE"]) {
     const mk = out.markets[k];
     console.log(`  ${k}: regime ${mk.regime.label} · combined ${mk.edge.expectancyR}R ${mk.edge.winRate}% PF${mk.edge.profitFactor} n=${mk.edge.n} holds=${mk.edge.holds} · ${mk.setups.length} setups`);
-    mk.strategies.forEach(s => console.log(`      - ${s.name}: ${s.expectancyR}R ${s.winRate}% n=${s.n}`));
+    mk.strategies.forEach(s => console.log(`      - [${s.evidenceStatus}] ${s.name}: ${s.expectancyR}R ${s.winRate}% PF${s.profitFactor} n=${s.n} · WF+ ${s.positiveWindowRate}% · gap|med ${s.executionDrift?.medianAbsGapPct ?? 0}%`));
   }
 })();
