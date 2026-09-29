@@ -79,7 +79,7 @@
       if (i <= block || !signalAt(bars, ctx, i, p)) continue;
       const res = simulateTrade(bars, ctx, i + 1, p);
       if (res != null) {
-        trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx;
+        trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, signalRef: bars[i].close, entryPrice: bars[i + 1].open, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx;
       }
     }
     return trades;

@@ -20,7 +20,25 @@ const demo = process.argv.includes("--demo");
 const ACCOUNT = 100000, RISK = 0.01;
 const round = (x, d = 2) => +(+x).toFixed(d);
 const pfOut = x => Number.isFinite(x) ? round(x) : (x === Infinity ? 99 : 0);
-const median = arr => { if (!arr.length) return null; const a = arr.slice().sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2); };
+const median = arr => { if (!arr.length) return null; const a = arr.slice().sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+const percentile = (arr, p) => {
+  if (!arr.length) return null;
+  const a = arr.slice().sort((x, y) => x - y);
+  const idx = (a.length - 1) * p, lo = Math.floor(idx), hi = Math.ceil(idx);
+  return lo === hi ? a[lo] : a[lo] + (a[hi] - a[lo]) * (idx - lo);
+};
+function executionDriftStats(trades = []) {
+  const gaps = trades
+    .filter(t => Number(t.signalRef) > 0 && Number.isFinite(Number(t.entryPrice)))
+    .map(t => ((Number(t.entryPrice) - Number(t.signalRef)) / Number(t.signalRef)) * 100);
+  const abs = gaps.map(Math.abs);
+  return {
+    n: gaps.length,
+    medianGapPct: round(median(gaps) ?? 0, 2),
+    medianAbsGapPct: round(median(abs) ?? 0, 2),
+    p90AbsGapPct: round(percentile(abs, 0.90) ?? 0, 2),
+  };
+}
 const sizeFor = (e, s) => (Math.abs(e - s) > 0 ? Math.floor((ACCOUNT * RISK) / Math.abs(e - s)) : 0);
 const dateKey = t => {
   const d = new Date(t);
@@ -391,9 +409,22 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const ledgerPath = path.join(__dirname, "public", `ledger-${key}.json`);
   fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
   const closed = updateLedger(ledgerPath, universe, setups);
-  const trackRecord = closed.slice(-8).reverse().map(r => ({
+  const closedChronological = closed.slice().sort((a, b) =>
+    new Date(b.closedAt || 0).getTime() - new Date(a.closedAt || 0).getTime()
+  );
+  const trackRecord = closedChronological.slice(0, 8).map(r => ({
     ticker: r.ticker, setup: r.setup, r: r.r
   }));
+  const ledgerWins = closed.filter(r => Number(r.r) > 0).length;
+  const trackRecordSummary = {
+    closed: closed.length,
+    wins: ledgerWins,
+    losses: closed.length - ledgerWins,
+    winRate: closed.length ? round((ledgerWins / closed.length) * 100, 1) : 0,
+    netR: round(closed.reduce((sum, r) => sum + (Number(r.r) || 0), 0), 2),
+    costAdjusted: false,
+    basis: "displayed proposal levels, forward-resolved",
+  };
 
   // per-strategi-sammanfattning (för loggning)
   const strategies = stratParams.map(sp => {
@@ -410,6 +441,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       expectancyHigh95: round(sp.m.expectancyHigh95 ?? 0),
       positiveWindowRate: round((sp.positiveWindowRate ?? 0) * 100, 0),
       walkForwardWindows: sp.evaluatedWindows ?? sp.windows?.length ?? 0,
+      executionDrift: executionDriftStats(sp.trades),
       params: sp.params,
       proposalParams: sp.proposalParams,
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
@@ -435,7 +467,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       procedure: "market-level calendar-aligned walk-forward",
       rs: "point-in-time cross-sectional 63-session rank",
       regime: "signal-bar index close vs SMA200",
-      executionReference: "proposal levels anchored to latest completed close",
+      executionReference: "proposal levels anchored to latest completed close; OOS fills use next-session open",
+      executionDrift: executionDriftStats(pooledOOS),
       caveats: [
         "Historical validation uses the current/curated universe; survivorship bias is not fully eliminated.",
         "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
@@ -443,7 +476,12 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     },
     rTrades: pooledOOS.map(t => round(t.r)),
     rClusters: cohorts.map(x => ({ date: x.date, r: round(x.r), n: x.n })),
-    equityCurve, setups, trackRecord, trackRecordSource: "proposal-ledger-v2",
+    ranking: {
+      method: "heuristic evidence-tier + trend + expectancy + R:R + RS + freshness",
+      validated: false,
+      note: "Ranking orders proposals; it is not itself a separately validated alpha model.",
+    },
+    equityCurve, setups, trackRecord, trackRecordSummary, trackRecordSource: "proposal-ledger-v2",
   };
 }
 
@@ -468,6 +506,6 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   for (const k of ["US", "SE"]) {
     const mk = out.markets[k];
     console.log(`  ${k}: regime ${mk.regime.label} · combined ${mk.edge.expectancyR}R ${mk.edge.winRate}% PF${mk.edge.profitFactor} n=${mk.edge.n} holds=${mk.edge.holds} · ${mk.setups.length} setups`);
-    mk.strategies.forEach(s => console.log(`      - ${s.name}: ${s.expectancyR}R ${s.winRate}% n=${s.n}`));
+    mk.strategies.forEach(s => console.log(`      - [${s.evidenceStatus}] ${s.name}: ${s.expectancyR}R ${s.winRate}% PF${s.profitFactor} n=${s.n} · WF+ ${s.positiveWindowRate}% · gap|med ${s.executionDrift?.medianAbsGapPct ?? 0}%`));
   }
 })();

@@ -63,7 +63,7 @@ function runStrategy(bars, params = {}) {
     if (i <= block) continue;
     if (signalAt(bars, ctx, i, p)) {
       const res = simulateTrade(bars, ctx, i + 1, p);
-      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx; }
+      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, signalRef: bars[i].close, entryPrice: bars[i + 1].open, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx; }
     }
   }
   return trades;

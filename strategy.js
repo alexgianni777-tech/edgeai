@@ -98,7 +98,7 @@ function runStrategy(bars, params = {}) {
       const entryIdx = i + 1;
       const res = simulateTrade(bars, ctx, entryIdx, p);
       if (res != null) {
-        trades.push({ entryIdx, t: bars[entryIdx].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held });
+        trades.push({ entryIdx, t: bars[entryIdx].t, signalT: bars[i].t, signalRef: bars[i].close, entryPrice: bars[entryIdx].open, exitT: res.exitT, r: res.r, held: res.held });
         blockUntil = res.exitIdx; // ingen överlappning
       }
     }

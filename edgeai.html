@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EdgeAI — a proven edge, not a claim</title>
-<meta name="description" content="Validated stock setups for the US and Swedish markets. Walk-forward, out-of-sample statistics, regime filter, open track record — updated daily." />
+<meta name="description" content="Daily US and Swedish stock proposals with market-level walk-forward evidence, risk context and a forward proposal ledger." />
 <meta name="theme-color" content="#1F3A5F" />
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
@@ -250,16 +250,17 @@
 
 <div class="wrap">
   <section class="hero">
-    <div class="kicker"><span class="dot"></span><span>Validated edge · updated daily</span></div>
+    <div class="kicker"><span class="dot"></span><span>Evidence-aware proposals · updated daily</span></div>
     <h1>An edge you can <span class="u">see</span> — not a signal you're told to trust.</h1>
-    <p class="sub">Validated stock setups from a daily scan of the US and Swedish markets. Every setup is backed by walk-forward, out-of-sample statistics — and every outcome is logged in the open. <a href="tracker.html" style="color:var(--navy);font-weight:600;white-space:nowrap;">My challenge tracker →</a></p>
+    <p class="sub">Daily stock proposals from the US and Swedish markets. Each idea carries an explicit evidence tier — A validated, B promising or WATCH — based on market-level walk-forward OOS testing. Proposal outcomes are tracked separately from the backtest. <a href="tracker.html" style="color:var(--navy);font-weight:600;white-space:nowrap;">My challenge tracker →</a></p>
   </section>
 
   <section class="sec" id="topSec" style="margin-top:28px;">
     <div class="sec-head">
-      <h2 class="sec-h">Top 3 picks today</h2>
+      <h2 class="sec-h">Top 3 ranked proposals</h2>
       <span class="as-of" id="topMarket"></span>
     </div>
+    <p class="sec-p">Heuristic ordering only — evidence tier, trend, expectancy, R:R, RS and freshness. The ranking itself is not a separately validated alpha model.</p>
     <div class="top3" id="top3"></div>
   </section>
 
@@ -282,12 +283,12 @@
     </div>
     <div class="risk-grid" id="riskGrid"></div>
     <p class="risk-cash" id="riskCash"></p>
-    <p class="risk-note">Bootstrapped from the out-of-sample trades (3,000 simulations, live). Past results are no guarantee of the future.</p>
+    <p class="risk-note">Signal-cohort bootstrap: proposals originating together are resampled together instead of treated as independent bets. Past results are no guarantee of the future.</p>
   </section>
 
   <section class="sec">
-    <h2 class="sec-h">Edge by setup type</h2>
-    <p class="sec-p">Each pattern is validated independently. Diversification is the point — when one cools off, the other carries.</p>
+    <h2 class="sec-h">Evidence by setup type</h2>
+    <p class="sec-p">Each pattern is measured independently. Weak evidence stays visible as B/WATCH rather than being mislabeled as validated edge.</p>
     <div class="strat-grid" id="stratGrid"></div>
   </section>
 
@@ -307,37 +308,37 @@
 
   <section class="sec">
     <div class="sec-head">
-      <h2 class="sec-h">Open track record</h2>
-      <button class="btn-ghost" id="csvBtn">Export CSV</button>
+      <h2 class="sec-h">Forward proposal ledger</h2>
+      <button class="btn-ghost" id="csvBtn">Export latest CSV</button>
     </div>
-    <p class="sec-p">Every signal is logged with a timestamp and outcome. This is the moat — it grows by itself and can't be reconstructed after the fact.</p>
+    <p class="sec-p">New proposal signals receive an immutable daily signal ID and are resolved forward from subsequent bars. This ledger measures displayed proposal outcomes; it is intentionally separate from OOS strategy statistics.</p>
     <div class="track-summary" id="trackSummary"></div>
     <div class="ledger" id="ledger"></div>
   </section>
 
   <section class="sec">
-    <h2 class="sec-h">How the edge is proven</h2>
-    <p class="sec-p">Most "signals" are a backtest curve fitted to the past. EdgeAI is built to survive the opposite test.</p>
+    <h2 class="sec-h">How evidence is tested</h2>
+    <p class="sec-p">EdgeAI separates candidate generation from evidence. A proposal can exist even when the historical evidence is weak; the label tells you which is which.</p>
     <div class="method-grid">
       <div class="method-card">
         <div class="mi">1</div>
-        <h3>Walk-forward, not curve-fit</h3>
-        <p>Parameters are chosen on older data, then applied to a later window the model never saw. The numbers you see come only from that unseen data.</p>
+        <h3>Market-level walk-forward</h3>
+        <p>One common parameter set is selected across the market on older data, then applied unchanged to the next calendar-aligned unseen period.</p>
       </div>
       <div class="method-card">
         <div class="mi">2</div>
-        <h3>Out-of-sample only</h3>
-        <p>Every stat — expectancy, win rate, profit factor — is measured on trades the strategy was never optimised on. No in-sample flattery.</p>
+        <h3>OOS + uncertainty</h3>
+        <p>Expectancy, hit rate and profit factor are measured on unseen trades, with a 95% expectancy interval and stability across walk-forward windows.</p>
       </div>
       <div class="method-card">
         <div class="mi">3</div>
-        <h3>Regime filter</h3>
-        <p>Setups are only taken when the market index itself is above its 200-day average. Trading with the tide, not against it — and it measurably lifts the edge.</p>
+        <h3>Point-in-time overlays</h3>
+        <p>Long validation uses the index regime known on the signal bar, while RS is reconstructed cross-sectionally at that historical date. Shorts use their own weakness filter. Proposals are not silently hidden by these labels.</p>
       </div>
       <div class="method-card">
         <div class="mi">4</div>
-        <h3>Open track record</h3>
-        <p>Every signal is logged with a timestamp the moment it fires — win or lose. The record grows forward and can't be edited after the fact.</p>
+        <h3>Forward-only proposal ledger</h3>
+        <p>Displayed proposals are identified by ticker, setup and signal date, then resolved only from later bars. The ledger is not substituted for the strategy backtest.</p>
       </div>
     </div>
   </section>
@@ -347,22 +348,22 @@
       <h2 class="sec-h">My trade journal</h2>
       <span><a href="tracker.html" style="color:var(--navy);font-size:13px;font-weight:600;margin-right:10px;">Challenge tracker →</a><button class="btn-ghost" id="jexport">Export CSV</button></span>
     </div>
-    <p class="sec-p">Log the trades you actually take, then tag each one: <b>A</b> = high-conviction and properly sized, <b>B</b> = reflexive or forced. Over time the A/B mix is the clearest mirror of your discipline. Saved privately in this browser.</p>
+    <p class="sec-p">Log the trades you actually take, then add your own discipline grade. This journal grade is separate from EdgeAI's evidence tiers A/B/WATCH. Saved privately in this browser.</p>
     <div class="track-summary" id="journalSummary"></div>
     <div class="ledger" id="journal"></div>
   </section>
 
   <section class="sec" id="pricing">
     <h2 class="sec-h">Choose your level</h2>
-    <p class="sec-p">Start free and see the proof. Upgrade once the edge has paid for itself.</p>
+    <p class="sec-p">Start with transparent evidence and proposal history. Evidence tiers stay visible whether the setup is validated or not.</p>
     <div class="tiers">
       <div class="tier">
         <div class="tname">Free</div>
-        <div class="tdesc">See that the edge is real before paying a cent.</div>
+        <div class="tdesc">Inspect the evidence and proposal history before paying a cent.</div>
         <div class="price"><span class="p">Free</span></div>
         <ul class="feat">
-          <li>The full open track record</li>
-          <li>Today's top 3 setups (delayed)</li>
+          <li>The forward proposal ledger</li>
+          <li>Today's top 3 ranked proposals (delayed)</li>
           <li>One market</li>
           <li class="off">All setups with entry/stop/target</li>
           <li class="off">Both markets &amp; alerts</li>
@@ -497,10 +498,14 @@ function renderProof(m) {
     <div class="stat" title="Gross profit divided by gross loss."><div class="v">${e.profitFactor.toFixed(2)}</div><div class="k">Profit factor</div></div>
     <div class="stat" title="Chronological signal-cohort drawdown, measured in R."><div class="v neg">${e.maxDDR.toFixed(1)}R</div><div class="k">Cluster drawdown</div></div>
     <div class="stat" title="Number of out-of-sample trades in the validated pool."><div class="v">${e.n}</div><div class="k">OOS trades</div></div>`;
+  const drift = m.validation?.executionDrift;
+  const driftTxt = drift?.n
+    ? ` OOS fills occur at the next-session open: median absolute close-to-open drift <b>${drift.medianAbsGapPct.toFixed(2)}%</b>, 90th percentile <b>${drift.p90AbsGapPct.toFixed(2)}%</b>.`
+    : "";
   if (e.holds) {
-    $("#plainRead").innerHTML = `Validated strategies averaged <b>${rTxt(e.expectancyR)}</b> per OOS trade (95% interval ${ci}), with <b>${e.winRate}%</b> positive outcomes and PF <b>${e.profitFactor.toFixed(2)}</b>. <span class="rdef">${esc(e.oosLabel)}. Proposals from weaker strategies are still shown separately as B/WATCH instead of being hidden.</span>`;
+    $("#plainRead").innerHTML = `Validated strategies averaged <b>${rTxt(e.expectancyR)}</b> per OOS trade (95% interval ${ci}), with <b>${e.winRate}%</b> positive outcomes and PF <b>${e.profitFactor.toFixed(2)}</b>.${driftTxt} <span class="rdef">${esc(e.oosLabel)}. Proposals remain anchored to the latest completed close; weaker strategies are shown as B/WATCH instead of hidden.</span>`;
   } else {
-    $("#plainRead").innerHTML = `No strategy currently passes the full validation gate for this market. <b>Proposals are still generated</b>, but they are labelled B/WATCH so an idea is not confused with proven edge.<span class="rdef">${esc(e.oosLabel)}; the dashboard keeps candidate generation separate from statistical validation.</span>`;
+    $("#plainRead").innerHTML = `No strategy currently passes the full validation gate for this market. <b>Proposals are still generated</b>, but they are labelled B/WATCH so an idea is not confused with proven edge.${driftTxt}<span class="rdef">${esc(e.oosLabel)}; candidate generation is separate from statistical validation.</span>`;
   }
   drawEquity(m.equityCurve);
 }
@@ -629,10 +634,11 @@ function renderStrategies(m) {
     const status = s.evidenceStatus || (s.holds ? "VALIDATED" : "WATCH");
     const ci = s.expectancyLow95 != null ? ` · 95% [${rTxt(s.expectancyLow95)}, ${rTxt(s.expectancyHigh95)}]` : "";
     const windows = s.walkForwardWindows ? ` · ${s.positiveWindowRate}% positive WF windows` : "";
+    const drift = s.executionDrift?.n ? ` · next-open |gap| med ${s.executionDrift.medianAbsGapPct.toFixed(2)}% / p90 ${s.executionDrift.p90AbsGapPct.toFixed(2)}%` : "";
     return `
       <div class="strat-card" style="${status === "WATCH" ? "opacity:.76" : ""}">
         <div class="sn">${esc(s.name)}</div>
-        <div class="ss"><b>${status}</b> · ${rTxt(s.expectancyR)} · ${s.winRate}% win · PF ${s.profitFactor} · n=${s.n}${ci}${windows}</div>
+        <div class="ss"><b>${status}</b> · ${rTxt(s.expectancyR)} · ${s.winRate}% win · PF ${s.profitFactor} · n=${s.n}${ci}${windows}${drift}</div>
         ${sparkSVG(s.equityCurve, colors[i % colors.length])}
       </div>`;
   }).join("");
@@ -744,15 +750,20 @@ function renderSetups(m, skipChips) {
 
 function renderTrack(m) {
   const tr = m.trackRecord || [];
-  const wins = tr.filter(r => r.r > 0).length, losses = tr.length - wins;
-  const net = tr.reduce((a, r) => a + r.r, 0), wr = tr.length ? Math.round(wins / tr.length * 100) : 0;
+  const sum = m.trackRecordSummary || {};
+  const wins = sum.closed != null ? sum.wins : tr.filter(r => r.r > 0).length;
+  const losses = sum.closed != null ? sum.losses : tr.length - wins;
+  const closed = sum.closed != null ? sum.closed : tr.length;
+  const net = sum.netR != null ? sum.netR : tr.reduce((a, r) => a + r.r, 0);
+  const wr = sum.winRate != null ? sum.winRate : (tr.length ? Math.round(wins / tr.length * 100) : 0);
   $("#trackSummary").innerHTML = `
-    <div class="ts-item">Closed<b>${tr.length}</b></div>
+    <div class="ts-item">Closed<b>${closed}</b></div>
     <div class="ts-item">Wins / losses<b>${wins}W / ${losses}L</b></div>
     <div class="ts-item">Win rate<b>${wr}%</b></div>
     <div class="ts-item">Net result<b class="${net>=0?'pos':'neg'}">${rTxt(net)}</b></div>`;
   let html = `<div class="row head"><span>Symbol</span><span>Setup</span><span class="r">Result</span></div>`;
   html += tr.map(r => `<div class="row"><span class="tkr">${esc(r.ticker)}</span><span class="st">${esc(r.setup)}</span><span class="r ${r.r>=0?'pos':'neg'}">${rTxt(r.r)}</span></div>`).join("");
+  if (!tr.length) html += `<div class="empty">No v2 proposal outcomes have closed yet.</div>`;
   $("#ledger").innerHTML = html;
 }
 

@@ -55,6 +55,25 @@ for (const key of ["US", "SE"]) {
     if (!finite(s.expectancyR) || !finite(s.winRate) || !finite(s.profitFactor) || !finite(s.n)) {
       errors.push(`${p}: non-finite summary metric`);
     }
+    if (s.executionDrift) {
+      for (const field of ["n", "medianGapPct", "medianAbsGapPct", "p90AbsGapPct"]) {
+        if (!finite(s.executionDrift[field])) errors.push(`${p}: executionDrift.${field} must be finite`);
+      }
+    }
+  }
+
+  if (m.trackRecordSummary) {
+    for (const field of ["closed", "wins", "losses", "winRate", "netR"]) {
+      if (!finite(m.trackRecordSummary[field])) errors.push(`${key}.trackRecordSummary: ${field} must be finite`);
+    }
+  }
+  if (m.ranking && m.ranking.validated !== false) {
+    errors.push(`${key}.ranking: heuristic ranking must not be marked validated`);
+  }
+  if (m.validation?.executionDrift) {
+    for (const field of ["n", "medianGapPct", "medianAbsGapPct", "p90AbsGapPct"]) {
+      if (!finite(m.validation.executionDrift[field])) errors.push(`${key}.validation.executionDrift.${field} must be finite`);
+    }
   }
 
   for (const [i, c] of (m.rClusters || []).entries()) {
