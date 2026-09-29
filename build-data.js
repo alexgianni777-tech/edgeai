@@ -248,7 +248,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
   const stratParams = [];
   for (const strat of STRATS) {
-    const v = validateUniverse(universe, strat);
+    const v = validateUniverse(universe, strat, { calendarDates: indexBars.map(b => b.t) });
     // Validation uses only information known on the SIGNAL bar. The live
     // proposal remains yesterday's close and is intentionally not changed.
     const isShort = strat.dir === "short";
@@ -385,14 +385,14 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       profitFactor: round(m.profitFactor ?? 0), maxDDR: round(-cohortDrawdownR(cohorts), 1),
       expectancyLow95: round(m.expectancyLow95 ?? 0),
       expectancyHigh95: round(m.expectancyHigh95 ?? 0),
-      n: m.n ?? 0, oosLabel: "market-level walk-forward (OOS)",
+      n: m.n ?? 0, oosLabel: "market-level calendar-aligned walk-forward (OOS)",
       holds: (m.n ?? 0) >= 30 && (m.expectancy ?? 0) > 0.05 && (m.profitFactor ?? 0) > 1.15,
     },
     strategies,
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
     validation: {
-      procedure: "market-level walk-forward",
+      procedure: "market-level calendar-aligned walk-forward",
       rs: "point-in-time cross-sectional 63-session rank",
       regime: "signal-bar index close vs SMA200",
       executionReference: "proposal levels anchored to latest completed close",
