@@ -24,20 +24,9 @@ const OMXS30 = [
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // Hämtar daglig OHLC de senaste `years` åren.
-async function loadBars(ticker, { years = 3 } = {}) {
-  const period1 = new Date(Date.now() - years * 365 * 24 * 3600 * 1000);
-  const res = await yf.chart(ticker, {
-    period1,
-    interval: "1d",
-    includePrePost: false,
-  });
-
-  // Yahoo exposes adjclose alongside OHLC. Scale the whole historical candle
-  // by adjclose/close so splits (and cash-distribution adjustments) do not
-  // create artificial technical breaks. The latest adjustment factor is
-  // normally 1, so current proposal levels remain at the tradable price scale.
+function normalizeQuotes(quotes = []) {
   const byDate = new Map();
-  for (const q of (res.quotes || [])) {
+  for (const q of quotes) {
     if (q.open == null || q.high == null || q.low == null || q.close == null || !q.date) continue;
     const rawClose = Number(q.close);
     if (!(rawClose > 0)) continue;
@@ -54,14 +43,24 @@ async function loadBars(ticker, { years = 3 } = {}) {
       low: Number(q.low) * factor,
       close: rawClose * factor,
     };
+    if (Number.isNaN(bar.t.getTime())) continue;
     if (![bar.open, bar.high, bar.low, bar.close].every(Number.isFinite)) continue;
     if (!(bar.high >= Math.max(bar.open, bar.close) && bar.low <= Math.min(bar.open, bar.close))) continue;
 
     const day = bar.t.toISOString().slice(0, 10);
-    byDate.set(day, bar); // event duplicates on the same day collapse deterministically
+    byDate.set(day, bar);
   }
-
   return [...byDate.values()].sort((a, b) => a.t - b.t);
+}
+
+async function loadBars(ticker, { years = 3 } = {}) {
+  const period1 = new Date(Date.now() - years * 365 * 24 * 3600 * 1000);
+  const res = await yf.chart(ticker, {
+    period1,
+    interval: "1d",
+    includePrePost: false,
+  });
+  return normalizeQuotes(res.quotes || []);
 }
 
 // Hämtar hela universumet. Försöker om vid tillfälliga fel (Yahoo svarar ofta
@@ -114,4 +113,4 @@ const US_LARGE = [
   "PANW", "ANET", "DE", "COP", "KLAC", "MDT", "ADI", "SO", "SBUX", "GILD",
 ];
 
-module.exports = { loadBars, loadUniverse, OMXS30, US_LARGE, US_INDEX: "^GSPC", SE_INDEX: "^OMX" };
+module.exports = { loadBars, loadUniverse, normalizeQuotes, OMXS30, US_LARGE, US_INDEX: "^GSPC", SE_INDEX: "^OMX" };
