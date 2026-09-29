@@ -68,7 +68,7 @@ function simulateTrade(bars, ctx, entryIdx, p, stopLevel) {
   if (exit == null) { exitK = Math.min(bars.length - 1, entryIdx + p.maxBars); exit = bars[exitK].close; }
   let r = (exit - entry) / risk;
   r -= ((p.courtage + p.slippage) * 2 * entry) / risk;
-  return { r, held: exitK - entryIdx + 1 };
+  return { r, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
 }
 
 function runStrategy(bars, params = {}) {
@@ -82,7 +82,7 @@ function runStrategy(bars, params = {}) {
     if (signalAt(bars, ctx, i, p)) {
       const { lo } = baseStats(bars, i - 1, p.baseLen);
       const res = simulateTrade(bars, ctx, i + 1, p, lo);
-      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, r: res.r, held: res.held }); block = i + 1 + p.maxBars; }
+      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx; }
     }
   }
   return trades;
@@ -98,6 +98,7 @@ function latestSignal(bars, params = {}, freshness = 1) {
     if (risk <= 0) continue;
     // "target" för visning: 3R (säljs i praktiken via trail); rr rapporteras som 3
     return {
+      signalT: String(bars[i].t),
       barsAgo: bars.length - 1 - i,
       entryRef: +ref.toFixed(2),
       stop: +lo.toFixed(2),
