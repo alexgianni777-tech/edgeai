@@ -13481,9 +13481,10 @@
     "stop": 345.93,
     "target": 372.25,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "ATCO-A.ST",
@@ -13493,9 +13494,10 @@
     "stop": 195.12,
     "target": 215.77,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "ATCO-B.ST",
@@ -13505,9 +13507,10 @@
     "stop": 169.86,
     "target": 186.78,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "GETI-B.ST",
@@ -13517,9 +13520,10 @@
     "stop": 234.77,
     "target": 252.85,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "INVE-B.ST",
@@ -13529,9 +13533,10 @@
     "stop": 399.43,
     "target": 422.74,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "SAND.ST",
@@ -13541,9 +13546,10 @@
     "stop": 369.57,
     "target": 416.16,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "SKF-B.ST",
@@ -13553,9 +13559,10 @@
     "stop": 262.66,
     "target": 290.97,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
-    "r": null
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
   },
   {
     "ticker": "TEL2-B.ST",
@@ -13565,8 +13572,454 @@
     "stop": 165.41,
     "target": 179.02,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 999.4,
+    "stop": 966.52,
+    "target": 1065.16,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "AZN.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 1667,
+    "stop": 1610.99,
+    "target": 1779.03,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "GETI-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 251,
+    "stop": 244.48,
+    "target": 264.04,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "NDA-SE.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 203,
+    "stop": 198.62,
+    "target": 211.75,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "NIBE-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 45.67,
+    "stop": 44.09,
+    "target": 48.82,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 1.99,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "SCA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 125.3,
+    "stop": 122.22,
+    "target": 131.46,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "SEB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 234.7,
+    "stop": 229.59,
+    "target": 244.92,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "SHB-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 155.4,
+    "stop": 152.28,
+    "target": 161.64,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "SINCH.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 51.22,
+    "stop": 48.59,
+    "target": 56.49,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "SWED-A.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 412.8,
+    "stop": 402.74,
+    "target": 432.93,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "EVO.ST",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 816,
+    "stop": 787.29,
+    "target": 887.79,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "GETI-B.ST",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 236.2,
+    "stop": 230.32,
+    "target": 250.89,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 59.98,
+    "stop": 57.35,
+    "target": 66.55,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "TEL2-B.ST",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 168.5,
+    "stop": 163.91,
+    "target": 179.97,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "ALFA.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 556.4,
+    "stop": 577.55,
+    "target": 503.52,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "BOL.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 528.6,
+    "stop": 566.69,
+    "target": 433.37,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "ELUX-B.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 26.81,
+    "stop": 28.53,
+    "target": 22.51,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.200Z"
+  },
+  {
+    "ticker": "ERIC-B.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 96.52,
+    "stop": 100.92,
+    "target": 85.53,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "ESSITY-B.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 265.6,
+    "stop": 273.72,
+    "target": 245.31,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "SAND.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 374.1,
+    "stop": 394.56,
+    "target": 322.95,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2.5,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "ALFA.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 556.4,
+    "stop": 566.98,
+    "target": 535.25,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "ASSA-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 347.8,
+    "stop": 353.48,
+    "target": 336.43,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "ELUX-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 26.81,
+    "stop": 27.67,
+    "target": 25.09,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": -1,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "ERIC-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 97.38,
+    "stop": 99.55,
+    "target": 93.03,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "HM-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 168,
+    "stop": 171.28,
+    "target": 161.44,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "closed",
+    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "r": 2,
+    "closedAt": "2026-09-29T11:42:58.201Z"
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 962.6,
+    "stop": 929.24,
+    "target": 1012.64,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "ASSA-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 355.3,
+    "stop": 346.62,
+    "target": 368.33,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "ATCO-A.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 209,
+    "stop": 201.69,
+    "target": 219.97,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "ATCO-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 182,
+    "stop": 175.97,
+    "target": 191.05,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "GETI-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 245.5,
+    "stop": 239.32,
+    "target": 254.78,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "HEXA-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 98.82,
+    "stop": 95.84,
+    "target": 103.28,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "INVE-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 411.45,
+    "stop": 403.41,
+    "target": 423.51,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "KINV-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 61.24,
+    "stop": 58.66,
+    "target": 65.11,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "SINCH.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 47.32,
+    "stop": 44.91,
+    "target": 50.93,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "SKF-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 275.1,
+    "stop": 265.59,
+    "target": 289.37,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13578,7 +14031,7 @@
     "target": 1065.16,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13590,7 +14043,7 @@
     "target": 1779.03,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13602,7 +14055,7 @@
     "target": 264.04,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13614,7 +14067,7 @@
     "target": 211.75,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13626,7 +14079,7 @@
     "target": 48.82,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13638,7 +14091,7 @@
     "target": 131.46,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13650,7 +14103,7 @@
     "target": 244.92,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13662,7 +14115,7 @@
     "target": 161.64,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13674,7 +14127,7 @@
     "target": 56.49,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13686,7 +14139,7 @@
     "target": 432.93,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13698,7 +14151,7 @@
     "target": 887.79,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13710,7 +14163,7 @@
     "target": 250.89,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13722,7 +14175,7 @@
     "target": 66.55,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13734,7 +14187,7 @@
     "target": 179.97,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13742,11 +14195,11 @@
     "setup": "Burry filter — weak-stock rally short",
     "dir": "short",
     "entry": 556.4,
-    "stop": 577.55,
-    "target": 503.52,
+    "stop": 566.98,
+    "target": 540.54,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13754,11 +14207,11 @@
     "setup": "Burry filter — weak-stock rally short",
     "dir": "short",
     "entry": 528.6,
-    "stop": 566.69,
-    "target": 433.37,
+    "stop": 547.65,
+    "target": 500.03,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13766,11 +14219,11 @@
     "setup": "Burry filter — weak-stock rally short",
     "dir": "short",
     "entry": 26.81,
-    "stop": 28.53,
-    "target": 22.51,
+    "stop": 27.67,
+    "target": 25.52,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13778,11 +14231,11 @@
     "setup": "Burry filter — weak-stock rally short",
     "dir": "short",
     "entry": 96.52,
-    "stop": 100.92,
-    "target": 85.53,
+    "stop": 98.72,
+    "target": 93.22,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13790,11 +14243,11 @@
     "setup": "Burry filter — weak-stock rally short",
     "dir": "short",
     "entry": 265.6,
-    "stop": 273.72,
-    "target": 245.31,
+    "stop": 269.66,
+    "target": 259.51,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13802,35 +14255,59 @@
     "setup": "Burry filter — weak-stock rally short",
     "dir": "short",
     "entry": 374.1,
-    "stop": 394.56,
-    "target": 322.95,
+    "stop": 384.33,
+    "target": 358.75,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "ABB.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 962.6,
+    "stop": 984.84,
+    "target": 918.12,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
     "ticker": "ALFA.ST",
     "setup": "The Big Short — broader weak-stock rally short",
     "dir": "short",
-    "entry": 556.4,
-    "stop": 566.98,
-    "target": 535.25,
+    "entry": 565.2,
+    "stop": 575.8,
+    "target": 544,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
     "ticker": "ASSA-B.ST",
     "setup": "The Big Short — broader weak-stock rally short",
     "dir": "short",
-    "entry": 347.8,
-    "stop": 353.48,
-    "target": 336.43,
+    "entry": 354.7,
+    "stop": 360.55,
+    "target": 343,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "AZN.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 1630,
+    "stop": 1666.34,
+    "target": 1557.32,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
@@ -13842,31 +14319,43 @@
     "target": 25.09,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
     "ticker": "ERIC-B.ST",
     "setup": "The Big Short — broader weak-stock rally short",
     "dir": "short",
-    "entry": 97.38,
-    "stop": 99.55,
-    "target": 93.03,
+    "entry": 96.52,
+    "stop": 98.72,
+    "target": 92.12,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   },
   {
-    "ticker": "HM-B.ST",
+    "ticker": "ESSITY-B.ST",
     "setup": "The Big Short — broader weak-stock rally short",
     "dir": "short",
-    "entry": 168,
-    "stop": 171.28,
-    "target": 161.44,
+    "entry": 265.6,
+    "stop": 269.66,
+    "target": 257.48,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
     "status": "open",
-    "loggedAt": "2026-09-28T17:49:13.575Z",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
+    "r": null
+  },
+  {
+    "ticker": "TEL2-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 166.6,
+    "stop": 169.57,
+    "target": 160.66,
+    "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "status": "open",
+    "loggedAt": "2026-09-29T11:42:58.201Z",
     "r": null
   }
 ]
