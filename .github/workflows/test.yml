@@ -18,3 +18,5 @@ jobs:
           node-version: "22"
       - run: npm install
       - run: npm test
+      - name: Build deterministic demo dataset
+        run: node build-data.js --demo
