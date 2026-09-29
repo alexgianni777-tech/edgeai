@@ -26,10 +26,42 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // Hämtar daglig OHLC de senaste `years` åren.
 async function loadBars(ticker, { years = 3 } = {}) {
   const period1 = new Date(Date.now() - years * 365 * 24 * 3600 * 1000);
-  const res = await yf.chart(ticker, { period1, interval: "1d" });
-  return (res.quotes || [])
-    .filter(q => q.open != null && q.high != null && q.low != null && q.close != null)
-    .map(q => ({ t: q.date, open: q.open, high: q.high, low: q.low, close: q.close }));
+  const res = await yf.chart(ticker, {
+    period1,
+    interval: "1d",
+    includePrePost: false,
+  });
+
+  // Yahoo exposes adjclose alongside OHLC. Scale the whole historical candle
+  // by adjclose/close so splits (and cash-distribution adjustments) do not
+  // create artificial technical breaks. The latest adjustment factor is
+  // normally 1, so current proposal levels remain at the tradable price scale.
+  const byDate = new Map();
+  for (const q of (res.quotes || [])) {
+    if (q.open == null || q.high == null || q.low == null || q.close == null || !q.date) continue;
+    const rawClose = Number(q.close);
+    if (!(rawClose > 0)) continue;
+    const adjustedClose = Number(q.adjclose);
+    const factor = Number.isFinite(adjustedClose) && adjustedClose > 0
+      ? adjustedClose / rawClose
+      : 1;
+    if (!(factor > 0) || !Number.isFinite(factor)) continue;
+
+    const bar = {
+      t: new Date(q.date),
+      open: Number(q.open) * factor,
+      high: Number(q.high) * factor,
+      low: Number(q.low) * factor,
+      close: rawClose * factor,
+    };
+    if (![bar.open, bar.high, bar.low, bar.close].every(Number.isFinite)) continue;
+    if (!(bar.high >= Math.max(bar.open, bar.close) && bar.low <= Math.min(bar.open, bar.close))) continue;
+
+    const day = bar.t.toISOString().slice(0, 10);
+    byDate.set(day, bar); // event duplicates on the same day collapse deterministically
+  }
+
+  return [...byDate.values()].sort((a, b) => a.t - b.t);
 }
 
 // Hämtar hela universumet. Försöker om vid tillfälliga fel (Yahoo svarar ofta
