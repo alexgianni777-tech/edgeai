@@ -463,13 +463,15 @@ async function load() {
 
 function renderAll() {
   const when = new Date(DATA.generatedAt);
-  const days = Math.floor((Date.now() - when.getTime()) / 86400000);
-  const fresh = days <= 0;
+  const marketDates = ["US", "SE"].map(k => DATA.markets[k]?.dataAsOf).filter(Boolean);
+  const dataLabel = marketDates.length
+    ? marketDates.map((d, i) => `${i === 0 ? "US" : "SE"} ${d}`).join(" · ")
+    : when.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
   $("#navMeta").innerHTML =
     (DATA.demo ? `<span class="demo-badge">DEMO DATA</span>` : "") +
-    `<span class="freshtag ${fresh ? 'ok' : 'old'}">${fresh ? 'Fresh today' : 'Updated ' + days + 'd ago'}</span>`;
+    `<span class="freshtag ok">Data: ${dataLabel}</span>`;
   $("#demoFootnote").textContent = DATA.demo ? "The figures shown are demo data — run the engine on live data to replace them." : "";
-  $("#asOf").textContent = "as of " + when.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  $("#asOf").textContent = "prices through " + (DATA.markets[market]?.dataAsOf || when.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }));
 
   for (const k of ["US", "SE"]) $("#cnt-" + k).textContent = "· " + (DATA.markets[k]?.setups.length ?? 0);
   document.querySelectorAll("#marketSwitch button").forEach(b => b.classList.toggle("on", b.dataset.mkt === market));
@@ -598,7 +600,7 @@ function renderStrategies(m) {
       return `
       <div class="strat-card" style="opacity:.72">
         <div class="sn">${esc(s.name)}</div>
-        <div class="ss">Validating — not enough proven edge yet (n=${s.n}). Not counted or shown until it holds.</div>
+        <div class="ss">WATCH — OOS evidence does not currently pass the validation gate (n=${s.n}). Proposals may still be shown, clearly marked unvalidated.</div>
       </div>`;
     }
     return `
@@ -619,12 +621,12 @@ function pickText(s, m) {
 function renderTop3(m) {
   const reg = m.regime || { on: true };
   $("#topMarket").textContent = m.label + (DATA.demo ? " · demo" : "");
-  if (!reg.on || !m.setups.length) {
-    $("#top3").innerHTML = `<div class="empty">${reg.on ? "No A-setups today — patience beats forcing it." : "Market risk-off — no picks today. Sitting out is a position."}</div>`;
+  if (!m.setups.length) {
+    $("#top3").innerHTML = `<div class="empty">No proposals today — patience beats forcing it.</div>`;
     return;
   }
   const tag = s => shortTag(s.setup);
-  const score = s => { const sh = s.dir === "short"; return ((sh ? !s.above200 : s.above200) ? 1 : 0) + s.edge.expectancyR * 2 + (s.rr >= 2 ? 0.3 : 0) + (((sh ? 100 - (s.rs ?? 50) : (s.rs ?? 50))) / 100) * 0.5 - s.barsAgo * 0.1; };
+  const score = s => { const sh = s.dir === "short"; return (s.validatedEdge ? 2 : 0) + ((sh ? !s.above200 : s.above200) ? 1 : 0) + s.edge.expectancyR * 2 + (s.rr >= 2 ? 0.3 : 0) + (((sh ? 100 - (s.rs ?? 50) : (s.rs ?? 50))) / 100) * 0.5 - s.barsAgo * 0.1; };
   const top = m.setups.slice().sort((a, b) => score(b) - score(a)).slice(0, 3);
   $("#top3").innerHTML = top.map((s, i) => `
     <div class="pick">
@@ -677,7 +679,7 @@ function renderSetups(m, skipChips) {
   shown = sorted.slice(0, CAP);
   const more = pool.length - shown.length;
   $("#setups").innerHTML = shown.map((s, idx) => {
-    const size = Math.floor((account * 0.01) / (s.entry - s.stop));
+    const size = Math.floor((account * 0.01) / Math.abs(s.entry - s.stop));
     const fresh = s.barsAgo === 0 ? "today" : "";
     return `
     <div class="setup">
@@ -686,7 +688,7 @@ function renderSetups(m, skipChips) {
           <div class="tk">${esc(s.ticker)} <span class="fresh ${fresh}">${freshTxt(s.barsAgo)}</span><span class="trend200 ${s.above200 ? 'up' : 'dn'}">${s.above200 ? '↑ 200d' : '↓ 200d'}</span></div>
           <div class="nm">${esc(s.setup)}</div>
         </div>
-        <span class="grade">${esc(s.grade)}-setup</span>
+        <span class="grade">${s.validatedEdge ? "A · validated" : "WATCH · unvalidated"}</span>
       </div>
       <div class="levels">
         <div class="lv"><div class="lk">Entry</div><div class="lvv">${fmtPrice(s.entry, m.currency)}</div></div>
@@ -700,7 +702,7 @@ function renderSetups(m, skipChips) {
       </div>
       <div class="setup-foot">
         <span class="mini">Size: <b>${size}</b> sh (1% risk)</span>
-        <span class="mini">Edge: <b>${rTxt(s.edge.expectancyR)}</b> · <b>${s.edge.winRate}%</b> · n=${s.edge.sample}</span>
+        <span class="mini">${s.validatedEdge ? "Validated OOS" : "OOS evidence"}: <b>${rTxt(s.edge.expectancyR)}</b> · <b>${s.edge.winRate}%</b> · n=${s.edge.sample}</span>
         ${s.typicalDays ? `<span class="mini">~<b>${s.typicalDays}</b> days to target</span>` : ""}
         ${s.rs != null ? `<span class="mini">RS <b>${s.rs}</b>/100</span>` : ""}
         ${entryDist(s)}
@@ -748,8 +750,8 @@ function explainLocal(s, m) {
 
   // 1) The read — why this fired
   let read;
-  if (/breakdown/i.test(s.setup)) {
-    read = s.ticker + " is in a downtrend and just rallied up into its declining 20-day average with momentum stretched. In bear regimes these relief rallies are where trapped longs exit and sellers reload — this entry shorts that supply, with the stop above the rally high. Note the tool only surfaces shorts when the whole market is below its 200-day line: never short a bull tape.";
+  if (s.dir === "short" || /burry|big short|breakdown/i.test(s.setup)) {
+    read = s.ticker + " is in a downtrend and just rallied up into its declining 20-day average with momentum stretched. In bear regimes these relief rallies are where trapped longs exit and sellers reload — this entry shorts that supply, with the stop above the rally high. The stock is being surfaced from its own weakness filter; the broader index regime is shown separately rather than silently removing the proposal.";
   } else if (/momentum/i.test(s.setup)) {
     read = s.ticker + " has already proven itself a leader — up strongly over the past quarter — and has spent the last stretch resting in a tight base instead of giving the gains back. That is what accumulation looks like. This entry buys the break of that base, with the stop tucked under its low: the leader either resumes, or tells you quickly that it won't. Exit plan differs here: winners are trailed with the trend rather than sold at a fixed target.";
   } else if (/breakout/i.test(s.setup)) {
@@ -773,8 +775,10 @@ function explainLocal(s, m) {
   // 3) The evidence — honest statistics
   const e = s.edge;
   const per20 = e.expectancyR * 20;
-  const evidence = "The evidence: across " + e.sample + " out-of-sample trades this setup averaged " + rTxt(e.expectancyR) +
-    " per trade with a " + e.winRate + "% hit rate. The edge is statistical, not clairvoyant — about " + (100 - e.winRate) + " of every 100 such trades lose, and that is expected. Over 20 trades the math points to roughly " + (per20 >= 0 ? "+" : "") + per20.toFixed(1) + "R; no single trade proves or disproves anything.";
+  const evidence = (s.validatedEdge ? "Validated OOS evidence: " : "WATCH — unvalidated OOS evidence: ") +
+    "across " + e.sample + " out-of-sample trades this setup averaged " + rTxt(e.expectancyR) +
+    " per trade with a " + e.winRate + "% hit rate. Over 20 trades the historical arithmetic corresponds to roughly " +
+    (per20 >= 0 ? "+" : "") + per20.toFixed(1) + "R, but this is descriptive evidence rather than a promise.";
 
   // 4) Context — regime and the stock's own trend
   const context = "Context: the market regime is " + reg.label +
