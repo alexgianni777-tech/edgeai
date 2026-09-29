@@ -94,8 +94,9 @@ function validateUniverse(universe, strat, {
   minTrades = 20,
   calendarDates = null,
 } = {}) {
+  const minUsableBars = Math.min(50, isLen + oosLen);
   const entries = Object.entries(universe)
-    .filter(([, bars]) => Array.isArray(bars) && bars.length >= 100);
+    .filter(([, bars]) => Array.isArray(bars) && bars.length >= minUsableBars);
 
   if (!entries.length) {
     return {
