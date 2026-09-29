@@ -21471,9 +21471,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.17,
+    "closedAt": "Wed Sep 23 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "XOM|Trend pullback to 20EMA · RSI reset|2026-09-28",
@@ -21507,9 +21508,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.21,
+    "closedAt": "Fri Sep 25 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PG|Trend pullback to 20EMA · RSI reset|2026-09-25",
@@ -21579,9 +21581,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.1,
+    "closedAt": "Mon Sep 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PM|Trend pullback to 20EMA · RSI reset|2026-09-22",
@@ -21687,9 +21690,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.12,
+    "closedAt": "Mon Sep 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "WMT|Breakout — fresh N-day high|2026-09-23",
@@ -21705,9 +21709,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.21,
+    "closedAt": "Fri Sep 25 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AMD|Breakout — fresh N-day high|2026-09-24",
@@ -21741,9 +21746,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.08,
+    "closedAt": "Mon Sep 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "QCOM|Breakout — fresh N-day high|2026-09-25",
@@ -21759,9 +21765,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.09,
+    "closedAt": "Mon Sep 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "TMO|Breakout — fresh N-day high|2026-09-24",
@@ -21921,9 +21928,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.16,
+    "closedAt": "Fri Sep 25 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ADI|Breakout — fresh N-day high|2026-09-25",
@@ -21975,9 +21983,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": -1.26,
+    "closedAt": "Tue Sep 22 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "XOM|Bollinger reversion in uptrend|2026-09-22",
@@ -22173,9 +22182,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": 1.28,
+    "closedAt": "Thu Sep 24 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "COP|Bollinger reversion in uptrend|2026-09-25",
@@ -22389,9 +22399,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": 1.38,
+    "closedAt": "Thu Sep 24 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "LIN|Burry filter — weak-stock rally short|2026-09-28",
@@ -22425,9 +22436,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": 1.31,
+    "closedAt": "Mon Sep 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GE|Burry filter — weak-stock rally short|2026-09-25",
@@ -22749,9 +22761,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": 1.76,
+    "closedAt": "Wed Sep 23 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "TXN|The Big Short — broader weak-stock rally short|2026-09-18",
@@ -22929,9 +22942,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:00.921Z",
-    "r": null
+    "r": 1.74,
+    "closedAt": "Thu Sep 24 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "LOW|The Big Short — broader weak-stock rally short|2026-09-23",
