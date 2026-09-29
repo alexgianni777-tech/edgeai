@@ -34,6 +34,7 @@ function runDateWindow(universeEntries, strat, params, {
   fromDate,
   toDate,
   warmup = 220,
+  tradeFilter = null,
 } = {}) {
   const pooled = [];
   for (const [ticker, bars] of universeEntries) {
@@ -44,7 +45,8 @@ function runDateWindow(universeEntries, strat, params, {
     for (const trade of strat.runStrategy(slice, params)) {
       const d = dateKey(trade.t);
       if (!d || d < fromDate || d > toDate) continue;
-      pooled.push({ ...trade, ticker });
+      const enriched = { ...trade, ticker };
+      if (!tradeFilter || tradeFilter(enriched)) pooled.push(enriched);
     }
   }
   return chronological(pooled);
@@ -93,6 +95,7 @@ function validateUniverse(universe, strat, {
   warmup = 220,
   minTrades = 20,
   calendarDates = null,
+  tradeFilter = null,
 } = {}) {
   const minUsableBars = Math.min(50, isLen + oosLen);
   const entries = Object.entries(universe)
@@ -134,12 +137,14 @@ function validateUniverse(universe, strat, {
       toDate: isTo,
       warmup,
       minTrades,
+      tradeFilter,
     });
 
     const unseen = runDateWindow(entries, strat, chosen.params, {
       fromDate: oosFrom,
       toDate: oosTo,
       warmup,
+      tradeFilter,
     });
     const oosM = metrics(unseen);
     oosTrades.push(...unseen);
