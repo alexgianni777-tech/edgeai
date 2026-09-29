@@ -3,14 +3,25 @@ const { execFileSync } = require("child_process");
 const path = require("path");
 
 const SOURCE_FILES = [
-  "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js",
+  "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
   "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js",
-  "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "server.js"
+  "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "validate-output.js", "server.js"
 ];
 
 for (const file of SOURCE_FILES) {
   execFileSync(process.execPath, ["--check", path.join(__dirname, file)], { stdio: "pipe" });
+}
+
+// Parse every inline browser script so dashboard syntax errors fail CI too.
+const fs = require("fs");
+const html = fs.readFileSync(path.join(__dirname, "edgeai.html"), "utf8");
+const inlineScripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)]
+  .map(m => m[1].trim())
+  .filter(Boolean);
+assert.ok(inlineScripts.length > 0, "dashboard must contain inline scripts");
+for (const script of inlineScripts) {
+  assert.doesNotThrow(() => new Function(script), "inline browser scripts must parse");
 }
 
 const { sizePosition } = require("./screener");
