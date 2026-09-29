@@ -18,6 +18,13 @@ jobs:
         with:
           node-version: "22"
       - run: npm install
+      - name: Upload dependency lock candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-lock
+          path: package-lock.json
+          if-no-files-found: error
+          retention-days: 1
       - run: npm test
       - name: Build deterministic demo dataset
         run: node build-data.js --demo
