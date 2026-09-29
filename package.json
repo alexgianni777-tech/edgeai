@@ -19,5 +19,9 @@
   "license": "ISC",
   "dependencies": {
     "yahoo-finance2": "4.0.2"
-  }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "npm@10.9.8"
 }
