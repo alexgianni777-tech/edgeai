@@ -268,9 +268,16 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     }).sort((a, b) => new Date(a.t) - new Date(b.t));
 
     const fm = metrics(filtered);
-    const positiveWindows = (v.windows || []).filter(w => (w.oos?.exp ?? 0) > 0).length;
-    const positiveWindowRate = (v.windows || []).length
-      ? positiveWindows / v.windows.length
+    const filteredWindowMetrics = (v.windows || []).map(w => {
+      const trades = filtered.filter(t => {
+        const d = dateKey(t.t);
+        return d && d >= w.from && d <= w.to;
+      });
+      return metrics(trades);
+    }).filter(x => (x.n ?? 0) > 0);
+    const positiveWindows = filteredWindowMetrics.filter(x => (x.expectancy ?? 0) > 0).length;
+    const positiveWindowRate = filteredWindowMetrics.length
+      ? positiveWindows / filteredWindowMetrics.length
       : 0;
     const stratHolds =
       (fm.n ?? 0) >= 30 &&
@@ -287,7 +294,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     if (stratHolds) pooledOOS.push(...filtered);
     stratParams.push({
       strat, params: v.params, proposalParams: legacyParams, m: fm, trades: filtered, holds: stratHolds,
-      promising, windows: v.windows || [], positiveWindowRate,
+      promising, windows: v.windows || [], evaluatedWindows: filteredWindowMetrics.length, positiveWindowRate,
     });
 
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
@@ -395,7 +402,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       expectancyLow95: round(sp.m.expectancyLow95 ?? 0),
       expectancyHigh95: round(sp.m.expectancyHigh95 ?? 0),
       positiveWindowRate: round((sp.positiveWindowRate ?? 0) * 100, 0),
-      walkForwardWindows: sp.windows?.length ?? 0,
+      walkForwardWindows: sp.evaluatedWindows ?? sp.windows?.length ?? 0,
       params: sp.params,
       proposalParams: sp.proposalParams,
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
