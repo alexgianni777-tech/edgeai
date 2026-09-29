@@ -49,4 +49,27 @@ function cohortDrawdownR(cohorts) {
   return maxDD;
 }
 
-module.exports = { buildCohorts, maxConcurrentTrades, cohortDrawdownR };
+function buildExitCohorts(trades) {
+  const byDay = new Map();
+  for (const t of trades || []) {
+    const day = dateKey(t.exitT || t.t);
+    if (!day || !Number.isFinite(Number(t.r))) continue;
+    const row = byDay.get(day) || { date: day, r: 0, n: 0 };
+    row.r += Number(t.r);
+    row.n += 1;
+    byDay.set(day, row);
+  }
+  return [...byDay.values()].sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function realizedDrawdownR(trades) {
+  return cohortDrawdownR(buildExitCohorts(trades));
+}
+
+module.exports = {
+  buildCohorts,
+  buildExitCohorts,
+  maxConcurrentTrades,
+  cohortDrawdownR,
+  realizedDrawdownR,
+};

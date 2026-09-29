@@ -52,7 +52,7 @@ assert.strictEqual(m.n, 5);
 assert.ok(m.expectancyLow95 < m.expectancy && m.expectancyHigh95 > m.expectancy,
   "expectancy must expose uncertainty bounds");
 
-const { buildCohorts, maxConcurrentTrades } = require("./portfolio-risk");
+const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
 const cohortTrades = [
   { r: 1, t: "2026-01-02", signalT: "2026-01-01", exitT: "2026-01-05" },
   { r: -1, t: "2026-01-02", signalT: "2026-01-01", exitT: "2026-01-03" },
@@ -63,6 +63,11 @@ assert.strictEqual(cohorts.length, 2, "same-day signals must be grouped");
 assert.strictEqual(cohorts[0].n, 2);
 assert.strictEqual(cohorts[0].r, 0);
 assert.ok(maxConcurrentTrades(cohortTrades) >= 2, "concurrent exposure must be measured");
+assert.strictEqual(realizedDrawdownR([
+  { r: 2, t: "2026-01-02", exitT: "2026-01-05" },
+  { r: -1, t: "2026-01-03", exitT: "2026-01-06" },
+  { r: -2, t: "2026-01-04", exitT: "2026-01-07" },
+]), 3, "realized drawdown must follow exit chronology");
 
 const { monteCarlo } = require("./montecarlo");
 const mc = monteCarlo([
@@ -101,13 +106,16 @@ const probe = {
     return trades;
   },
 };
+let filterCalls = 0;
 const uv = validateUniverse({ AAA: mkBars(0), BBB: mkBars(10) }, probe, {
   isLen: 12, oosLen: 6, step: 6, warmup: 5, minTrades: 2,
+  tradeFilter: t => { filterCalls++; return t.ticker === "AAA"; },
 });
 assert.ok(uv.windows.length >= 1, "market-level walk-forward should create windows");
 assert.strictEqual(uv.params.bias, 1, "live params must come from the latest market-level IS selection");
 assert.ok(uv.oosTrades.length > 0, "market-level walk-forward should produce OOS trades");
-assert.ok(uv.oosTrades.every(t => t.ticker === "AAA" || t.ticker === "BBB"),
-  "OOS trades must retain ticker identity");
+assert.ok(filterCalls > 0, "deployment filter must be applied during walk-forward");
+assert.ok(uv.oosTrades.every(t => t.ticker === "AAA"),
+  "deployment filter must constrain both selection and OOS");
 
 console.log("EdgeAI regression tests passed");
