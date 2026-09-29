@@ -82,7 +82,7 @@ function runStrategy(bars, params = {}) {
     if (signalAt(bars, ctx, i, p)) {
       const { lo } = baseStats(bars, i - 1, p.baseLen);
       const res = simulateTrade(bars, ctx, i + 1, p, lo);
-      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx; }
+      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, signalRef: bars[i].close, entryPrice: bars[i + 1].open, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx; }
     }
   }
   return trades;
