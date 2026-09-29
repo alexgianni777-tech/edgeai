@@ -24,12 +24,43 @@ const OMXS30 = [
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // Hämtar daglig OHLC de senaste `years` åren.
+function normalizeQuotes(quotes = []) {
+  const byDate = new Map();
+  for (const q of quotes) {
+    if (q.open == null || q.high == null || q.low == null || q.close == null || !q.date) continue;
+    const rawClose = Number(q.close);
+    if (!(rawClose > 0)) continue;
+    const adjustedClose = Number(q.adjclose);
+    const factor = Number.isFinite(adjustedClose) && adjustedClose > 0
+      ? adjustedClose / rawClose
+      : 1;
+    if (!(factor > 0) || !Number.isFinite(factor)) continue;
+
+    const bar = {
+      t: new Date(q.date),
+      open: Number(q.open) * factor,
+      high: Number(q.high) * factor,
+      low: Number(q.low) * factor,
+      close: rawClose * factor,
+    };
+    if (Number.isNaN(bar.t.getTime())) continue;
+    if (![bar.open, bar.high, bar.low, bar.close].every(Number.isFinite)) continue;
+    if (!(bar.high >= Math.max(bar.open, bar.close) && bar.low <= Math.min(bar.open, bar.close))) continue;
+
+    const day = bar.t.toISOString().slice(0, 10);
+    byDate.set(day, bar);
+  }
+  return [...byDate.values()].sort((a, b) => a.t - b.t);
+}
+
 async function loadBars(ticker, { years = 3 } = {}) {
   const period1 = new Date(Date.now() - years * 365 * 24 * 3600 * 1000);
-  const res = await yf.chart(ticker, { period1, interval: "1d" });
-  return (res.quotes || [])
-    .filter(q => q.open != null && q.high != null && q.low != null && q.close != null)
-    .map(q => ({ t: q.date, open: q.open, high: q.high, low: q.low, close: q.close }));
+  const res = await yf.chart(ticker, {
+    period1,
+    interval: "1d",
+    includePrePost: false,
+  });
+  return normalizeQuotes(res.quotes || []);
 }
 
 // Hämtar hela universumet. Försöker om vid tillfälliga fel (Yahoo svarar ofta
@@ -82,4 +113,4 @@ const US_LARGE = [
   "PANW", "ANET", "DE", "COP", "KLAC", "MDT", "ADI", "SO", "SBUX", "GILD",
 ];
 
-module.exports = { loadBars, loadUniverse, OMXS30, US_LARGE, US_INDEX: "^GSPC", SE_INDEX: "^OMX" };
+module.exports = { loadBars, loadUniverse, normalizeQuotes, OMXS30, US_LARGE, US_INDEX: "^GSPC", SE_INDEX: "^OMX" };
