@@ -257,9 +257,10 @@
 
   <section class="sec" id="topSec" style="margin-top:28px;">
     <div class="sec-head">
-      <h2 class="sec-h">Top 3 picks today</h2>
+      <h2 class="sec-h">Top 3 ranked proposals</h2>
       <span class="as-of" id="topMarket"></span>
     </div>
+    <p class="sec-p">Heuristic ordering only — evidence tier, trend, expectancy, R:R, RS and freshness. The ranking itself is not a separately validated alpha model.</p>
     <div class="top3" id="top3"></div>
   </section>
 
@@ -308,7 +309,7 @@
   <section class="sec">
     <div class="sec-head">
       <h2 class="sec-h">Forward proposal ledger</h2>
-      <button class="btn-ghost" id="csvBtn">Export CSV</button>
+      <button class="btn-ghost" id="csvBtn">Export latest CSV</button>
     </div>
     <p class="sec-p">New proposal signals receive an immutable daily signal ID and are resolved forward from subsequent bars. This ledger measures displayed proposal outcomes; it is intentionally separate from OOS strategy statistics.</p>
     <div class="track-summary" id="trackSummary"></div>
@@ -347,7 +348,7 @@
       <h2 class="sec-h">My trade journal</h2>
       <span><a href="tracker.html" style="color:var(--navy);font-size:13px;font-weight:600;margin-right:10px;">Challenge tracker →</a><button class="btn-ghost" id="jexport">Export CSV</button></span>
     </div>
-    <p class="sec-p">Log the trades you actually take, then tag each one: <b>A</b> = high-conviction and properly sized, <b>B</b> = reflexive or forced. Over time the A/B mix is the clearest mirror of your discipline. Saved privately in this browser.</p>
+    <p class="sec-p">Log the trades you actually take, then add your own discipline grade. This journal grade is separate from EdgeAI's evidence tiers A/B/WATCH. Saved privately in this browser.</p>
     <div class="track-summary" id="journalSummary"></div>
     <div class="ledger" id="journal"></div>
   </section>
@@ -358,11 +359,11 @@
     <div class="tiers">
       <div class="tier">
         <div class="tname">Free</div>
-        <div class="tdesc">See that the edge is real before paying a cent.</div>
+        <div class="tdesc">Inspect the evidence and proposal history before paying a cent.</div>
         <div class="price"><span class="p">Free</span></div>
         <ul class="feat">
           <li>The forward proposal ledger</li>
-          <li>Today's top 3 setups (delayed)</li>
+          <li>Today's top 3 ranked proposals (delayed)</li>
           <li>One market</li>
           <li class="off">All setups with entry/stop/target</li>
           <li class="off">Both markets &amp; alerts</li>
@@ -497,10 +498,14 @@ function renderProof(m) {
     <div class="stat" title="Gross profit divided by gross loss."><div class="v">${e.profitFactor.toFixed(2)}</div><div class="k">Profit factor</div></div>
     <div class="stat" title="Chronological signal-cohort drawdown, measured in R."><div class="v neg">${e.maxDDR.toFixed(1)}R</div><div class="k">Cluster drawdown</div></div>
     <div class="stat" title="Number of out-of-sample trades in the validated pool."><div class="v">${e.n}</div><div class="k">OOS trades</div></div>`;
+  const drift = m.validation?.executionDrift;
+  const driftTxt = drift?.n
+    ? ` OOS fills occur at the next-session open: median absolute close-to-open drift <b>${drift.medianAbsGapPct.toFixed(2)}%</b>, 90th percentile <b>${drift.p90AbsGapPct.toFixed(2)}%</b>.`
+    : "";
   if (e.holds) {
-    $("#plainRead").innerHTML = `Validated strategies averaged <b>${rTxt(e.expectancyR)}</b> per OOS trade (95% interval ${ci}), with <b>${e.winRate}%</b> positive outcomes and PF <b>${e.profitFactor.toFixed(2)}</b>. <span class="rdef">${esc(e.oosLabel)}. Proposals from weaker strategies are still shown separately as B/WATCH instead of being hidden.</span>`;
+    $("#plainRead").innerHTML = `Validated strategies averaged <b>${rTxt(e.expectancyR)}</b> per OOS trade (95% interval ${ci}), with <b>${e.winRate}%</b> positive outcomes and PF <b>${e.profitFactor.toFixed(2)}</b>.${driftTxt} <span class="rdef">${esc(e.oosLabel)}. Proposals remain anchored to the latest completed close; weaker strategies are shown as B/WATCH instead of hidden.</span>`;
   } else {
-    $("#plainRead").innerHTML = `No strategy currently passes the full validation gate for this market. <b>Proposals are still generated</b>, but they are labelled B/WATCH so an idea is not confused with proven edge.<span class="rdef">${esc(e.oosLabel)}; the dashboard keeps candidate generation separate from statistical validation.</span>`;
+    $("#plainRead").innerHTML = `No strategy currently passes the full validation gate for this market. <b>Proposals are still generated</b>, but they are labelled B/WATCH so an idea is not confused with proven edge.${driftTxt}<span class="rdef">${esc(e.oosLabel)}; candidate generation is separate from statistical validation.</span>`;
   }
   drawEquity(m.equityCurve);
 }
@@ -629,10 +634,11 @@ function renderStrategies(m) {
     const status = s.evidenceStatus || (s.holds ? "VALIDATED" : "WATCH");
     const ci = s.expectancyLow95 != null ? ` · 95% [${rTxt(s.expectancyLow95)}, ${rTxt(s.expectancyHigh95)}]` : "";
     const windows = s.walkForwardWindows ? ` · ${s.positiveWindowRate}% positive WF windows` : "";
+    const drift = s.executionDrift?.n ? ` · next-open |gap| med ${s.executionDrift.medianAbsGapPct.toFixed(2)}% / p90 ${s.executionDrift.p90AbsGapPct.toFixed(2)}%` : "";
     return `
       <div class="strat-card" style="${status === "WATCH" ? "opacity:.76" : ""}">
         <div class="sn">${esc(s.name)}</div>
-        <div class="ss"><b>${status}</b> · ${rTxt(s.expectancyR)} · ${s.winRate}% win · PF ${s.profitFactor} · n=${s.n}${ci}${windows}</div>
+        <div class="ss"><b>${status}</b> · ${rTxt(s.expectancyR)} · ${s.winRate}% win · PF ${s.profitFactor} · n=${s.n}${ci}${windows}${drift}</div>
         ${sparkSVG(s.equityCurve, colors[i % colors.length])}
       </div>`;
   }).join("");
@@ -744,15 +750,20 @@ function renderSetups(m, skipChips) {
 
 function renderTrack(m) {
   const tr = m.trackRecord || [];
-  const wins = tr.filter(r => r.r > 0).length, losses = tr.length - wins;
-  const net = tr.reduce((a, r) => a + r.r, 0), wr = tr.length ? Math.round(wins / tr.length * 100) : 0;
+  const sum = m.trackRecordSummary || {};
+  const wins = sum.closed != null ? sum.wins : tr.filter(r => r.r > 0).length;
+  const losses = sum.closed != null ? sum.losses : tr.length - wins;
+  const closed = sum.closed != null ? sum.closed : tr.length;
+  const net = sum.netR != null ? sum.netR : tr.reduce((a, r) => a + r.r, 0);
+  const wr = sum.winRate != null ? sum.winRate : (tr.length ? Math.round(wins / tr.length * 100) : 0);
   $("#trackSummary").innerHTML = `
-    <div class="ts-item">Closed<b>${tr.length}</b></div>
+    <div class="ts-item">Closed<b>${closed}</b></div>
     <div class="ts-item">Wins / losses<b>${wins}W / ${losses}L</b></div>
     <div class="ts-item">Win rate<b>${wr}%</b></div>
     <div class="ts-item">Net result<b class="${net>=0?'pos':'neg'}">${rTxt(net)}</b></div>`;
   let html = `<div class="row head"><span>Symbol</span><span>Setup</span><span class="r">Result</span></div>`;
   html += tr.map(r => `<div class="row"><span class="tkr">${esc(r.ticker)}</span><span class="st">${esc(r.setup)}</span><span class="r ${r.r>=0?'pos':'neg'}">${rTxt(r.r)}</span></div>`).join("");
+  if (!tr.length) html += `<div class="empty">No v2 proposal outcomes have closed yet.</div>`;
   $("#ledger").innerHTML = html;
 }
 
