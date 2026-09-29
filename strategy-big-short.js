@@ -67,7 +67,7 @@
     }
     let r = (entry - exit) / risk;
     r -= ((p.courtage + p.slippage) * 2 * entry) / risk;
-    return { r, held: exitK - entryIdx + 1 };
+    return { r, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
     }
 
     function runStrategy(bars, params = {}) {
@@ -79,8 +79,7 @@
       if (i <= block || !signalAt(bars, ctx, i, p)) continue;
       const res = simulateTrade(bars, ctx, i + 1, p);
       if (res != null) {
-        trades.push({ entryIdx: i + 1, t: bars[i + 1].t, r: res.r, held: res.held });
-        block = i + 1 + p.maxBars;
+        trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx;
       }
     }
     return trades;
@@ -95,6 +94,7 @@
       if (a == null) continue;
       const ref = bars[i].close, risk = a * p.atrMult;
       return {
+        signalT: String(bars[i].t),
         barsAgo: bars.length - 1 - i,
         entryRef: +ref.toFixed(2),
         stop: +(ref + risk).toFixed(2),
