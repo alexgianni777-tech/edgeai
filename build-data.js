@@ -10,10 +10,11 @@ const fs = require("fs");
 const path = require("path");
 const { genSynthetic } = require("./data");
 const { runStrategy, DEFAULT_PARAMS } = require("./strategy");
-const { walkForward } = require("./walkforward");
+const { validateUniverse } = require("./universe-validation");
 const { metrics } = require("./metrics");
 const { monteCarlo } = require("./montecarlo");
 const { screen } = require("./screener");
+const { buildCohorts, maxConcurrentTrades, cohortDrawdownR } = require("./portfolio-risk");
 
 const demo = process.argv.includes("--demo");
 const ACCOUNT = 100000, RISK = 0.01;
@@ -21,39 +22,55 @@ const round = (x, d = 2) => +(+x).toFixed(d);
 const median = arr => { if (!arr.length) return null; const a = arr.slice().sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2); };
 const sizeFor = (e, s) => (Math.abs(e - s) > 0 ? Math.floor((ACCOUNT * RISK) / Math.abs(e - s)) : 0);
 
-// Publish only after every ticker and index has the last completed daily candle.
-    // Allow 90 minutes after each market's close for the final bar to settle.
-    function expectedClosedSession(key, at = new Date()) {
-      const zone = key === 'SE' ? 'Europe/Stockholm' : 'America/New_York';
-      const cutoff = key === 'SE' ? 19 * 60 : 17 * 60 + 30;
-      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {
-        timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit',
-        hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
-      }).formatToParts(at).map(p => [p.type, p.value]));
-      const day = new Date([parts.year, parts.month, parts.day].join('-') + 'T00:00:00Z');
-      if (Number(parts.hour) * 60 + Number(parts.minute) < cutoff) day.setUTCDate(day.getUTCDate() - 1);
-      while (day.getUTCDay() === 0 || day.getUTCDay() === 6) day.setUTCDate(day.getUTCDate() - 1);
-      return day.toISOString().slice(0, 10);
-    }
-    function assertCompleteDailyBars(key, tickers, universe, indexSymbol, indexBars, at = new Date()) {
-      const expected = expectedClosedSession(key, at);
-      const dateOf = bars => {
-        const last = bars && bars[bars.length - 1];
-        const date = last && new Date(last.t);
-        return date && !Number.isNaN(date.getTime()) ? date.toISOString().slice(0, 10) : 'saknas';
-      };
-      const mismatches = [];
-      const indexDate = dateOf(indexBars);
-      if (indexDate !== expected) mismatches.push(indexSymbol + '=' + indexDate);
-      for (const ticker of tickers) {
-        const actual = dateOf(universe[ticker]);
-        if (actual !== expected) mismatches.push(ticker + '=' + actual);
-      }
-      if (mismatches.length) throw new Error('[DATA_NOT_READY] ' + key + ' behöver kompletta dagskurser ' + expected + ', men ' + mismatches.length + ' symboler saknas/är gamla: ' + mismatches.slice(0, 12).join(', '));
-      console.log('  [' + key + '] verifierade dagskurser för ' + expected + ' (' + tickers.length + ' aktier + index)');
-      return expected;
-    }
-    
+// Publish only after every ticker and index has the same latest completed
+// market session. The index itself defines the session date, so exchange
+// holidays do not look like missing data.
+function latestAllowedDate(key, at = new Date()) {
+  const zone = key === "SE" ? "Europe/Stockholm" : "America/New_York";
+  const cutoff = key === "SE" ? 19 * 60 : 17 * 60 + 30; // close + settlement buffer
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+    timeZone: zone, year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).formatToParts(at).map(p => [p.type, p.value]));
+  const day = new Date(`${parts.year}-${parts.month}-${parts.day}T00:00:00Z`);
+  if (Number(parts.hour) * 60 + Number(parts.minute) < cutoff) {
+    day.setUTCDate(day.getUTCDate() - 1);
+  }
+  return day.toISOString().slice(0, 10);
+}
+
+function assertCompleteDailyBars(key, tickers, universe, indexSymbol, indexBars, at = new Date()) {
+  const allowed = latestAllowedDate(key, at);
+  const dateOf = bars => {
+    const last = bars && bars[bars.length - 1];
+    return last ? dateKey(last.t) : null;
+  };
+
+  const indexDate = dateOf(indexBars);
+  if (!indexDate) throw new Error(`[DATA_NOT_READY] ${key} saknar indexdata för ${indexSymbol}`);
+  if (indexDate > allowed) throw new Error(`[DATA_NOT_READY] ${key} index innehåller en ofullständig framtida/session-bar ${indexDate}`);
+
+  const ageDays = Math.floor((Date.parse(allowed) - Date.parse(indexDate)) / 86400000);
+  if (ageDays > 6) {
+    throw new Error(`[DATA_NOT_READY] ${key} senaste verifierade session ${indexDate} är för gammal`);
+  }
+
+  const mismatches = [];
+  for (const ticker of tickers) {
+    const actual = dateOf(universe[ticker]);
+    if (actual !== indexDate) mismatches.push(`${ticker}=${actual || "saknas"}`);
+  }
+  if (mismatches.length) {
+    throw new Error(
+      `[DATA_NOT_READY] ${key} kräver samma avslutade session som index (${indexDate}), ` +
+      `men ${mismatches.length} symboler avviker: ${mismatches.slice(0, 12).join(", ")}`
+    );
+  }
+
+  console.log(`  [${key}] verifierade dagskurser för ${indexDate} (${tickers.length} aktier + index)`);
+  return indexDate;
+}
+
 // ---- Marknadsregim: handla bara när indexet självt trendar (close > SMA200) ----
 function sma(vals, p) {
   const out = new Array(vals.length).fill(null);
@@ -69,37 +86,13 @@ function regimeFrom(indexBars, period = 200) {
   const closes = indexBars.map(b => b.close);
   const ma = sma(closes, period);
   const map = {};
-  indexBars.forEach((b, i) => { map[String(b.t)] = ma[i] == null ? true : b.close > ma[i]; });
+  indexBars.forEach((b, i) => { const k = dateKey(b.t); if (k) map[k] = ma[i] == null ? true : b.close > ma[i]; });
   const last = indexBars.length - 1;
   const on = ma[last] == null ? true : closes[last] > ma[last];
   return { map, on };
 }
 
-// ---- ÄKTA walk-forward över ett helt universum, för EN strategi ----
-function validateUniverse(universe, strat, isLen = 378, oosLen = 126) {
-  const pooled = [];
-  const votes = {};
-  for (const [tk, bars] of Object.entries(universe)) {
-    if (bars.length < isLen + oosLen + 10) continue;
-    const wf = walkForward(bars, { isLen, oosLen, step: oosLen }, strat);
-    wf.oosTrades.forEach(t => pooled.push({ ...t, ticker: tk }));
-    if (wf.windows.length) {
-      const key = JSON.stringify(wf.windows[wf.windows.length - 1].params);
-      votes[key] = (votes[key] || 0) + 1;
-    }
-  }
-  let best = null, bestN = -1;
-  for (const [k, n] of Object.entries(votes)) if (n > bestN) { bestN = n; best = k; }
-  const params = best ? JSON.parse(best) : strat.DEFAULT_PARAMS;
-  return { oosTrades: pooled, m: metrics(pooled), params };
-}
-
 // ---- Point-in-time relative strength for OOS validation ----
-const dateKey = t => {
-  const d = new Date(t);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-};
-
 function historicalRsRank(universe, ticker, at, cache) {
   const day = dateKey(at);
   if (!day) return null;
@@ -199,19 +192,6 @@ function updateLedger(ledgerPath, universe, setups) {
   return rows.filter(r => r.status === "closed" && r.ledgerVersion === 2);
 }
 
-// fallback: härleda ett trovärdigt track record från backtest (för demo/tomt ledger)
-function backtestTrack(universe, strategiesWithParams) {
-  const recent = [];
-  for (const { strat, params } of strategiesWithParams) {
-    for (const [tk, bars] of Object.entries(universe)) {
-      strat.runStrategy(bars, params).slice(-1).forEach(x =>
-        recent.push({ ticker: tk, setup: strat.name, r: round(x.r), order: x.entryIdx }));
-    }
-  }
-  recent.sort((a, b) => b.order - a.order);
-  return recent.slice(0, 8).map(r => ({ ticker: r.ticker, setup: r.setup, r: r.r }));
-}
-
 async function buildMarket({ key, label, currency, realTickers, demoTickers, demoEdge, demoSeed, indexSymbol, demoIndexSeed }) {
   // universum + index
   let universe = {};
@@ -235,7 +215,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       // Remove it before both validation and strategy calculations; yesterday's
       // complete bar can still be used if every symbol has it.
       if (!demo) {
-        const expected = expectedClosedSession(key);
+        const expected = latestAllowedDate(key);
         const completedOnly = bars => (bars || []).filter(bar => {
           const date = new Date(bar.t);
           if (Number.isNaN(date.getTime())) throw new Error('Ogiltigt Yahoo-kursdatum för ' + key);
@@ -273,7 +253,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     // proposal remains yesterday's close and is intentionally not changed.
     const isShort = strat.dir === "short";
     const regimeFiltered = v.oosTrades.filter(t =>
-      isShort || regime.map[String(t.signalT || t.t)] !== false
+      isShort || regime.map[dateKey(t.signalT || t.t)] !== false
     );
 
     // Validate the same point-in-time RS gate that is used live.
@@ -286,13 +266,27 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     }).sort((a, b) => new Date(a.t) - new Date(b.t));
 
     const fm = metrics(filtered);
+    const positiveWindows = (v.windows || []).filter(w => (w.oos?.exp ?? 0) > 0).length;
+    const positiveWindowRate = (v.windows || []).length
+      ? positiveWindows / v.windows.length
+      : 0;
     const stratHolds =
       (fm.n ?? 0) >= 30 &&
       (fm.expectancy ?? 0) > 0.03 &&
-      (fm.profitFactor ?? 0) > 1.1;
+      (fm.profitFactor ?? 0) > 1.1 &&
+      (fm.expectancyLow95 ?? -Infinity) > -0.05 &&
+      positiveWindowRate >= 0.5;
+    const promising =
+      !stratHolds &&
+      (fm.n ?? 0) >= 20 &&
+      (fm.expectancy ?? 0) > 0 &&
+      (fm.profitFactor ?? 0) > 1;
 
     if (stratHolds) pooledOOS.push(...filtered);
-    stratParams.push({ strat, params: v.params, m: fm, trades: filtered, holds: stratHolds });
+    stratParams.push({
+      strat, params: v.params, m: fm, trades: filtered, holds: stratHolds,
+      promising, windows: v.windows || [], positiveWindowRate,
+    });
 
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
     const typicalDays = median(winHeld) ?? median(filtered.map(t => t.held).filter(h => h != null));
@@ -304,7 +298,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     const setups = screen(universe, fm, v.params, 7, strat).map(s => ({
       dir: isShort ? "short" : "long",
       ticker: s.ticker, setup: s.setup,
-      grade: stratHolds ? "A" : "WATCH",
+      grade: stratHolds ? "A" : (promising ? "B" : "WATCH"),
+      evidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
       validatedEdge: stratHolds,
       regimeAligned: isShort ? true : regime.on,
       signalT: s.signalT,
@@ -333,14 +328,26 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const equityCurve = pooledOOS.map(t => { eq += t.r; return round(eq); });
   const setups = allSetups;
 
-  // Monte Carlo-riskprofil: vad ska man vänta sig vid 1% risk över 100 trades?
-  const mc = monteCarlo(pooledOOS, { riskPerTrade: 0.01, horizon: 100, ruinLevel: 0.75, sims: 5000 });
+  // Portfolio-aware risk: same-day signals are bootstrapped together.
+  const cohorts = buildCohorts(pooledOOS);
+  const mc = monteCarlo(cohorts, {
+    riskPerTrade: 0.01,
+    horizonTrades: 100,
+    ruinLevel: 0.75,
+    drawdownThreshold: 0.25,
+    sims: 5000,
+  });
   const risk = mc ? {
-    riskPerTrade: 1, horizon: 100,
+    riskPerTrade: 1,
+    horizon: 100,
+    model: "signal-cohort bootstrap",
+    cohortCount: cohorts.length,
+    maxConcurrentTrades: maxConcurrentTrades(pooledOOS),
     medianMaxDD: round(mc.medianMaxDD * 100, 1),
     p95MaxDD: round(mc.p95MaxDD * 100, 1),
     medianReturn: round(mc.medianReturn * 100, 1),
-    drawdown25Prob: round(mc.ruinProb * 100, 1),
+    drawdown25Prob: round(mc.drawdownThresholdProb * 100, 1),
+    ruinProb: round(mc.ruinProb * 100, 1),
   } : null;
 
   // 4) track record: växande ledger (per ticker+setup); fall tillbaka på backtest
@@ -361,6 +368,11 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       profitFactor: round(sp.m.profitFactor ?? 0),
       n: sp.m.n ?? 0,
       holds: sp.holds,
+      evidenceStatus: sp.holds ? "VALIDATED" : (sp.promising ? "PROMISING" : "WATCH"),
+      expectancyLow95: round(sp.m.expectancyLow95 ?? 0),
+      expectancyHigh95: round(sp.m.expectancyHigh95 ?? 0),
+      positiveWindowRate: round((sp.positiveWindowRate ?? 0) * 100, 0),
+      walkForwardWindows: sp.windows?.length ?? 0,
       params: sp.params,
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
     };
@@ -370,15 +382,28 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     label, currency, dataAsOf,
     edge: {
       expectancyR: round(m.expectancy ?? 0), winRate: Math.round((m.winRate ?? 0) * 100),
-      profitFactor: round(m.profitFactor ?? 0), maxDDR: round(-(m.maxDD_R ?? 0), 1),
-      n: m.n ?? 0, oosLabel: "walk-forward (OOS)",
+      profitFactor: round(m.profitFactor ?? 0), maxDDR: round(-cohortDrawdownR(cohorts), 1),
+      expectancyLow95: round(m.expectancyLow95 ?? 0),
+      expectancyHigh95: round(m.expectancyHigh95 ?? 0),
+      n: m.n ?? 0, oosLabel: "market-level walk-forward (OOS)",
       holds: (m.n ?? 0) >= 30 && (m.expectancy ?? 0) > 0.05 && (m.profitFactor ?? 0) > 1.15,
     },
     strategies,
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
+    validation: {
+      procedure: "market-level walk-forward",
+      rs: "point-in-time cross-sectional 63-session rank",
+      regime: "signal-bar index close vs SMA200",
+      executionReference: "proposal levels anchored to latest completed close",
+      caveats: [
+        "Historical validation uses the current/curated universe; survivorship bias is not fully eliminated.",
+        "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
+      ],
+    },
     rTrades: pooledOOS.map(t => round(t.r)),
-    equityCurve, setups, trackRecord, trackRecordSource: "live-ledger-v2",
+    rClusters: cohorts.map(x => ({ date: x.date, r: round(x.r), n: x.n })),
+    equityCurve, setups, trackRecord, trackRecordSource: "proposal-ledger-v2",
   };
 }
 
