@@ -13,7 +13,7 @@ const { validateUniverse } = require("./universe-validation");
 const { metrics } = require("./metrics");
 const { monteCarlo } = require("./montecarlo");
 const { screen } = require("./screener");
-const { buildCohorts, maxConcurrentTrades, cohortDrawdownR } = require("./portfolio-risk");
+const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -427,7 +427,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     label, currency, dataAsOf,
     edge: {
       expectancyR: round(m.expectancy ?? 0), winRate: Math.round((m.winRate ?? 0) * 100),
-      profitFactor: pfOut(m.profitFactor ?? 0), maxDDR: round(-cohortDrawdownR(cohorts), 1),
+      profitFactor: pfOut(m.profitFactor ?? 0), maxDDR: round(-realizedDrawdownR(pooledOOS), 1),
       expectancyLow95: round(m.expectancyLow95 ?? 0),
       expectancyHigh95: round(m.expectancyHigh95 ?? 0),
       n: m.n ?? 0, oosLabel: "market-level calendar-aligned walk-forward (OOS)",
@@ -445,6 +445,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       executionReference: "proposal levels anchored to latest completed close",
       caveats: [
         "Historical validation uses the current/curated universe; survivorship bias is not fully eliminated.",
+        "Drawdown is based on realized exits (not mark-to-market equity) and can understate intratrade drawdown.",
         "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
       ],
     },
