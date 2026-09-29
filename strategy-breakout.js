@@ -56,7 +56,7 @@ function simulateTrade(bars, ctx, entryIdx, p) {
   if (exit == null) { exitK = Math.min(bars.length - 1, entryIdx + p.maxBars); exit = bars[exitK].close; }
   let r = (exit - entry) / risk;
   r -= ((p.courtage + p.slippage) * 2 * entry) / risk;
-  return { r, held: exitK - entryIdx + 1 };
+  return { r, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
 }
 
 function runStrategy(bars, params = {}) {
@@ -68,7 +68,7 @@ function runStrategy(bars, params = {}) {
     if (i <= block) continue;
     if (signalAt(bars, ctx, i, p)) {
       const res = simulateTrade(bars, ctx, i + 1, p);
-      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, r: res.r, held: res.held }); block = i + 1 + p.maxBars; }
+      if (res != null) { trades.push({ entryIdx: i + 1, t: bars[i + 1].t, signalT: bars[i].t, exitT: res.exitT, r: res.r, held: res.held }); block = res.exitIdx; }
     }
   }
   return trades;
@@ -83,6 +83,7 @@ function latestSignal(bars, params = {}, freshness = 1) {
     if (a == null) continue;
     const ref = bars[i].close, risk = a * p.atrMult;
     return {
+      signalT: String(bars[i].t),
       barsAgo: bars.length - 1 - i,
       entryRef: +ref.toFixed(2),
       stop: +(ref - risk).toFixed(2),
