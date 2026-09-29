@@ -22,3 +22,8 @@ jobs:
         run: node build-data.js --demo
       - name: Validate generated data contract
         run: npm run verify:data
+      - name: Build live Yahoo dataset
+        timeout-minutes: 6
+        run: node build-data.js
+      - name: Validate live data contract
+        run: npm run verify:data
