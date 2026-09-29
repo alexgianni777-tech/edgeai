@@ -22,22 +22,22 @@ function buildMessage(data) {
     const reg = m.regime || { on: true, label: "risk-on" };
     const e = m.edge;
     msg += `\n${FLAG[key]} ${m.label} — ${reg.on ? "🟢" : "🔴"} ${reg.label}\n`;
-    msg += `Edge: ${e.expectancyR >= 0 ? "+" : ""}${e.expectancyR}R · ${e.winRate}% · PF ${e.profitFactor} (OOS)\n`;
+    msg += e.holds\n      ? `Validated pool: ${e.expectancyR >= 0 ? "+" : ""}${e.expectancyR}R · ${e.winRate}% · PF ${e.profitFactor} (OOS)\\n`\n      : `Ingen fullt validerad OOS-pool just nu — förslag visas ändå som B/WATCH.\\n`;
 
     if (!reg.on) { msg += `Index är risk-off — förslag visas ändå, men regimstatusen ska vägas in.\n`; }
-    const score = s => { const sh = s.dir === "short"; return (s.validatedEdge ? 2 : 0) + ((sh ? !s.above200 : s.above200) ? 1 : 0) + s.edge.expectancyR * 2 + (s.rr >= 2 ? 0.3 : 0) + ((sh ? 100 - (s.rs ?? 50) : (s.rs ?? 50)) / 100) * 0.5 - s.barsAgo * 0.1; };
+    const score = s => { const sh = s.dir === "short"; const ev = s.evidenceStatus === "VALIDATED" ? 2 : s.evidenceStatus === "PROMISING" ? 1 : 0; return ev + ((sh ? !s.above200 : s.above200) ? 1 : 0) + s.edge.expectancyR * 2 + (s.rr >= 2 ? 0.3 : 0) + ((sh ? 100 - (s.rs ?? 50) : (s.rs ?? 50)) / 100) * 0.5 - s.barsAgo * 0.1; };
     const fresh = m.setups.slice().sort((a, b) => score(b) - score(a)).slice(0, 3);
-    if (!fresh.length) { msg += `Inga A-setups idag. Tålamod slår tvång.\n`; continue; }
+    if (!fresh.length) { msg += `Inga förslag idag. Tålamod slår tvång.\n`; continue; }
     for (const s of fresh) {
       const when = s.barsAgo === 0 ? "idag" : s.barsAgo === 1 ? "igår" : `${s.barsAgo}d sedan`;
-      const tag = /breakout/i.test(s.setup) ? "Breakout" : "Pullback";
+      const tag = s.dir === "short" ? "Short" : /breakout/i.test(s.setup) ? "Breakout" : /bollinger|reversion/i.test(s.setup) ? "Bollinger" : /momentum|flag/i.test(s.setup) ? "Momentum" : "Pullback";
       msg += `• ${s.ticker}${s.dir === "short" ? " (SHORT)" : ""} — ${tag} (${when}) · ${s.validatedEdge ? "A/validated" : "WATCH"}\n`;
       msg += `   entry ${fmt(s.entry, m.currency)} · stop ${fmt(s.stop, m.currency)} · target ${fmt(s.target, m.currency)}\n`;
     }
     const more = m.setups.length - fresh.length;
     if (more > 0) msg += `…+${more} fler setups på sajten.\n`;
   }
-  msg += `\nEj rådgivning. WATCH betyder att förslaget finns kvar men att OOS-evidensen inte passerar valideringsgränsen.`;
+  msg += `\nEj rådgivning. A = validerad OOS, B = lovande men inte fullt validerad, WATCH = idé med otillräcklig eller svag OOS-evidens. Förslag döljs inte av etiketten.`;
   return msg;
 }
 
