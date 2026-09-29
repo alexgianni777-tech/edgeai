@@ -486,19 +486,30 @@ function renderAll() {
 function renderProof(m) {
   const e = m.edge;
   $("#holdsBadge").className = "holds " + (e.holds ? "yes" : "no");
-  $("#holdsBadge").textContent = e.holds ? "✓ edge holds (OOS)" : "✗ no edge (OOS)";
+  $("#holdsBadge").textContent = e.holds ? "✓ validated OOS pool" : "○ no validated pool yet";
+  const ci = e.expectancyLow95 != null && e.expectancyHigh95 != null
+    ? `${rTxt(e.expectancyLow95)} to ${rTxt(e.expectancyHigh95)}`
+    : "n/a";
   $("#stats").innerHTML = `
-    <div class="stat" title="Average profit per trade, in R (your risk per trade). +0.18R means +0.18× your risk on average."><div class="v ${e.expectancyR>=0?'pos':'neg'}">${rTxt(e.expectancyR)}</div><div class="k">Avg / trade</div></div>
-    <div class="stat" title="Share of trades that reached target before stop."><div class="v">${e.winRate}%</div><div class="k">Win rate</div></div>
-    <div class="stat" title="Gross profit ÷ gross loss. Above 1 is profitable; 1.5 = made 1.5× what it lost."><div class="v">${e.profitFactor.toFixed(2)}</div><div class="k">Profit factor</div></div>
-    <div class="stat" title="Worst peak-to-valley equity dip, measured in R."><div class="v neg">${e.maxDDR.toFixed(1)}R</div><div class="k">Max drawdown</div></div>
-    <div class="stat" title="Number of out-of-sample trades behind these stats — data the model never optimised on."><div class="v">${e.n}</div><div class="k">Trades</div></div>
-    <div class="stat" title="How the edge was tested: walk-forward, out-of-sample only."><div class="v">${esc(e.oosLabel)}</div><div class="k">Validation</div></div>`;
-  $("#plainRead").innerHTML = `In plain terms: <b>1R = what you risk on a trade</b> (entry-to-stop distance). This edge averaged <b>${rTxt(e.expectancyR)}</b> per trade — for every 1 risked it returned about <b>${e.expectancyR.toFixed(2)}</b> back on average, winning <b>${e.winRate}%</b> of the time. Worst dip along the way: <b>${Math.abs(e.maxDDR).toFixed(1)}R</b>. Profit factor <b>${e.profitFactor.toFixed(2)}</b> = winners brought in ${e.profitFactor.toFixed(2)}× what losers cost.<span class="rdef">All numbers are out-of-sample — measured only on trades the strategy was never tuned on.</span>`;
+    <div class="stat" title="Average OOS result per trade in R."><div class="v ${e.expectancyR>=0?'pos':'neg'}">${rTxt(e.expectancyR)}</div><div class="k">Avg / trade</div></div>
+    <div class="stat" title="Approximate 95% confidence interval for expectancy."><div class="v">${ci}</div><div class="k">95% interval</div></div>
+    <div class="stat" title="Share of OOS trades with positive R."><div class="v">${e.winRate}%</div><div class="k">Win rate</div></div>
+    <div class="stat" title="Gross profit divided by gross loss."><div class="v">${e.profitFactor.toFixed(2)}</div><div class="k">Profit factor</div></div>
+    <div class="stat" title="Chronological signal-cohort drawdown, measured in R."><div class="v neg">${e.maxDDR.toFixed(1)}R</div><div class="k">Cluster drawdown</div></div>
+    <div class="stat" title="Number of out-of-sample trades in the validated pool."><div class="v">${e.n}</div><div class="k">OOS trades</div></div>`;
+  if (e.holds) {
+    $("#plainRead").innerHTML = `Validated strategies averaged <b>${rTxt(e.expectancyR)}</b> per OOS trade (95% interval ${ci}), with <b>${e.winRate}%</b> positive outcomes and PF <b>${e.profitFactor.toFixed(2)}</b>. <span class="rdef">${esc(e.oosLabel)}. Proposals from weaker strategies are still shown separately as B/WATCH instead of being hidden.</span>`;
+  } else {
+    $("#plainRead").innerHTML = `No strategy currently passes the full validation gate for this market. <b>Proposals are still generated</b>, but they are labelled B/WATCH so an idea is not confused with proven edge.<span class="rdef">${esc(e.oosLabel)}; the dashboard keeps candidate generation separate from statistical validation.</span>`;
+  }
   drawEquity(m.equityCurve);
 }
 
 function drawEquity(data) {
+  if (!data || !data.length) {
+    $("#equity").innerHTML = `<text x="300" y="100" text-anchor="middle" fill="#7A828C" font-size="15">No validated OOS equity curve yet</text>`;
+    return;
+  }
   const W = 600, H = 200, pad = 10;
   const min = Math.min(...data, 0), max = Math.max(...data, 0);
   const x = i => pad + i * (W - 2 * pad) / (data.length - 1);
@@ -559,63 +570,78 @@ function sparkSVG(data, color) {
     <path d="${p}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/></svg>`;
 }
 
-function mcSim(rs, riskFrac, horizon, ruinLevel, sims, seed) {
-  if (!rs || !rs.length) return null;
+function mcSim(items, riskFrac, horizonTrades, ruinLevel, sims, seed) {
+  if (!items || !items.length) return null;
+  const clusters = typeof items[0] === "number"
+    ? items.map(r => ({ r, n: 1 }))
+    : items.map(x => ({ r: +x.r, n: Math.max(1, +x.n || 1) }));
   let s = seed >>> 0;
   const rand = () => { s = (s + 0x6D2B79F5) | 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-  const maxDDs = [], finals = []; let ruined = 0;
+  const maxDDs = [], finals = []; let ruined = 0, dd25 = 0;
   for (let i = 0; i < sims; i++) {
-    let eq = 1, peak = 1, mdd = 0, dead = false;
-    for (let k = 0; k < horizon; k++) {
-      eq *= (1 + riskFrac * rs[(rand() * rs.length) | 0]);
+    let eq = 1, peak = 1, mdd = 0, dead = false, trades = 0;
+    while (trades < horizonTrades) {
+      const cl = clusters[(rand() * clusters.length) | 0];
+      eq *= Math.max(0, 1 + riskFrac * cl.r);
+      trades += cl.n;
       if (eq > peak) peak = eq;
-      const dd = (peak - eq) / peak; if (dd > mdd) mdd = dd;
-      if (eq <= ruinLevel) { dead = true; break; }
+      const dd = peak > 0 ? (peak - eq) / peak : 1;
+      if (dd > mdd) mdd = dd;
+      if (eq <= ruinLevel || eq <= 0) { dead = true; break; }
     }
-    if (dead) ruined++; maxDDs.push(mdd); finals.push(eq);
+    if (dead) ruined++;
+    if (mdd >= 0.25) dd25++;
+    maxDDs.push(mdd); finals.push(eq);
   }
   maxDDs.sort((a, b) => a - b); finals.sort((a, b) => a - b);
   const pct = (arr, p) => { const idx = (arr.length - 1) * p, lo = Math.floor(idx), hi = Math.ceil(idx); return lo === hi ? arr[lo] : arr[lo] + (arr[hi] - arr[lo]) * (idx - lo); };
-  return { medianMaxDD: pct(maxDDs, 0.5) * 100, p95MaxDD: pct(maxDDs, 0.95) * 100, medianReturn: (pct(finals, 0.5) - 1) * 100, ruinProb: ruined / sims * 100 };
+  return {
+    medianMaxDD: pct(maxDDs, 0.5) * 100,
+    p95MaxDD: pct(maxDDs, 0.95) * 100,
+    medianReturn: (pct(finals, 0.5) - 1) * 100,
+    ruinProb: ruined / sims * 100,
+    dd25Prob: dd25 / sims * 100,
+  };
 }
 
 function renderRisk(m) {
-  const rs = m.rTrades;
-  if (!rs || rs.length < 20) { $("#riskGrid").innerHTML = `<div class="empty">Not enough trades yet to model risk.</div>`; $("#riskCash").textContent = ""; return; }
-  const mc = mcSim(rs, riskPct / 100, 100, 0.75, 3000, 7);
+  const sample = (m.rClusters && m.rClusters.length) ? m.rClusters : m.rTrades;
+  if (!sample || !sample.length) {
+    $("#riskGrid").innerHTML = `<div class="empty">No validated OOS pool yet — portfolio risk is not modelled from WATCH proposals.</div>`;
+    $("#riskCash").textContent = "";
+    return;
+  }
+  const mc = mcSim(sample, riskPct / 100, 100, 0.75, 3000, 7);
   const f = x => x.toFixed(1);
   $("#riskGrid").innerHTML = `
     <div class="risk-card"><div class="rv">${f(mc.medianMaxDD)}%</div><div class="rk">Typical max drawdown</div></div>
-    <div class="risk-card"><div class="rv warn">${f(mc.p95MaxDD)}%</div><div class="rk">Rough worst case (95th pct)</div></div>
-    <div class="risk-card"><div class="rv pos">+${f(mc.medianReturn)}%</div><div class="rk">Typical growth / 100 trades</div></div>
-    <div class="risk-card"><div class="rv ${mc.ruinProb > 0 ? 'neg' : ''}">${f(mc.ruinProb)}%</div><div class="rk">Chance of a 25%+ drawdown</div></div>`;
+    <div class="risk-card"><div class="rv warn">${f(mc.p95MaxDD)}%</div><div class="rk">95th pct max drawdown</div></div>
+    <div class="risk-card"><div class="rv pos">${mc.medianReturn >= 0 ? "+" : ""}${f(mc.medianReturn)}%</div><div class="rk">Median growth / ~100 trades</div></div>
+    <div class="risk-card"><div class="rv ${mc.dd25Prob > 0 ? 'neg' : ''}">${f(mc.dd25Prob)}%</div><div class="rk">Chance of 25%+ drawdown</div></div>`;
   const cur = m.currency, fmtC = v => cur === "$" ? "$" + Math.round(v).toLocaleString("en-US") : Math.round(v).toLocaleString("sv-SE") + " kr";
-  $("#riskCash").innerHTML = `On your ${fmtC(account)} account: typical drawdown ≈ <b>${fmtC(account * mc.medianMaxDD / 100)}</b>, worst-case ≈ <b>${fmtC(account * mc.p95MaxDD / 100)}</b>.`;
+  const concurrent = m.risk?.maxConcurrentTrades;
+  $("#riskCash").innerHTML = `Signal-cohort bootstrap at ${riskPct}% risk/trade. On ${fmtC(account)}: median drawdown ≈ <b>${fmtC(account * mc.medianMaxDD / 100)}</b>, 95th pct ≈ <b>${fmtC(account * mc.p95MaxDD / 100)}</b>${concurrent != null ? `; historical max concurrent OOS trades: <b>${concurrent}</b>` : ""}.`;
 }
 
 function renderStrategies(m) {
   const colors = ["#1F3A5F", "#C8911C", "#1A7F55"];
   $("#stratGrid").innerHTML = (m.strategies || []).map((s, i) => {
-    if (s.holds === false) {
-      return `
-      <div class="strat-card" style="opacity:.72">
-        <div class="sn">${esc(s.name)}</div>
-        <div class="ss">WATCH — OOS evidence does not currently pass the validation gate (n=${s.n}). Proposals may still be shown, clearly marked unvalidated.</div>
-      </div>`;
-    }
+    const status = s.evidenceStatus || (s.holds ? "VALIDATED" : "WATCH");
+    const ci = s.expectancyLow95 != null ? ` · 95% [${rTxt(s.expectancyLow95)}, ${rTxt(s.expectancyHigh95)}]` : "";
+    const windows = s.walkForwardWindows ? ` · ${s.positiveWindowRate}% positive WF windows` : "";
     return `
-    <div class="strat-card">
-      <div class="sn">${esc(s.name)}</div>
-      <div class="ss"><b>${rTxt(s.expectancyR)}</b> · ${s.winRate}% win · PF ${s.profitFactor} · n=${s.n}</div>
-      ${sparkSVG(s.equityCurve, colors[i % colors.length])}
-    </div>`;
+      <div class="strat-card" style="${status === "WATCH" ? "opacity:.76" : ""}">
+        <div class="sn">${esc(s.name)}</div>
+        <div class="ss"><b>${status}</b> · ${rTxt(s.expectancyR)} · ${s.winRate}% win · PF ${s.profitFactor} · n=${s.n}${ci}${windows}</div>
+        ${sparkSVG(s.equityCurve, colors[i % colors.length])}
+      </div>`;
   }).join("");
 }
 
 function pickText(s, m) {
   const p = v => fmtPrice(v, m.currency);
   const tag = shortTag(s.setup);
-  return `${s.ticker} — ${tag}${s.dir === "short" ? " (SHORT)" : ""}\n${s.dir === "short" ? "Short" : "Buy"} ${p(s.entry)} / Stop ${p(s.stop)} / Target ${p(s.target)} (R:R ${s.rr.toFixed(1)})\nEdge ${rTxt(s.edge.expectancyR)}, ${s.edge.winRate}% (n=${s.edge.sample})${s.typicalDays ? `\nTypical hold: ~${s.typicalDays} days to target` : ""}`;
+  return `${s.ticker} — ${tag}${s.dir === "short" ? " (SHORT)" : ""}\n${s.dir === "short" ? "Short" : "Buy"} ${p(s.entry)} / Stop ${p(s.stop)} / Target ${p(s.target)} (R:R ${s.rr.toFixed(1)})\n${s.evidenceStatus || (s.validatedEdge ? "VALIDATED" : "WATCH")} OOS ${rTxt(s.edge.expectancyR)}, ${s.edge.winRate}% (n=${s.edge.sample})${s.typicalDays ? `\nTypical hold: ~${s.typicalDays} days to target` : ""}`;
 }
 
 function renderTop3(m) {
@@ -626,7 +652,7 @@ function renderTop3(m) {
     return;
   }
   const tag = s => shortTag(s.setup);
-  const score = s => { const sh = s.dir === "short"; return (s.validatedEdge ? 2 : 0) + ((sh ? !s.above200 : s.above200) ? 1 : 0) + s.edge.expectancyR * 2 + (s.rr >= 2 ? 0.3 : 0) + (((sh ? 100 - (s.rs ?? 50) : (s.rs ?? 50))) / 100) * 0.5 - s.barsAgo * 0.1; };
+  const score = s => { const sh = s.dir === "short"; const ev = s.evidenceStatus === "VALIDATED" ? 2 : s.evidenceStatus === "PROMISING" ? 1 : 0; return ev + ((sh ? !s.above200 : s.above200) ? 1 : 0) + s.edge.expectancyR * 2 + (s.rr >= 2 ? 0.3 : 0) + (((sh ? 100 - (s.rs ?? 50) : (s.rs ?? 50))) / 100) * 0.5 - s.barsAgo * 0.1; };
   const top = m.setups.slice().sort((a, b) => score(b) - score(a)).slice(0, 3);
   $("#top3").innerHTML = top.map((s, i) => `
     <div class="pick">
@@ -634,8 +660,8 @@ function renderTop3(m) {
       <div class="pick-tk">${esc(s.ticker)}</div>
       <div class="pick-setup">${tag(s)}${s.dir === "short" ? " · <b style=\"color:var(--red)\">SHORT</b>" : ""} · ${s.barsAgo === 0 ? "today" : s.barsAgo + "d ago"}${s.typicalDays ? " · ~" + s.typicalDays + "d hold" : ""}</div>
       ${candleSVG(s.chart, s.entry, s.stop, s.target, m.currency, false, "pick-candle")}
-      <div class="pick-levels"><span>Buy ${fmtPrice(s.entry, m.currency)}</span><span>Stop ${fmtPrice(s.stop, m.currency)}</span><span>Target ${fmtPrice(s.target, m.currency)}</span></div>
-      <div class="pick-edge">${rTxt(s.edge.expectancyR)} · ${s.edge.winRate}% win · ${s.above200 ? "↑200d" : "↓200d"}</div>
+      <div class="pick-levels"><span>${s.dir === "short" ? "Short" : "Buy"} ${fmtPrice(s.entry, m.currency)}</span><span>Stop ${fmtPrice(s.stop, m.currency)}</span><span>Target ${fmtPrice(s.target, m.currency)}</span></div>
+      <div class="pick-edge">${s.evidenceStatus || (s.validatedEdge ? "VALIDATED" : "WATCH")} · ${rTxt(s.edge.expectancyR)} · ${s.edge.winRate}% win · ${s.above200 ? "↑200d" : "↓200d"}</div>
       <button class="copybtn" data-copy="${encodeURIComponent(pickText(s, m))}">Copy</button>
     </div>`).join("");
 }
@@ -672,7 +698,7 @@ function renderSetups(m, skipChips) {
     return;
   }
   const pool = m.setups.filter(s => (setupFilter === "All" || shortTag(s.setup) === setupFilter) && (!tickQ || s.ticker.toUpperCase().includes(tickQ.toUpperCase())));
-  if (!pool.length) { $("#setups").innerHTML = `<div class="empty">No ${setupFilter === "All" ? "A-setups" : setupFilter + " setups"} this week. Patience beats forcing it.</div>`; return; }
+  if (!pool.length) { $("#setups").innerHTML = `<div class="empty">No ${setupFilter === "All" ? "proposals" : setupFilter + " proposals"} this week.</div>`; return; }
   const sorters = { fresh: (a, b) => a.barsAgo - b.barsAgo, rs: (a, b) => (b.rs ?? 0) - (a.rs ?? 0), edge: (a, b) => b.edge.expectancyR - a.edge.expectancyR, rr: (a, b) => b.rr - a.rr };
   const sorted = pool.slice().sort(sorters[sortBy] || sorters.fresh);
   const CAP = 12;
@@ -688,7 +714,7 @@ function renderSetups(m, skipChips) {
           <div class="tk">${esc(s.ticker)} <span class="fresh ${fresh}">${freshTxt(s.barsAgo)}</span><span class="trend200 ${s.above200 ? 'up' : 'dn'}">${s.above200 ? '↑ 200d' : '↓ 200d'}</span></div>
           <div class="nm">${esc(s.setup)}</div>
         </div>
-        <span class="grade">${s.validatedEdge ? "A · validated" : "WATCH · unvalidated"}</span>
+        <span class="grade">${s.evidenceStatus === "VALIDATED" ? "A · validated" : s.evidenceStatus === "PROMISING" ? "B · promising" : "WATCH · unvalidated"}</span>
       </div>
       <div class="levels">
         <div class="lv"><div class="lk">Entry</div><div class="lvv">${fmtPrice(s.entry, m.currency)}</div></div>
@@ -702,7 +728,7 @@ function renderSetups(m, skipChips) {
       </div>
       <div class="setup-foot">
         <span class="mini">Size: <b>${size}</b> sh (1% risk)</span>
-        <span class="mini">${s.validatedEdge ? "Validated OOS" : "OOS evidence"}: <b>${rTxt(s.edge.expectancyR)}</b> · <b>${s.edge.winRate}%</b> · n=${s.edge.sample}</span>
+        <span class="mini">${s.evidenceStatus === "VALIDATED" ? "Validated OOS" : s.evidenceStatus === "PROMISING" ? "Promising OOS" : "WATCH OOS"}: <b>${rTxt(s.edge.expectancyR)}</b> · <b>${s.edge.winRate}%</b> · n=${s.edge.sample}</span>
         ${s.typicalDays ? `<span class="mini">~<b>${s.typicalDays}</b> days to target</span>` : ""}
         ${s.rs != null ? `<span class="mini">RS <b>${s.rs}</b>/100</span>` : ""}
         ${entryDist(s)}
@@ -775,18 +801,20 @@ function explainLocal(s, m) {
   // 3) The evidence — honest statistics
   const e = s.edge;
   const per20 = e.expectancyR * 20;
-  const evidence = (s.validatedEdge ? "Validated OOS evidence: " : "WATCH — unvalidated OOS evidence: ") +
+  const evidence = (s.evidenceStatus === "VALIDATED" ? "Validated OOS evidence: " : s.evidenceStatus === "PROMISING" ? "Promising but not fully validated OOS evidence: " : "WATCH — unvalidated OOS evidence: ") +
     "across " + e.sample + " out-of-sample trades this setup averaged " + rTxt(e.expectancyR) +
     " per trade with a " + e.winRate + "% hit rate. Over 20 trades the historical arithmetic corresponds to roughly " +
     (per20 >= 0 ? "+" : "") + per20.toFixed(1) + "R, but this is descriptive evidence rather than a promise.";
 
   // 4) Context — regime and the stock's own trend
-  const context = "Context: the market regime is " + reg.label +
-    (s.above200 ? ", and " + s.ticker + " trades above its own 200-day line — trend and tide aligned." :
-      ", but " + s.ticker + " sits below its own 200-day line — a weaker backdrop. Treat it as lower conviction, or skip it.");
+  const trendAligned = s.dir === "short" ? !s.above200 : s.above200;
+  const context = "Context: the market regime is " + reg.label + ". " + s.ticker +
+    (trendAligned
+      ? " is on the strategy-aligned side of its own 200-day line."
+      : " is counter to its own 200-day trend, so conviction should be lower.");
 
   // 5) Discipline — the part that actually decides the outcome
-  const discipline = "Discipline: decide now that the stop is where you are wrong. If it hits, you lose 1R and move on — no widening, no averaging down, no revenge entry. Take this only if it is an A-trade for you: right setup, right size, nothing forced. Passing is also a position.";
+  const discipline = "Discipline: decide now that the stop is where you are wrong. If it hits, you lose 1R and move on — no widening, no averaging down, no revenge entry. Use the evidence label as intended: A = validated, B = promising, WATCH = idea only. Right setup and right size still matter; nothing is forced. Passing is also a position.";
 
   return read + freshNote + "\n\n" + plan + "\n\n" + evidence + "\n\n" + context + "\n\n" + discipline;
 }
