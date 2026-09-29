@@ -3,6 +3,7 @@ name: EdgeAI tests
 on:
   pull_request:
     branches: ["main"]
+    types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch: {}
 
 permissions:
@@ -21,4 +22,20 @@ jobs:
       - name: Build deterministic demo dataset
         run: node build-data.js --demo
       - name: Validate generated data contract
+        run: npm run verify:data
+
+  live-smoke:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - name: Build from live Yahoo market data
+        run: node build-data.js
+      - name: Validate live output contract
         run: npm run verify:data
