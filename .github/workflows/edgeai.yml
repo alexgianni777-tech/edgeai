@@ -29,6 +29,8 @@ jobs:
       # 1) Bygg hemsidans data (USA + Sverige) och committa den
       - name: Build site data (US + SE)
         run: node build-data.js
+      - name: Validate output contract
+        run: npm run verify:data
       - name: Commit data.json
         run: |
           git config user.name "github-actions"
