@@ -24,6 +24,16 @@ for (const script of inlineScripts) {
   assert.doesNotThrow(() => new Function(script), "inline browser scripts must parse");
 }
 
+const { normalizeQuotes } = require("./data-live");
+const normalized = normalizeQuotes([
+  { date: new Date("2026-01-02T00:00:00Z"), open: 100, high: 110, low: 90, close: 100, adjclose: 50 },
+  { date: new Date("2026-01-02T12:00:00Z"), open: 102, high: 112, low: 92, close: 102, adjclose: 51 },
+  { date: new Date("2026-01-03T00:00:00Z"), open: 52, high: 55, low: 50, close: 54, adjclose: 54 },
+]);
+assert.strictEqual(normalized.length, 2, "duplicate Yahoo event rows must collapse by trading date");
+assert.ok(Math.abs(normalized[0].close - 51) < 1e-9, "adjclose factor must scale historical OHLC");
+assert.ok(normalized[0].t < normalized[1].t, "normalized bars must be chronological");
+
 const { sizePosition } = require("./screener");
 assert.strictEqual(
   sizePosition({ entryRef: 100, stop: 110 }, 100000, 0.01),
