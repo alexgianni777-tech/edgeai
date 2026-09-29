@@ -31,7 +31,7 @@ function buildMessage(data) {
     for (const s of fresh) {
       const when = s.barsAgo === 0 ? "idag" : s.barsAgo === 1 ? "igår" : `${s.barsAgo}d sedan`;
       const tag = s.dir === "short" ? "Short" : /breakout/i.test(s.setup) ? "Breakout" : /bollinger|reversion/i.test(s.setup) ? "Bollinger" : /momentum|flag/i.test(s.setup) ? "Momentum" : "Pullback";
-      msg += `• ${s.ticker}${s.dir === "short" ? " (SHORT)" : ""} — ${tag} (${when}) · ${s.validatedEdge ? "A/validated" : "WATCH"}\n`;
+      msg += `• ${s.ticker}${s.dir === "short" ? " (SHORT)" : ""} — ${tag} (${when}) · ${s.evidenceStatus === "VALIDATED" ? "A/validated" : s.evidenceStatus === "PROMISING" ? "B/promising" : "WATCH"}\n`;
       msg += `   entry ${fmt(s.entry, m.currency)} · stop ${fmt(s.stop, m.currency)} · target ${fmt(s.target, m.currency)}\n`;
     }
     const more = m.setups.length - fresh.length;
