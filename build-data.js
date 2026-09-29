@@ -15,6 +15,7 @@ const { metrics } = require("./metrics");
 const { monteCarlo } = require("./montecarlo");
 const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, cohortDrawdownR } = require("./portfolio-risk");
+const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
 const ACCOUNT = 100000, RISK = 0.01;
@@ -249,6 +250,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const stratParams = [];
   for (const strat of STRATS) {
     const v = validateUniverse(universe, strat, { calendarDates: indexBars.map(b => b.t) });
+    const legacyParams = legacyVotedParams(universe, strat);
     // Validation uses only information known on the SIGNAL bar. The live
     // proposal remains yesterday's close and is intentionally not changed.
     const isShort = strat.dir === "short";
@@ -284,41 +286,62 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
     if (stratHolds) pooledOOS.push(...filtered);
     stratParams.push({
-      strat, params: v.params, m: fm, trades: filtered, holds: stratHolds,
+      strat, params: v.params, proposalParams: legacyParams, m: fm, trades: filtered, holds: stratHolds,
       promising, windows: v.windows || [], positiveWindowRate,
     });
 
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
     const typicalDays = median(winHeld) ?? median(filtered.map(t => t.held).filter(h => h != null));
 
-    // IMPORTANT: proposals are never removed merely because validation is weak.
-    // A weak/negative strategy remains visible as WATCH; "validatedEdge" tells
-    // consumers whether its OOS evidence currently passes the quality gate.
-    const mergedParams = { ...(strat.DEFAULT_PARAMS || {}), ...(v.params || {}) };
-    const setups = screen(universe, fm, v.params, 7, strat).map(s => ({
-      dir: isShort ? "short" : "long",
-      ticker: s.ticker, setup: s.setup,
-      grade: stratHolds ? "A" : (promising ? "B" : "WATCH"),
-      evidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
-      validatedEdge: stratHolds,
-      regimeAligned: isShort ? true : regime.on,
-      signalT: s.signalT,
-      barsAgo: s.barsAgo, typicalDays,
-      rs: rsRank[s.ticker] ?? 50,
-      entry: s.entryRef, stop: s.stop, target: s.target, rr: s.rr,
-      maxBars: mergedParams.maxBars ?? 20,
-      size: sizeFor(s.entryRef, s.stop), edge: s.edge,
-      above200: (() => { const b = universe[s.ticker] || []; const c = b.map(x => x.close); const ma = sma(c, 200); const i = b.length - 1; return i >= 0 && ma[i] != null ? c[i] > ma[i] : true; })(),
-      chart: (universe[s.ticker] || []).slice(-22).map(b => ({ o: round(b.open), h: round(b.high), l: round(b.low), c: round(b.close) })),
-    }));
-    // Momentum handlar bara ledare. Burry-filtret handlar bara laggards:
-    // den nedre tredjedelen av 63-dagars relativ styrka i respektive marknad.
-    const gated = isShort
-      ? setups.filter(x => (x.rs ?? 50) <= (strat.shortRsMax ?? 35))
-      : /momentum/i.test(strat.name)
-        ? setups.filter(x => (x.rs ?? 50) >= 60)
-        : setups;
-    allSetups.push(...gated);
+    // Candidate generation is deliberately broader than validation.
+    // Legacy voted params run first so hardening cannot silently delete the
+    // proposals users already rely on; market-level params may add candidates.
+    const proposalSets = uniqueParamSets([
+      { source: "legacy-vote", params: legacyParams },
+      { source: "market-wf", params: v.params },
+    ]);
+    const proposalMap = new Map();
+
+    for (const pset of proposalSets) {
+      const mergedParams = { ...(strat.DEFAULT_PARAMS || {}), ...(pset.params || {}) };
+      const raw = screen(universe, fm, pset.params, 7, strat).map(s => ({
+        dir: isShort ? "short" : "long",
+        ticker: s.ticker, setup: s.setup,
+        grade: stratHolds ? "A" : (promising ? "B" : "WATCH"),
+        evidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
+        validatedEdge: stratHolds,
+        regimeAligned: isShort ? true : regime.on,
+        proposalSource: pset.source,
+        signalT: s.signalT,
+        barsAgo: s.barsAgo, typicalDays,
+        rs: rsRank[s.ticker] ?? 50,
+        entry: s.entryRef, stop: s.stop, target: s.target, rr: s.rr,
+        maxBars: mergedParams.maxBars ?? 20,
+        size: sizeFor(s.entryRef, s.stop), edge: s.edge,
+        above200: (() => {
+          const b = universe[s.ticker] || [];
+          const closes = b.map(x => x.close);
+          const ma = sma(closes, 200);
+          const i = b.length - 1;
+          return i >= 0 && ma[i] != null ? closes[i] > ma[i] : true;
+        })(),
+        chart: (universe[s.ticker] || []).slice(-22).map(b => ({
+          o: round(b.open), h: round(b.high), l: round(b.low), c: round(b.close)
+        })),
+      }));
+
+      const gated = isShort
+        ? raw.filter(x => (x.rs ?? 50) <= (strat.shortRsMax ?? 35))
+        : /momentum/i.test(strat.name)
+          ? raw.filter(x => (x.rs ?? 50) >= 60)
+          : raw;
+
+      for (const s of gated) {
+        const key = s.ticker + "|" + s.setup;
+        if (!proposalMap.has(key)) proposalMap.set(key, s);
+      }
+    }
+    allSetups.push(...proposalMap.values());
   }
 
   // Chronological ordering is required for any path-dependent metric such as DD.
@@ -374,6 +397,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       positiveWindowRate: round((sp.positiveWindowRate ?? 0) * 100, 0),
       walkForwardWindows: sp.windows?.length ?? 0,
       params: sp.params,
+      proposalParams: sp.proposalParams,
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
     };
   });
