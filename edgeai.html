@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EdgeAI — a proven edge, not a claim</title>
-<meta name="description" content="Validated stock setups for the US and Swedish markets. Walk-forward, out-of-sample statistics, regime filter, open track record — updated daily." />
+<meta name="description" content="Daily US and Swedish stock proposals with market-level walk-forward evidence, risk context and a forward proposal ledger." />
 <meta name="theme-color" content="#1F3A5F" />
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
@@ -250,9 +250,9 @@
 
 <div class="wrap">
   <section class="hero">
-    <div class="kicker"><span class="dot"></span><span>Validated edge · updated daily</span></div>
+    <div class="kicker"><span class="dot"></span><span>Evidence-aware proposals · updated daily</span></div>
     <h1>An edge you can <span class="u">see</span> — not a signal you're told to trust.</h1>
-    <p class="sub">Validated stock setups from a daily scan of the US and Swedish markets. Every setup is backed by walk-forward, out-of-sample statistics — and every outcome is logged in the open. <a href="tracker.html" style="color:var(--navy);font-weight:600;white-space:nowrap;">My challenge tracker →</a></p>
+    <p class="sub">Daily stock proposals from the US and Swedish markets. Each idea carries an explicit evidence tier — A validated, B promising or WATCH — based on market-level walk-forward OOS testing. Proposal outcomes are tracked separately from the backtest. <a href="tracker.html" style="color:var(--navy);font-weight:600;white-space:nowrap;">My challenge tracker →</a></p>
   </section>
 
   <section class="sec" id="topSec" style="margin-top:28px;">
@@ -282,12 +282,12 @@
     </div>
     <div class="risk-grid" id="riskGrid"></div>
     <p class="risk-cash" id="riskCash"></p>
-    <p class="risk-note">Bootstrapped from the out-of-sample trades (3,000 simulations, live). Past results are no guarantee of the future.</p>
+    <p class="risk-note">Signal-cohort bootstrap: proposals originating together are resampled together instead of treated as independent bets. Past results are no guarantee of the future.</p>
   </section>
 
   <section class="sec">
-    <h2 class="sec-h">Edge by setup type</h2>
-    <p class="sec-p">Each pattern is validated independently. Diversification is the point — when one cools off, the other carries.</p>
+    <h2 class="sec-h">Evidence by setup type</h2>
+    <p class="sec-p">Each pattern is measured independently. Weak evidence stays visible as B/WATCH rather than being mislabeled as validated edge.</p>
     <div class="strat-grid" id="stratGrid"></div>
   </section>
 
@@ -307,37 +307,37 @@
 
   <section class="sec">
     <div class="sec-head">
-      <h2 class="sec-h">Open track record</h2>
+      <h2 class="sec-h">Forward proposal ledger</h2>
       <button class="btn-ghost" id="csvBtn">Export CSV</button>
     </div>
-    <p class="sec-p">Every signal is logged with a timestamp and outcome. This is the moat — it grows by itself and can't be reconstructed after the fact.</p>
+    <p class="sec-p">New proposal signals receive an immutable daily signal ID and are resolved forward from subsequent bars. This ledger measures displayed proposal outcomes; it is intentionally separate from OOS strategy statistics.</p>
     <div class="track-summary" id="trackSummary"></div>
     <div class="ledger" id="ledger"></div>
   </section>
 
   <section class="sec">
-    <h2 class="sec-h">How the edge is proven</h2>
-    <p class="sec-p">Most "signals" are a backtest curve fitted to the past. EdgeAI is built to survive the opposite test.</p>
+    <h2 class="sec-h">How evidence is tested</h2>
+    <p class="sec-p">EdgeAI separates candidate generation from evidence. A proposal can exist even when the historical evidence is weak; the label tells you which is which.</p>
     <div class="method-grid">
       <div class="method-card">
         <div class="mi">1</div>
-        <h3>Walk-forward, not curve-fit</h3>
-        <p>Parameters are chosen on older data, then applied to a later window the model never saw. The numbers you see come only from that unseen data.</p>
+        <h3>Market-level walk-forward</h3>
+        <p>One common parameter set is selected across the market on older data, then applied unchanged to the next calendar-aligned unseen period.</p>
       </div>
       <div class="method-card">
         <div class="mi">2</div>
-        <h3>Out-of-sample only</h3>
-        <p>Every stat — expectancy, win rate, profit factor — is measured on trades the strategy was never optimised on. No in-sample flattery.</p>
+        <h3>OOS + uncertainty</h3>
+        <p>Expectancy, hit rate and profit factor are measured on unseen trades, with a 95% expectancy interval and stability across walk-forward windows.</p>
       </div>
       <div class="method-card">
         <div class="mi">3</div>
-        <h3>Regime filter</h3>
-        <p>Setups are only taken when the market index itself is above its 200-day average. Trading with the tide, not against it — and it measurably lifts the edge.</p>
+        <h3>Point-in-time overlays</h3>
+        <p>Long validation uses the index regime known on the signal bar, while RS is reconstructed cross-sectionally at that historical date. Shorts use their own weakness filter. Proposals are not silently hidden by these labels.</p>
       </div>
       <div class="method-card">
         <div class="mi">4</div>
-        <h3>Open track record</h3>
-        <p>Every signal is logged with a timestamp the moment it fires — win or lose. The record grows forward and can't be edited after the fact.</p>
+        <h3>Forward-only proposal ledger</h3>
+        <p>Displayed proposals are identified by ticker, setup and signal date, then resolved only from later bars. The ledger is not substituted for the strategy backtest.</p>
       </div>
     </div>
   </section>
@@ -354,14 +354,14 @@
 
   <section class="sec" id="pricing">
     <h2 class="sec-h">Choose your level</h2>
-    <p class="sec-p">Start free and see the proof. Upgrade once the edge has paid for itself.</p>
+    <p class="sec-p">Start with transparent evidence and proposal history. Evidence tiers stay visible whether the setup is validated or not.</p>
     <div class="tiers">
       <div class="tier">
         <div class="tname">Free</div>
         <div class="tdesc">See that the edge is real before paying a cent.</div>
         <div class="price"><span class="p">Free</span></div>
         <ul class="feat">
-          <li>The full open track record</li>
+          <li>The forward proposal ledger</li>
           <li>Today's top 3 setups (delayed)</li>
           <li>One market</li>
           <li class="off">All setups with entry/stop/target</li>
