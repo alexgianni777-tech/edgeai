@@ -28,11 +28,16 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write            # behövs för att committa data.json
+  contents: write            # commit public/data.json
+  pages: write               # deploy the freshly generated dataset
+  id-token: write            # required by deploy-pages
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -54,4 +59,17 @@ jobs:
           git add -A public/
           git diff --staged --quiet || git commit -m "chore: update data.json"
           git push
+
+      # GITHUB_TOKEN pushes do not trigger another Actions workflow. Deploy
+      # the exact working tree we just generated so Pages and Replit see the
+      # same fresh data immediately.
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+      - name: Deploy fresh EdgeAI data to Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
 
