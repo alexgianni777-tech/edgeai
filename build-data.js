@@ -9,7 +9,6 @@
 const fs = require("fs");
 const path = require("path");
 const { genSynthetic } = require("./data");
-const { runStrategy, DEFAULT_PARAMS } = require("./strategy");
 const { validateUniverse } = require("./universe-validation");
 const { metrics } = require("./metrics");
 const { monteCarlo } = require("./montecarlo");
@@ -23,6 +22,10 @@ const round = (x, d = 2) => +(+x).toFixed(d);
 const pfOut = x => Number.isFinite(x) ? round(x) : (x === Infinity ? 99 : 0);
 const median = arr => { if (!arr.length) return null; const a = arr.slice().sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2); };
 const sizeFor = (e, s) => (Math.abs(e - s) > 0 ? Math.floor((ACCOUNT * RISK) / Math.abs(e - s)) : 0);
+const dateKey = t => {
+  const d = new Date(t);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+};
 
 // Publish only after every ticker and index has the same latest completed
 // market session. The index itself defines the session date, so exchange
