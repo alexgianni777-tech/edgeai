@@ -10323,9 +10323,10 @@
     "stop": 1671.6,
     "target": 1396.51,
     "barT": "Wed Sep 23 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-23T10:23:31.884Z",
-    "r": null
+    "r": -1,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "BOL.ST",
@@ -11963,9 +11964,10 @@
     "stop": 566.98,
     "target": 540.54,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": -1,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "BOL.ST",
@@ -11999,9 +12001,10 @@
     "stop": 98.72,
     "target": 93.22,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "ESSITY-B.ST",
@@ -12011,9 +12014,10 @@
     "stop": 269.66,
     "target": 259.51,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": 1.5,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "SAND.ST",
@@ -12023,9 +12027,10 @@
     "stop": 384.33,
     "target": 358.75,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": -1,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "ABB.ST",
@@ -12059,9 +12064,10 @@
     "stop": 360.55,
     "target": 343,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": -1,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "AZN.ST",
@@ -12071,9 +12077,10 @@
     "stop": 1666.34,
     "target": 1557.32,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": -1,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "ERIC-B.ST",
@@ -12095,9 +12102,10 @@
     "stop": 269.66,
     "target": 257.48,
     "barT": "Mon Sep 28 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T11:42:58.201Z",
-    "r": null
+    "r": 2,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "ticker": "TEL2-B.ST",
@@ -12763,9 +12771,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-09-29T13:10:25.292Z",
-    "r": null
+    "r": -1.22,
+    "closedAt": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ALFA.ST|The Big Short — broader weak-stock rally short|2026-09-21",
@@ -12892,6 +12901,114 @@
     "ledgerMode": "published-levels",
     "status": "open",
     "loggedAt": "2026-09-29T13:10:25.292Z",
+    "r": null
+  },
+  {
+    "signalId": "ATCO-A.ST|Trend pullback to 20EMA · RSI reset|2026-09-29",
+    "ledgerVersion": 2,
+    "ticker": "ATCO-A.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 208.2,
+    "stop": 200.92,
+    "target": 219.12,
+    "signalT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 15,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-09-30T11:30:22.805Z",
+    "r": null
+  },
+  {
+    "signalId": "HEXA-B.ST|Trend pullback to 20EMA · RSI reset|2026-09-29",
+    "ledgerVersion": 2,
+    "ticker": "HEXA-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 98.32,
+    "stop": 95.4,
+    "target": 102.69,
+    "signalT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 15,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-09-30T11:30:22.805Z",
+    "r": null
+  },
+  {
+    "signalId": "KINV-B.ST|Trend pullback to 20EMA · RSI reset|2026-09-29",
+    "ledgerVersion": 2,
+    "ticker": "KINV-B.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 60.98,
+    "stop": 58.48,
+    "target": 64.73,
+    "signalT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 15,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-09-30T11:30:22.805Z",
+    "r": null
+  },
+  {
+    "signalId": "ELUX-B.ST|Burry filter — weak-stock rally short|2026-09-29",
+    "ledgerVersion": 2,
+    "ticker": "ELUX-B.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 26.03,
+    "stop": 26.89,
+    "target": 23.89,
+    "signalT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-09-30T11:30:22.805Z",
+    "r": null
+  },
+  {
+    "signalId": "ELUX-B.ST|The Big Short — broader weak-stock rally short|2026-09-29",
+    "ledgerVersion": 2,
+    "ticker": "ELUX-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 26.03,
+    "stop": 27.74,
+    "target": 23.89,
+    "signalT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Tue Sep 29 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-09-30T11:30:22.805Z",
+    "r": null
+  },
+  {
+    "signalId": "ASSA-B.ST|The Big Short — broader weak-stock rally short|2026-09-21",
+    "ledgerVersion": 2,
+    "ticker": "ASSA-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 354.7,
+    "stop": 366.4,
+    "target": 331.3,
+    "signalT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Mon Sep 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-09-30T11:30:22.805Z",
     "r": null
   }
 ]
