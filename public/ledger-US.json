@@ -24666,9 +24666,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-02T11:29:46.767Z",
-    "r": null
+    "r": 1.02,
+    "closedAt": "Mon Sep 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "CAT|The Big Short — broader weak-stock rally short|2026-10-01",
