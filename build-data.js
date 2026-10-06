@@ -73,9 +73,17 @@ function assertCompleteDailyBars(key, tickers, universe, indexSymbol, indexBars,
   if (!indexDate) throw new Error(`[DATA_NOT_READY] ${key} saknar indexdata för ${indexSymbol}`);
   if (indexDate > allowed) throw new Error(`[DATA_NOT_READY] ${key} index innehåller en ofullständig framtida/session-bar ${indexDate}`);
 
+  // Freshness must be strict on normal weekdays. A Tuesday morning must
+  // never republish Friday's data when Monday was an ordinary trading day.
+  // Weekend fallback is allowed because latestAllowedDate() is calendar-based:
+  // Monday morning may legitimately use Friday's completed session.
+  const allowedDay = new Date(`${allowed}T00:00:00Z`).getUTCDay();
+  const maxAgeDays = allowedDay === 0 ? 2 : allowedDay === 6 ? 1 : 0;
   const ageDays = Math.floor((Date.parse(allowed) - Date.parse(indexDate)) / 86400000);
-  if (ageDays > 6) {
-    throw new Error(`[DATA_NOT_READY] ${key} senaste verifierade session ${indexDate} är för gammal`);
+  if (ageDays > maxAgeDays) {
+    throw new Error(
+      `[DATA_NOT_READY] ${key} senaste verifierade session ${indexDate}; förväntar senaste avslutade handelsdag kring ${allowed}. Publicering stoppad tills färsk data finns.`
+    );
   }
 
   const mismatches = [];
