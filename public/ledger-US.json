@@ -27588,9 +27588,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-09T12:13:01.339Z",
-    "r": null
+    "r": 1.2,
+    "closedAt": "Thu Oct 08 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SPGI|Burry filter — weak-stock rally short|2026-10-08",
