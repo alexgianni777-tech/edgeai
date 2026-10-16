@@ -31803,9 +31803,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 0.95,
+    "closedAt": "Wed Oct 14 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PEP|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -31839,9 +31840,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.36,
+    "closedAt": "Tue Oct 13 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "MCD|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -31875,9 +31877,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.26,
+    "closedAt": "Thu Oct 15 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "VZ|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -31929,9 +31932,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 1.06,
+    "closedAt": "Tue Oct 13 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "UBER|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -31983,9 +31987,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 1,
+    "closedAt": "Wed Oct 14 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "RTX|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -32109,9 +32114,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 0.96,
+    "closedAt": "Thu Oct 15 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AXP|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -32163,9 +32169,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.3,
+    "closedAt": "Mon Oct 12 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SO|The Big Short — broader weak-stock rally short|2026-10-13",
@@ -32181,9 +32188,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.41,
+    "closedAt": "Wed Oct 14 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SBUX|The Big Short — broader weak-stock rally short|2026-10-15",
