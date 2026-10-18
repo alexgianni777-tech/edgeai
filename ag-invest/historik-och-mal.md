@@ -33,3 +33,10 @@
 - En faktisk affär registreras först med tillräckligt stöd för datum, instrument, antal, pris och avgifter.
 - `WATCH`, `USER_REPORTED`, `VERIFIED_EXECUTION` och `CLOSED_VERIFIED` ska hållas isär.
 - Automatiska uppdateringar från Avanza finns **inte** etablerade. Framtida chattar och automationer skriver inte per automatik hit utan en uttrycklig integration.
+
+## Uppdaterad kapitalplan – 2026-10-18
+- **Ny uttagsregel:** När portföljen första gången når **10 000 000 SEK**, planerar användaren att ta ut **5 000 000 SEK** privat och fortsätta med **5 000 000 SEK** i portföljen.
+- **Nytt portföljmål:** **50 000 000 SEK senast 2027-06-30** (tolkat som portföljvärde efter uttaget; bekräftelse kan behövas).
+- **Långsiktigt portföljmål:** **500 000 000 SEK senast 2030-12-31**.
+- Den tidigare regeln om uttag av 4 MSEK vid 5 MSEK är **ersatt** av regeln ovan; detta är en målplan, ingen exekverad transaktion.
+- Avkastning och resultat ska redovisas justerat för insättningar/uttag. Målen är extrema ambitionsnivåer, inte prognoser.
