@@ -34545,9 +34545,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-22T10:46:31.408Z",
-    "r": null
+    "r": -1.05,
+    "closedAt": "Thu Oct 15 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "JPM|Burry filter — weak-stock rally short|2026-10-21",
@@ -34581,9 +34582,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-22T10:46:31.408Z",
-    "r": null
+    "r": 1.28,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "MCD|Burry filter — weak-stock rally short|2026-10-21",

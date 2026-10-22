@@ -16763,8 +16763,9 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-22T10:46:54.129Z",
-    "r": null
+    "r": -1.13,
+    "closedAt": "Tue Oct 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   }
 ]
