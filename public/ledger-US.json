@@ -27113,9 +27113,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-08T12:22:31.301Z",
-    "r": null
+    "r": 1.28,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SYK|Burry filter — weak-stock rally short|2026-10-07",
@@ -27511,9 +27512,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-09T12:13:01.339Z",
-    "r": null
+    "r": -1.17,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PLTR|Breakout — fresh N-day high|2026-10-08",
@@ -27868,9 +27870,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-09T12:13:01.339Z",
-    "r": null
+    "r": 1.76,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PEP|The Big Short — broader weak-stock rally short|2026-10-08",
@@ -28284,9 +28287,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-12T19:19:24.285Z",
-    "r": null
+    "r": -1.15,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PLTR|Breakout — fresh N-day high|2026-10-09",
@@ -28888,9 +28892,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-13T17:08:32.167Z",
-    "r": null
+    "r": -1.15,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "TJX|Breakout — fresh N-day high|2026-10-12",
@@ -29108,9 +29113,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-13T17:08:32.167Z",
-    "r": null
+    "r": -1.17,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "KLAC|Burry filter — weak-stock rally short|2026-10-12",
@@ -29486,9 +29492,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-14T10:46:12.743Z",
-    "r": null
+    "r": -1.17,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "MSFT|Breakout — fresh N-day high|2026-10-13",
@@ -30418,9 +30425,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-15T10:29:00.777Z",
-    "r": null
+    "r": -1.18,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PFE|Breakout — fresh N-day high|2026-10-14",
@@ -31087,9 +31095,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 1.35,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BLK|Trend pullback to 20EMA · RSI reset|2026-10-15",
@@ -31249,9 +31258,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.15,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ABT|Breakout — fresh N-day high|2026-10-15",
@@ -31286,9 +31296,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.15,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "NOW|Breakout — fresh N-day high|2026-10-15",
@@ -31322,9 +31333,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 1.31,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BLK|Breakout — fresh N-day high|2026-10-15",
@@ -31430,9 +31442,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 1.37,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AMAT|Bollinger reversion in uptrend|2026-10-15",
@@ -32079,9 +32092,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": -1.29,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BKNG|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -32097,9 +32111,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:31.983Z",
-    "r": null
+    "r": 1.07,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "NEE|The Big Short — broader weak-stock rally short|2026-10-15",
@@ -32593,9 +32608,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.270Z",
-    "r": null
+    "r": 1.28,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "HON|Burry filter — weak-stock rally short|2026-10-16",
@@ -32611,9 +32627,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.270Z",
-    "r": null
+    "r": -1.29,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BKNG|Burry filter — weak-stock rally short|2026-10-16",
@@ -32758,9 +32775,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.271Z",
-    "r": null
+    "r": 1.03,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ADBE|The Big Short — broader weak-stock rally short|2026-10-16",
@@ -32832,9 +32850,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.271Z",
-    "r": null
+    "r": 1.01,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GE|The Big Short — broader weak-stock rally short|2026-10-16",
@@ -32869,9 +32888,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.271Z",
-    "r": null
+    "r": 1.03,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GS|The Big Short — broader weak-stock rally short|2026-10-16",
@@ -32887,9 +32907,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.271Z",
-    "r": null
+    "r": -1.21,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "RTX|The Big Short — broader weak-stock rally short|2026-10-16",
@@ -32924,9 +32945,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:25:49.271Z",
-    "r": null
+    "r": -1.29,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BKNG|The Big Short — broader weak-stock rally short|2026-10-16",
@@ -33254,9 +33276,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-20T10:32:42.144Z",
-    "r": null
+    "r": -1.19,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GE|Burry filter — weak-stock rally short|2026-10-19",
@@ -33310,9 +33333,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-20T10:32:42.144Z",
-    "r": null
+    "r": -1.34,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "LOW|Burry filter — weak-stock rally short|2026-10-19",
@@ -33441,9 +33465,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-20T10:32:42.144Z",
-    "r": null
+    "r": 1.03,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "PEP|The Big Short — broader weak-stock rally short|2026-10-19",
@@ -33551,9 +33576,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-20T10:32:42.144Z",
-    "r": null
+    "r": 1.02,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "RTX|The Big Short — broader weak-stock rally short|2026-10-19",
@@ -33625,9 +33651,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-20T10:32:42.144Z",
-    "r": null
+    "r": -1.34,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "LOW|The Big Short — broader weak-stock rally short|2026-10-19",
@@ -33880,9 +33907,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": -1.16,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SPGI|Breakout — fresh N-day high|2026-10-20",
@@ -34150,9 +34178,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": 1.03,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "MCD|The Big Short — broader weak-stock rally short|2026-10-20",
@@ -34186,9 +34215,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": -1.25,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "VZ|The Big Short — broader weak-stock rally short|2026-10-20",
@@ -34204,9 +34234,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": 1.01,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GE|The Big Short — broader weak-stock rally short|2026-10-20",
@@ -34222,9 +34253,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": -1.22,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "UBER|The Big Short — broader weak-stock rally short|2026-10-20",
@@ -34312,9 +34344,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": 1.06,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "NEE|The Big Short — broader weak-stock rally short|2026-10-20",
@@ -34366,9 +34399,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
-    "r": null
+    "r": 1.02,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AXP|The Big Short — broader weak-stock rally short|2026-10-20",
@@ -34384,8 +34418,531 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:11.141Z",
+    "r": -1.32,
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
+  },
+  {
+    "signalId": "TXN|Trend pullback to 20EMA · RSI reset|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "TXN",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 284.65,
+    "stop": 271.07,
+    "target": 305.02,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 15,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "DHR|Breakout — fresh N-day high|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "DHR",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 233.86,
+    "stop": 223.6,
+    "target": 249.25,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "IBM|Breakout — fresh N-day high|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "IBM",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 251.46,
+    "stop": 241.22,
+    "target": 266.82,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "SPGI|Breakout — fresh N-day high|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "SPGI",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 443.16,
+    "stop": 428.79,
+    "target": 464.72,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "AXP|Breakout — fresh N-day high|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "AXP",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 323.61,
+    "stop": 314.59,
+    "target": 337.14,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "PM|Bollinger reversion in uptrend|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "PM",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 197.46,
+    "stop": 188.99,
+    "target": 210.16,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "INTC|Bollinger reversion in uptrend|2026-10-13",
+    "ledgerVersion": 2,
+    "ticker": "INTC",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 102.81,
+    "stop": 91.44,
+    "target": 136.92,
+    "signalT": "Tue Oct 13 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Tue Oct 13 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "JPM|Burry filter — weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "JPM",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 335.19,
+    "stop": 341.69,
+    "target": 325.44,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "NFLX|Burry filter — weak-stock rally short|2026-10-16",
+    "ledgerVersion": 2,
+    "ticker": "NFLX",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 70.53,
+    "stop": 72.42,
+    "target": 67.69,
+    "signalT": "Fri Oct 16 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Fri Oct 16 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "MCD|Burry filter — weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "MCD",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 246.25,
+    "stop": 250.56,
+    "target": 239.78,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "GS|Burry filter — weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "GS",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 904.72,
+    "stop": 929.37,
+    "target": 867.74,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "RTX|Burry filter — weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "RTX",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 191.6,
+    "stop": 196.04,
+    "target": 184.94,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "NEE|Burry filter — weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "NEE",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 78.28,
+    "stop": 79.68,
+    "target": 76.18,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "JPM|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "JPM",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 335.19,
+    "stop": 341.69,
+    "target": 327.06,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "JNJ|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "JNJ",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 257.78,
+    "stop": 263.8,
+    "target": 250.26,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "MCD|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "MCD",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 246.25,
+    "stop": 250.56,
+    "target": 240.86,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "ABT|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "ABT",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 100.51,
+    "stop": 103.43,
+    "target": 96.87,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "VZ|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "VZ",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 43.56,
+    "stop": 44.68,
+    "target": 42.15,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "GE|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "GE",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 295.88,
+    "stop": 304.4,
+    "target": 285.22,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "UBER|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "UBER",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 67.62,
+    "stop": 69.42,
+    "target": 65.36,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "GS|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "GS",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 904.72,
+    "stop": 929.37,
+    "target": 873.9,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "MS|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "MS",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 187.01,
+    "stop": 192.11,
+    "target": 180.64,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "RTX|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "RTX",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 191.6,
+    "stop": 196.04,
+    "target": 186.05,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "HON|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "HON",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 214.73,
+    "stop": 219.01,
+    "target": 209.37,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "BKNG|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "BKNG",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 158.38,
+    "stop": 163.8,
+    "target": 151.61,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "NEE|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "NEE",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 78.28,
+    "stop": 79.68,
+    "target": 76.53,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "LOW|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "LOW",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 196.56,
+    "stop": 201.15,
+    "target": 190.82,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "BSX|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "BSX",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 44.51,
+    "stop": 45.77,
+    "target": 42.93,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
+    "r": null
+  },
+  {
+    "signalId": "SBUX|The Big Short — broader weak-stock rally short|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "SBUX",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 99.08,
+    "stop": 101.39,
+    "target": 96.19,
+    "signalT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-22T10:46:31.408Z",
     "r": null
   }
 ]
