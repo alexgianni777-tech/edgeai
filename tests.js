@@ -5,7 +5,7 @@ const path = require("path");
 const SOURCE_FILES = [
   "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
-  "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js",
+  "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js",
   "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "validate-output.js", "server.js"
 ];
 
@@ -119,4 +119,5 @@ assert.ok(uv.oosTrades.every(t => t.ticker === "AAA"),
   "deployment filter must constrain both selection and OOS");
 
 require("./fill-model-tests");
+require("./elite-gate-tests");
 console.log("EdgeAI regression tests passed");
