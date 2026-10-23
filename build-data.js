@@ -14,6 +14,7 @@ const { metrics } = require("./metrics");
 const { monteCarlo } = require("./montecarlo");
 const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
+const { dailyExit, roundTripCostR } = require("./fill-model");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -182,13 +183,8 @@ function updateLedger(ledgerPath, universe, setups) {
     const observed = future.slice(0, maxBars);
 
     for (const b of observed) {
-      if (isShort) {
-        if (b.high >= row.stop) { exit = row.stop; exitBar = b; break; }
-        if (b.low <= row.target) { exit = row.target; exitBar = b; break; }
-      } else {
-        if (b.low <= row.stop) { exit = row.stop; exitBar = b; break; }
-        if (b.high >= row.target) { exit = row.target; exitBar = b; break; }
-      }
+      const fill = dailyExit(b, isShort ? "short" : "long", row.stop, row.target);
+      if (fill) { exit = fill.price; exitBar = b; row.exitReason = fill.reason; break; }
     }
 
     // Time-stop when the full holding window has elapsed.
@@ -199,8 +195,9 @@ function updateLedger(ledgerPath, universe, setups) {
 
     if (exit != null) {
       const grossR = isShort ? (row.entry - exit) / risk : (exit - row.entry) / risk;
-      const roundTripCostR = ((Number(row.costRate || 0) * 2) * row.entry) / risk;
-      row.r = round(grossR - roundTripCostR);
+      const costs = roundTripCostR(row.entry, exit, risk, Number(row.costRate || 0));
+      row.r = round(grossR - costs);
+      row.fillModel = "gap-aware-v1";
       row.status = "closed";
       row.closedAt = String(exitBar?.t || new Date().toISOString());
     }
@@ -215,7 +212,7 @@ function updateLedger(ledgerPath, universe, setups) {
     const signalId = [s.ticker, s.setup, signalDate].join("|");
     if (!signalDate || knownSignals.has(signalId)) continue;
     rows.push({
-      signalId, ledgerVersion: 2,
+      signalId, ledgerVersion: 2, fillModel: "gap-aware-v1",
       ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long",
       entry: s.entry, stop: s.stop, target: s.target,
       signalT, barT: signalT, maxBars: s.maxBars ?? 20,
@@ -425,7 +422,10 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   // 4) proposal ledger: only immutable v2 proposal outcomes are displayed
   const ledgerPath = path.join(__dirname, "public", `ledger-${key}.json`);
   fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
-  const closed = updateLedger(ledgerPath, universe, setups);
+  const allClosed = updateLedger(ledgerPath, universe, setups);
+  // Old already-closed records assumed perfect stop fills. Preserve them in
+  // the ledger for audit, but never mix them into the revised track record.
+  const closed = allClosed.filter(r => r.fillModel === "gap-aware-v1");
   const closedChronological = closed.slice().sort((a, b) =>
     new Date(b.closedAt || 0).getTime() - new Date(a.closedAt || 0).getTime()
   );
@@ -440,7 +440,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     winRate: closed.length ? round((ledgerWins / closed.length) * 100, 1) : 0,
     netR: round(closed.reduce((sum, r) => sum + (Number(r.r) || 0), 0), 2),
     costAdjusted: true,
-    basis: "displayed proposal levels, forward-resolved, round-trip costs deducted",
+    basis: "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded",
   };
 
   // per-strategi-sammanfattning (för loggning)
@@ -490,6 +490,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         "Historical validation uses the current/curated universe; survivorship bias is not fully eliminated.",
         "Drawdown uses realized exits rather than mark-to-market equity and can understate intratrade drawdown.",
         "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
+        "Daily share-price bars cannot fully model mini-future/turbo spreads, financing, knock-out and gap illiquidity.",
+        "The prior ledger's already-closed records assumed stop-level fills and are excluded from gap-aware track-record totals.",
       ],
     },
     rTrades: pooledOOS.map(t => round(t.r)),
