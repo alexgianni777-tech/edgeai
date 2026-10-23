@@ -15,6 +15,12 @@ async function refreshLagging({universe,indexBars,indexSymbol,expected,loadFn,at
    const lagging=[...Object.entries(currentUniverse).filter(([,bars])=>sessionDate(bars)!==expected).map(([tk])=>tk)];
    if(sessionDate(currentIndex)!==expected)lagging.unshift(indexSymbol);
    if(!lagging.length)break;
+   // If the entire exchange is missing, do not unleash dozens of extra
+   // provider requests on every scheduled job. This remains fail-closed.
+   if(lagging.length>8) {
+     logger(`[YAHOO_LAG] ${lagging.length} serier saknas; hoppar över massretry`);
+     break;
+   }
    await delay(round);
    logger(`[YAHOO_LAG] ${lagging.length} serier saknar ${expected} – försök ${round+1}/${attempts}`);
    for(const symbol of lagging){
