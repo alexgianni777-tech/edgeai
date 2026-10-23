@@ -17,6 +17,8 @@ const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./port
 const { dailyExit, roundTripCostR } = require("./fill-model");
 const { eliteGate } = require("./elite-gate");
 const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
+const { createHistoricalSentiment, compareSentiment } = require("./sentiment-study");
+const { refreshLagging } = require("./data-freshness");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -261,6 +263,24 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         for (const ticker of Object.keys(universe)) universe[ticker] = completedOnly(universe[ticker]);
         indexBars = completedOnly(indexBars);
       }
+      // Yahoo sometimes publishes the final index/constituent candle late.
+      // Retry ONLY late symbols, then still reject any incomplete market.
+      if(!demo){
+        const expected=latestAllowedDate(key);
+        const {loadBars}=require("./data-live");
+        const result=await refreshLagging({
+          universe,indexBars,indexSymbol,expected,
+          loadFn:tk=>loadBars(tk,{years:3}),
+          attempts:2,
+          delay:attempt=>new Promise(resolve=>setTimeout(resolve,attempt===0?1000:2000)),
+          logger:msg=>console.warn(msg),
+        });
+        universe=result.universe;
+        indexBars=result.indexBars;
+        if(result.reloaded)console.log(`  [${key}] Yahoo efterhämtning gav ${result.reloaded} kompletta serier`);
+        if(result.stillLagging.length)console.error(
+          `  [${key}] DATA_NOT_READY efter försök: ${result.stillLagging.join(", ")}`);
+      }
       const dataAsOf = demo ? null : assertCompleteDailyBars(key, realTickers, universe, indexSymbol, indexBars);
   const regime = indexBars && indexBars.length > 200 ? regimeFrom(indexBars) : { map: {}, on: true };
 
@@ -462,6 +482,16 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     basis: "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded",
   };
 
+  // Exploratory psychology study on historical OOS strategy outcomes.
+  // Strictly uses index + constituent data as of the PRE-entry signal close.
+  // Rules were chosen after seeing past outcomes, so this is NOT new
+  // independent OOS proof and is never used to upgrade elite qualification.
+  const readHistoricalSentiment=createHistoricalSentiment(indexBars,universe);
+  const observedTrades=stratParams.flatMap(sp=>sp.trades.map(trade=>({
+    ...trade,dir:sp.strat.dir==="short"?"short":"long",
+  })));
+  const psychologyStudy=compareSentiment(observedTrades,readHistoricalSentiment);
+
   // per-strategi-sammanfattning (för loggning)
   const strategies = stratParams.map(sp => {
     let seq = 0;
@@ -481,6 +511,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       params: sp.params,
       proposalParams: sp.proposalParams,
       elite: sp.elite,
+      psychologyStudy:compareSentiment(sp.trades.map(t=>({
+        ...t,dir:sp.strat.dir==="short"?"short":"long"
+      })),readHistoricalSentiment),
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
     };
   });
@@ -498,7 +531,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       promisingStrategies: stratParams.filter(sp => sp.promising).length,
     },
     strategies,
-    psychology, ideaRadar,
+    psychology, ideaRadar, psychologyStudy,
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
     validation: {
@@ -514,6 +547,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         "Daily share-price bars cannot fully model mini-future/turbo spreads, financing, knock-out and gap illiquidity.",
         "The prior ledger's already-closed records assumed stop-level fills and are excluded from gap-aware track-record totals.",
         "Fear/Greed is an unvalidated proxy from completed price/breadth data; it is NOT the CNN Fear & Greed Index and is not an OOS-tested alpha feature.",
+        "Sentiment study retrospectively filters earlier strategy OOS outcomes; hypothesis selected after observing earlier market data. It is descriptive only, NOT independently held-out alpha. Signal dates prevent next-day lookahead.",
+        "Retrospective aggregate study pools trade records across strategies (some tickers/signals can overlap), so sample independence is not assumed.",
         "The long/short idea radar is a watchlist: self-reported distraction, revenge and FOMO cannot be known automatically.",
       ],
     },
