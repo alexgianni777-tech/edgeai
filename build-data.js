@@ -16,6 +16,7 @@ const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
 const { dailyExit, roundTripCostR } = require("./fill-model");
 const { eliteGate } = require("./elite-gate");
+const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -280,6 +281,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const rsRank = {};
   rsSorted.forEach((tk, i) => { rsRank[tk] = rsSorted.length > 1 ? Math.round((i / (rsSorted.length - 1)) * 100) : 50; });
   const breadth = total ? Math.round((above / total) * 100) : null;
+  // Psychology is computed only on completed, common-date market bars.
+  // It is supplemental context, never a hidden look-ahead model or trade approval.
+  const psychology = scoreSentiment(indexBars, universe, {asOf:dataAsOf});
   const rsHistoryCache = new Map();
 
   const stratParams = [];
@@ -410,6 +414,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   let eq = 0;
   const equityCurve = pooledOOS.map(t => { eq += t.r; return round(eq); });
   const setups = allSetups;
+  const ideaRadar = buildIdeaRadar(setups, psychology, 3);
 
   // Portfolio-aware risk: same-day signals are bootstrapped together.
   const cohorts = buildCohorts(pooledOOS);
@@ -493,6 +498,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       promisingStrategies: stratParams.filter(sp => sp.promising).length,
     },
     strategies,
+    psychology, ideaRadar,
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
     validation: {
@@ -507,6 +513,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
         "Daily share-price bars cannot fully model mini-future/turbo spreads, financing, knock-out and gap illiquidity.",
         "The prior ledger's already-closed records assumed stop-level fills and are excluded from gap-aware track-record totals.",
+        "Fear/Greed is an unvalidated proxy from completed price/breadth data; it is NOT the CNN Fear & Greed Index and is not an OOS-tested alpha feature.",
+        "The long/short idea radar is a watchlist: self-reported distraction, revenge and FOMO cannot be known automatically.",
       ],
     },
     rTrades: pooledOOS.map(t => round(t.r)),
