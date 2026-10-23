@@ -95,7 +95,28 @@ for (const key of ["US", "SE"]) {
     }
   }
 
-  if (!m.eliteTarget || m.eliteTarget.winRate !== 0.80 || m.eliteTarget.plannedRR !== 3) {
+  // Do not let a retrospective psych comparison masquerade as a validated edge.
+  function checkPsychStudy(study,where) {
+    if (!study || study.status !== "RETROSPECTIVE_EXPLORATORY" ||
+        study.validatedAlpha !== false || !study.bySide) {
+      errors.push(`${where}: historical sentiment must be explicitly exploratory`);
+      return;
+    }
+    for(const side of ["long","short"]) {
+      const v=study.bySide[side];
+      if(!v || !finite(v.sourceN) || !finite(v.datedN) || !finite(v.blockedN) ||
+         v.sourceN < v.datedN || v.datedN < v.blockedN) {
+        errors.push(`${where}.${side}: invalid psychology sample counts`);
+        continue;
+      }
+      if(!v.withoutFilter || !v.withFilter || !v.blocked ||
+         v.withFilter.n+v.blocked.n !== v.datedN ||
+         v.withoutFilter.n !== v.datedN)
+        errors.push(`${where}.${side}: filtered comparison changes the baseline cohort`);
+    }
+  }
+  checkPsychStudy(m.psychologyStudy,`${key}.psychologyStudy`);
+    if (!m.eliteTarget || m.eliteTarget.winRate !== 0.80 || m.eliteTarget.plannedRR !== 3) {
     errors.push(`${key}: elite target missing or changed`);
   }
   for (const [i, s] of (m.strategies || []).entries()) {
@@ -103,6 +124,7 @@ for (const key of ["US", "SE"]) {
     if (!finite(s.expectancyR) || !finite(s.winRate) || !finite(s.profitFactor) || !finite(s.n)) {
       errors.push(`${p}: non-finite summary metric`);
     }
+    checkPsychStudy(s.psychologyStudy,p+".psychologyStudy");
     if (s.executionDrift) {
       for (const field of ["n", "medianGapPct", "medianAbsGapPct", "p90AbsGapPct"]) {
         if (!finite(s.executionDrift[field])) errors.push(`${p}: executionDrift.${field} must be finite`);
