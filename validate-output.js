@@ -23,6 +23,39 @@ for (const key of ["US", "SE"]) {
   if (!Array.isArray(m.strategies)) errors.push(`${key}: strategies is not an array`);
   if (!Array.isArray(m.rTrades)) errors.push(`${key}: rTrades is not an array`);
   if (!Array.isArray(m.rClusters)) errors.push(`${key}: rClusters is not an array`);
+  // The proxy is supplemental price-based context, never the CNN F&G feed.
+  const psych=m.psychology;
+  if (!psych || psych.source !== "PRICE_BREADTH_PROXY" ||
+      !["OK","UNAVAILABLE"].includes(psych.status)) {
+    errors.push(`${key}.psychology: missing or invalid proxy provenance`);
+  } else if (psych.status === "OK") {
+    if (!finite(psych.score) || psych.score<0 || psych.score>100 ||
+        !["EXTREME_FEAR","FEAR","NEUTRAL","GREED","EXTREME_GREED"].includes(psych.label))
+      errors.push(`${key}.psychology: invalid bounded sentiment score`);
+    if (m.dataAsOf && psych.asOf !== m.dataAsOf)
+      errors.push(`${key}.psychology: stale sentiment date`);
+  } else if (psych.score !== null) errors.push(`${key}.psychology: unavailable must have null score`);
+  const radar=m.ideaRadar;
+  if (!radar || !Array.isArray(radar.long) || !Array.isArray(radar.short) ||
+      radar.long.length>3 || radar.short.length>3) {
+    errors.push(`${key}.ideaRadar: missing or invalid long/short sides`);
+  } else {
+    for (const side of ["long","short"]) {
+      const seen=new Set();
+      for (const [i, idea] of radar[side].entries()) {
+        const p=`${key}.ideaRadar.${side}[${i}]`;
+        if (!idea.ticker || seen.has(idea.ticker)) errors.push(`${p}: missing/duplicate ticker`);
+        seen.add(idea.ticker);
+        if (idea.direction !== side) errors.push(`${p}: incorrect trade direction`);
+        if (!finite(idea.entry) || !finite(idea.stop) || !finite(idea.target) ||
+            !finite(idea.rr) || !finite(idea.barsAgo) || idea.barsAgo>2)
+          errors.push(`${p}: invalid levels/freshness`);
+        if (!["WATCH","REVIEW_REQUIRED"].includes(idea.psychologyStatus))
+          errors.push(`${p}: psychologyStatus must require manual review`);
+        if (!Array.isArray(idea.warnings)) errors.push(`${p}: missing psychology warnings`);
+      }
+    }
+  }
 
   for (const [i, s] of (m.setups || []).entries()) {
     const p = `${key}.setups[${i}]`;
