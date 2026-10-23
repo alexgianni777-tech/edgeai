@@ -63,23 +63,28 @@ function buildMessage(data) {
       msg += "Index är risk-off — förslag visas ändå, men regimstatusen ska vägas in.\n";
     }
 
-    const top = (m.setups || []).slice().sort((a, b) => scoreSetup(b) - scoreSetup(a)).slice(0, 3);
-    if (!top.length) {
-      msg += "Inga förslag idag. Tålamod slår tvång.\n";
-      continue;
+    const psych = m.psychology;
+    if (psych?.status === "OK") {
+      const labels = {EXTREME_FEAR:"EXTREM RÄDSLA",FEAR:"RÄDSLA",NEUTRAL:"NEUTRALT",GREED:"GIRIGHET",EXTREME_GREED:"EXTREM GIRIGHET"};
+      msg += `Marknadspsykologi ${psych.score}/100: ${labels[psych.label]||psych.label} (egen pris-/breddproxy, INTE CNN-index)\n`;
+    } else {
+      msg += "Marknadspsykologi: otillräcklig data — ingen sentimenttolkning.\n";
     }
-
-    for (const s of top) {
-      const when = s.barsAgo === 0 ? "idag" : s.barsAgo === 1 ? "igår" : `${s.barsAgo}d sedan`;
-      msg += `• ${s.ticker}${s.dir === "short" ? " (SHORT)" : ""} — ${setupTag(s)} (${when}) · ${statusLabel(s)}\n`;
-      msg += `   entry ${fmt(s.entry, m.currency)} · stop ${fmt(s.stop, m.currency)} · target ${fmt(s.target, m.currency)}\n`;
+    const radar = m.ideaRadar;
+    for (const side of ["long","short"]) {
+      const items = radar?.[side] || [];
+      msg += side === "long" ? "🟢 LONG-IDÉER (bevakning):\n" : "🔴 SHORT-IDÉER (bevakning):\n";
+      if (!items.length) { msg += "  Inga färska kandidater. Avstå hellre än att tvinga fram en trade.\n"; continue; }
+      for (const item of items) {
+        msg += `• ${item.ticker} — ${item.setup} · ${item.evidenceStatus} · ${item.barsAgo}d gammal\n`;
+        msg += `  ref ${fmt(item.entry,m.currency)} · stop ${fmt(item.stop,m.currency)} · mål ${fmt(item.target,m.currency)} (plan R/R ${item.rr})\n`;
+        if (item.warnings?.length) msg += `  OBS: ${item.warnings.slice(0,2).join(", ")}\n`;
+      }
     }
-
-    const more = (m.setups || []).length - top.length;
-    if (more > 0) msg += `…+${more} fler förslag på sajten.\n`;
+    msg += "Sentiment = sammanhang, inte entry. Long/short är WATCH tills aktuell kurs, 80/3-evidens, orderbok och egen handelsdisciplin granskats.\n";
   }
 
-  msg += "\nA = validerad OOS, B = lovande men inte fullt validerad, WATCH = idé med svag/otillräcklig OOS-evidens. Förslag döljs inte av etiketten.";
+  msg += "\nWATCH = research, inte order. Kontrollera FOMO/tilt/revansch, rapportdatum, faktisk mini-future-risk och senast avslutad datadag.";
   return msg;
 }
 
