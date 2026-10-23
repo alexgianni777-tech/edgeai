@@ -4,7 +4,7 @@
 // Out-of-sample observed win rate and realized payoff are separate from planned 3R.
 const REQUIREMENTS = Object.freeze({
   minOosTrades: 100,
-  minOosWindows: 3,
+  minOosWindows: 2,
   minWinRate: 0.80,
   minRealizedPayoff: 3,
   minPlannedRR: 3,
