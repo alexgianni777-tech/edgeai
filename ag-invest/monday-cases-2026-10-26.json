@@ -1,0 +1,76 @@
+{
+  "asOf": "2026-10-23",
+  "reviewFor": "2026-10-26",
+  "status": "RESEARCH_ONLY",
+  "note": "Manual conditional 3R scenarios built on Friday OHLC. Not algorithmically validated 80/3 signals; never direct derivative orders. Price levels apply to underlying equity.",
+  "accountReferenceSEK": 12125,
+  "illustrativeLeverage": 6,
+  "riskPolicy": {
+    "maxCashAllocationPerTradePct": 20,
+    "maxPlannedAccountRiskPct": 4,
+    "normalLeverageRange": [
+      4,
+      8
+    ],
+    "earningsLeverageMax": 4
+  },
+  "cases": [
+    {
+      "ticker": "HEXA-B.ST",
+      "company": "Hexagon B",
+      "market": "SE",
+      "direction": "long",
+      "currency": "SEK",
+      "priorClose": 106.05,
+      "priorHigh": 106.3,
+      "priorLow": 102.8,
+      "entry": 105.5,
+      "stop": 103.9,
+      "target": 110.3,
+      "holding": "2–4 sessions, hard maximum 15 sessions",
+      "trigger": "Only after Monday pullback toward SEK104.7–105.1 followed by reclaim of 105.5. Do not buy a gap up beyond 106.3 without a new plan.",
+      "invalidation": "No entry if Monday loses 103.9 / weakens on fresh news. Do not use as revenge for recently closed short.",
+      "source": "https://hexagon.com/company/newsroom/press-releases/2026/hexagon-interim-report-1-january---30-september-2026",
+      "thesis": "13% Q3 organic growth, improved EBITAC margin, post-report demand; do not chase the Friday rally.",
+      "keyRisk": "Day-two post-earnings profit-taking, expensive short-term entry, open volatility."
+    },
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT AB",
+      "market": "SE",
+      "direction": "short",
+      "currency": "SEK",
+      "priorClose": 299.4,
+      "priorHigh": 299.4,
+      "priorLow": 293,
+      "entry": 297,
+      "stop": 300.5,
+      "target": 286.5,
+      "holding": "2–4 sessions, hard maximum 15 sessions",
+      "trigger": "Watch rejection of SEK299–300 and new drop below 297 with weakening intraday structure. No short after a gap straight below 293.",
+      "invalidation": "Cancel idea if holds 300.5; positive corporate news or short squeeze invalidates the thesis.",
+      "source": "https://eqtgroup.com/news/eqt-ab-publ-q3-announcement-2026-2026-10-15",
+      "thesis": "Relative weakness with short-term sensitivity to financing rates; look for failed rally, not value-based short alone.",
+      "keyRisk": "Q3 fundraising and fund NAV were strong; short strategy has negative out-of-sample expectancy."
+    },
+    {
+      "ticker": "XOM",
+      "company": "Exxon Mobil",
+      "market": "US",
+      "direction": "long",
+      "currency": "USD",
+      "priorClose": 183.21,
+      "priorHigh": 183.75,
+      "priorLow": 179,
+      "entry": 183.8,
+      "stop": 181.6,
+      "target": 190.4,
+      "holding": "2–4 sessions; close by Thursday October 29 before Friday October 30 earnings unless separate risk approval",
+      "trigger": "Only after price breaks Friday high near USD183.75 and confirms hold above USD181.60. Avoid chasing an open gap well above 183.8.",
+      "invalidation": "If oil reverses sharply or breakout fails below 181.6, stand aside/exit per actual instrument plan.",
+      "source": "https://investor.exxonmobil.com/company-information/press-releases/detail/1212/exxonmobil-to-release-third-quarter-2026-financial-results",
+      "thesis": "Energy relative strength during oil rally; close before scheduled Q3 results October 30.",
+      "keyRisk": "Oil/geopolitics reversal, sharp overnight gaps, USD/SEK translation risk."
+    }
+  ]
+}
