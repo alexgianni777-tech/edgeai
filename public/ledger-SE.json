@@ -13114,9 +13114,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-01T11:58:41.444Z",
-    "r": null
+    "r": 2.28,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "KINV-B.ST|Momentum flag — leader breakout|2026-09-30",
@@ -13473,9 +13474,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-05T12:52:49.548Z",
-    "r": null
+    "r": -1.21,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "HEXA-B.ST|Breakout — fresh N-day high|2026-10-02",
@@ -14017,9 +14019,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-08T12:22:52.917Z",
-    "r": null
+    "r": 2.29,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SEB-A.ST|Bollinger reversion in uptrend|2026-10-07",
@@ -14450,9 +14453,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-09T12:13:28.620Z",
-    "r": null
+    "r": -1.16,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ALFA.ST|Trend pullback to 20EMA · RSI reset|2026-10-09",
@@ -14691,9 +14695,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-12T19:19:53.342Z",
-    "r": null
+    "r": 1.37,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ALFA.ST|Breakout — fresh N-day high|2026-10-12",
@@ -14822,9 +14827,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-12T19:19:53.342Z",
-    "r": null
+    "r": -1.15,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AZN.ST|The Big Short — broader weak-stock rally short|2026-10-12",
@@ -15159,9 +15165,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-13T17:08:59.710Z",
-    "r": null
+    "r": 2.28,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ASSA-B.ST|The Big Short — broader weak-stock rally short|2026-10-13",
@@ -15177,9 +15184,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-13T17:08:59.710Z",
-    "r": null
+    "r": -1.16,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AZN.ST|The Big Short — broader weak-stock rally short|2026-10-13",
@@ -15417,9 +15425,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-14T10:46:41.721Z",
-    "r": null
+    "r": -1.14,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AZN.ST|Trend pullback to 20EMA · RSI reset|2026-10-14",
@@ -15509,9 +15518,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-15T10:29:30.693Z",
-    "r": null
+    "r": -1.18,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ABB.ST|Burry filter — weak-stock rally short|2026-10-14",
@@ -15639,9 +15649,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:59.331Z",
-    "r": null
+    "r": 1.22,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GETI-B.ST|Breakout — fresh N-day high|2026-10-15",
@@ -15750,9 +15761,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:59.331Z",
-    "r": null
+    "r": -1.23,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GETI-B.ST|Momentum flag — leader breakout|2026-10-15",
@@ -15877,9 +15889,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-16T10:16:59.331Z",
-    "r": null
+    "r": -1.14,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BOL.ST|Trend pullback to 20EMA · RSI reset|2026-10-16",
@@ -15895,9 +15908,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:26:14.821Z",
-    "r": null
+    "r": -1.07,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SHB-A.ST|Trend pullback to 20EMA · RSI reset|2026-10-16",
@@ -15950,9 +15964,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-19T11:26:14.821Z",
-    "r": null
+    "r": -1.14,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ELUX-B.ST|Breakout — fresh N-day high|2026-10-16",
@@ -16366,9 +16381,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-21T10:45:38.608Z",
-    "r": null
+    "r": -1.11,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "NIBE-B.ST|Bollinger reversion in uptrend|2026-10-20",
@@ -16547,9 +16563,10 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-22T10:46:54.129Z",
-    "r": null
+    "r": -1.26,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SINCH.ST|Trend pullback to 20EMA · RSI reset|2026-10-21",
@@ -16619,9 +16636,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-22T10:46:54.129Z",
-    "r": null
+    "r": -1.17,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GETI-B.ST|Momentum flag — leader breakout|2026-10-21",
@@ -16673,9 +16691,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-22T10:46:54.129Z",
-    "r": null
+    "r": -1.28,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "VOLV-B.ST|Burry filter — weak-stock rally short|2026-10-21",
@@ -16767,5 +16786,203 @@
     "loggedAt": "2026-10-22T10:46:54.129Z",
     "r": -1.13,
     "closedAt": "Tue Oct 20 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
+  },
+  {
+    "signalId": "EVO.ST|Trend pullback to 20EMA · RSI reset|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "EVO.ST",
+    "setup": "Trend pullback to 20EMA · RSI reset",
+    "dir": "long",
+    "entry": 812,
+    "stop": 772.39,
+    "target": 871.42,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 15,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "ASSA-B.ST|Breakout — fresh N-day high|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "ASSA-B.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 365.2,
+    "stop": 355.24,
+    "target": 380.14,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "AZN.ST|Breakout — fresh N-day high|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "AZN.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 1713.5,
+    "stop": 1655.58,
+    "target": 1800.39,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "TELIA.ST|Breakout — fresh N-day high|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "TELIA.ST",
+    "setup": "Breakout — fresh N-day high",
+    "dir": "long",
+    "entry": 48.26,
+    "stop": 46.68,
+    "target": 50.63,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "ALFA.ST|Bollinger reversion in uptrend|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "ALFA.ST",
+    "setup": "Bollinger reversion in uptrend",
+    "dir": "long",
+    "entry": 541,
+    "stop": 522.57,
+    "target": 587.09,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 20,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "SCA-B.ST|Momentum flag — leader breakout|2026-10-21",
+    "ledgerVersion": 2,
+    "ticker": "SCA-B.ST",
+    "setup": "Momentum flag — leader breakout",
+    "dir": "long",
+    "entry": 126.6,
+    "stop": 120.05,
+    "target": 146.25,
+    "signalT": "Wed Oct 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 21 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 40,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "EQT.ST|Burry filter — weak-stock rally short|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "EQT.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 294.4,
+    "stop": 302.27,
+    "target": 274.72,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "SAND.ST|Burry filter — weak-stock rally short|2026-10-14",
+    "ledgerVersion": 2,
+    "ticker": "SAND.ST",
+    "setup": "Burry filter — weak-stock rally short",
+    "dir": "short",
+    "entry": 365,
+    "stop": 374.41,
+    "target": 341.46,
+    "signalT": "Wed Oct 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "EQT.ST|The Big Short — broader weak-stock rally short|2026-10-22",
+    "ledgerVersion": 2,
+    "ticker": "EQT.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 294.4,
+    "stop": 310.14,
+    "target": 262.92,
+    "signalT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "AZN.ST|The Big Short — broader weak-stock rally short|2026-10-14",
+    "ledgerVersion": 2,
+    "ticker": "AZN.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 1630,
+    "stop": 1708.42,
+    "target": 1473.15,
+    "signalT": "Wed Oct 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
+  },
+  {
+    "signalId": "ESSITY-B.ST|The Big Short — broader weak-stock rally short|2026-10-14",
+    "ledgerVersion": 2,
+    "ticker": "ESSITY-B.ST",
+    "setup": "The Big Short — broader weak-stock rally short",
+    "dir": "short",
+    "entry": 267.4,
+    "stop": 274.44,
+    "target": 253.32,
+    "signalT": "Wed Oct 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "barT": "Wed Oct 14 2026 07:00:00 GMT+0000 (Coordinated Universal Time)",
+    "maxBars": 10,
+    "costRate": 0.003,
+    "ledgerMode": "published-levels",
+    "status": "open",
+    "loggedAt": "2026-10-23T10:38:16.445Z",
+    "r": null
   }
 ]
