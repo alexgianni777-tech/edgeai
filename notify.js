@@ -54,10 +54,13 @@ function buildMessage(data) {
 
     msg += `\n${FLAG[key]} ${m.label} — ${reg.on ? "🟢" : "🔴"} ${reg.label}\n`;
     if (e.holds) {
-      msg += `Validated pool: ${e.expectancyR >= 0 ? "+" : ""}${e.expectancyR}R · ${e.winRate}% · PF ${e.profitFactor} (OOS)\n`;
+      msg += `Tidigare OOS-basmodell: ${e.expectancyR >= 0 ? "+" : ""}${e.expectancyR}R · ${e.winRate}% · PF ${e.profitFactor}. INTE bevis för 80/3.\n`;
     } else {
-      msg += "Ingen fullt validerad OOS-pool just nu — förslag visas ändå som B/WATCH.\n";
+      msg += "Inget positivt validerat OOS-basurval för denna marknad.\n";
     }
+    msg += m.eliteTarget?.qualifiedStrategies
+      ? `80/3-gate: ${m.eliteTarget.qualifiedStrategies} strategier når forskningskraven; individuell exekvering måste verifieras.\n`
+      : "80/3-gate: inga strategier uppfyller kraven. ALLA idéer är WATCH.\n";
 
     if (!reg.on) {
       msg += "Index är risk-off — förslag visas ändå, men regimstatusen ska vägas in.\n";
