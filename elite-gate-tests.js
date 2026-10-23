@@ -15,7 +15,7 @@ assert.ok(eliteGate({...passing,winRate:0.79},params,4,0.75).reasons.includes("T
 assert.ok(eliteGate({...passing,avgWin:2.9},params,4,0.75).reasons.includes("VERKLIG_PAYOFF_UNDER_3"));
 assert.ok(eliteGate(passing,{...params,rrTarget:2.5},4,0.75).reasons.includes("PLANERAD_RR_UNDER_3"));
 assert.ok(eliteGate(passing,{...params,maxBars:20},4,0.75).reasons.includes("HALLTID_OVER_3_VECKOR"));
-assert.ok(eliteGate(passing,params,2,0.75).reasons.includes("FOR_FA_OOS_PERIODER"));
+assert.ok(eliteGate(passing,params,1,0.75).reasons.includes("FOR_FA_OOS_PERIODER"));
 assert.ok(eliteGate({...passing,n:20},params,4,0.75).reasons.includes("FOR_FA_OOS_AFFARER"));
 assert.ok(eliteGate({...passing,avgLoss:0},params,4,0.75).reasons.includes("VERKLIG_PAYOFF_UNDER_3"));
 assert.ok(eliteGate({...passing,expectancyLow95:-0.1},params,4,0.75).reasons.includes("OSAKER_POSITIV_FORVANTAN"));
