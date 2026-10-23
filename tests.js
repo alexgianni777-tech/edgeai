@@ -5,7 +5,7 @@ const path = require("path");
 const SOURCE_FILES = [
   "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
-  "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js",
+  "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js", "sentiment-study.js", "sentiment-study-tests.js", "data-freshness.js", "data-freshness-tests.js",
   "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "validate-output.js", "server.js"
 ];
 
@@ -122,4 +122,10 @@ require("./fill-model-tests");
 require("./elite-gate-tests");
 require("./market-psychology-tests");
 require("./ag-invest/risk-card-tests");
-console.log("EdgeAI regression tests passed");
+require("./sentiment-study-tests");
+require("./data-freshness-tests")().then(() =>
+  console.log("EdgeAI regression tests passed")
+).catch(e => {
+  console.error(e);
+  process.exitCode=1;
+});
