@@ -15,6 +15,7 @@ const { monteCarlo } = require("./montecarlo");
 const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
 const { dailyExit, roundTripCostR } = require("./fill-model");
+const { eliteGate } = require("./elite-gate");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -328,10 +329,13 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       (fm.expectancy ?? 0) > 0 &&
       (fm.profitFactor ?? 0) > 1;
 
+    // Pre-registered aspirational 80/3 gate on unseen OOS returns.
+    const elite = eliteGate(fm, { ...strat.DEFAULT_PARAMS, ...v.params },
+      filteredWindowMetrics.length, positiveWindowRate);
     if (stratHolds) pooledOOS.push(...filtered);
     stratParams.push({
       strat, params: v.params, proposalParams: legacyParams, m: fm, trades: filtered, holds: stratHolds,
-      promising, windows: v.windows || [], evaluatedWindows: filteredWindowMetrics.length, positiveWindowRate,
+      promising, elite, windows: v.windows || [], evaluatedWindows: filteredWindowMetrics.length, positiveWindowRate,
     });
 
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
@@ -348,12 +352,20 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
     for (const pset of proposalSets) {
       const mergedParams = { ...(strat.DEFAULT_PARAMS || {}), ...(pset.params || {}) };
+      const eligible = elite.qualified &&
+        Number(mergedParams.rrTarget) >= 3 &&
+        Number(mergedParams.maxBars) <= 15;
       const raw = screen(universe, fm, pset.params, 7, strat).map(s => ({
         dir: isShort ? "short" : "long",
         ticker: s.ticker, setup: s.setup,
-        grade: stratHolds ? "A" : (promising ? "B" : "WATCH"),
-        evidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
-        validatedEdge: stratHolds,
+        // A base validation is not proof of the requested 80/3 threshold.
+        grade: eligible ? "A" : "WATCH",
+        evidenceStatus: eligible ? "VALIDATED" : "WATCH",
+        baseEvidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
+        eliteStatus: eligible ? "QUALIFIED_OOS" : "RESEARCH_ONLY",
+        eliteQualified: eligible,
+        eliteReasonCodes: elite.reasons,
+        validatedEdge: eligible,
         regimeAligned: isShort ? true : regime.on,
         proposalSource: pset.source,
         signalT: s.signalT,
@@ -461,6 +473,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       executionDrift: executionDriftStats(sp.trades),
       params: sp.params,
       proposalParams: sp.proposalParams,
+      elite: sp.elite,
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
     };
   });
@@ -501,6 +514,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       validated: false,
       note: "Ranking orders proposals; it is not itself a separately validated alpha model.",
     },
+    eliteTarget: { winRate: 0.80, plannedRR: 3, realizedPayoff: 3, minimumOosTrades: 100,
+      qualifiedStrategies: stratParams.filter(sp => sp.elite.qualified).length,
+      note: "Aspirational, pre-registered OOS evidence gate; no optimization to pass. No automatic orders." },
     equityCurve, setups, trackRecord, trackRecordSummary, trackRecordSource: "proposal-ledger-v2",
   };
 }
