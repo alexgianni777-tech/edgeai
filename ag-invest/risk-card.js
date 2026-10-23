@@ -28,7 +28,7 @@ function tradeCard({entry,stop,target,direction}, account, opts={}) {
     plannedRiskSEK:+approxLoss.toFixed(2),
     plannedRiskPctOfAccount:+(100*approxLoss/account).toFixed(2),
     illustrativeTargetProfitSEK:+approxGain.toFixed(2),
-    status:rr>=3?"RESEARCH_ONLY_3R_PLAN":"BELOW_3R",
+    status:rr>=3-1e-8?"RESEARCH_ONLY_3R_PLAN":"BELOW_3R",
     warning:"Not a broker-specific or guaranteed stop. Gaps, knockout, changing leverage, spreads, financing, currency and fees can exceed planned loss. Verify real mini future ISIN and knockout before ordering.",
   };
 }
