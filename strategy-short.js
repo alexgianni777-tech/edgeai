@@ -9,6 +9,8 @@
 // Samma strategi-interface + { dir: "short" }.
 
 const { ema, rsi, atr } = require("./indicators");
+const { dailyExit, roundTripCostR } = require("./fill-model");
+
 
 const DEFAULT_PARAMS = {
   emaSlow: 50, emaFast: 20, rsiPeriod: 14, rsiUp: 45,
@@ -45,12 +47,12 @@ function simulateTrade(bars, ctx, entryIdx, p) {
   const stop = entry + risk, target = entry - risk * p.rrTarget;
   let exit = null, exitK = null;
   for (let k = entryIdx; k < Math.min(bars.length, entryIdx + p.maxBars + 1); k++) {
-    if (bars[k].high >= stop) { exit = stop; exitK = k; break; }     // stop först (konservativt)
-    if (bars[k].low <= target) { exit = target; exitK = k; break; }
+    const fill = dailyExit(bars[k], "short", stop, target);
+    if (fill) { exit = fill.price; exitK = k; break; }
   }
   if (exit == null) { exitK = Math.min(bars.length - 1, entryIdx + p.maxBars); exit = bars[exitK].close; }
   let r = (entry - exit) / risk;                                     // short: vinst när priset faller
-  r -= ((p.courtage + p.slippage) * 2 * entry) / risk;
+  r -= roundTripCostR(entry, exit, risk, p.courtage + p.slippage);
   return { r, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
 }
 

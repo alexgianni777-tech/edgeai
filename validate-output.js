@@ -39,6 +39,15 @@ for (const key of ["US", "SE"]) {
     if (!["VALIDATED", "PROMISING", "WATCH"].includes(s.evidenceStatus)) {
       errors.push(`${p}: invalid evidenceStatus ${s.evidenceStatus}`);
     }
+    if (!["QUALIFIED_OOS", "RESEARCH_ONLY"].includes(s.eliteStatus)) {
+      errors.push(`${p}: eliteStatus must be explicit`);
+    }
+    if (typeof s.eliteQualified !== "boolean") errors.push(`${p}: eliteQualified must be boolean`);
+    if (s.eliteQualified !== (s.eliteStatus === "QUALIFIED_OOS")) errors.push(`${p}: inconsistent elite status`);
+    if (!s.eliteQualified && (s.grade !== "WATCH" || s.validatedEdge !== false)) {
+      errors.push(`${p}: unqualified setups must never be shown as trade-approved`);
+    }
+    if (s.eliteQualified && s.rr < 3) errors.push(`${p}: elite requires planned R/R of at least 3`);
     if (s.dir === "long" && !(s.stop < s.entry && s.target > s.entry)) {
       errors.push(`${p}: long levels must satisfy stop < entry < target`);
     }
@@ -50,6 +59,9 @@ for (const key of ["US", "SE"]) {
     }
   }
 
+  if (!m.eliteTarget || m.eliteTarget.winRate !== 0.80 || m.eliteTarget.plannedRR !== 3) {
+    errors.push(`${key}: elite target missing or changed`);
+  }
   for (const [i, s] of (m.strategies || []).entries()) {
     const p = `${key}.strategies[${i}]`;
     if (!finite(s.expectancyR) || !finite(s.winRate) || !finite(s.profitFactor) || !finite(s.n)) {

@@ -13,6 +13,8 @@
 // Kostnader (courtage + slippage) dras av och uttrycks i R.
 
 const { ema, rsi, atr } = require("./indicators");
+const { dailyExit, roundTripCostR } = require("./fill-model");
+
 
 const DEFAULT_PARAMS = {
   emaFast: 20, emaSlow: 50, rsiPeriod: 14, atrPeriod: 14,
@@ -68,8 +70,8 @@ function simulateTrade(bars, ctx, entryIdx, p) {
   let exitPrice = null, exitK = null;
   for (let k = entryIdx; k < Math.min(bars.length, entryIdx + p.maxBars + 1); k++) {
     const b = bars[k];
-    if (b.low <= stop) { exitPrice = stop; exitK = k; break; }      // stop först (konservativt)
-    if (b.high >= target) { exitPrice = target; exitK = k; break; }
+    const fill = dailyExit(b, "long", stop, target);
+    if (fill) { exitPrice = fill.price; exitK = k; break; }
   }
   if (exitPrice == null) {
     exitK = Math.min(bars.length - 1, entryIdx + p.maxBars);
@@ -79,9 +81,7 @@ function simulateTrade(bars, ctx, entryIdx, p) {
   // bruttoutfall i R
   let rMult = (exitPrice - entry) / risk;
   // kostnad i R: (courtage+slip)*2 av priset, omräknat till andel av risken
-  const costFrac = (p.courtage + p.slippage) * 2;
-  const costInR = (costFrac * entry) / risk;
-  rMult -= costInR;
+  rMult -= roundTripCostR(entry, exitPrice, risk, p.courtage + p.slippage);
   return { r: rMult, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
 }
 

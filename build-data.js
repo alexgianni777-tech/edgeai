@@ -14,6 +14,8 @@ const { metrics } = require("./metrics");
 const { monteCarlo } = require("./montecarlo");
 const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
+const { dailyExit, roundTripCostR } = require("./fill-model");
+const { eliteGate } = require("./elite-gate");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -182,13 +184,8 @@ function updateLedger(ledgerPath, universe, setups) {
     const observed = future.slice(0, maxBars);
 
     for (const b of observed) {
-      if (isShort) {
-        if (b.high >= row.stop) { exit = row.stop; exitBar = b; break; }
-        if (b.low <= row.target) { exit = row.target; exitBar = b; break; }
-      } else {
-        if (b.low <= row.stop) { exit = row.stop; exitBar = b; break; }
-        if (b.high >= row.target) { exit = row.target; exitBar = b; break; }
-      }
+      const fill = dailyExit(b, isShort ? "short" : "long", row.stop, row.target);
+      if (fill) { exit = fill.price; exitBar = b; row.exitReason = fill.reason; break; }
     }
 
     // Time-stop when the full holding window has elapsed.
@@ -199,8 +196,9 @@ function updateLedger(ledgerPath, universe, setups) {
 
     if (exit != null) {
       const grossR = isShort ? (row.entry - exit) / risk : (exit - row.entry) / risk;
-      const roundTripCostR = ((Number(row.costRate || 0) * 2) * row.entry) / risk;
-      row.r = round(grossR - roundTripCostR);
+      const costs = roundTripCostR(row.entry, exit, risk, Number(row.costRate || 0));
+      row.r = round(grossR - costs);
+      row.fillModel = "gap-aware-v1";
       row.status = "closed";
       row.closedAt = String(exitBar?.t || new Date().toISOString());
     }
@@ -215,7 +213,7 @@ function updateLedger(ledgerPath, universe, setups) {
     const signalId = [s.ticker, s.setup, signalDate].join("|");
     if (!signalDate || knownSignals.has(signalId)) continue;
     rows.push({
-      signalId, ledgerVersion: 2,
+      signalId, ledgerVersion: 2, fillModel: "gap-aware-v1",
       ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long",
       entry: s.entry, stop: s.stop, target: s.target,
       signalT, barT: signalT, maxBars: s.maxBars ?? 20,
@@ -331,10 +329,13 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       (fm.expectancy ?? 0) > 0 &&
       (fm.profitFactor ?? 0) > 1;
 
+    // Pre-registered aspirational 80/3 gate on unseen OOS returns.
+    const elite = eliteGate(fm, { ...strat.DEFAULT_PARAMS, ...v.params },
+      filteredWindowMetrics.length, positiveWindowRate);
     if (stratHolds) pooledOOS.push(...filtered);
     stratParams.push({
       strat, params: v.params, proposalParams: legacyParams, m: fm, trades: filtered, holds: stratHolds,
-      promising, windows: v.windows || [], evaluatedWindows: filteredWindowMetrics.length, positiveWindowRate,
+      promising, elite, windows: v.windows || [], evaluatedWindows: filteredWindowMetrics.length, positiveWindowRate,
     });
 
     const winHeld = filtered.filter(t => t.r > 0 && t.held != null).map(t => t.held);
@@ -351,12 +352,22 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
     for (const pset of proposalSets) {
       const mergedParams = { ...(strat.DEFAULT_PARAMS || {}), ...(pset.params || {}) };
+      const isDeployedParameterSet = JSON.stringify(mergedParams) ===
+        JSON.stringify({ ...(strat.DEFAULT_PARAMS || {}), ...(v.params || {}) });
+      const eligible = elite.qualified && isDeployedParameterSet &&
+        Number(mergedParams.rrTarget) >= 3 &&
+        Number(mergedParams.maxBars) <= 15;
       const raw = screen(universe, fm, pset.params, 7, strat).map(s => ({
         dir: isShort ? "short" : "long",
         ticker: s.ticker, setup: s.setup,
-        grade: stratHolds ? "A" : (promising ? "B" : "WATCH"),
-        evidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
-        validatedEdge: stratHolds,
+        // A base validation is not proof of the requested 80/3 threshold.
+        grade: eligible ? "A" : "WATCH",
+        evidenceStatus: eligible ? "VALIDATED" : "WATCH",
+        baseEvidenceStatus: stratHolds ? "VALIDATED" : (promising ? "PROMISING" : "WATCH"),
+        eliteStatus: eligible ? "QUALIFIED_OOS" : "RESEARCH_ONLY",
+        eliteQualified: eligible,
+        eliteReasonCodes: elite.reasons,
+        validatedEdge: eligible,
         regimeAligned: isShort ? true : regime.on,
         proposalSource: pset.source,
         signalT: s.signalT,
@@ -425,7 +436,10 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   // 4) proposal ledger: only immutable v2 proposal outcomes are displayed
   const ledgerPath = path.join(__dirname, "public", `ledger-${key}.json`);
   fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
-  const closed = updateLedger(ledgerPath, universe, setups);
+  const allClosed = updateLedger(ledgerPath, universe, setups);
+  // Old already-closed records assumed perfect stop fills. Preserve them in
+  // the ledger for audit, but never mix them into the revised track record.
+  const closed = allClosed.filter(r => r.fillModel === "gap-aware-v1");
   const closedChronological = closed.slice().sort((a, b) =>
     new Date(b.closedAt || 0).getTime() - new Date(a.closedAt || 0).getTime()
   );
@@ -440,7 +454,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     winRate: closed.length ? round((ledgerWins / closed.length) * 100, 1) : 0,
     netR: round(closed.reduce((sum, r) => sum + (Number(r.r) || 0), 0), 2),
     costAdjusted: true,
-    basis: "displayed proposal levels, forward-resolved, round-trip costs deducted",
+    basis: "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded",
   };
 
   // per-strategi-sammanfattning (för loggning)
@@ -461,6 +475,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       executionDrift: executionDriftStats(sp.trades),
       params: sp.params,
       proposalParams: sp.proposalParams,
+      elite: sp.elite,
       equityCurve: sp.trades.map(t => { seq += t.r; return round(seq); }),
     };
   });
@@ -490,6 +505,8 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         "Historical validation uses the current/curated universe; survivorship bias is not fully eliminated.",
         "Drawdown uses realized exits rather than mark-to-market equity and can understate intratrade drawdown.",
         "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
+        "Daily share-price bars cannot fully model mini-future/turbo spreads, financing, knock-out and gap illiquidity.",
+        "The prior ledger's already-closed records assumed stop-level fills and are excluded from gap-aware track-record totals.",
       ],
     },
     rTrades: pooledOOS.map(t => round(t.r)),
@@ -499,6 +516,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       validated: false,
       note: "Ranking orders proposals; it is not itself a separately validated alpha model.",
     },
+    eliteTarget: { winRate: 0.80, plannedRR: 3, realizedPayoff: 3, minimumOosTrades: 100,
+      qualifiedStrategies: stratParams.filter(sp => sp.elite.qualified).length,
+      note: "Aspirational, pre-registered OOS evidence gate; no optimization to pass. No automatic orders." },
     equityCurve, setups, trackRecord, trackRecordSummary, trackRecordSource: "proposal-ledger-v2",
   };
 }
