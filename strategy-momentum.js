@@ -9,6 +9,8 @@
 // Samma strategi-interface: { name, runStrategy, latestSignal, DEFAULT_PARAMS, GRID }.
 
 const { ema, atr } = require("./indicators");
+const { dailyExit, roundTripCostR } = require("./fill-model");
+
 
 const DEFAULT_PARAMS = {
   gainBars: 60, minGain: 0.25,      // föregående styrka: +25% på ~3 mån
@@ -61,13 +63,14 @@ function simulateTrade(bars, ctx, entryIdx, p, stopLevel) {
   if (risk <= 0) return null;
   let exit = null, exitK = null;
   for (let k = entryIdx; k < Math.min(bars.length, entryIdx + p.maxBars + 1); k++) {
-    if (bars[k].low <= stopLevel) { exit = stopLevel; exitK = k; break; }         // hård stop först
+    const fill = dailyExit(bars[k], "long", stopLevel);
+    if (fill) { exit = fill.price; exitK = k; break; }
     const e = ctx.emaT[k];
     if (k > entryIdx && e != null && bars[k].close < e) { exit = bars[k].close; exitK = k; break; } // trend bruten
   }
   if (exit == null) { exitK = Math.min(bars.length - 1, entryIdx + p.maxBars); exit = bars[exitK].close; }
   let r = (exit - entry) / risk;
-  r -= ((p.courtage + p.slippage) * 2 * entry) / risk;
+  r -= roundTripCostR(entry, exit, risk, p.courtage + p.slippage);
   return { r, held: exitK - entryIdx + 1, exitIdx: exitK, exitT: bars[exitK].t };
 }
 
