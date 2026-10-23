@@ -16927,9 +16927,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-23T10:38:16.445Z",
-    "r": null
+    "r": 2.27,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "EQT.ST|The Big Short — broader weak-stock rally short|2026-10-22",
@@ -16963,9 +16964,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-23T10:38:16.445Z",
-    "r": null
+    "r": -1.12,
+    "closedAt": "Thu Oct 22 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ESSITY-B.ST|The Big Short — broader weak-stock rally short|2026-10-14",
@@ -16981,8 +16983,9 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-23T10:38:16.445Z",
-    "r": null
+    "r": -1.23,
+    "closedAt": "Thu Oct 15 2026 07:00:00 GMT+0000 (Coordinated Universal Time)"
   }
 ]

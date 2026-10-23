@@ -35612,9 +35612,10 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-23T10:37:53.194Z",
-    "r": null
+    "r": -1.08,
+    "closedAt": "Thu Oct 15 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ACN|Momentum flag — leader breakout|2026-10-22",
@@ -35900,9 +35901,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-23T10:37:53.194Z",
-    "r": null
+    "r": -1.2,
+    "closedAt": "Thu Oct 22 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SO|The Big Short — broader weak-stock rally short|2026-10-19",
@@ -35918,8 +35920,9 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-23T10:37:53.194Z",
-    "r": null
+    "r": -1.18,
+    "closedAt": "Thu Oct 22 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   }
 ]
