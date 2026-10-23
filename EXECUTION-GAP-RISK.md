@@ -20,7 +20,7 @@ Run `npm test` and `npm run verify:data` after building a demo dataset. The pull
 The user wants at least **80% observed win rate** and **1:3 planned risk/reward**. There is NO guarantee these jointly occur. At 80% wins and realized winning trade 3R against losing trade -1R, arithmetic expectancy would be +2.2R per trade *before* additional frictions. High win rate, low variance and such a high payoff are rarely simultaneous.
 
 `elite-gate.js` requires **all** of:
-- minimum 100 *out-of-sample* trades, across at least three evaluated OOS windows;
+- minimum 100 *out-of-sample* trades, across at least two evaluated OOS windows (current rolling three-year history normally provides only two; longer non-overlapping forward tests are desirable);
 - observed OOS win rate at least 80%;
 - realized average win / average absolute loss at least 3, with at least 10 actual losses;
 - planned target at least 3R under the deployed parameters;
