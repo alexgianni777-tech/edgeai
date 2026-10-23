@@ -40,11 +40,14 @@ for (const key of ["US", "SE"]) {
       radar.long.length>3 || radar.short.length>3) {
     errors.push(`${key}.ideaRadar: missing or invalid long/short sides`);
   } else {
+    if (!Array.isArray(radar.conflicts)) errors.push(`${key}.ideaRadar: conflicts missing`);
+    const conflictSet = new Set(radar.conflicts || []);
     for (const side of ["long","short"]) {
       const seen=new Set();
       for (const [i, idea] of radar[side].entries()) {
         const p=`${key}.ideaRadar.${side}[${i}]`;
         if (!idea.ticker || seen.has(idea.ticker)) errors.push(`${p}: missing/duplicate ticker`);
+        if (conflictSet.has(idea.ticker)) errors.push(`${p}: conflicting directional signal must not be promoted`);
         seen.add(idea.ticker);
         if (idea.direction !== side) errors.push(`${p}: incorrect trade direction`);
         if (!finite(idea.entry) || !finite(idea.stop) || !finite(idea.target) ||

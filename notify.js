@@ -74,6 +74,7 @@ function buildMessage(data) {
       msg += "Marknadspsykologi: otillräcklig data — ingen sentimenttolkning.\n";
     }
     const radar = m.ideaRadar;
+    if (radar?.conflicts?.length) msg += `⚠ Motstridiga LONG/SHORT-signaler bortfiltrerade: ${radar.conflicts.join(", ")}.\n`;
     for (const side of ["long","short"]) {
       const items = radar?.[side] || [];
       msg += side === "long" ? "🟢 LONG-IDÉER (bevakning):\n" : "🔴 SHORT-IDÉER (bevakning):\n";

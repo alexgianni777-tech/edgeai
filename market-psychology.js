@@ -80,12 +80,23 @@ function buildIdeaRadar(setups, sentiment, maxPerSide=3) {
   const result={long:[],short:[],basis:"research-watchlist",scoreMeaning:"Heuristisk prioritet, ej sannolikhet eller verifierad alpha",asOf:sentiment?.asOf||null};
   const eligible=(setups||[]).filter(s=>["long","short"].includes(s?.dir)&&Number.isFinite(s.barsAgo)&&s.barsAgo<=2
     &&Number.isFinite(s.entry)&&Number.isFinite(s.stop)&&Number.isFinite(s.target));
+  // A ticker flagged LONG by one strategy and SHORT by another is NOT two
+  // reinforcing ideas. Remove it from actionable radar pending human review.
+  const directionsByTicker=new Map();
+  for(const s of eligible) {
+    if(!directionsByTicker.has(s.ticker))directionsByTicker.set(s.ticker,new Set());
+    directionsByTicker.get(s.ticker).add(s.dir);
+  }
+  const conflicts=[...directionsByTicker.entries()].filter(([,d])=>d.size>1).map(([ticker])=>ticker).sort();
+  result.conflicts=conflicts;
+  const conflictSet=new Set(conflicts);
+  const unambiguous=eligible.filter(s=>!conflictSet.has(s.ticker));
   const rank=s=>((s.eliteQualified?100:0) + Math.max(-5,Math.min(5,Number(s.edge?.expectancyR)||0))*10
      + (s.dir==="short" ? (100-(s.rs??50)):(s.rs??50))/10
      + (Number(s.rr)>=3?5:0) - s.barsAgo*3);
   for(const direction of ["long","short"]){
     const seen=new Set();
-    for(const s of eligible.filter(x=>x.dir===direction).sort((a,b)=>rank(b)-rank(a))){
+    for(const s of unambiguous.filter(x=>x.dir===direction).sort((a,b)=>rank(b)-rank(a))){
       if(seen.has(s.ticker))continue;
       seen.add(s.ticker);
       const psych=assessCrowdRisk(s,sentiment);
