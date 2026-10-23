@@ -352,7 +352,9 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
     for (const pset of proposalSets) {
       const mergedParams = { ...(strat.DEFAULT_PARAMS || {}), ...(pset.params || {}) };
-      const eligible = elite.qualified &&
+      const isDeployedParameterSet = JSON.stringify(mergedParams) ===
+        JSON.stringify({ ...(strat.DEFAULT_PARAMS || {}), ...(v.params || {}) });
+      const eligible = elite.qualified && isDeployedParameterSet &&
         Number(mergedParams.rrTarget) >= 3 &&
         Number(mergedParams.maxBars) <= 15;
       const raw = screen(universe, fm, pset.params, 7, strat).map(s => ({
