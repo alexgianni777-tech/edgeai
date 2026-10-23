@@ -25,5 +25,14 @@ Innan beslut, fyll i:
 ## Long/short-konflikter
 Raden `ideaRadar.conflicts` listar tickers som samtidigt ger färska long- och shortsignaler. Dessa **tas bort från båda föreslagna topplistorna** och redovisas som konflikter i Telegram. Det är inte en prognos om riktning. Historiska loggar eller färdigutvärderade signaler raderas inte.
 
+## Makrokalender — riskhändelser samma vecka
+
+- **27–28 oktober:** FOMC-möte; amerikanskt räntebesked onsdag 28 oktober enligt Federal Reserve. Officiell källa: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+- **28–29 oktober:** ECB:s penningpolitiska möte, följt av presskonferens torsdag 29 oktober. Officiell källa: https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.SG.html
+- **29 oktober:** Boliden Q3. Den redan hållna warranten kräver en separat verifierad exitplan och är inte en ny mini-future-affär.
+- **30 oktober:** Exxon Mobil Q3. XOM-caset är avsett att avslutas före rapport, och onsdagens Fed-besked kan ge anledning att avstå eller avsluta tidigare.
+
+**Makrostyrning:** Alla tre måndagscase kräver extra riskgranskning före onsdagens räntebesked. Undvik en oplanerad overnightposition över FOMC/ECB med 4–8× hävstång. Gå hellre miste om en affär än att ta ett gap som inte ryms i riskbudgeten. Katalysatorkalendern är daterad oktober 2026 och måste uppdateras när nya händelser blir kända.
+
 ## Nästa vetenskapliga steg
 Mät om psykologivarningar förbättrar nettoförväntan out-of-sample jämfört med samma idéer utan psykologivarningar, inklusive falska bortfiltreringar, affärskostnader och tidsram 2–4 dagar. Ingen optimering mot 80/3-målet med gammal data.
