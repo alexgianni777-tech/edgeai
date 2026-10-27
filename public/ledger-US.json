@@ -36600,9 +36600,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-27T11:11:48.866Z",
-    "r": null
+    "r": 1.27,
+    "exitReason": "TARGET",
+    "closedAt": "Wed Oct 21 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "JPM|Burry filter — weak-stock rally short|2026-10-26",
@@ -36638,9 +36640,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-27T11:11:48.866Z",
-    "r": null
+    "r": -1.49,
+    "exitReason": "STOP_GAP",
+    "closedAt": "Tue Oct 20 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "CSCO|Burry filter — weak-stock rally short|2026-10-26",
@@ -36733,9 +36737,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-27T11:11:48.866Z",
-    "r": null
+    "r": -1.17,
+    "exitReason": "STOP",
+    "closedAt": "Tue Oct 20 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "CSCO|The Big Short — broader weak-stock rally short|2026-10-26",
