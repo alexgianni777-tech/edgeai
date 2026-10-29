@@ -37546,9 +37546,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-29T11:54:17.518Z",
-    "r": null
+    "r": 1.28,
+    "exitReason": "TARGET_GAP_CAPPED",
+    "closedAt": "Wed Oct 28 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AVGO|The Big Short — broader weak-stock rally short|2026-10-28",
