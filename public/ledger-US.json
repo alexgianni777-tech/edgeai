@@ -38200,9 +38200,11 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-30T11:47:42.263Z",
-    "r": null
+    "r": -2.31,
+    "exitReason": "STOP_GAP",
+    "closedAt": "Thu Oct 29 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GILD|Momentum flag — leader breakout|2026-10-29",
@@ -38238,9 +38240,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-30T11:47:42.263Z",
-    "r": null
+    "r": 1.27,
+    "exitReason": "TARGET",
+    "closedAt": "Thu Oct 29 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AVGO|Burry filter — weak-stock rally short|2026-10-29",
@@ -38409,9 +38413,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-10-30T11:47:42.263Z",
-    "r": null
+    "r": 1.27,
+    "exitReason": "TARGET",
+    "closedAt": "Thu Oct 29 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AVGO|The Big Short — broader weak-stock rally short|2026-10-29",
