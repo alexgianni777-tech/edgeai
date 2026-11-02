@@ -39284,9 +39284,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-02T14:00:47.592Z",
-    "r": null
+    "r": 1.37,
+    "exitReason": "TARGET_GAP_CAPPED",
+    "closedAt": "Fri Oct 30 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AMZN|The Big Short — broader weak-stock rally short|2026-10-28",
@@ -39303,9 +39305,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-02T14:00:47.592Z",
-    "r": null
+    "r": 1.88,
+    "exitReason": "TARGET",
+    "closedAt": "Fri Oct 30 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "JPM|The Big Short — broader weak-stock rally short|2026-10-30",
@@ -39379,9 +39383,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-02T14:00:47.592Z",
-    "r": null
+    "r": -1.28,
+    "exitReason": "STOP_GAP",
+    "closedAt": "Fri Oct 30 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ABT|The Big Short — broader weak-stock rally short|2026-10-28",
@@ -39512,9 +39518,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-02T14:00:47.592Z",
-    "r": null
+    "r": -1.17,
+    "exitReason": "STOP",
+    "closedAt": "Fri Oct 30 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "LOW|The Big Short — broader weak-stock rally short|2026-10-27",
@@ -39531,9 +39539,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-02T14:00:47.592Z",
-    "r": null
+    "r": -1.4,
+    "exitReason": "STOP_GAP",
+    "closedAt": "Fri Oct 30 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SYK|The Big Short — broader weak-stock rally short|2026-10-30",
