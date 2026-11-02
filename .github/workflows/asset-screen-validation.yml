@@ -1,0 +1,40 @@
+name: Asset Screen decision brief validation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/asset_screen_brief.py'
+      - 'tests/test_asset_screen_brief.py'
+      - '.github/workflows/asset-screen-validation.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run decision brief unit tests
+        run: python -m unittest discover -s tests -p 'test_asset_screen_brief.py' -v
+      - name: Validate EdgeAI data schema and timestamp
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          d=json.loads(Path("public/data.json").read_text(encoding="utf-8"))
+          generated=d.get("generatedAt")
+          if not generated:
+              raise SystemExit("Missing generatedAt")
+          dt=datetime.fromisoformat(generated.replace("Z","+00:00"))
+          if dt.tzinfo is None or dt > datetime.now(timezone.utc):
+              raise SystemExit("Invalid generatedAt")
+          for market in ("SE","US"):
+              m=d.get("markets",{}).get(market)
+              if not isinstance(m,dict) or not m.get("dataAsOf") or not isinstance(m.get("setups"),list):
+                  raise SystemExit(f"Missing/invalid markets.{market} dataAsOf/setups")
+          age=(datetime.now(timezone.utc)-dt).total_seconds()/3600
+          print(f"EdgeAI schema OK; generatedAt age: {age:.1f} hours")
+          if age>72:
+              print("WARNING: EdgeAI data older than 72 hours")
+          PY
