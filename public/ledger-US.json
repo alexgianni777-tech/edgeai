@@ -40234,9 +40234,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-03T13:09:35.419Z",
-    "r": null
+    "r": 1.39,
+    "exitReason": "TARGET",
+    "closedAt": "Fri Oct 30 2026 13:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "AMZN|The Big Short — broader weak-stock rally short|2026-11-02",
