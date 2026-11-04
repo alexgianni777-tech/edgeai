@@ -18657,8 +18657,10 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-04T13:24:32.071Z",
-    "r": null
+    "r": -1.13,
+    "exitReason": "STOP",
+    "closedAt": "Mon Nov 02 2026 08:00:00 GMT+0000 (Coordinated Universal Time)"
   }
 ]
