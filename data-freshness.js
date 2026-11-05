@@ -1,4 +1,23 @@
 "use strict";
+// These are publication cutoffs, not trading signals. Keep the same
+// conservative close + settlement buffer used by the data builder.
+function latestAllowedDate(key, at = new Date()) {
+ if (!["SE", "US"].includes(key) || !(at instanceof Date) || !Number.isFinite(at.getTime())) {
+   throw new Error("Known market and valid build timestamp required");
+ }
+ const zone = key === "SE" ? "Europe/Stockholm" : "America/New_York";
+ const cutoff = key === "SE" ? 19 * 60 : 17 * 60 + 30;
+ const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+   timeZone: zone, year: "numeric", month: "2-digit", day: "2-digit",
+   hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+ }).formatToParts(at).map(p => [p.type, p.value]));
+ const day = new Date(`${parts.year}-${parts.month}-${parts.day}T00:00:00Z`);
+ if (Number(parts.hour) * 60 + Number(parts.minute) < cutoff) {
+   day.setUTCDate(day.getUTCDate() - 1);
+ }
+ return day.toISOString().slice(0, 10);
+}
+
 // Retry only bars that genuinely lag the last COMPLETED session. Never
 // synthesize missing OHLC and never publish older bars as fresh ones.
 const sessionDate=bars=>{
@@ -41,4 +60,4 @@ async function refreshLagging({universe,indexBars,indexSymbol,expected,loadFn,at
  return {universe:currentUniverse,indexBars:currentIndex,stillLagging,reloaded,errors,
    status:stillLagging.length?"DATA_NOT_READY":"CURRENT"};
 }
-module.exports={sessionDate,refreshLagging};
+module.exports={latestAllowedDate,sessionDate,refreshLagging};

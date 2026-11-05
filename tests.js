@@ -13,6 +13,9 @@ for (const file of SOURCE_FILES) {
   execFileSync(process.execPath, ["--check", path.join(__dirname, file)], { stdio: "pipe" });
 }
 
+// Pure clock/schedule tests: no Yahoo calls, ledger writes or publication.
+execFileSync(process.execPath, ["--test", path.join(__dirname, "completed-session-tests.js")], { stdio: "inherit" });
+
 // Parse every inline browser script so dashboard syntax errors fail CI too.
 const fs = require("fs");
 const html = fs.readFileSync(path.join(__dirname, "edgeai.html"), "utf8");

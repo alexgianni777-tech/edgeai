@@ -18,7 +18,7 @@ const { dailyExit, roundTripCostR } = require("./fill-model");
 const { eliteGate } = require("./elite-gate");
 const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
 const { createHistoricalSentiment, compareSentiment } = require("./sentiment-study");
-const { refreshLagging } = require("./data-freshness");
+const { refreshLagging, latestAllowedDate } = require("./data-freshness");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -53,20 +53,6 @@ const dateKey = t => {
 // Publish only after every ticker and index has the same latest completed
 // market session. The index itself defines the session date, so exchange
 // holidays do not look like missing data.
-function latestAllowedDate(key, at = new Date()) {
-  const zone = key === "SE" ? "Europe/Stockholm" : "America/New_York";
-  const cutoff = key === "SE" ? 19 * 60 : 17 * 60 + 30; // close + settlement buffer
-  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
-    timeZone: zone, year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
-  }).formatToParts(at).map(p => [p.type, p.value]));
-  const day = new Date(`${parts.year}-${parts.month}-${parts.day}T00:00:00Z`);
-  if (Number(parts.hour) * 60 + Number(parts.minute) < cutoff) {
-    day.setUTCDate(day.getUTCDate() - 1);
-  }
-  return day.toISOString().slice(0, 10);
-}
-
 function assertCompleteDailyBars(key, tickers, universe, indexSymbol, indexBars, at = new Date()) {
   const allowed = latestAllowedDate(key, at);
   const dateOf = bars => {
