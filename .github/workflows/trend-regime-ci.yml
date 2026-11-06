@@ -1,0 +1,26 @@
+name: EdgeAI trend-regime regression
+on:
+  pull_request:
+    paths:
+      - 'trend-regime.js'
+      - 'trend-regime-tests.js'
+      - 'build-data.js'
+      - 'validate-output.js'
+      - 'tests.js'
+      - '.github/workflows/trend-regime-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned dependencies
+        run: npm install --no-package-lock --ignore-scripts
+      - name: Check EdgeAI regressions (no external market downloads)
+        run: npm test
