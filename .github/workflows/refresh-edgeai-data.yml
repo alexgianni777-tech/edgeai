@@ -22,9 +22,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-      - name: Install locked dependencies
-        run: npm ci
+      - name: Install pinned dependencies (repository has no lockfile)
+        run: npm install --no-package-lock --ignore-scripts
       - name: Fetch Yahoo and rebuild SE/US
         run: npm run build
       - name: Validate importer contract
