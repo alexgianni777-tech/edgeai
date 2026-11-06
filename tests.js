@@ -6,7 +6,7 @@ const SOURCE_FILES = [
   "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
   "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js", "sentiment-study.js", "sentiment-study-tests.js", "data-freshness.js", "data-freshness-tests.js",
-  "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "validate-output.js", "server.js"
+  "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "validate-output.js", "server.js", "trend-regime.js", "trend-regime-tests.js"
 ];
 
 for (const file of SOURCE_FILES) {
@@ -15,6 +15,7 @@ for (const file of SOURCE_FILES) {
 
 // Pure clock/schedule tests: no Yahoo calls, ledger writes or publication.
 execFileSync(process.execPath, ["--test", path.join(__dirname, "completed-session-tests.js")], { stdio: "inherit" });
+execFileSync(process.execPath, ["--test", path.join(__dirname, "trend-regime-tests.js")], { stdio: "inherit" });
 
 // Parse every inline browser script so dashboard syntax errors fail CI too.
 const fs = require("fs");
