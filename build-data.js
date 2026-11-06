@@ -17,6 +17,7 @@ const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./port
 const { dailyExit, roundTripCostR } = require("./fill-model");
 const { eliteGate } = require("./elite-gate");
 const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
+const { assessMarketTrend, assessDirection } = require("./trend-regime");
 const { createHistoricalSentiment, compareSentiment } = require("./sentiment-study");
 const { refreshLagging, latestAllowedDate } = require("./data-freshness");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
@@ -290,6 +291,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   // Psychology is computed only on completed, common-date market bars.
   // It is supplemental context, never a hidden look-ahead model or trade approval.
   const psychology = scoreSentiment(indexBars, universe, {asOf:dataAsOf});
+  const marketTrendV2 = assessMarketTrend(indexBars, universe, {asOf:dataAsOf,indexSymbol});
   const rsHistoryCache = new Map();
 
   const stratParams = [];
@@ -419,8 +421,11 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
   const m = metrics(pooledOOS);
   let eq = 0;
   const equityCurve = pooledOOS.map(t => { eq += t.r; return round(eq); });
-  const setups = allSetups;
+  const setups = allSetups.map(s => ({...s, marketTrendGate:assessDirection(marketTrendV2,s.dir)}));
   const ideaRadar = buildIdeaRadar(setups, psychology, 3);
+  for(const side of ["long","short"]){
+    for(const idea of ideaRadar[side]) idea.marketTrendGate=assessDirection(marketTrendV2,side);
+  }
 
   // Portfolio-aware risk: same-day signals are bootstrapped together.
   const cohorts = buildCohorts(pooledOOS);
@@ -526,7 +531,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       promisingStrategies: stratParams.filter(sp => sp.promising).length,
     },
     strategies,
-    psychology, ideaRadar, psychologyStudy,
+    psychology, ideaRadar, psychologyStudy, marketTrendV2,
     regime: { on: regime.on, label: regime.on ? "risk-on" : "risk-off", basis: "index vs 200-day average", breadth },
     risk,
     validation: {
