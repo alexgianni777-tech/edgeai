@@ -1,0 +1,56 @@
+name: Refresh EdgeAI Yahoo data
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-edgeai-data.yml'
+  schedule:
+    - cron: '30 22 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: edgeai-data-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Fetch Yahoo and rebuild SE/US
+        run: npm run build
+      - name: Validate importer contract
+        run: npm run verify:data
+      - name: Confirm new completed sessions
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const {latestAllowedDate}=require('./data-freshness');
+          const d=JSON.parse(fs.readFileSync('public/data.json','utf8'));
+          if(d.demo) throw Error('Refusing demo output');
+          for(const key of ['SE','US']){
+            const expected=latestAllowedDate(key);
+            const actual=d.markets?.[key]?.dataAsOf;
+            if(!actual || actual>expected)throw Error(key+': invalid completed session '+actual+' expected <= '+expected);
+            console.log(key+': verified source session '+actual+'; cutoff '+expected);
+          }
+          NODE
+      - name: Commit fresh data only on successful validation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data.json
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "data: refresh verified SE and US Yahoo sessions"
+            git push
+          fi
