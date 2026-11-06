@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T14:02:40.432Z",
+  "generatedAt": "2026-11-06T14:15:19.780Z",
   "demo": false,
   "markets": {
     "US": {
@@ -12,7 +12,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-05",
         "close": 7353.73,
-        "fetchedAt": "2026-11-06T14:02:16.399Z"
+        "fetchedAt": "2026-11-06T14:14:52.771Z"
       },
       "edge": {
         "expectancyR": 0.13,
@@ -73,7 +73,7 @@
               "n": 311,
               "windows": 2,
               "winRate": 0.41479099678456594,
-              "realizedPayoff": 1.347532215701399,
+              "realizedPayoff": 1.3475322991539418,
               "plannedRR": 3,
               "maxHoldingBars": 15,
               "positiveWindowRate": 0.5
@@ -229,7 +229,7 @@
             -24.85,
             -25.04,
             -22.25,
-            -22.42,
+            -22.43,
             -19.61,
             -16.82,
             -15.83,
@@ -538,7 +538,7 @@
               "n": 418,
               "windows": 2,
               "winRate": 0.49282296650717705,
-              "realizedPayoff": 1.310483876916472,
+              "realizedPayoff": 1.310483762039281,
               "plannedRR": 2.5,
               "maxHoldingBars": 20,
               "positiveWindowRate": 1
@@ -988,7 +988,7 @@
             51.34,
             51.58,
             53.97,
-            52.89,
+            52.88,
             51.78,
             50.69,
             49.62,
@@ -1110,7 +1110,7 @@
               "n": 256,
               "windows": 2,
               "winRate": 0.47265625,
-              "realizedPayoff": 1.2355946785404393,
+              "realizedPayoff": 1.2355946098745982,
               "plannedRR": 3,
               "maxHoldingBars": 20,
               "positiveWindowRate": 0.5
@@ -1459,7 +1459,7 @@
             17.88,
             16.81,
             16.75,
-            16.62,
+            16.61,
             16.64,
             15.55,
             16.21,
@@ -1521,7 +1521,7 @@
               "n": 76,
               "windows": 2,
               "winRate": 0.35526315789473684,
-              "realizedPayoff": 1.426968840907994,
+              "realizedPayoff": 1.4269686111505193,
               "plannedRR": null,
               "maxHoldingBars": 40,
               "positiveWindowRate": 0
@@ -1754,7 +1754,7 @@
               "n": 190,
               "windows": 2,
               "winRate": 0.4,
-              "realizedPayoff": 0.8903643567026235,
+              "realizedPayoff": 0.8903645974941158,
               "plannedRR": 2.5,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -2103,7 +2103,7 @@
               "n": 439,
               "windows": 2,
               "winRate": 0.43507972665148065,
-              "realizedPayoff": 0.9542956058088725,
+              "realizedPayoff": 0.9542952966233543,
               "plannedRR": 2,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -2391,7 +2391,7 @@
             -31.76,
             -32.25,
             -30.36,
-            -29.49,
+            -29.5,
             -29.19,
             -29.37,
             -29.92,
@@ -2413,7 +2413,7 @@
             -31.16,
             -30.66,
             -30.57,
-            -31.7,
+            -31.71,
             -32.83,
             -33.97,
             -32.17,
@@ -2608,7 +2608,7 @@
             -69.94,
             -71.08,
             -71.28,
-            -72.42,
+            -72.43,
             -73.52,
             -72.47,
             -70.58,
@@ -4566,7 +4566,7 @@
         51.34,
         51.58,
         53.97,
-        52.89,
+        52.88,
         51.78,
         50.69,
         49.62,
@@ -26680,7 +26680,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-05",
         "close": 3301.09,
-        "fetchedAt": "2026-11-06T14:02:40.432Z"
+        "fetchedAt": "2026-11-06T14:15:19.780Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -26741,7 +26741,7 @@
               "n": 168,
               "windows": 2,
               "winRate": 0.5119047619047619,
-              "realizedPayoff": 1.1299107163719588,
+              "realizedPayoff": 1.1299104664734154,
               "plannedRR": 1.5,
               "maxHoldingBars": 15,
               "positiveWindowRate": 0.5
@@ -27022,20 +27022,20 @@
         {
           "name": "Breakout — fresh N-day high",
           "expectancyR": 0.01,
-          "winRate": 46,
-          "profitFactor": 1.01,
-          "n": 138,
+          "winRate": 47,
+          "profitFactor": 1.03,
+          "n": 137,
           "holds": false,
           "evidenceStatus": "PROMISING",
-          "expectancyLow95": -0.18,
-          "expectancyHigh95": 0.19,
-          "positiveWindowRate": 50,
+          "expectancyLow95": -0.17,
+          "expectancyHigh95": 0.2,
+          "positiveWindowRate": 100,
           "walkForwardWindows": 2,
           "executionDrift": {
-            "n": 138,
+            "n": 137,
             "medianGapPct": 0,
-            "medianAbsGapPct": 0.37,
-            "p90AbsGapPct": 2.01
+            "medianAbsGapPct": 0.38,
+            "p90AbsGapPct": 2.02
           },
           "params": {
             "rrTarget": 1.5,
@@ -27061,20 +27061,19 @@
               "minPositiveWindowRate": 0.6666666666666666
             },
             "observed": {
-              "n": 138,
+              "n": 137,
               "windows": 2,
-              "winRate": 0.463768115942029,
-              "realizedPayoff": 1.1713330542353488,
+              "winRate": 0.46715328467153283,
+              "realizedPayoff": 1.1762266206588714,
               "plannedRR": 1.5,
               "maxHoldingBars": 20,
-              "positiveWindowRate": 0.5
+              "positiveWindowRate": 1
             },
             "reasons": [
               "TRAFFSAKERHET_UNDER_80",
               "VERKLIG_PAYOFF_UNDER_3",
               "PLANERAD_RR_UNDER_3",
               "HALLTID_OVER_3_VECKOR",
-              "FOR_FA_POSITIVA_OOS_PERIODER",
               "OSAKER_POSITIV_FORVANTAN"
             ]
           },
@@ -27083,19 +27082,19 @@
             "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
             "validatedAlpha": false,
             "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-            "totalTrades": 138,
+            "totalTrades": 137,
             "unknownSentiment": 0,
             "bySide": {
               "long": {
-                "sourceN": 138,
-                "datedN": 138,
-                "blockedN": 132,
+                "sourceN": 137,
+                "datedN": 137,
+                "blockedN": 131,
                 "withoutFilter": {
-                  "n": 138,
-                  "winRatePct": 46.4,
-                  "avgR": 0.006,
-                  "totalR": 0.84,
-                  "profitFactor": 1.013
+                  "n": 137,
+                  "winRatePct": 46.7,
+                  "avgR": 0.014,
+                  "totalR": 1.97,
+                  "profitFactor": 1.031
                 },
                 "withFilter": {
                   "n": 6,
@@ -27105,11 +27104,11 @@
                   "profitFactor": 0.004
                 },
                 "blocked": {
-                  "n": 132,
-                  "winRatePct": 47.7,
-                  "avgR": 0.043,
-                  "totalR": 5.67,
-                  "profitFactor": 1.096
+                  "n": 131,
+                  "winRatePct": 48.1,
+                  "avgR": 0.052,
+                  "totalR": 6.8,
+                  "profitFactor": 1.117
                 },
                 "held2to4": {
                   "withoutFilter": {
@@ -27175,142 +27174,141 @@
           "equityCurve": [
             -1.24,
             -1.34,
-            -2.47,
-            -1.74,
-            -1.89,
-            -3.2,
-            -2.69,
-            -2.01,
-            0.85,
-            -0.27,
-            -0.99,
-            -2.09,
+            -0.61,
+            -0.76,
+            -2.07,
+            -1.56,
+            -0.88,
+            1.98,
+            0.86,
+            0.14,
             -0.96,
-            -0.9,
-            -0.91,
-            -1.11,
-            -1.65,
-            -2.11,
-            -3.23,
-            -3.12,
-            -2.45,
-            -1.99,
-            -3.11,
-            -4.24,
-            -3.33,
-            -0.47,
-            0.53,
             0.17,
-            0.37,
-            -0.12,
-            0.28,
-            3.16,
-            6,
-            6.94,
-            7.4,
-            7.82,
-            7.33,
-            8.16,
-            7.98,
-            6.89,
-            7.4,
-            6.32,
-            6.65,
-            5.52,
-            5.97,
-            4.89,
-            4.46,
-            4.61,
-            4.52,
-            3.89,
-            2.75,
-            1.65,
-            1.1,
-            -0.07,
-            -0.09,
-            -0.06,
-            0.02,
-            -1.11,
-            -2.28,
-            -3.44,
-            -4.61,
-            -3.97,
-            -2.57,
-            -1.82,
-            -1.32,
+            0.23,
+            0.22,
             0.03,
-            1.34,
-            2.73,
-            1.62,
-            3,
-            4.34,
-            5.64,
-            6.94,
-            8.25,
-            9.67,
-            8.5,
-            9.8,
-            11.12,
-            9.97,
-            10.31,
-            9.17,
-            10.51,
-            11.85,
-            13.24,
-            14.59,
-            15.9,
-            14.72,
-            13.55,
-            12.13,
-            12.63,
-            13.96,
-            14.38,
-            15.4,
-            14.04,
-            15.41,
-            16.8,
+            -0.52,
+            -0.98,
+            -2.1,
+            -1.99,
+            -1.32,
+            -0.86,
+            -1.98,
+            -3.11,
+            -2.2,
+            0.66,
+            1.66,
+            1.3,
+            1.5,
+            1.01,
+            1.41,
+            4.29,
+            7.13,
+            8.07,
+            8.53,
+            8.95,
+            8.46,
+            9.29,
+            9.11,
+            8.02,
+            8.53,
+            7.45,
+            7.78,
+            6.65,
+            7.1,
+            6.02,
+            5.6,
+            5.74,
+            5.65,
+            5.02,
+            3.88,
+            2.78,
+            2.23,
+            1.06,
+            1.04,
+            1.07,
+            1.15,
+            0.02,
+            -1.15,
+            -2.31,
+            -3.48,
+            -2.84,
+            -1.44,
+            -0.69,
+            -0.19,
+            1.16,
+            2.47,
+            3.86,
+            2.75,
+            4.13,
+            5.47,
+            6.77,
+            8.08,
+            9.38,
+            10.8,
+            9.63,
+            10.93,
+            12.25,
+            11.1,
+            11.44,
+            10.3,
+            11.64,
+            12.98,
+            14.37,
             15.72,
-            17.09,
-            16.04,
-            17.41,
-            17.18,
+            17.03,
+            15.85,
+            14.68,
+            13.26,
+            13.77,
+            15.09,
+            15.51,
+            16.53,
+            15.17,
+            16.54,
+            17.93,
+            16.85,
+            18.22,
+            17.17,
+            18.54,
+            18.31,
+            17.16,
             16.03,
             14.9,
-            13.77,
-            12.65,
-            14.03,
-            12.54,
-            11.12,
-            10.92,
-            9.84,
-            8.75,
-            10.12,
-            8.98,
-            7.91,
-            6.81,
-            5.69,
-            7.06,
+            13.78,
+            15.16,
+            13.67,
+            12.25,
+            12.05,
+            10.97,
+            9.88,
+            11.25,
+            10.11,
+            9.04,
+            7.94,
+            6.82,
+            8.19,
+            7.07,
             5.94,
-            4.81,
-            3.75,
+            4.88,
+            4.9,
             3.77,
-            2.64,
-            2.85,
-            2.36,
-            2.28,
-            1.94,
-            3.35,
-            2.57,
-            2.48,
-            1.93,
-            3.37,
-            2.29,
-            1.95,
-            0.88,
-            -0.22,
-            0.66,
-            1.25,
-            0.84
+            3.98,
+            3.49,
+            3.41,
+            3.07,
+            4.48,
+            3.7,
+            3.61,
+            3.06,
+            4.5,
+            3.42,
+            3.08,
+            2.01,
+            0.91,
+            1.79,
+            2.38,
+            1.97
           ]
         },
         {
@@ -27358,7 +27356,7 @@
               "n": 118,
               "windows": 2,
               "winRate": 0.4661016949152542,
-              "realizedPayoff": 1.6090931368678831,
+              "realizedPayoff": 1.6090931972208573,
               "plannedRR": 3,
               "maxHoldingBars": 20,
               "positiveWindowRate": 1
@@ -27630,7 +27628,7 @@
               "n": 46,
               "windows": 2,
               "winRate": 0.30434782608695654,
-              "realizedPayoff": 1.9404018913768293,
+              "realizedPayoff": 1.9404018089975974,
               "plannedRR": null,
               "maxHoldingBars": 40,
               "positiveWindowRate": 0.5
@@ -27833,7 +27831,7 @@
               "n": 70,
               "windows": 2,
               "winRate": 0.35714285714285715,
-              "realizedPayoff": 1.0993127595727143,
+              "realizedPayoff": 1.0993130239553854,
               "plannedRR": 2.5,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0.5
@@ -28063,7 +28061,7 @@
               "n": 152,
               "windows": 2,
               "winRate": 0.3881578947368421,
-              "realizedPayoff": 0.7910904245735861,
+              "realizedPayoff": 0.7910907204294235,
               "plannedRR": 2,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -28471,19 +28469,19 @@
         "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
         "validatedAlpha": false,
         "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-        "totalTrades": 692,
+        "totalTrades": 691,
         "unknownSentiment": 0,
         "bySide": {
           "long": {
-            "sourceN": 470,
-            "datedN": 470,
-            "blockedN": 396,
+            "sourceN": 469,
+            "datedN": 469,
+            "blockedN": 395,
             "withoutFilter": {
-              "n": 470,
-              "winRatePct": 46.6,
-              "avgR": 0.071,
-              "totalR": 33.59,
-              "profitFactor": 1.161
+              "n": 469,
+              "winRatePct": 46.7,
+              "avgR": 0.074,
+              "totalR": 34.72,
+              "profitFactor": 1.167
             },
             "withFilter": {
               "n": 74,
@@ -28493,11 +28491,11 @@
               "profitFactor": 1.507
             },
             "blocked": {
-              "n": 396,
-              "winRatePct": 47.2,
-              "avgR": 0.051,
-              "totalR": 20.01,
-              "profitFactor": 1.11
+              "n": 395,
+              "winRatePct": 47.3,
+              "avgR": 0.054,
+              "totalR": 21.14,
+              "profitFactor": 1.117
             },
             "held2to4": {
               "withoutFilter": {
@@ -28965,7 +28963,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -28985,8 +28982,8 @@
           "size": 86,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -29138,7 +29135,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -29158,8 +29154,8 @@
           "size": 16,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -29311,7 +29307,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -29331,8 +29326,8 @@
           "size": 523,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": false,
           "chart": [
@@ -29484,7 +29479,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -29504,8 +29498,8 @@
           "size": 85,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -29657,7 +29651,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -29677,8 +29670,8 @@
           "size": 133,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -29830,7 +29823,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -29850,8 +29842,8 @@
           "size": 39,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -30003,7 +29995,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -30023,8 +30014,8 @@
           "size": 133,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -30176,7 +30167,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -30196,8 +30186,8 @@
           "size": 187,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -30349,7 +30339,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -30369,8 +30358,8 @@
           "size": 295,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -30522,7 +30511,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -30542,8 +30530,8 @@
           "size": 102,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -30695,7 +30683,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -30715,8 +30702,8 @@
           "size": 294,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -30868,7 +30855,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -30888,8 +30874,8 @@
           "size": 264,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -31041,7 +31027,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -31061,8 +31046,8 @@
           "size": 102,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
@@ -31214,7 +31199,6 @@
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
             "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
             "OSAKER_POSITIV_FORVANTAN"
           ],
           "validatedEdge": false,
@@ -31234,8 +31218,8 @@
           "size": 666,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 46,
-            "sample": 138
+            "winRate": 47,
+            "sample": 137
           },
           "above200": true,
           "chart": [
