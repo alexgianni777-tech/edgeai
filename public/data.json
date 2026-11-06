@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T16:56:13.127Z",
+  "generatedAt": "2026-11-06T22:15:05.512Z",
   "demo": false,
   "markets": {
     "US": {
@@ -12,13 +12,13 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-05",
         "close": 7353.73,
-        "fetchedAt": "2026-11-06T16:55:45.069Z"
+        "fetchedAt": "2026-11-06T22:14:41.827Z"
       },
       "edge": {
         "expectancyR": 0.13,
         "winRate": 49,
         "profitFactor": 1.27,
-        "maxDDR": -20,
+        "maxDDR": -20.2,
         "expectancyLow95": 0.01,
         "expectancyHigh95": 0.26,
         "n": 418,
@@ -73,7 +73,7 @@
               "n": 311,
               "windows": 2,
               "winRate": 0.41479099678456594,
-              "realizedPayoff": 1.347532124658177,
+              "realizedPayoff": 1.3475319687698664,
               "plannedRR": 3,
               "maxHoldingBars": 15,
               "positiveWindowRate": 0.5
@@ -538,7 +538,7 @@
               "n": 418,
               "windows": 2,
               "winRate": 0.49282296650717705,
-              "realizedPayoff": 1.3112664540188268,
+              "realizedPayoff": 1.3099955293993153,
               "plannedRR": 2.5,
               "maxHoldingBars": 20,
               "positiveWindowRate": 1
@@ -565,9 +565,9 @@
                 "withoutFilter": {
                   "n": 418,
                   "winRatePct": 49.3,
-                  "avgR": 0.133,
-                  "totalR": 55.41,
-                  "profitFactor": 1.274
+                  "avgR": 0.132,
+                  "totalR": 55.21,
+                  "profitFactor": 1.273
                 },
                 "withFilter": {
                   "n": 17,
@@ -580,8 +580,8 @@
                   "n": 401,
                   "winRatePct": 50.9,
                   "avgR": 0.165,
-                  "totalR": 66.29,
-                  "profitFactor": 1.351
+                  "totalR": 66.1,
+                  "profitFactor": 1.349
                 },
                 "held2to4": {
                   "withoutFilter": {
@@ -818,251 +818,251 @@
             25.82,
             28.74,
             31.66,
-            31.36,
-            34.25,
-            37.11,
-            36,
-            36.79,
-            35.71,
-            37.62,
-            37.62,
-            37.62,
-            38.65,
-            37.52,
-            36.42,
-            36.32,
-            35.19,
-            38.05,
-            36.91,
+            31.16,
+            34.05,
+            36.92,
+            35.8,
+            36.59,
+            35.51,
+            37.42,
+            37.43,
+            37.43,
             38.46,
-            37.31,
+            37.33,
+            36.22,
             36.12,
-            34.98,
-            36.5,
-            35.38,
+            34.99,
+            37.86,
+            36.71,
+            38.26,
+            37.11,
+            35.93,
+            34.79,
+            36.31,
+            35.19,
+            35.57,
             35.77,
-            35.97,
-            34.87,
-            35.61,
-            38.53,
-            37.45,
-            36.36,
-            36.36,
-            35.16,
-            35.16,
-            34.11,
-            32.96,
-            33.49,
-            32.37,
-            33.38,
-            34.7,
-            33.58,
-            32.42,
-            34.87,
-            35.47,
-            35.56,
-            34.43,
-            33.36,
-            34.45,
-            34.78,
-            33.6,
-            32.49,
-            31.38,
-            32.88,
-            32.93,
-            33.03,
-            32.96,
-            33,
-            33.14,
-            33.81,
-            31.59,
-            30.4,
-            29.34,
-            28.53,
-            29.73,
-            28.66,
-            27.99,
-            28.1,
-            27.85,
-            28.05,
-            28.06,
-            26.95,
-            28.35,
-            28.09,
-            28.24,
-            27.14,
-            29.54,
-            28.43,
-            27.31,
-            26.73,
-            28.23,
-            27.6,
-            26.49,
-            25.33,
-            24.26,
-            25.31,
-            25.98,
-            24.93,
-            25.1,
-            23.98,
-            24.51,
-            23.46,
-            25.86,
-            26.94,
-            26.39,
-            25.31,
-            24.9,
-            26.35,
-            26.14,
-            25.02,
-            27.45,
-            26.4,
-            25.09,
-            23.93,
-            22.78,
-            21.66,
-            20.58,
-            22.57,
-            21.49,
-            21.75,
-            20.66,
-            23.11,
-            23.9,
-            22.79,
-            21.64,
-            21.85,
-            23.52,
-            25.87,
-            24.72,
-            27.13,
-            25.79,
-            24.66,
-            27.07,
-            29.4,
-            28.27,
-            30.27,
-            32.61,
-            31.49,
-            33.89,
-            32.79,
-            35.18,
-            34.02,
-            34.6,
-            35.09,
-            36.24,
-            36.68,
-            39.07,
-            39.87,
-            38.57,
-            40.37,
-            39.28,
-            41.63,
-            41.95,
-            40.84,
-            39.74,
-            38.63,
-            38.91,
-            37.45,
-            39.85,
-            40.51,
-            37.71,
-            40.05,
-            42.41,
-            41.36,
-            43.68,
-            44.54,
-            45.08,
-            45.94,
-            44.88,
-            43.8,
-            42.16,
-            44.51,
-            46.11,
-            48.48,
-            47.36,
-            48.61,
-            47.52,
-            47.94,
-            49.82,
-            51.26,
-            51.5,
-            51.73,
-            54.12,
-            53.04,
-            51.93,
-            50.85,
-            49.77,
-            48.69,
-            47.58,
-            46.48,
-            46.47,
-            45.32,
-            45.9,
-            44.82,
-            43.65,
-            42.56,
-            41.41,
-            40.33,
-            40.01,
-            38.88,
-            37.78,
-            37.28,
+            34.67,
+            35.41,
+            38.33,
+            37.25,
             36.16,
-            35.79,
-            34.75,
-            37.19,
-            39.59,
-            38.46,
-            38.92,
-            37.87,
-            38.57,
-            40.66,
-            41.57,
-            40.46,
-            39.38,
-            38.32,
-            38.13,
-            37.74,
-            40.14,
-            40.53,
-            39.44,
-            37.84,
-            36.74,
-            38.77,
-            37.67,
-            36.6,
-            38.86,
-            37.79,
-            40.19,
+            36.16,
+            34.97,
+            34.97,
+            33.91,
+            32.76,
+            33.3,
+            32.17,
+            33.19,
+            34.5,
+            33.38,
+            32.23,
+            34.67,
+            35.27,
+            35.36,
+            34.24,
+            33.17,
+            34.25,
+            34.58,
+            33.4,
+            32.29,
+            31.18,
+            32.68,
+            32.73,
+            32.84,
+            32.77,
+            32.8,
+            32.95,
+            33.61,
+            31.4,
+            30.2,
+            29.14,
+            28.33,
+            29.54,
+            28.47,
+            27.79,
+            27.91,
+            27.66,
+            27.85,
+            27.87,
+            26.75,
+            28.15,
+            27.89,
+            28.04,
+            26.95,
+            29.34,
+            28.23,
+            27.11,
+            26.54,
+            28.04,
+            27.41,
+            26.3,
+            25.13,
+            24.06,
+            25.12,
+            25.79,
+            24.73,
+            24.9,
+            23.78,
+            24.32,
+            23.27,
+            25.67,
+            26.74,
+            26.19,
+            25.11,
+            24.71,
+            26.16,
+            25.94,
+            24.82,
+            27.25,
+            26.21,
+            24.89,
+            23.73,
+            22.59,
+            21.47,
+            20.38,
+            22.37,
+            21.29,
+            21.55,
+            20.46,
+            22.91,
+            23.71,
+            22.59,
+            21.44,
+            21.66,
+            23.32,
+            25.67,
+            24.53,
+            26.94,
+            25.6,
+            24.46,
+            26.88,
+            29.21,
+            28.08,
+            30.08,
+            32.42,
+            31.3,
+            33.69,
+            32.6,
+            34.99,
+            33.82,
+            34.41,
+            34.89,
+            36.04,
+            36.48,
             38.88,
-            41.28,
-            41.36,
-            42.76,
-            45.21,
-            47.65,
-            47.7,
-            50.12,
+            39.68,
+            38.37,
+            40.17,
+            39.09,
+            41.44,
+            41.75,
+            40.64,
+            39.54,
+            38.43,
+            38.71,
+            37.25,
+            39.66,
+            40.32,
+            37.51,
+            39.85,
+            42.21,
+            41.16,
+            43.48,
+            44.34,
+            44.88,
+            45.74,
+            44.68,
+            43.6,
+            41.96,
+            44.31,
+            45.92,
+            48.29,
+            47.17,
+            48.41,
+            47.33,
+            47.75,
+            49.62,
+            51.06,
+            51.3,
+            51.54,
+            53.93,
+            52.84,
+            51.73,
+            50.65,
             49.57,
-            48.91,
-            48.9,
-            47.8,
-            50.24,
-            50.21,
-            49.53,
-            51.97,
-            53.04,
-            53.29,
-            52.54,
-            54.32,
-            53.87,
-            54.66,
-            54.35,
-            54.41,
-            54.95,
+            48.49,
+            47.38,
+            46.28,
+            46.28,
+            45.12,
+            45.7,
+            44.62,
+            43.46,
+            42.36,
+            41.21,
+            40.14,
+            39.81,
+            38.68,
+            37.59,
+            37.08,
+            35.97,
+            35.6,
+            34.55,
+            36.99,
+            39.4,
+            38.27,
+            38.73,
+            37.67,
+            38.38,
+            40.46,
+            41.38,
+            40.26,
+            39.18,
+            38.13,
+            37.93,
+            37.55,
+            39.95,
+            40.34,
+            39.24,
+            37.65,
+            36.55,
+            38.57,
+            37.47,
+            36.4,
+            38.66,
+            37.6,
+            39.99,
+            38.68,
+            41.08,
+            41.16,
+            42.57,
+            45.02,
+            47.45,
+            47.5,
+            49.93,
+            49.38,
+            48.71,
+            48.71,
+            47.6,
+            50.05,
+            50.01,
+            49.34,
+            51.77,
+            52.85,
+            53.09,
+            52.34,
+            54.13,
+            53.68,
+            54.47,
+            54.15,
+            54.21,
+            54.76,
+            55.57,
+            55.5,
             55.76,
-            55.7,
-            55.95,
-            55.41
+            55.21
           ]
         },
         {
@@ -1110,7 +1110,7 @@
               "n": 256,
               "windows": 2,
               "winRate": 0.47265625,
-              "realizedPayoff": 1.2355946124540715,
+              "realizedPayoff": 1.2355945379288718,
               "plannedRR": 3,
               "maxHoldingBars": 20,
               "positiveWindowRate": 0.5
@@ -1521,7 +1521,7 @@
               "n": 76,
               "windows": 2,
               "winRate": 0.35526315789473684,
-              "realizedPayoff": 1.4269695426052502,
+              "realizedPayoff": 1.4269685715098612,
               "plannedRR": null,
               "maxHoldingBars": 40,
               "positiveWindowRate": 0
@@ -1754,7 +1754,7 @@
               "n": 190,
               "windows": 2,
               "winRate": 0.4,
-              "realizedPayoff": 0.8903645133352827,
+              "realizedPayoff": 0.8903644070606345,
               "plannedRR": 2.5,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -2103,7 +2103,7 @@
               "n": 439,
               "windows": 2,
               "winRate": 0.43507972665148065,
-              "realizedPayoff": 0.9542954474366035,
+              "realizedPayoff": 0.9542954694711296,
               "plannedRR": 2,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -2694,7 +2694,14 @@
               "HOLD_EXCEEDS_3_WEEK_MANDATE",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga."
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-05",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "ISRG",
@@ -2711,7 +2718,14 @@
               "HOLD_EXCEEDS_3_WEEK_MANDATE",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga."
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-05",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "MDT",
@@ -2728,7 +2742,14 @@
               "HOLD_EXCEEDS_3_WEEK_MANDATE",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga."
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-05",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           }
         ],
         "short": [
@@ -2746,7 +2767,14 @@
             "warnings": [
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv."
+            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-05",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "GS",
@@ -2762,7 +2790,14 @@
             "warnings": [
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv."
+            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-05",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "SCHW",
@@ -2778,7 +2813,14 @@
             "warnings": [
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv."
+            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-05",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           }
         ],
         "basis": "research-watchlist",
@@ -2813,8 +2855,8 @@
               "n": 1061,
               "winRatePct": 45.5,
               "avgR": 0.052,
-              "totalR": 55.55,
-              "profitFactor": 1.11
+              "totalR": 55.35,
+              "profitFactor": 1.109
             },
             "withFilter": {
               "n": 108,
@@ -2827,7 +2869,7 @@
               "n": 953,
               "winRatePct": 46.2,
               "avgR": 0.078,
-              "totalR": 74.47,
+              "totalR": 74.27,
               "profitFactor": 1.164
             },
             "held2to4": {
@@ -2891,6 +2933,36 @@
           }
         }
       },
+      "marketTrendV2": {
+        "version": 1,
+        "status": "OK",
+        "asOf": "2026-11-05",
+        "source": "COMPLETED_DAILY_OHLC_BREADTH",
+        "indexSymbol": "^GSPC",
+        "regime": "NEUTRAL",
+        "bias": "NONE",
+        "riskState": "ELEVATED",
+        "reasonCodes": [
+          "TREND_NOT_ALIGNED"
+        ],
+        "metrics": {
+          "close": 7353.73,
+          "sma20": 7679.54,
+          "sma50": 7686.53,
+          "sma200": 7322.74,
+          "return5Pct": -4.75,
+          "return20Pct": -5.3,
+          "breadthAbove50Pct": 53.8,
+          "breadthAbove200Pct": 56.3,
+          "breadthSample": 80,
+          "breadthExpected": 80,
+          "realizedVol20Pct": 19.4,
+          "realizedVolRatio20v60": 1.76
+        },
+        "tradeApproved": false,
+        "validatedAlpha": false,
+        "note": "Heuristic market context from completed daily bars. Not VIX, not live, not OOS-tested alpha; no automatic orders."
+      },
       "regime": {
         "on": true,
         "label": "risk-on",
@@ -2901,13 +2973,13 @@
         "riskPerTrade": 1,
         "horizon": 100,
         "model": "signal-cohort bootstrap",
-        "cohortCount": 171,
+        "cohortCount": 172,
         "maxConcurrentTrades": 51,
-        "medianMaxDD": 8.7,
+        "medianMaxDD": 8.8,
         "p95MaxDD": 17.5,
-        "medianReturn": 12.9,
-        "drawdown25Prob": 0.3,
-        "ruinProb": 0.2
+        "medianReturn": 13.1,
+        "drawdown25Prob": 0.2,
+        "ruinProb": 0.1
       },
       "validation": {
         "procedure": "market-level calendar-aligned walk-forward; deployment filters applied in IS and OOS",
@@ -3106,7 +3178,7 @@
         2.91,
         2.92,
         2.92,
-        -0.31,
+        -0.5,
         2.89,
         2.86,
         -1.12,
@@ -3685,8 +3757,13 @@
         },
         {
           "date": "2025-09-11",
-          "r": 11.35,
-          "n": 5
+          "r": 11.65,
+          "n": 4
+        },
+        {
+          "date": "2025-09-12",
+          "r": -0.5,
+          "n": 1
         },
         {
           "date": "2025-09-16",
@@ -4396,251 +4473,251 @@
         25.82,
         28.74,
         31.66,
-        31.36,
-        34.25,
-        37.11,
-        36,
-        36.79,
-        35.71,
-        37.62,
-        37.62,
-        37.62,
-        38.65,
-        37.52,
-        36.42,
-        36.32,
-        35.19,
-        38.05,
-        36.91,
+        31.16,
+        34.05,
+        36.92,
+        35.8,
+        36.59,
+        35.51,
+        37.42,
+        37.43,
+        37.43,
         38.46,
-        37.31,
+        37.33,
+        36.22,
         36.12,
-        34.98,
-        36.5,
-        35.38,
+        34.99,
+        37.86,
+        36.71,
+        38.26,
+        37.11,
+        35.93,
+        34.79,
+        36.31,
+        35.19,
+        35.57,
         35.77,
-        35.97,
-        34.87,
-        35.61,
-        38.53,
-        37.45,
-        36.36,
-        36.36,
-        35.16,
-        35.16,
-        34.11,
-        32.96,
-        33.49,
-        32.37,
-        33.38,
-        34.7,
-        33.58,
-        32.42,
-        34.87,
-        35.47,
-        35.56,
-        34.43,
-        33.36,
-        34.45,
-        34.78,
-        33.6,
-        32.49,
-        31.38,
-        32.88,
-        32.93,
-        33.03,
-        32.96,
-        33,
-        33.14,
-        33.81,
-        31.59,
-        30.4,
-        29.34,
-        28.53,
-        29.73,
-        28.66,
-        27.99,
-        28.1,
-        27.85,
-        28.05,
-        28.06,
-        26.95,
-        28.35,
-        28.09,
-        28.24,
-        27.14,
-        29.54,
-        28.43,
-        27.31,
-        26.73,
-        28.23,
-        27.6,
-        26.49,
-        25.33,
-        24.26,
-        25.31,
-        25.98,
-        24.93,
-        25.1,
-        23.98,
-        24.51,
-        23.46,
-        25.86,
-        26.94,
-        26.39,
-        25.31,
-        24.9,
-        26.35,
-        26.14,
-        25.02,
-        27.45,
-        26.4,
-        25.09,
-        23.93,
-        22.78,
-        21.66,
-        20.58,
-        22.57,
-        21.49,
-        21.75,
-        20.66,
-        23.11,
-        23.9,
-        22.79,
-        21.64,
-        21.85,
-        23.52,
-        25.87,
-        24.72,
-        27.13,
-        25.79,
-        24.66,
-        27.07,
-        29.4,
-        28.27,
-        30.27,
-        32.61,
-        31.49,
-        33.89,
-        32.79,
-        35.18,
-        34.02,
-        34.6,
-        35.09,
-        36.24,
-        36.68,
-        39.07,
-        39.87,
-        38.57,
-        40.37,
-        39.28,
-        41.63,
-        41.95,
-        40.84,
-        39.74,
-        38.63,
-        38.91,
-        37.45,
-        39.85,
-        40.51,
-        37.71,
-        40.05,
-        42.41,
-        41.36,
-        43.68,
-        44.54,
-        45.08,
-        45.94,
-        44.88,
-        43.8,
-        42.16,
-        44.51,
-        46.11,
-        48.48,
-        47.36,
-        48.61,
-        47.52,
-        47.94,
-        49.82,
-        51.26,
-        51.5,
-        51.73,
-        54.12,
-        53.04,
-        51.93,
-        50.85,
-        49.77,
-        48.69,
-        47.58,
-        46.48,
-        46.47,
-        45.32,
-        45.9,
-        44.82,
-        43.65,
-        42.56,
-        41.41,
-        40.33,
-        40.01,
-        38.88,
-        37.78,
-        37.28,
+        34.67,
+        35.41,
+        38.33,
+        37.25,
         36.16,
-        35.79,
-        34.75,
-        37.19,
-        39.59,
-        38.46,
-        38.92,
-        37.87,
-        38.57,
-        40.66,
-        41.57,
-        40.46,
-        39.38,
-        38.32,
-        38.13,
-        37.74,
-        40.14,
-        40.53,
-        39.44,
-        37.84,
-        36.74,
-        38.77,
-        37.67,
-        36.6,
-        38.86,
-        37.79,
-        40.19,
+        36.16,
+        34.97,
+        34.97,
+        33.91,
+        32.76,
+        33.3,
+        32.17,
+        33.19,
+        34.5,
+        33.38,
+        32.23,
+        34.67,
+        35.27,
+        35.36,
+        34.24,
+        33.17,
+        34.25,
+        34.58,
+        33.4,
+        32.29,
+        31.18,
+        32.68,
+        32.73,
+        32.84,
+        32.77,
+        32.8,
+        32.95,
+        33.61,
+        31.4,
+        30.2,
+        29.14,
+        28.33,
+        29.54,
+        28.47,
+        27.79,
+        27.91,
+        27.66,
+        27.85,
+        27.87,
+        26.75,
+        28.15,
+        27.89,
+        28.04,
+        26.95,
+        29.34,
+        28.23,
+        27.11,
+        26.54,
+        28.04,
+        27.41,
+        26.3,
+        25.13,
+        24.06,
+        25.12,
+        25.79,
+        24.73,
+        24.9,
+        23.78,
+        24.32,
+        23.27,
+        25.67,
+        26.74,
+        26.19,
+        25.11,
+        24.71,
+        26.16,
+        25.94,
+        24.82,
+        27.25,
+        26.21,
+        24.89,
+        23.73,
+        22.59,
+        21.47,
+        20.38,
+        22.37,
+        21.29,
+        21.55,
+        20.46,
+        22.91,
+        23.71,
+        22.59,
+        21.44,
+        21.66,
+        23.32,
+        25.67,
+        24.53,
+        26.94,
+        25.6,
+        24.46,
+        26.88,
+        29.21,
+        28.08,
+        30.08,
+        32.42,
+        31.3,
+        33.69,
+        32.6,
+        34.99,
+        33.82,
+        34.41,
+        34.89,
+        36.04,
+        36.48,
         38.88,
-        41.28,
-        41.36,
-        42.76,
-        45.21,
-        47.65,
-        47.7,
-        50.12,
+        39.68,
+        38.37,
+        40.17,
+        39.09,
+        41.44,
+        41.75,
+        40.64,
+        39.54,
+        38.43,
+        38.71,
+        37.25,
+        39.66,
+        40.32,
+        37.51,
+        39.85,
+        42.21,
+        41.16,
+        43.48,
+        44.34,
+        44.88,
+        45.74,
+        44.68,
+        43.6,
+        41.96,
+        44.31,
+        45.92,
+        48.29,
+        47.17,
+        48.41,
+        47.33,
+        47.75,
+        49.62,
+        51.06,
+        51.3,
+        51.54,
+        53.93,
+        52.84,
+        51.73,
+        50.65,
         49.57,
-        48.91,
-        48.9,
-        47.8,
-        50.24,
-        50.21,
-        49.53,
-        51.97,
-        53.04,
-        53.29,
-        52.54,
-        54.32,
-        53.87,
-        54.66,
-        54.35,
-        54.41,
-        54.95,
+        48.49,
+        47.38,
+        46.28,
+        46.28,
+        45.12,
+        45.7,
+        44.62,
+        43.46,
+        42.36,
+        41.21,
+        40.14,
+        39.81,
+        38.68,
+        37.59,
+        37.08,
+        35.97,
+        35.6,
+        34.55,
+        36.99,
+        39.4,
+        38.27,
+        38.73,
+        37.67,
+        38.38,
+        40.46,
+        41.38,
+        40.26,
+        39.18,
+        38.13,
+        37.93,
+        37.55,
+        39.95,
+        40.34,
+        39.24,
+        37.65,
+        36.55,
+        38.57,
+        37.47,
+        36.4,
+        38.66,
+        37.6,
+        39.99,
+        38.68,
+        41.08,
+        41.16,
+        42.57,
+        45.02,
+        47.45,
+        47.5,
+        49.93,
+        49.38,
+        48.71,
+        48.71,
+        47.6,
+        50.05,
+        50.01,
+        49.34,
+        51.77,
+        52.85,
+        53.09,
+        52.34,
+        54.13,
+        53.68,
+        54.47,
+        54.15,
+        54.21,
+        54.76,
+        55.57,
+        55.5,
         55.76,
-        55.7,
-        55.95,
-        55.41
+        55.21
       ],
       "setups": [
         {
@@ -4812,7 +4889,14 @@
               "l": 342.06,
               "c": 344.17
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -4983,7 +5067,14 @@
               "l": 532.68,
               "c": 535.93
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -5154,7 +5245,14 @@
               "l": 252.27,
               "c": 260.21
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -5325,7 +5423,14 @@
               "l": 335.93,
               "c": 337.34
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -5496,7 +5601,14 @@
               "l": 402.1,
               "c": 404.4
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -5667,7 +5779,14 @@
               "l": 243.28,
               "c": 246.44
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -5838,7 +5957,14 @@
               "l": 111.66,
               "c": 115.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -6009,7 +6135,14 @@
               "l": 146.55,
               "c": 146.94
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -6180,7 +6313,14 @@
               "l": 312.3,
               "c": 314.73
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -6351,7 +6491,14 @@
               "l": 67.73,
               "c": 68.78
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -6522,7 +6669,14 @@
               "l": 179.91,
               "c": 182.44
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -6693,7 +6847,14 @@
               "l": 164.32,
               "c": 168.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -6864,7 +7025,14 @@
               "l": 329.86,
               "c": 335.08
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -7035,7 +7203,14 @@
               "l": 324.41,
               "c": 324.97
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -7206,7 +7381,14 @@
               "l": 43.9,
               "c": 44.64
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -7377,7 +7559,14 @@
               "l": 138.46,
               "c": 138.59
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -7548,7 +7737,14 @@
               "l": 650,
               "c": 656.39
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -7719,7 +7915,14 @@
               "l": 659.35,
               "c": 663.31
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -7890,7 +8093,14 @@
               "l": 532.68,
               "c": 535.93
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -8061,7 +8271,14 @@
               "l": 252.27,
               "c": 260.21
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -8232,7 +8449,14 @@
               "l": 335.93,
               "c": 337.34
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -8403,7 +8627,14 @@
               "l": 421.93,
               "c": 422.59
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -8574,7 +8805,14 @@
               "l": 165.14,
               "c": 165.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -8745,7 +8983,14 @@
               "l": 271.64,
               "c": 272.32
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -8916,7 +9161,14 @@
               "l": 127.39,
               "c": 127.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -9087,7 +9339,14 @@
               "l": 653.85,
               "c": 655.92
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -9258,7 +9517,14 @@
               "l": 166.32,
               "c": 167.1
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -9429,7 +9695,14 @@
               "l": 347.96,
               "c": 349.94
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -9600,7 +9873,14 @@
               "l": 1061,
               "c": 1065.59
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -9771,7 +10051,14 @@
               "l": 287.71,
               "c": 288.24
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -9942,7 +10229,14 @@
               "l": 95.47,
               "c": 95.73
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -10113,7 +10407,14 @@
               "l": 116.85,
               "c": 117.22
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -10284,7 +10585,14 @@
               "l": 142.36,
               "c": 142.71
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -10455,7 +10763,14 @@
               "l": 264.98,
               "c": 265.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -10626,7 +10941,14 @@
               "l": 517.17,
               "c": 521.23
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -10797,7 +11119,14 @@
               "l": 275.06,
               "c": 278.04
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -10968,7 +11297,14 @@
               "l": 112.66,
               "c": 113.6
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -11139,7 +11475,14 @@
               "l": 277.87,
               "c": 278.15
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -11310,7 +11653,14 @@
               "l": 46.03,
               "c": 46.12
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -11481,7 +11831,14 @@
               "l": 245.72,
               "c": 247.11
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -11652,7 +12009,14 @@
               "l": 312.3,
               "c": 314.73
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -11823,7 +12187,14 @@
               "l": 179.91,
               "c": 182.44
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -11994,7 +12365,14 @@
               "l": 190.1,
               "c": 191.88
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -12165,7 +12543,14 @@
               "l": 215.24,
               "c": 215.78
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -12336,7 +12721,14 @@
               "l": 164.32,
               "c": 168.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -12507,7 +12899,14 @@
               "l": 461.19,
               "c": 468.52
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -12678,7 +13077,14 @@
               "l": 466.51,
               "c": 472.41
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -12849,7 +13255,14 @@
               "l": 1161.48,
               "c": 1170.67
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -13020,7 +13433,14 @@
               "l": 87.62,
               "c": 88.25
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -13191,7 +13611,14 @@
               "l": 226.19,
               "c": 227.24
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -13362,7 +13789,14 @@
               "l": 329.86,
               "c": 335.08
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -13533,7 +13967,14 @@
               "l": 233.06,
               "c": 233.18
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -13704,7 +14145,14 @@
               "l": 294.48,
               "c": 297.95
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -13875,7 +14323,14 @@
               "l": 324.41,
               "c": 324.97
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -14046,7 +14501,14 @@
               "l": 29.85,
               "c": 29.88
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -14217,7 +14679,14 @@
               "l": 135.34,
               "c": 135.46
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -14388,7 +14857,14 @@
               "l": 103.31,
               "c": 104.84
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -14559,7 +15035,14 @@
               "l": 360.13,
               "c": 361.01
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -14730,7 +15213,14 @@
               "l": 91.93,
               "c": 93.34
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -14901,7 +15391,14 @@
               "l": 106.03,
               "c": 106.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -15072,7 +15569,14 @@
               "l": 167.09,
               "c": 167.57
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -15244,7 +15748,14 @@
               "l": 342.06,
               "c": 344.17
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -15416,7 +15927,14 @@
               "l": 532.68,
               "c": 535.93
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -15588,7 +16106,14 @@
               "l": 338.15,
               "c": 343.69
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -15760,7 +16285,14 @@
               "l": 165.14,
               "c": 165.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -15932,7 +16464,14 @@
               "l": 220.08,
               "c": 222.41
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -16104,7 +16643,14 @@
               "l": 101.8,
               "c": 102.36
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -16276,7 +16822,14 @@
               "l": 152.6,
               "c": 154.99
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -16448,7 +17001,14 @@
               "l": 138.46,
               "c": 138.59
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -16620,7 +17180,14 @@
               "l": 135.34,
               "c": 135.46
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -16792,7 +17359,14 @@
               "l": 360.13,
               "c": 361.01
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -16964,7 +17538,14 @@
               "l": 146.55,
               "c": 146.94
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -17138,7 +17719,14 @@
               "l": 165.14,
               "c": 165.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -17312,7 +17900,14 @@
               "l": 116.85,
               "c": 117.22
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -17486,7 +18081,14 @@
               "l": 264.98,
               "c": 265.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -17660,7 +18262,14 @@
               "l": 461.19,
               "c": 468.52
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -17834,7 +18443,14 @@
               "l": 29.85,
               "c": 29.88
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -18008,7 +18624,14 @@
               "l": 135.34,
               "c": 135.46
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -18182,7 +18805,14 @@
               "l": 167.09,
               "c": 167.57
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -18356,7 +18986,14 @@
               "l": 532.68,
               "c": 535.93
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -18530,7 +19167,14 @@
               "l": 103.31,
               "c": 104.84
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -18702,7 +19346,14 @@
               "l": 290.12,
               "c": 291.53
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -18874,7 +19525,14 @@
               "l": 49.76,
               "c": 49.76
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -19046,7 +19704,14 @@
               "l": 64.67,
               "c": 65.56
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -19218,7 +19883,14 @@
               "l": 95.43,
               "c": 95.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -19390,7 +20062,14 @@
               "l": 111.66,
               "c": 115.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -19562,7 +20241,14 @@
               "l": 312.3,
               "c": 314.73
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -19734,7 +20420,14 @@
               "l": 67.73,
               "c": 68.78
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -19906,7 +20599,14 @@
               "l": 854.45,
               "c": 868.95
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -20078,7 +20778,14 @@
               "l": 179.91,
               "c": 182.44
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -20250,7 +20957,14 @@
               "l": 190.1,
               "c": 191.88
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -20422,7 +21136,14 @@
               "l": 215.24,
               "c": 215.78
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -20594,7 +21315,14 @@
               "l": 164.32,
               "c": 168.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -20766,7 +21494,14 @@
               "l": 91.13,
               "c": 92.58
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -20938,7 +21673,14 @@
               "l": 117.09,
               "c": 118.45
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -21110,7 +21852,14 @@
               "l": 43.9,
               "c": 44.64
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -21282,7 +22031,14 @@
               "l": 138.46,
               "c": 138.59
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -21454,7 +22210,14 @@
               "l": 650,
               "c": 656.39
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -21626,7 +22389,14 @@
               "l": 312.12,
               "c": 314.67
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -21798,7 +22568,14 @@
               "l": 158.35,
               "c": 159.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -21970,7 +22747,14 @@
               "l": 128.17,
               "c": 129.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -22142,7 +22926,14 @@
               "l": 252.27,
               "c": 260.21
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -22314,7 +23105,14 @@
               "l": 290.12,
               "c": 291.53
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -22486,7 +23284,14 @@
               "l": 335.93,
               "c": 337.34
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -22658,7 +23463,14 @@
               "l": 49.76,
               "c": 49.76
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -22830,7 +23642,14 @@
               "l": 64.67,
               "c": 65.56
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -23002,7 +23821,14 @@
               "l": 243.28,
               "c": 246.44
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -23174,7 +24000,14 @@
               "l": 95.43,
               "c": 95.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -23346,7 +24179,14 @@
               "l": 111.66,
               "c": 115.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -23518,7 +24358,14 @@
               "l": 275.06,
               "c": 278.04
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -23690,7 +24537,14 @@
               "l": 46.03,
               "c": 46.12
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -23862,7 +24716,14 @@
               "l": 312.3,
               "c": 314.73
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -24034,7 +24895,14 @@
               "l": 67.73,
               "c": 68.78
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -24206,7 +25074,14 @@
               "l": 854.45,
               "c": 868.95
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -24378,7 +25253,14 @@
               "l": 179.91,
               "c": 182.44
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -24550,7 +25432,14 @@
               "l": 190.1,
               "c": 191.88
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -24722,7 +25611,14 @@
               "l": 164.32,
               "c": 168.72
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -24894,7 +25790,14 @@
               "l": 329.86,
               "c": 335.08
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -25066,7 +25969,14 @@
               "l": 21.65,
               "c": 21.82
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -25238,7 +26148,14 @@
               "l": 91.13,
               "c": 92.58
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -25410,7 +26327,14 @@
               "l": 324.41,
               "c": 324.97
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -25582,7 +26506,14 @@
               "l": 117.09,
               "c": 118.45
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -25754,7 +26685,14 @@
               "l": 43.9,
               "c": 44.64
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -25926,7 +26864,14 @@
               "l": 650,
               "c": 656.39
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -26098,7 +27043,14 @@
               "l": 158.35,
               "c": 159.16
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -26270,7 +27222,14 @@
               "l": 128.17,
               "c": 129.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -26442,7 +27401,14 @@
               "l": 215.24,
               "c": 215.78
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -26614,7 +27580,14 @@
               "l": 226.19,
               "c": 227.24
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-05",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         }
       ],
       "trackRecord": [
@@ -26673,14 +27646,14 @@
     "SE": {
       "label": "Sweden",
       "currency": "kr",
-      "dataAsOf": "2026-11-05",
+      "dataAsOf": "2026-11-06",
       "indexSnapshot": {
         "symbol": "^OMX",
         "source": "YAHOO_FINANCE",
         "priceType": "COMPLETED_DAILY_CLOSE",
-        "asOf": "2026-11-05",
-        "close": 3301.09,
-        "fetchedAt": "2026-11-06T16:56:13.127Z"
+        "asOf": "2026-11-06",
+        "close": 3267.88,
+        "fetchedAt": "2026-11-06T22:15:05.512Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -26741,7 +27714,7 @@
               "n": 168,
               "windows": 2,
               "winRate": 0.5119047619047619,
-              "realizedPayoff": 1.1299106878095186,
+              "realizedPayoff": 1.1299105943142274,
               "plannedRR": 1.5,
               "maxHoldingBars": 15,
               "positiveWindowRate": 0.5
@@ -27022,20 +27995,20 @@
         {
           "name": "Breakout — fresh N-day high",
           "expectancyR": 0.01,
-          "winRate": 47,
-          "profitFactor": 1.03,
-          "n": 137,
+          "winRate": 46,
+          "profitFactor": 1.02,
+          "n": 138,
           "holds": false,
           "evidenceStatus": "PROMISING",
           "expectancyLow95": -0.17,
-          "expectancyHigh95": 0.2,
+          "expectancyHigh95": 0.19,
           "positiveWindowRate": 100,
           "walkForwardWindows": 2,
           "executionDrift": {
-            "n": 137,
+            "n": 138,
             "medianGapPct": 0,
-            "medianAbsGapPct": 0.38,
-            "p90AbsGapPct": 2.02
+            "medianAbsGapPct": 0.37,
+            "p90AbsGapPct": 2.01
           },
           "params": {
             "rrTarget": 1.5,
@@ -27061,10 +28034,10 @@
               "minPositiveWindowRate": 0.6666666666666666
             },
             "observed": {
-              "n": 137,
+              "n": 138,
               "windows": 2,
-              "winRate": 0.46715328467153283,
-              "realizedPayoff": 1.1762267334349197,
+              "winRate": 0.463768115942029,
+              "realizedPayoff": 1.1749184926996246,
               "plannedRR": 1.5,
               "maxHoldingBars": 20,
               "positiveWindowRate": 1
@@ -27082,19 +28055,19 @@
             "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
             "validatedAlpha": false,
             "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-            "totalTrades": 137,
+            "totalTrades": 138,
             "unknownSentiment": 0,
             "bySide": {
               "long": {
-                "sourceN": 137,
-                "datedN": 137,
-                "blockedN": 131,
+                "sourceN": 138,
+                "datedN": 138,
+                "blockedN": 132,
                 "withoutFilter": {
-                  "n": 137,
-                  "winRatePct": 46.7,
-                  "avgR": 0.014,
-                  "totalR": 1.97,
-                  "profitFactor": 1.031
+                  "n": 138,
+                  "winRatePct": 46.4,
+                  "avgR": 0.007,
+                  "totalR": 1.03,
+                  "profitFactor": 1.016
                 },
                 "withFilter": {
                   "n": 6,
@@ -27104,11 +28077,11 @@
                   "profitFactor": 0.004
                 },
                 "blocked": {
-                  "n": 131,
-                  "winRatePct": 48.1,
-                  "avgR": 0.052,
-                  "totalR": 6.8,
-                  "profitFactor": 1.117
+                  "n": 132,
+                  "winRatePct": 47.7,
+                  "avgR": 0.044,
+                  "totalR": 5.86,
+                  "profitFactor": 1.099
                 },
                 "held2to4": {
                   "withoutFilter": {
@@ -27174,141 +28147,142 @@
           "equityCurve": [
             -1.24,
             -1.34,
-            -0.61,
-            -0.76,
-            -2.07,
-            -1.56,
-            -0.88,
-            1.98,
-            0.86,
-            0.14,
+            -2.47,
+            -1.74,
+            -1.89,
+            -3.2,
+            -2.69,
+            -2.01,
+            0.85,
+            -0.27,
+            -0.99,
+            -2.09,
             -0.96,
-            0.17,
-            0.23,
-            0.22,
-            0.03,
-            -0.52,
-            -0.98,
-            -2.1,
+            -0.9,
+            -0.91,
+            -1.11,
+            -1.65,
+            -2.11,
+            -3.23,
+            -3.12,
+            -2.45,
             -1.99,
-            -1.32,
-            -0.86,
-            -1.98,
             -3.11,
-            -2.2,
-            0.66,
-            1.66,
+            -4.24,
+            -3.33,
+            -0.47,
+            0.53,
+            0.17,
+            0.37,
+            -0.12,
+            0.28,
+            3.16,
+            6,
+            6.94,
+            7.4,
+            7.82,
+            7.52,
+            8.35,
+            8.18,
+            7.09,
+            7.6,
+            6.51,
+            6.84,
+            5.72,
+            6.16,
+            5.08,
+            4.66,
+            4.81,
+            4.72,
+            4.08,
+            2.95,
+            1.84,
             1.3,
-            1.5,
-            1.01,
-            1.41,
-            4.29,
-            7.13,
-            8.07,
-            8.53,
-            8.95,
-            8.46,
-            9.29,
-            9.11,
-            8.02,
-            8.53,
-            7.45,
-            7.78,
-            6.65,
-            7.1,
-            6.02,
-            5.6,
-            5.74,
-            5.65,
-            5.02,
-            3.88,
-            2.78,
-            2.23,
-            1.06,
-            1.04,
-            1.07,
-            1.15,
-            0.02,
-            -1.15,
-            -2.31,
-            -3.48,
-            -2.84,
-            -1.44,
-            -0.69,
-            -0.19,
-            1.16,
-            2.47,
-            3.86,
-            2.75,
-            4.13,
-            5.47,
-            6.77,
-            8.08,
-            9.38,
-            10.8,
-            9.63,
-            10.93,
-            12.25,
-            11.1,
-            11.44,
-            10.3,
-            11.64,
-            12.98,
-            14.37,
-            15.72,
-            17.03,
-            15.85,
-            14.68,
-            13.26,
-            13.77,
-            15.09,
-            15.51,
-            16.53,
-            15.17,
-            16.54,
-            17.93,
-            16.85,
-            18.22,
-            17.17,
-            18.54,
-            18.31,
-            17.16,
-            16.03,
-            14.9,
-            13.78,
-            15.16,
-            13.67,
-            12.25,
+            0.12,
+            0.11,
+            0.13,
+            0.22,
+            -0.91,
+            -2.09,
+            -3.24,
+            -4.41,
+            -3.77,
+            -2.37,
+            -1.63,
+            -1.12,
+            0.22,
+            1.54,
+            2.93,
+            1.81,
+            3.19,
+            4.53,
+            5.84,
+            7.14,
+            8.45,
+            9.86,
+            8.69,
+            10,
+            11.31,
+            10.16,
+            10.5,
+            9.36,
+            10.71,
             12.05,
-            10.97,
-            9.88,
-            11.25,
-            10.11,
-            9.04,
-            7.94,
-            6.82,
-            8.19,
-            7.07,
-            5.94,
-            4.88,
-            4.9,
-            3.77,
-            3.98,
-            3.49,
-            3.41,
-            3.07,
-            4.48,
-            3.7,
-            3.61,
-            3.06,
-            4.5,
-            3.42,
-            3.08,
-            2.01,
-            0.91,
-            1.79,
-            2.38,
-            1.97
+            13.43,
+            14.78,
+            16.1,
+            14.92,
+            13.74,
+            12.33,
+            12.83,
+            14.15,
+            14.57,
+            15.59,
+            14.24,
+            15.6,
+            16.99,
+            15.91,
+            17.28,
+            16.23,
+            17.61,
+            17.37,
+            16.22,
+            15.09,
+            13.96,
+            12.84,
+            14.23,
+            12.74,
+            11.32,
+            11.11,
+            10.04,
+            8.95,
+            10.32,
+            9.18,
+            8.11,
+            7.01,
+            5.88,
+            7.25,
+            6.13,
+            5.01,
+            3.95,
+            3.97,
+            2.83,
+            3.04,
+            2.56,
+            2.48,
+            2.14,
+            3.54,
+            2.76,
+            2.68,
+            2.12,
+            3.57,
+            2.48,
+            2.15,
+            1.07,
+            -0.02,
+            0.85,
+            1.44,
+            1.03
           ]
         },
         {
@@ -27356,7 +28330,7 @@
               "n": 118,
               "windows": 2,
               "winRate": 0.4661016949152542,
-              "realizedPayoff": 1.6090933359205641,
+              "realizedPayoff": 1.6090931311109493,
               "plannedRR": 3,
               "maxHoldingBars": 20,
               "positiveWindowRate": 1
@@ -27628,7 +28602,7 @@
               "n": 46,
               "windows": 2,
               "winRate": 0.30434782608695654,
-              "realizedPayoff": 1.9404015963033583,
+              "realizedPayoff": 1.9404012489421225,
               "plannedRR": null,
               "maxHoldingBars": 40,
               "positiveWindowRate": 0.5
@@ -27831,7 +28805,7 @@
               "n": 70,
               "windows": 2,
               "winRate": 0.35714285714285715,
-              "realizedPayoff": 1.0993131675808967,
+              "realizedPayoff": 1.099313089767049,
               "plannedRR": 2.5,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0.5
@@ -28061,7 +29035,7 @@
               "n": 152,
               "windows": 2,
               "winRate": 0.3881578947368421,
-              "realizedPayoff": 0.7910904989792543,
+              "realizedPayoff": 0.7910905847281249,
               "plannedRR": 2,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -28327,24 +29301,24 @@
       "psychology": {
         "source": "PRICE_BREADTH_PROXY",
         "status": "OK",
-        "asOf": "2026-11-05",
-        "score": 74,
+        "asOf": "2026-11-06",
+        "score": 68,
         "label": "GREED",
         "components": {
-          "momentum20": 62,
-          "drawdown63": 93,
-          "volatility": 46,
-          "breadth200": 69,
-          "breadth20": 76,
+          "momentum20": 51,
+          "drawdown63": 87,
+          "volatility": 48,
+          "breadth200": 62,
+          "breadth20": 62,
           "trend": 100
         },
         "breadthSample": 29,
         "metrics": {
-          "indexReturn20Pct": 3.08,
-          "indexDrawdown63Pct": -1.04,
-          "volatilityRatio": 1.15,
-          "breadthAbove200Pct": 69,
-          "breadthPositive20Pct": 75.9
+          "indexReturn20Pct": 0.3,
+          "indexDrawdown63Pct": -2.04,
+          "volatilityRatio": 1.08,
+          "breadthAbove200Pct": 62.1,
+          "breadthPositive20Pct": 62.1
         },
         "interpretation": "Heuristisk marknadspositionering, inte CNN-index eller bevisad köp-/säljsignal."
       },
@@ -28358,16 +29332,22 @@
             "stop": 1798.86,
             "target": 2045.43,
             "rr": 3,
-            "barsAgo": 0,
+            "barsAgo": 1,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
             "warnings": [
               "LONG_FOMO_RISK_IN_GREED",
-              "LONG_RALLIED_8PCT_IN_5D",
               "HOLD_EXCEEDS_3_WEEK_MANDATE",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga."
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_PREFERRED",
+              "code": "WITH_MARKET_TREND",
+              "asOf": "2026-11-06",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "GETI-B.ST",
@@ -28377,7 +29357,7 @@
             "stop": 275.02,
             "target": 304.93,
             "rr": 3,
-            "barsAgo": 0,
+            "barsAgo": 1,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
             "warnings": [
@@ -28385,7 +29365,14 @@
               "HOLD_EXCEEDS_3_WEEK_MANDATE",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga."
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_PREFERRED",
+              "code": "WITH_MARKET_TREND",
+              "asOf": "2026-11-06",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "EVO.ST",
@@ -28395,7 +29382,7 @@
             "stop": 833.42,
             "target": 935.73,
             "rr": 3,
-            "barsAgo": 0,
+            "barsAgo": 1,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
             "warnings": [
@@ -28403,7 +29390,14 @@
               "HOLD_EXCEEDS_3_WEEK_MANDATE",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga."
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_PREFERRED",
+              "code": "WITH_MARKET_TREND",
+              "asOf": "2026-11-06",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           }
         ],
         "short": [
@@ -28411,9 +29405,9 @@
             "ticker": "VOLV-B.ST",
             "setup": "Burry filter — weak-stock rally short",
             "direction": "short",
-            "entry": 316.8,
-            "stop": 330.13,
-            "target": 283.47,
+            "entry": 312.8,
+            "stop": 326.82,
+            "target": 277.75,
             "rr": 2.5,
             "barsAgo": 0,
             "evidenceStatus": "WATCH",
@@ -28422,15 +29416,22 @@
               "SHORT_SQUEEZE_RISK_IN_GREED",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv."
+            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "COUNTERTREND_REQUIRES_REVIEW",
+              "asOf": "2026-11-06",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "NDA-SE.ST",
             "setup": "Burry filter — weak-stock rally short",
             "direction": "short",
-            "entry": 181.25,
-            "stop": 188.32,
-            "target": 163.57,
+            "entry": 180.3,
+            "stop": 187.29,
+            "target": 162.83,
             "rr": 2.5,
             "barsAgo": 0,
             "evidenceStatus": "WATCH",
@@ -28439,15 +29440,22 @@
               "SHORT_SQUEEZE_RISK_IN_GREED",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv."
+            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "COUNTERTREND_REQUIRES_REVIEW",
+              "asOf": "2026-11-06",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           },
           {
             "ticker": "BOL.ST",
             "setup": "Burry filter — weak-stock rally short",
             "direction": "short",
-            "entry": 507.6,
-            "stop": 545.56,
-            "target": 412.7,
+            "entry": 503.4,
+            "stop": 541.18,
+            "target": 408.96,
             "rr": 2.5,
             "barsAgo": 0,
             "evidenceStatus": "WATCH",
@@ -28456,12 +29464,19 @@
               "SHORT_SQUEEZE_RISK_IN_GREED",
               "NOT_VALIDATED_TO_80_3"
             ],
-            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv."
+            "rationale": "Bevaka bekräftad svaghetsrekyl, inte fallande kniv.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "COUNTERTREND_REQUIRES_REVIEW",
+              "asOf": "2026-11-06",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
           }
         ],
         "basis": "research-watchlist",
         "scoreMeaning": "Heuristisk prioritet, ej sannolikhet eller verifierad alpha",
-        "asOf": "2026-11-05",
+        "asOf": "2026-11-06",
         "conflicts": []
       },
       "psychologyStudy": {
@@ -28469,19 +29484,19 @@
         "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
         "validatedAlpha": false,
         "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-        "totalTrades": 691,
+        "totalTrades": 692,
         "unknownSentiment": 0,
         "bySide": {
           "long": {
-            "sourceN": 469,
-            "datedN": 469,
-            "blockedN": 395,
+            "sourceN": 470,
+            "datedN": 470,
+            "blockedN": 396,
             "withoutFilter": {
-              "n": 469,
-              "winRatePct": 46.7,
-              "avgR": 0.074,
-              "totalR": 34.72,
-              "profitFactor": 1.167
+              "n": 470,
+              "winRatePct": 46.6,
+              "avgR": 0.072,
+              "totalR": 33.78,
+              "profitFactor": 1.162
             },
             "withFilter": {
               "n": 74,
@@ -28491,11 +29506,11 @@
               "profitFactor": 1.507
             },
             "blocked": {
-              "n": 395,
-              "winRatePct": 47.3,
-              "avgR": 0.054,
-              "totalR": 21.14,
-              "profitFactor": 1.117
+              "n": 396,
+              "winRatePct": 47.2,
+              "avgR": 0.051,
+              "totalR": 20.21,
+              "profitFactor": 1.111
             },
             "held2to4": {
               "withoutFilter": {
@@ -28558,11 +29573,41 @@
           }
         }
       },
+      "marketTrendV2": {
+        "version": 1,
+        "status": "OK",
+        "asOf": "2026-11-06",
+        "source": "COMPLETED_DAILY_OHLC_BREADTH",
+        "indexSymbol": "^OMX",
+        "regime": "BULLISH",
+        "bias": "LONG_WATCH",
+        "riskState": "NORMAL",
+        "reasonCodes": [
+          "UPTREND_AND_POSITIVE_BREADTH"
+        ],
+        "metrics": {
+          "close": 3267.88,
+          "sma20": 3260.91,
+          "sma50": 3265.72,
+          "sma200": 3164.76,
+          "return5Pct": -0.11,
+          "return20Pct": 0.3,
+          "breadthAbove50Pct": 65.5,
+          "breadthAbove200Pct": 62.1,
+          "breadthSample": 29,
+          "breadthExpected": 29,
+          "realizedVol20Pct": 14.2,
+          "realizedVolRatio20v60": 1.14
+        },
+        "tradeApproved": false,
+        "validatedAlpha": false,
+        "note": "Heuristic market context from completed daily bars. Not VIX, not live, not OOS-tested alpha; no automatic orders."
+      },
       "regime": {
         "on": true,
         "label": "risk-on",
         "basis": "index vs 200-day average",
-        "breadth": 69
+        "breadth": 62
       },
       "risk": null,
       "validation": {
@@ -28625,7 +29670,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 04 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 16,
           "rs": 79,
           "entry": 124.05,
@@ -28643,12 +29688,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 118.55,
-              "h": 119.5,
-              "l": 117.25,
-              "c": 119.5
-            },
             {
               "o": 119.2,
               "h": 119.75,
@@ -28774,8 +29813,21 @@
               "h": 125.7,
               "l": 123.2,
               "c": 124.15
+            },
+            {
+              "o": 123,
+              "h": 123.55,
+              "l": 121.6,
+              "c": 122.75
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -28797,7 +29849,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 04 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 16,
           "rs": 61,
           "entry": 402.2,
@@ -28815,12 +29867,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 409.2,
-              "h": 411.4,
-              "l": 400,
-              "c": 400
-            },
             {
               "o": 398.1,
               "h": 400.3,
@@ -28946,8 +29992,21 @@
               "h": 409.8,
               "l": 402,
               "c": 406.2
+            },
+            {
+              "o": 400.7,
+              "h": 405.2,
+              "l": 399.6,
+              "c": 401.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -28969,7 +30028,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 04 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 19,
           "rs": 71,
           "entry": 398.7,
@@ -28982,17 +30041,11 @@
           "size": 86,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 351.2,
-              "h": 352,
-              "l": 339.6,
-              "c": 340
-            },
             {
               "o": 338,
               "h": 342.2,
@@ -29118,8 +30171,21 @@
               "h": 403.9,
               "l": 399.5,
               "c": 401.8
+            },
+            {
+              "o": 395,
+              "h": 395.5,
+              "l": 385.5,
+              "c": 394.6
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -29141,7 +30207,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
           "rs": 96,
           "entry": 1860.5,
@@ -29154,17 +30220,11 @@
           "size": 16,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 1586.5,
-              "h": 1610,
-              "l": 1580.5,
-              "c": 1610
-            },
             {
               "o": 1599,
               "h": 1603,
@@ -29290,8 +30350,21 @@
               "h": 1887,
               "l": 1836.5,
               "c": 1860.5
+            },
+            {
+              "o": 1817,
+              "h": 1839.5,
+              "l": 1781.5,
+              "c": 1838.5
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -29313,9 +30386,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
-          "rs": 57,
+          "rs": 54,
           "entry": 31.79,
           "stop": 29.88,
           "target": 37.53,
@@ -29326,17 +30399,11 @@
           "size": 523,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": false,
           "chart": [
-            {
-              "o": 24.4,
-              "h": 25.22,
-              "l": 24.26,
-              "c": 24.48
-            },
             {
               "o": 24.49,
               "h": 24.49,
@@ -29462,8 +30529,21 @@
               "h": 33.05,
               "l": 31.7,
               "c": 31.79
+            },
+            {
+              "o": 30.9,
+              "h": 31.53,
+              "l": 30.72,
+              "c": 31.41
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -29485,9 +30565,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 04 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 19,
-          "rs": 14,
+          "rs": 11,
           "entry": 319.9,
           "stop": 308.2,
           "target": 355.01,
@@ -29498,17 +30578,11 @@
           "size": 85,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 285.9,
-              "h": 288.3,
-              "l": 279.5,
-              "c": 279.5
-            },
             {
               "o": 278,
               "h": 279.1,
@@ -29634,8 +30708,21 @@
               "h": 324.5,
               "l": 306.7,
               "c": 311.9
+            },
+            {
+              "o": 307.8,
+              "h": 310.2,
+              "l": 300.9,
+              "c": 306.9
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -29657,9 +30744,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
-          "rs": 46,
+          "rs": 50,
           "entry": 292.5,
           "stop": 285.01,
           "target": 314.98,
@@ -29670,17 +30757,11 @@
           "size": 133,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 260.1,
-              "h": 263.1,
-              "l": 260.1,
-              "c": 263.1
-            },
             {
               "o": 262.6,
               "h": 263.5,
@@ -29806,8 +30887,21 @@
               "h": 293.8,
               "l": 286.8,
               "c": 292.5
+            },
+            {
+              "o": 287.7,
+              "h": 290.2,
+              "l": 285.3,
+              "c": 289.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -29829,7 +30923,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
           "rs": 86,
           "entry": 859,
@@ -29842,17 +30936,11 @@
           "size": 39,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 815.8,
-              "h": 822,
-              "l": 804.4,
-              "c": 806.4
-            },
             {
               "o": 805,
               "h": 815.6,
@@ -29978,8 +31066,21 @@
               "h": 864.4,
               "l": 851.4,
               "c": 859
+            },
+            {
+              "o": 850,
+              "h": 855.8,
+              "l": 846.4,
+              "c": 847.6
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -30001,7 +31102,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
           "rs": 93,
           "entry": 282.5,
@@ -30014,17 +31115,11 @@
           "size": 133,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 250.4,
-              "h": 252.3,
-              "l": 248.4,
-              "c": 250
-            },
             {
               "o": 248.9,
               "h": 251.2,
@@ -30150,8 +31245,21 @@
               "h": 283,
               "l": 279.8,
               "c": 282.5
+            },
+            {
+              "o": 278.9,
+              "h": 280,
+              "l": 274.3,
+              "c": 277.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -30173,9 +31281,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
-          "rs": 43,
+          "rs": 46,
           "entry": 182.15,
           "stop": 176.83,
           "target": 198.1,
@@ -30186,17 +31294,11 @@
           "size": 187,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 156.8,
-              "h": 159.74,
-              "l": 156.8,
-              "c": 158.95
-            },
             {
               "o": 158.07,
               "h": 160.28,
@@ -30322,8 +31424,21 @@
               "h": 182.55,
               "l": 178.8,
               "c": 182.15
+            },
+            {
+              "o": 179,
+              "h": 179.6,
+              "l": 175.25,
+              "c": 178.75
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -30345,7 +31460,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Oct 29 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 5,
+          "barsAgo": 6,
           "typicalDays": 19,
           "rs": 75,
           "entry": 110.1,
@@ -30358,17 +31473,11 @@
           "size": 295,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 103,
-              "h": 103.2,
-              "l": 100.95,
-              "c": 101.05
-            },
             {
               "o": 101,
               "h": 102.2,
@@ -30494,8 +31603,21 @@
               "h": 111.95,
               "l": 108.45,
               "c": 108.95
+            },
+            {
+              "o": 106.75,
+              "h": 107.95,
+              "l": 106,
+              "c": 107.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -30517,7 +31639,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 04 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 19,
           "rs": 39,
           "entry": 432.8,
@@ -30530,17 +31652,11 @@
           "size": 102,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 405.85,
-              "h": 409.53,
-              "l": 404.3,
-              "c": 406
-            },
             {
               "o": 404.1,
               "h": 407.79,
@@ -30666,8 +31782,21 @@
               "h": 437.98,
               "l": 429.51,
               "c": 432.3
+            },
+            {
+              "o": 422.3,
+              "h": 428.8,
+              "l": 421.2,
+              "c": 428.15
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -30689,7 +31818,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 02 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 3,
+          "barsAgo": 4,
           "typicalDays": 19,
           "rs": 100,
           "entry": 72.86,
@@ -30702,17 +31831,11 @@
           "size": 294,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 63.28,
-              "h": 66.98,
-              "l": 63.28,
-              "c": 65.46
-            },
             {
               "o": 64.96,
               "h": 66.32,
@@ -30838,8 +31961,21 @@
               "h": 74.9,
               "l": 72.1,
               "c": 72.34
+            },
+            {
+              "o": 71,
+              "h": 72,
+              "l": 70.4,
+              "c": 71.84
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -30861,7 +31997,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
+          "barsAgo": 1,
           "typicalDays": 19,
           "rs": 68,
           "entry": 161.2,
@@ -30874,17 +32010,11 @@
           "size": 264,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 152.8,
-              "h": 153.35,
-              "l": 150.45,
-              "c": 150.8
-            },
             {
               "o": 150,
               "h": 151.1,
@@ -31010,8 +32140,21 @@
               "h": 162.5,
               "l": 160.1,
               "c": 161.2
+            },
+            {
+              "o": 159.1,
+              "h": 160.6,
+              "l": 158.7,
+              "c": 159.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -31033,9 +32176,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Oct 29 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 5,
+          "barsAgo": 6,
           "typicalDays": 19,
-          "rs": 54,
+          "rs": 57,
           "entry": 279.7,
           "stop": 269.96,
           "target": 308.94,
@@ -31046,17 +32189,11 @@
           "size": 102,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 274.21,
-              "h": 275.29,
-              "l": 264.24,
-              "c": 264.24
-            },
             {
               "o": 262.57,
               "h": 263.36,
@@ -31182,8 +32319,21 @@
               "h": 280.9,
               "l": 270.5,
               "c": 273.7
+            },
+            {
+              "o": 268.7,
+              "h": 274.4,
+              "l": 268,
+              "c": 271.2
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -31205,7 +32355,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 04 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 19,
           "rs": 89,
           "entry": 49.57,
@@ -31218,17 +32368,11 @@
           "size": 666,
           "edge": {
             "expectancyR": 0.01,
-            "winRate": 47,
-            "sample": 137
+            "winRate": 46,
+            "sample": 138
           },
           "above200": true,
           "chart": [
-            {
-              "o": 43.34,
-              "h": 44.29,
-              "l": 43.34,
-              "c": 44.22
-            },
             {
               "o": 44.21,
               "h": 45.01,
@@ -31354,8 +32498,21 @@
               "h": 50.1,
               "l": 49.17,
               "c": 49.78
+            },
+            {
+              "o": 49.58,
+              "h": 49.66,
+              "l": 48.56,
+              "c": 49.1
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -31376,7 +32533,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Tue Nov 03 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 20,
           "rs": 79,
           "entry": 121.15,
@@ -31394,12 +32551,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 118.55,
-              "h": 119.5,
-              "l": 117.25,
-              "c": 119.5
-            },
             {
               "o": 119.2,
               "h": 119.75,
@@ -31525,8 +32676,21 @@
               "h": 125.7,
               "l": 123.2,
               "c": 124.15
+            },
+            {
+              "o": 123,
+              "h": 123.55,
+              "l": 121.6,
+              "c": 122.75
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -31547,7 +32711,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Oct 30 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 4,
+          "barsAgo": 5,
           "typicalDays": 20,
           "rs": 36,
           "entry": 43.42,
@@ -31565,12 +32729,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 44.9,
-              "h": 44.93,
-              "l": 43.15,
-              "c": 43.25
-            },
             {
               "o": 43.24,
               "h": 43.49,
@@ -31696,8 +32854,21 @@
               "h": 46.37,
               "l": 41.79,
               "c": 43.39
+            },
+            {
+              "o": 43.28,
+              "h": 44.25,
+              "l": 42.12,
+              "c": 43.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "long",
@@ -31721,7 +32892,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 02 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 3,
+          "barsAgo": 4,
           "typicalDays": 28.5,
           "rs": 100,
           "entry": 72.86,
@@ -31739,12 +32910,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 63.28,
-              "h": 66.98,
-              "l": 63.28,
-              "c": 65.46
-            },
             {
               "o": 64.96,
               "h": 66.32,
@@ -31870,182 +33035,21 @@
               "h": 74.9,
               "l": 72.1,
               "c": 72.34
+            },
+            {
+              "o": 71,
+              "h": 72,
+              "l": 70.4,
+              "c": 71.84
             }
-          ]
-        },
-        {
-          "dir": "long",
-          "ticker": "NIBE-B.ST",
-          "setup": "Momentum flag — leader breakout",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
           ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Wed Oct 28 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 28.5,
-          "rs": 82,
-          "entry": 45.63,
-          "stop": 43.55,
-          "target": 51.87,
-          "rr": 3,
-          "maxBars": 40,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 480,
-          "edge": {
-            "expectancyR": -0.07,
-            "winRate": 30,
-            "sample": 46
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 45.3,
-              "h": 45.48,
-              "l": 44.15,
-              "c": 44.17
-            },
-            {
-              "o": 44.17,
-              "h": 44.38,
-              "l": 42.89,
-              "c": 43.66
-            },
-            {
-              "o": 43.98,
-              "h": 45.06,
-              "l": 43.69,
-              "c": 44.16
-            },
-            {
-              "o": 44.14,
-              "h": 44.14,
-              "l": 43.23,
-              "c": 43.51
-            },
-            {
-              "o": 43.63,
-              "h": 44.16,
-              "l": 43.48,
-              "c": 43.98
-            },
-            {
-              "o": 44.3,
-              "h": 44.94,
-              "l": 44.02,
-              "c": 44.48
-            },
-            {
-              "o": 44.04,
-              "h": 44.6,
-              "l": 43.65,
-              "c": 44.36
-            },
-            {
-              "o": 44.35,
-              "h": 45,
-              "l": 43.75,
-              "c": 44.72
-            },
-            {
-              "o": 44.57,
-              "h": 44.98,
-              "l": 44.15,
-              "c": 44.98
-            },
-            {
-              "o": 44.75,
-              "h": 44.75,
-              "l": 43.55,
-              "c": 44.26
-            },
-            {
-              "o": 44.23,
-              "h": 44.55,
-              "l": 44.02,
-              "c": 44.55
-            },
-            {
-              "o": 44.16,
-              "h": 44.6,
-              "l": 43.96,
-              "c": 44.32
-            },
-            {
-              "o": 44.42,
-              "h": 44.79,
-              "l": 44.01,
-              "c": 44.44
-            },
-            {
-              "o": 44.43,
-              "h": 44.84,
-              "l": 44.19,
-              "c": 44.84
-            },
-            {
-              "o": 44.75,
-              "h": 45.48,
-              "l": 44.46,
-              "c": 45.45
-            },
-            {
-              "o": 45.6,
-              "h": 46.28,
-              "l": 45.38,
-              "c": 45.63
-            },
-            {
-              "o": 45.63,
-              "h": 45.94,
-              "l": 45.2,
-              "c": 45.61
-            },
-            {
-              "o": 45.6,
-              "h": 45.88,
-              "l": 45.22,
-              "c": 45.56
-            },
-            {
-              "o": 45.41,
-              "h": 45.88,
-              "l": 45.16,
-              "c": 45.66
-            },
-            {
-              "o": 45.41,
-              "h": 46.36,
-              "l": 44.97,
-              "c": 46
-            },
-            {
-              "o": 45.92,
-              "h": 46.47,
-              "l": 45.08,
-              "c": 45.08
-            },
-            {
-              "o": 45.18,
-              "h": 46.44,
-              "l": 45.15,
-              "c": 46.03
-            }
-          ]
+          "marketTrendGate": {
+            "status": "WATCH_PREFERRED",
+            "code": "WITH_MARKET_TREND",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -32067,13 +33071,13 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
           "rs": 25,
-          "entry": 507.6,
-          "stop": 545.56,
-          "target": 412.7,
+          "entry": 503.4,
+          "stop": 541.18,
+          "target": 408.96,
           "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
@@ -32086,12 +33090,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 525.4,
-              "h": 538.4,
-              "l": 520.2,
-              "c": 525.4
-            },
             {
               "o": 520.6,
               "h": 525.6,
@@ -32217,8 +33215,21 @@
               "h": 528.2,
               "l": 500.6,
               "c": 507.6
+            },
+            {
+              "o": 494.3,
+              "h": 510.6,
+              "l": 492.9,
+              "c": 503.4
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -32240,31 +33251,25 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
           "rs": 21,
-          "entry": 181.25,
-          "stop": 188.32,
-          "target": 163.57,
+          "entry": 180.3,
+          "stop": 187.29,
+          "target": 162.83,
           "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 141,
+          "size": 143,
           "edge": {
             "expectancyR": -0.23,
             "winRate": 36,
             "sample": 70
           },
-          "above200": true,
+          "above200": false,
           "chart": [
-            {
-              "o": 192.1,
-              "h": 192.45,
-              "l": 187.75,
-              "c": 188.6
-            },
             {
               "o": 187.75,
               "h": 188.55,
@@ -32390,8 +33395,21 @@
               "h": 183.15,
               "l": 179.75,
               "c": 181.25
+            },
+            {
+              "o": 179.45,
+              "h": 181.75,
+              "l": 178.8,
+              "c": 180.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -32413,13 +33431,13 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 32,
-          "entry": 358.9,
-          "stop": 380,
-          "target": 306.15,
+          "rs": 29,
+          "entry": 357.4,
+          "stop": 378.49,
+          "target": 304.66,
           "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
@@ -32432,12 +33450,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 364.1,
-              "h": 368.5,
-              "l": 355.5,
-              "c": 355.5
-            },
             {
               "o": 353,
               "h": 355.7,
@@ -32563,8 +33575,21 @@
               "h": 371.2,
               "l": 354.6,
               "c": 358.9
+            },
+            {
+              "o": 351.6,
+              "h": 360.3,
+              "l": 349.8,
+              "c": 357.4
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -32586,18 +33611,18 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 29,
-          "entry": 216.2,
-          "stop": 225.12,
-          "target": 193.9,
+          "rs": 32,
+          "entry": 214.8,
+          "stop": 223.6,
+          "target": 192.81,
           "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 112,
+          "size": 113,
           "edge": {
             "expectancyR": -0.23,
             "winRate": 36,
@@ -32605,12 +33630,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 230.3,
-              "h": 231.1,
-              "l": 225.6,
-              "c": 226
-            },
             {
               "o": 224.5,
               "h": 225.4,
@@ -32736,8 +33755,21 @@
               "h": 218.2,
               "l": 214.6,
               "c": 216.2
+            },
+            {
+              "o": 213.6,
+              "h": 215.4,
+              "l": 212.6,
+              "c": 214.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -32759,18 +33791,18 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 11,
-          "entry": 316.8,
-          "stop": 330.13,
-          "target": 283.47,
+          "rs": 14,
+          "entry": 312.8,
+          "stop": 326.82,
+          "target": 277.75,
           "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 75,
+          "size": 71,
           "edge": {
             "expectancyR": -0.23,
             "winRate": 36,
@@ -32778,12 +33810,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 313.2,
-              "h": 317.7,
-              "l": 311.5,
-              "c": 312.4
-            },
             {
               "o": 311.4,
               "h": 312.1,
@@ -32909,8 +33935,21 @@
               "h": 320.7,
               "l": 313.6,
               "c": 316.8
+            },
+            {
+              "o": 311,
+              "h": 318.2,
+              "l": 306.7,
+              "c": 312.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -32931,13 +33970,13 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
           "rs": 25,
-          "entry": 507.6,
-          "stop": 545.56,
-          "target": 431.68,
+          "entry": 503.4,
+          "stop": 541.18,
+          "target": 427.84,
           "rr": 2,
           "maxBars": 10,
           "costRate": 0.003,
@@ -32950,12 +33989,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 525.4,
-              "h": 538.4,
-              "l": 520.2,
-              "c": 525.4
-            },
             {
               "o": 520.6,
               "h": 525.6,
@@ -33081,8 +34114,21 @@
               "h": 528.2,
               "l": 500.6,
               "c": 507.6
+            },
+            {
+              "o": 494.3,
+              "h": 510.6,
+              "l": 492.9,
+              "c": 503.4
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -33103,31 +34149,25 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
           "rs": 21,
-          "entry": 181.25,
-          "stop": 188.32,
-          "target": 167.1,
+          "entry": 180.3,
+          "stop": 187.29,
+          "target": 166.32,
           "rr": 2,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 141,
+          "size": 143,
           "edge": {
             "expectancyR": -0.29,
             "winRate": 39,
             "sample": 152
           },
-          "above200": true,
+          "above200": false,
           "chart": [
-            {
-              "o": 192.1,
-              "h": 192.45,
-              "l": 187.75,
-              "c": 188.6
-            },
             {
               "o": 187.75,
               "h": 188.55,
@@ -33253,8 +34293,21 @@
               "h": 183.15,
               "l": 179.75,
               "c": 181.25
+            },
+            {
+              "o": 179.45,
+              "h": 181.75,
+              "l": 178.8,
+              "c": 180.3
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -33275,13 +34328,13 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 32,
-          "entry": 358.9,
-          "stop": 380,
-          "target": 316.7,
+          "rs": 29,
+          "entry": 357.4,
+          "stop": 378.49,
+          "target": 315.21,
           "rr": 2,
           "maxBars": 10,
           "costRate": 0.003,
@@ -33294,12 +34347,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 364.1,
-              "h": 368.5,
-              "l": 355.5,
-              "c": 355.5
-            },
             {
               "o": 353,
               "h": 355.7,
@@ -33425,8 +34472,21 @@
               "h": 371.2,
               "l": 354.6,
               "c": 358.9
+            },
+            {
+              "o": 351.6,
+              "h": 360.3,
+              "l": 349.8,
+              "c": 357.4
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -33447,18 +34507,18 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 29,
-          "entry": 216.2,
-          "stop": 225.12,
-          "target": 198.36,
+          "rs": 32,
+          "entry": 214.8,
+          "stop": 223.6,
+          "target": 197.21,
           "rr": 2,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 112,
+          "size": 113,
           "edge": {
             "expectancyR": -0.29,
             "winRate": 39,
@@ -33466,12 +34526,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 230.3,
-              "h": 231.1,
-              "l": 225.6,
-              "c": 226
-            },
             {
               "o": 224.5,
               "h": 225.4,
@@ -33597,8 +34651,21 @@
               "h": 218.2,
               "l": 214.6,
               "c": 216.2
+            },
+            {
+              "o": 213.6,
+              "h": 215.4,
+              "l": 212.6,
+              "c": 214.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -33620,9 +34687,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Tue Nov 03 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 11,
-          "rs": 50,
+          "rs": 43,
           "entry": 159,
           "stop": 164.86,
           "target": 147.28,
@@ -33638,12 +34705,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 151.67,
-              "h": 154.96,
-              "l": 151.62,
-              "c": 154.52
-            },
             {
               "o": 154.91,
               "h": 157.47,
@@ -33769,8 +34830,21 @@
               "h": 162.8,
               "l": 159.75,
               "c": 162.15
+            },
+            {
+              "o": 161.55,
+              "h": 161.55,
+              "l": 158.9,
+              "c": 160.9
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         },
         {
           "dir": "short",
@@ -33791,18 +34865,18 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 05 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Fri Nov 06 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 11,
-          "entry": 316.8,
-          "stop": 330.13,
-          "target": 290.14,
+          "rs": 14,
+          "entry": 312.8,
+          "stop": 326.82,
+          "target": 284.76,
           "rr": 2,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 75,
+          "size": 71,
           "edge": {
             "expectancyR": -0.29,
             "winRate": 39,
@@ -33810,12 +34884,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 313.2,
-              "h": 317.7,
-              "l": 311.5,
-              "c": 312.4
-            },
             {
               "o": 311.4,
               "h": 312.1,
@@ -33941,402 +35009,71 @@
               "h": 320.7,
               "l": 313.6,
               "c": 316.8
-            }
-          ]
-        },
-        {
-          "dir": "short",
-          "ticker": "ELUX-B.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "market-wf",
-          "signalT": "Wed Oct 28 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 57,
-          "entry": 26.9,
-          "stop": 29.16,
-          "target": 22.38,
-          "rr": 2,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 442,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 39,
-            "sample": 152
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 24.4,
-              "h": 25.22,
-              "l": 24.26,
-              "c": 24.48
             },
             {
-              "o": 24.49,
-              "h": 24.49,
-              "l": 23.66,
-              "c": 23.99
-            },
-            {
-              "o": 24.26,
-              "h": 25.39,
-              "l": 24.26,
-              "c": 24.97
-            },
-            {
-              "o": 25,
-              "h": 25.28,
-              "l": 24.8,
-              "c": 25.01
-            },
-            {
-              "o": 25.16,
-              "h": 26.82,
-              "l": 25.16,
-              "c": 26.31
-            },
-            {
-              "o": 26.47,
-              "h": 26.84,
-              "l": 26.44,
-              "c": 26.68
-            },
-            {
-              "o": 26.56,
-              "h": 26.92,
-              "l": 25.89,
-              "c": 26.86
-            },
-            {
-              "o": 27,
-              "h": 27.67,
-              "l": 26.77,
-              "c": 27.6
-            },
-            {
-              "o": 27.47,
-              "h": 27.47,
-              "l": 26.63,
-              "c": 26.85
-            },
-            {
-              "o": 26.77,
-              "h": 27.26,
-              "l": 26.5,
-              "c": 27
-            },
-            {
-              "o": 26.86,
-              "h": 26.97,
-              "l": 26.05,
-              "c": 26.73
-            },
-            {
-              "o": 26.73,
-              "h": 26.85,
-              "l": 25.73,
-              "c": 25.97
-            },
-            {
-              "o": 28.1,
-              "h": 28.97,
-              "l": 26,
-              "c": 26.37
-            },
-            {
-              "o": 26.22,
-              "h": 26.59,
-              "l": 25.4,
-              "c": 26.17
-            },
-            {
-              "o": 27.4,
-              "h": 27.85,
-              "l": 26.52,
-              "c": 27.16
-            },
-            {
-              "o": 26.74,
-              "h": 27.55,
-              "l": 26.32,
-              "c": 26.9
-            },
-            {
-              "o": 26.85,
-              "h": 28.4,
-              "l": 26.8,
-              "c": 28.2
-            },
-            {
-              "o": 28.14,
-              "h": 29.16,
-              "l": 27.74,
-              "c": 28.81
-            },
-            {
-              "o": 28.66,
-              "h": 30.36,
-              "l": 28.33,
-              "c": 30.1
-            },
-            {
-              "o": 29.93,
-              "h": 31.02,
-              "l": 29.73,
-              "c": 30.45
-            },
-            {
-              "o": 30.45,
-              "h": 31.7,
-              "l": 30.12,
-              "c": 31.69
-            },
-            {
-              "o": 31.88,
-              "h": 33.05,
-              "l": 31.7,
-              "c": 31.79
-            }
-          ]
-        },
-        {
-          "dir": "short",
-          "ticker": "EQT.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "market-wf",
-          "signalT": "Wed Oct 28 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 14,
-          "entry": 301.9,
-          "stop": 316.73,
-          "target": 272.23,
-          "rr": 2,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 67,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 39,
-            "sample": 152
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 285.9,
-              "h": 288.3,
-              "l": 279.5,
-              "c": 279.5
-            },
-            {
-              "o": 278,
-              "h": 279.1,
-              "l": 274.6,
-              "c": 276
-            },
-            {
-              "o": 277,
-              "h": 284.9,
-              "l": 277,
-              "c": 284.1
-            },
-            {
-              "o": 283.9,
-              "h": 290.2,
-              "l": 283.9,
-              "c": 287
-            },
-            {
-              "o": 286.5,
-              "h": 292.1,
-              "l": 286.5,
-              "c": 289.5
-            },
-            {
-              "o": 290.2,
-              "h": 294.2,
-              "l": 281.6,
-              "c": 281.6
-            },
-            {
-              "o": 284.8,
-              "h": 294.8,
-              "l": 281,
-              "c": 288.5
-            },
-            {
-              "o": 294.1,
-              "h": 301.6,
-              "l": 292.9,
-              "c": 298.1
-            },
-            {
-              "o": 296.3,
-              "h": 296.3,
-              "l": 291.7,
-              "c": 295.5
-            },
-            {
-              "o": 295.5,
-              "h": 297.5,
-              "l": 287.3,
-              "c": 297
-            },
-            {
-              "o": 296.9,
-              "h": 297,
-              "l": 290.5,
-              "c": 294.3
-            },
-            {
-              "o": 292,
-              "h": 294.4,
-              "l": 289.7,
-              "c": 294.4
-            },
-            {
-              "o": 295.8,
-              "h": 299.4,
-              "l": 293,
-              "c": 299.4
-            },
-            {
-              "o": 300,
-              "h": 303.8,
-              "l": 298.3,
-              "c": 302.4
-            },
-            {
-              "o": 300,
-              "h": 305,
-              "l": 300,
-              "c": 303.8
-            },
-            {
-              "o": 303.4,
-              "h": 307.9,
-              "l": 300.5,
-              "c": 301.9
-            },
-            {
-              "o": 301.3,
-              "h": 308.9,
-              "l": 300.4,
-              "c": 308.9
-            },
-            {
-              "o": 309.8,
-              "h": 310.6,
-              "l": 306.9,
-              "c": 309
-            },
-            {
-              "o": 307.5,
-              "h": 319,
-              "l": 305,
-              "c": 319
-            },
-            {
-              "o": 315.5,
-              "h": 316.3,
-              "l": 310.6,
-              "c": 313.8
-            },
-            {
-              "o": 314.6,
-              "h": 321.7,
-              "l": 313.3,
-              "c": 319.9
-            },
-            {
-              "o": 321,
-              "h": 324.5,
+              "o": 311,
+              "h": 318.2,
               "l": 306.7,
-              "c": 311.9
+              "c": 312.8
             }
-          ]
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "COUNTERTREND_REQUIRES_REVIEW",
+            "asOf": "2026-11-06",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
         }
       ],
       "trackRecord": [
         {
+          "ticker": "SKF-B.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "r": -0.1
+        },
+        {
           "ticker": "NIBE-B.ST",
-          "setup": "Bollinger reversion in uptrend",
-          "r": 1.3
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "r": -0.03
+        },
+        {
+          "ticker": "HEXA-B.ST",
+          "setup": "Breakout — fresh N-day high",
+          "r": -1.18
         },
         {
           "ticker": "SKF-B.ST",
-          "setup": "Bollinger reversion in uptrend",
-          "r": 0.97
+          "setup": "Breakout — fresh N-day high",
+          "r": -1.16
         },
         {
           "ticker": "HEXA-B.ST",
+          "setup": "Breakout — fresh N-day high",
+          "r": -1.19
+        },
+        {
+          "ticker": "SKF-B.ST",
+          "setup": "Breakout — fresh N-day high",
+          "r": -1.3
+        },
+        {
+          "ticker": "SKF-B.ST",
           "setup": "Trend pullback to 20EMA · RSI reset",
-          "r": 1.31
-        },
-        {
-          "ticker": "HEXA-B.ST",
-          "setup": "Breakout — fresh N-day high",
-          "r": 1.31
-        },
-        {
-          "ticker": "ERIC-B.ST",
-          "setup": "Breakout — fresh N-day high",
-          "r": -1.15
-        },
-        {
-          "ticker": "GETI-B.ST",
-          "setup": "Breakout — fresh N-day high",
-          "r": 1.27
+          "r": -1.32
         },
         {
           "ticker": "ASSA-B.ST",
           "setup": "Breakout — fresh N-day high",
-          "r": 1.27
-        },
-        {
-          "ticker": "TEL2-B.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "r": -1.3
+          "r": -1.2
         }
       ],
       "trackRecordSummary": {
-        "closed": 100,
+        "closed": 113,
         "wins": 56,
-        "losses": 44,
-        "winRate": 56,
-        "netR": 18.19,
+        "losses": 57,
+        "winRate": 49.6,
+        "netR": 4.42,
         "costAdjusted": true,
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
