@@ -60,6 +60,23 @@ for (const key of ["US", "SE"]) {
     }
   }
 
+  // New trend layer is advisory, point-in-time, and NEVER an order approval.
+  const trend=m.marketTrendV2;
+  if(!trend || trend.version!==1 || !["OK","UNAVAILABLE"].includes(trend.status) ||
+     !["BULLISH","BEARISH","NEUTRAL","STRESS","UNKNOWN"].includes(trend.regime) ||
+     !["LONG_WATCH","SHORT_WATCH","NONE"].includes(trend.bias) ||
+     trend.tradeApproved!==false || trend.validatedAlpha!==false ||
+     trend.source!=="COMPLETED_DAILY_OHLC_BREADTH" ||
+     (m.dataAsOf && trend.asOf!==m.dataAsOf)) {
+    errors.push(key+": marketTrendV2 invalid, stale or claimed to approve trades");
+  }
+  const gateOk=gate=>gate && ["WATCH_PREFERRED","WATCH_CAUTION"].includes(gate.status) &&
+     typeof gate.code==="string" && gate.tradeApproved===false &&
+     (!m.dataAsOf || gate.asOf===m.dataAsOf);
+  for(const side of ["long","short"])
+    for(const idea of (m.ideaRadar?.[side]||[]))
+      if(!gateOk(idea.marketTrendGate)) errors.push(key+": invalid ideaRadar marketTrendGate");
+
   for (const [i, s] of (m.setups || []).entries()) {
     const p = `${key}.setups[${i}]`;
     for (const field of ["ticker", "dir", "setup", "grade"]) {
@@ -72,6 +89,7 @@ for (const key of ["US", "SE"]) {
       errors.push(`${p}: Replit edge contract is invalid`);
     }
     if (!["long", "short"].includes(s.dir)) errors.push(`${p}: invalid dir ${s.dir}`);
+    if(!gateOk(s.marketTrendGate)) errors.push(`${p}: invalid marketTrendGate`);
     if (!["VALIDATED", "PROMISING", "WATCH"].includes(s.evidenceStatus)) {
       errors.push(`${p}: invalid evidenceStatus ${s.evidenceStatus}`);
     }
