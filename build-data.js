@@ -506,6 +506,15 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
   return {
     label, currency, dataAsOf,
+    // Immutable completed-session index snapshot. Never label this as a live quote.
+    indexSnapshot: {
+      symbol: indexSymbol,
+      source: demo ? "SYNTHETIC_DEMO" : "YAHOO_FINANCE",
+      priceType: "COMPLETED_DAILY_CLOSE",
+      asOf: dataAsOf,
+      close: indexBars?.length ? round(indexBars[indexBars.length - 1].close, 2) : null,
+      fetchedAt: new Date().toISOString(),
+    },
     edge: {
       expectancyR: round(m.expectancy ?? 0), winRate: Math.round((m.winRate ?? 0) * 100),
       profitFactor: pfOut(m.profitFactor ?? 0), maxDDR: round(-realizedDrawdownR(pooledOOS), 1),
