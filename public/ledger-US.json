@@ -43406,9 +43406,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-10T14:50:58.847Z",
-    "r": null
+    "r": 1.05,
+    "exitReason": "TARGET_GAP_CAPPED",
+    "closedAt": "Thu Nov 05 2026 14:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GS|The Big Short — broader weak-stock rally short|2026-11-09",
@@ -43463,9 +43465,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-10T14:50:58.847Z",
-    "r": null
+    "r": -1.22,
+    "exitReason": "STOP",
+    "closedAt": "Mon Nov 09 2026 14:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "BKNG|The Big Short — broader weak-stock rally short|2026-11-09",
