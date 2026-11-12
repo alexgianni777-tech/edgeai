@@ -44218,9 +44218,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-12T15:10:08.022Z",
-    "r": null
+    "r": -1.25,
+    "exitReason": "STOP",
+    "closedAt": "Mon Nov 09 2026 14:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "ORCL|Burry filter — weak-stock rally short|2026-11-11",
