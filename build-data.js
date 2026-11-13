@@ -159,7 +159,9 @@ function updateLedger(ledgerPath, universe, setups) {
   // Resolve only from bars AFTER the signal close. New v2 rows therefore
   // represent the same "yesterday close -> next-session proposal" shown live.
   for (const row of rows) {
-    if (row.status !== "open") continue;
+    // Freeze pre-migration dividend-adjusted proposals. Repricing them with
+    // quoted candles would retroactively manufacture historical P/L.
+    if (row.status !== "open" || row.priceBasis !== "YAHOO_QUOTED_OHLC_V1") continue;
     const bars = universe[row.ticker];
     if (!bars) continue;
     const isShort = row.dir === "short";
@@ -204,7 +206,7 @@ function updateLedger(ledgerPath, universe, setups) {
     const signalId = [s.ticker, s.setup, signalDate].join("|");
     if (!signalDate || knownSignals.has(signalId)) continue;
     rows.push({
-      signalId, ledgerVersion: 2, fillModel: "gap-aware-v1",
+      signalId, ledgerVersion: 3, priceBasis: "YAHOO_QUOTED_OHLC_V1", fillModel: "gap-aware-v1",
       ticker: s.ticker, setup: s.setup, dir: s.dir ?? "long",
       entry: s.entry, stop: s.stop, target: s.target,
       signalT, barT: signalT, maxBars: s.maxBars ?? 20,
@@ -216,7 +218,9 @@ function updateLedger(ledgerPath, universe, setups) {
   }
 
   fs.writeFileSync(ledgerPath, JSON.stringify(rows, null, 2));
-  return rows.filter(r => r.status === "closed" && r.ledgerVersion === 2);
+  // Archived v2 price-adjusted observations remain in ledger JSON for audit,
+  // but are NOT pooled with v3 executable-price simulated outcomes.
+  return rows.filter(r => r.status === "closed" && r.ledgerVersion === 3 && r.priceBasis === "YAHOO_QUOTED_OHLC_V1");
 }
 
 async function buildMarket({ key, label, currency, realTickers, demoTickers, demoEdge, demoSeed, indexSymbol, demoIndexSeed }) {
@@ -546,7 +550,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
         "Drawdown uses realized exits rather than mark-to-market equity and can understate intratrade drawdown.",
         "Daily OHLC cannot reveal intraday ordering beyond the conservative stop-first rule when both stop and target are touched.",
         "Daily share-price bars cannot fully model mini-future/turbo spreads, financing, knock-out and gap illiquidity.",
-        "The prior ledger's already-closed records assumed stop-level fills and are excluded from gap-aware track-record totals.",
+        "Archived proposal-ledger-v2 dividend-adjusted records are retained but excluded from quoted-OHLC v3 track-record totals.",
         "Fear/Greed is an unvalidated proxy from completed price/breadth data; it is NOT the CNN Fear & Greed Index and is not an OOS-tested alpha feature.",
         "Sentiment study retrospectively filters earlier strategy OOS outcomes; hypothesis selected after observing earlier market data. It is descriptive only, NOT independently held-out alpha. Signal dates prevent next-day lookahead.",
         "Retrospective aggregate study pools trade records across strategies (some tickers/signals can overlap), so sample independence is not assumed.",
@@ -563,11 +567,11 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     eliteTarget: { winRate: 0.80, plannedRR: 3, realizedPayoff: 3, minimumOosTrades: 100,
       qualifiedStrategies: stratParams.filter(sp => sp.elite.qualified).length,
       note: "Aspirational, pre-registered OOS evidence gate; no optimization to pass. No automatic orders." },
-    equityCurve, setups, trackRecord, trackRecordSummary, trackRecordSource: "proposal-ledger-v2",
+    equityCurve, setups, trackRecord, trackRecordSummary, trackRecordSource: "proposal-ledger-v3-quoted-ohlc",
   };
 }
 
-(async () => {
+if (require.main === module) (async () => {
   const dl = require("./data-live");
   // Previously PUBLISHED history is not a surrogate for missing completed prices.
   // It remains independently dated, clearly STALE, and NEVER marked as a new entry.
@@ -628,3 +632,4 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     mk.strategies.forEach(s => console.log(`      - [${s.evidenceStatus}] ${s.name}: ${s.expectancyR}R ${s.winRate}% PF${s.profitFactor} n=${s.n} · WF+ ${s.positiveWindowRate}% · gap|med ${s.executionDrift?.medianAbsGapPct ?? 0}%`));
   }
 })();
+module.exports = { updateLedger };

@@ -5,7 +5,7 @@ const path = require("path");
 const SOURCE_FILES = [
   "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
-  "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js", "sentiment-study.js", "sentiment-study-tests.js", "data-freshness.js", "data-freshness-tests.js",
+  "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js", "sentiment-study.js", "sentiment-study-tests.js", "data-freshness.js", "data-freshness-tests.js", "quote-basis-tests.js",
   "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "telegram-health.js", "alert-stale.js", "publication-policy.js", "report-market-status.js", "prepare-pages.js", "validate-output.js", "server.js", "trend-regime.js", "trend-regime-tests.js"
 ];
 
@@ -18,6 +18,7 @@ execFileSync(process.execPath, ["--test", path.join(__dirname, "completed-sessio
 execFileSync(process.execPath, ["--test", path.join(__dirname, "publication-policy-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "telegram-health-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "trend-regime-tests.js")], { stdio: "inherit" });
+execFileSync(process.execPath, ["--test", path.join(__dirname, "quote-basis-tests.js")], { stdio: "inherit" });
 
 // Parse every inline browser script so dashboard syntax errors fail CI too.
 const fs = require("fs");
@@ -37,7 +38,17 @@ const normalized = normalizeQuotes([
   { date: new Date("2026-01-03T00:00:00Z"), open: 52, high: 55, low: 50, close: 54, adjclose: 54 },
 ]);
 assert.strictEqual(normalized.length, 2, "duplicate Yahoo event rows must collapse by trading date");
-assert.ok(Math.abs(normalized[0].close - 51) < 1e-9, "adjclose factor must scale historical OHLC");
+assert.strictEqual(normalized[0].close, 102, "published executable quote basis must use OHLC, not dividend-adjusted close");
+assert.strictEqual(normalized[0].open, 102, "entry/ref must match tradeable raw quote basis");
+assert.strictEqual(normalized[1].close, 54, "later quote also remains unadjusted");
+const dividendCase = normalizeQuotes([
+  { date: new Date("2026-09-01T00:00:00Z"), open: 100, high: 102, low: 99, close: 101, adjclose: 75 },
+  { date: new Date("2026-09-02T00:00:00Z"), open: 101, high: 103, low: 100, close: 102, adjclose: 90 },
+]);
+assert.deepStrictEqual(dividendCase.map(x => x.close), [101,102],
+  "a change in adjusted-close dividend factor must not reprice historical signals or the ledger");
+assert.strictEqual(normalizeQuotes([{date:new Date("2026-09-02"),open:1,high:1,low:0,close:1}]).length,0,
+  "reject non-positive price fields");
 assert.ok(normalized[0].t < normalized[1].t, "normalized bars must be chronological");
 
 const { sizePosition } = require("./screener");
