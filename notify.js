@@ -127,7 +127,12 @@ async function send(text) {
   // A newly generated JSON file is not necessarily based on fresh market sessions.
   // Never deliver yesterday's trading levels as today's confirmed digest.
   for (const key of ["US", "SE"]) {
-    const expected = latestAllowedDate(key);
+    // On Monday morning latestAllowedDate() yields Sunday as a calendar
+    // ceiling; the actual completed cash session is Friday.
+    const ceiling = new Date(latestAllowedDate(key) + "T00:00:00Z");
+    while (ceiling.getUTCDay() === 0 || ceiling.getUTCDay() === 6)
+      ceiling.setUTCDate(ceiling.getUTCDate() - 1);
+    const expected = ceiling.toISOString().slice(0, 10);
     const actual = data.markets[key].dataAsOf;
     if (actual !== expected) {
       throw new Error(
