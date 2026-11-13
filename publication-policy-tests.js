@@ -32,6 +32,9 @@ test("previous verified series is never relabeled as fresh or altered",()=>{
  assert.equal(old.dataAsOf,"2026-11-11");
  assert.equal(old.dataStatus,"STALE");
  assert.match(old.dataWarning,/Historical market data/);
+ assert.deepEqual(old.setups,[]);
+ assert.deepEqual(old.ideaRadar.long,[]);
+ assert.equal(old.historicalSetupCount,0);
  assert.deepEqual(previous,original);
  const cached=previousVerifiedMarket(previous,"US",now);
  assert.equal(cached.dataStatus,"CURRENT_CACHED");
