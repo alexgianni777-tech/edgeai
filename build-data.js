@@ -587,7 +587,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
       // Only recover from the VERIFIED provider-not-ready failure class.
       // Programming errors, malformed plans and broken strategy logic MUST
       // fail the workflow, not silently fall back to yesterday's results.
-      if (!/^\\[DATA_NOT_READY\\]/.test(message) &&
+      if (!/^\[DATA_NOT_READY\]/.test(message) &&
           !/^Datahämtning misslyckades:/.test(message)) throw error;
       console.error("[" + key + " DATA_NOT_READY] " + message);
       problems.push({market:key,reason:message.slice(0,500)});
