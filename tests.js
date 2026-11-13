@@ -3,7 +3,7 @@ const { execFileSync } = require("child_process");
 const path = require("path");
 
 const SOURCE_FILES = [
-  "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
+  "build-data.js", "market-regime.js", "market-regime-tests.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
   "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js", "sentiment-study.js", "sentiment-study-tests.js", "data-freshness.js", "data-freshness-tests.js", "quote-basis-tests.js",
   "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "telegram-health.js", "alert-stale.js", "publication-policy.js", "report-market-status.js", "prepare-pages.js", "validate-output.js", "server.js", "trend-regime.js", "trend-regime-tests.js"
@@ -12,6 +12,8 @@ const SOURCE_FILES = [
 for (const file of SOURCE_FILES) {
   execFileSync(process.execPath, ["--check", path.join(__dirname, file)], { stdio: "pipe" });
 }
+
+execFileSync(process.execPath, ["--test", path.join(__dirname, "market-regime-tests.js")], { stdio: "inherit" });
 
 // Pure clock/schedule tests: no Yahoo calls, ledger writes or publication.
 execFileSync(process.execPath, ["--test", path.join(__dirname, "completed-session-tests.js")], { stdio: "inherit" });
