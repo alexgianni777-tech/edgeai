@@ -71,4 +71,6 @@ test("GitHub Pages stages only public files and ignores stale-signal promotion",
  assert.match(html,/function renderTop3\(m\) \{[\s\S]*?if \(!marketIsFresh\(market, m\)\)/);
  assert.match(html,/const top = current\.slice\(\)/);
  assert.match(html,/function activeSetup\(s, m\)/);
+ assert.match(html,/const EMBEDDED = null;/);
+ assert.match(html,/function renderAll\(\) \{[\s\S]*?if \(!DATA \|\| DATA\.demo/);
 });
