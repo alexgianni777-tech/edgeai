@@ -108,3 +108,14 @@ test("manual fallback workflow cannot collide with the scheduled complete-market
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/refresh-edgeai-data.yml"), "utf8");
   assert.doesNotMatch(workflow, /^\s+schedule:/m);
 });
+
+test("publisher refuses stale source commits and preserves existing verified data",()=>{
+ const workflow=fs.readFileSync(path.join(__dirname,".github/workflows/edgeai.yml"),"utf8");
+ const shell=fs.readFileSync(path.join(__dirname,"safe-publish-data.sh"),"utf8");
+ assert.match(workflow,/run: bash safe-publish-data\.sh/);
+ assert.match(shell,/SOURCE_CHANGED_DURING_BUILD/);
+ assert.match(shell,/DATA_PUBLICATION_CONFLICT/);
+ assert.match(shell,/git rebase origin\/main/);
+ assert.match(shell,/git diff --name-only "\$GITHUB_SHA" origin\/main/);
+ assert.doesNotMatch(shell,/git push --force|reset --hard/);
+});
