@@ -19,6 +19,7 @@ on:
       - "validate-output.js"
       - "package.json"
       - "notify.js"
+      - "telegram-health.js"
       - "publication-policy.js"
       - "prepare-pages.js"
       - "report-market-status.js"
@@ -93,6 +94,15 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
+
+      # Code pushes validate connection without sending an unsolicited digest.
+      # Scheduled runs send the regular report after a verified build.
+      - name: Probe EdgeAI Telegram bot and recipient (no message)
+        if: github.event_name == 'push'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node telegram-health.js
 
       # Never send an older watchlist if the build was blocked by stale Yahoo prices.
       # The Telegram receipt is recorded by notify.js only after Telegram confirms delivery.

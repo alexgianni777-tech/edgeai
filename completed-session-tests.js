@@ -98,6 +98,12 @@ test("Telegram notification runs only after a successful validated publication",
   assert.match(workflow, /TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.TELEGRAM_BOT_TOKEN \|\| secrets\.TELEGRAM_TOKEN \}\}/);
 });
 
+test("push event includes a no-message Telegram connectivity probe",()=>{
+  const workflow=fs.readFileSync(path.join(__dirname,".github/workflows/edgeai.yml"),"utf8");
+  assert.match(workflow,/run: node telegram-health\.js/);
+  assert.match(workflow,/Probe EdgeAI Telegram bot and recipient/);
+});
+
 test("manual fallback workflow cannot collide with the scheduled complete-market builder", () => {
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/refresh-edgeai-data.yml"), "utf8");
   assert.doesNotMatch(workflow, /^\s+schedule:/m);
