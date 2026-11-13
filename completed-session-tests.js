@@ -80,7 +80,7 @@ test("future daily bars cannot be accepted before their cutoff", async () => {
 test("schedule keeps three starts and includes the verified after-close time", () => {
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/edgeai.yml"), "utf8");
   const schedules = [...workflow.matchAll(/^\s+- cron: "([^"]+)"/gm)].map(x => x[1]);
-  assert.deepEqual(schedules, ["17 23 * * 1-5", "17 6 * * 1-5", "37 9 * * 1-5"]);
+  assert.deepEqual(schedules, ["47 23 * * 1-5", "17 6 * * 1-5", "37 9 * * 1-5", "37 12 * * 1-5"]);
 });
 
 test("daily workflow is main-only and still validates before committing or deploying", () => {
@@ -89,4 +89,16 @@ test("daily workflow is main-only and still validates before committing or deplo
   assert.ok(workflow.indexOf("npm run verify:data") < workflow.indexOf("git add -A public/"));
   assert.ok(workflow.indexOf("git add -A public/") < workflow.indexOf("uses: actions/deploy-pages"));
   assert.match(workflow, /- "data-freshness\.js"/);
+});
+
+test("Telegram notification runs only after a successful validated publication", () => {
+  const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/edgeai.yml"), "utf8");
+  assert.match(workflow, /- name: Send verified EdgeAI Telegram digest[\s\S]*?run: node notify\.js/);
+  assert.ok(workflow.indexOf("uses: actions/deploy-pages@v5") < workflow.indexOf("run: node notify.js"));
+  assert.match(workflow, /TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.TELEGRAM_BOT_TOKEN \}\}/);
+});
+
+test("manual fallback workflow cannot collide with the scheduled complete-market builder", () => {
+  const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/refresh-edgeai-data.yml"), "utf8");
+  assert.doesNotMatch(workflow, /^\s+schedule:/m);
 });
