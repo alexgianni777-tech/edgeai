@@ -13,6 +13,21 @@ const fs = require("fs");
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
+const HOST = "127.0.0.1"; // local-only AI proxy: never expose the paid API on LAN
+const PUBLIC_ASSETS = new Set([
+  "index.html", "edgeai.html", "tracker.html", "manifest.json",
+  "icon.svg", "apple-touch-icon.png", "data.json",
+]);
+function resolvePublicAsset(rawUrl) {
+  // Explicit allowlist, not a path prefix test. Source, workflow, local
+  // ledgers and any future secrets must remain private to the server.
+  let pathname;
+  try { pathname = new URL(rawUrl, "http://localhost").pathname; }
+  catch { return null; }
+  const file = pathname === "/" ? "edgeai.html" : pathname.replace(/^\//, "");
+  if (!PUBLIC_ASSETS.has(file)) return null;
+  return path.join(__dirname, file === "data.json" ? "public/data.json" : file);
+}
 const KEY = process.env.ANTHROPIC_API_KEY;
 const AI_DAILY_CAP = +(process.env.AI_DAILY_CAP || 50); // tak per dag — kan aldrig spräckas av misstag
 // Modell för förklaringarna. Default = Haiku (snabb & billig, gott nog för korta
@@ -67,12 +82,9 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // --- statiska filer ---
-  let file = req.url === "/" ? "edgeai.html" : req.url.replace(/^\//, "");
-  file = file.split("?")[0];
-  if (file === "data.json") file = "public/data.json"; // sidan hämtar 'data.json'
-  const full = path.join(__dirname, file);
-  if (!full.startsWith(__dirname)) return send(res, 403, "text/plain", "Forbidden");
+  // --- public files only; internal source files are not a public web root ---
+  const full = resolvePublicAsset(req.url);
+  if (!full) return send(res, 404, "text/plain", "Not found");
 
   fs.readFile(full, (err, buf) => {
     if (err) return send(res, 404, "text/plain", "Not found");
@@ -82,8 +94,10 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`\n  EdgeAI körs på  http://localhost:${PORT}`);
+if (require.main === module) server.listen(PORT, HOST, () => {
+  console.log(`\n  EdgeAI körs på  http://localhost:${server.address().port}`);
   console.log(`  AI-proxy: ${KEY ? "aktiv ✓" : "AV (sätt ANTHROPIC_API_KEY)"}  ·  modell: ${AI_MODEL}  ·  dagstak: ${AI_DAILY_CAP} anrop`);
   console.log(`  Ctrl+C för att stoppa.\n`);
 });
+
+module.exports={resolvePublicAsset};
