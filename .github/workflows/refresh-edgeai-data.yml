@@ -1,9 +1,6 @@
 name: Refresh EdgeAI Yahoo data
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/refresh-edgeai-data.yml'
   # Manual fallback only. EdgeAI daily owns automatic refresh and Telegram.
   # Running two full-market Yahoo builds overnight amplified provider lag.
 permissions:
