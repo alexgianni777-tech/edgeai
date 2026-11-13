@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/refresh-edgeai-data.yml'
-  schedule:
-    - cron: '30 22 * * 1-5'
+  # Manual fallback only. EdgeAI daily owns automatic refresh and Telegram.
+  # Running two full-market Yahoo builds overnight amplified provider lag.
 permissions:
   contents: write
 concurrency:
