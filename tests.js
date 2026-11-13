@@ -6,7 +6,7 @@ const SOURCE_FILES = [
   "build-data.js", "walkforward.js", "universe-validation.js", "portfolio-risk.js", "proposal-params.js",
   "screener.js", "strategy.js", "strategy-breakout.js", "strategy-bollinger.js",
   "strategy-momentum.js", "strategy-short.js", "strategy-big-short.js", "fill-model.js", "fill-model-tests.js", "elite-gate.js", "elite-gate-tests.js", "market-psychology.js", "market-psychology-tests.js", "ag-invest/risk-card.js", "ag-invest/risk-card-tests.js", "sentiment-study.js", "sentiment-study-tests.js", "data-freshness.js", "data-freshness-tests.js",
-  "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "validate-output.js", "server.js", "trend-regime.js", "trend-regime-tests.js"
+  "metrics.js", "montecarlo.js", "data-live.js", "notify.js", "alert-stale.js", "validate-output.js", "server.js", "trend-regime.js", "trend-regime-tests.js"
 ];
 
 for (const file of SOURCE_FILES) {
