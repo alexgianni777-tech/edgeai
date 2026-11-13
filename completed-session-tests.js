@@ -100,7 +100,7 @@ test("Telegram notification runs only after a successful validated publication",
 
 test("push event includes a no-message Telegram connectivity probe",()=>{
   const workflow=fs.readFileSync(path.join(__dirname,".github/workflows/edgeai.yml"),"utf8");
-  assert.match(workflow,/run: node telegram-health\\.js/);
+  assert.match(workflow,/run: node telegram-health\.js/);
   assert.match(workflow,/Probe EdgeAI Telegram bot and recipient/);
 });
 
