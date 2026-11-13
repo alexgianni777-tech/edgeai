@@ -584,6 +584,11 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     } catch (error) {
       if (demo) throw error;
       const message = String(error?.message || error);
+      // Only recover from the VERIFIED provider-not-ready failure class.
+      // Programming errors, malformed plans and broken strategy logic MUST
+      // fail the workflow, not silently fall back to yesterday's results.
+      if (!/^\\[DATA_NOT_READY\\]/.test(message) &&
+          !/^Datahämtning misslyckades:/.test(message)) throw error;
       console.error("[" + key + " DATA_NOT_READY] " + message);
       problems.push({market:key,reason:message.slice(0,500)});
       const historical = previousVerifiedMarket(previous, key);
