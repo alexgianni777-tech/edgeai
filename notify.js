@@ -3,6 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { latestAllowedDate } = require("./data-freshness");
 const { execFileSync } = require("child_process");
 
 const FLAG = { US: "🇺🇸", SE: "🇸🇪" };
@@ -122,6 +123,23 @@ async function send(text) {
 
   if (data.demo || !data.markets?.US?.dataAsOf || !data.markets?.SE?.dataAsOf) {
     throw new Error("EdgeAI-data saknar verifierat kursdatum för båda marknaderna; inget utskick");
+  }
+  // A newly generated JSON file is not necessarily based on fresh market sessions.
+  // Never deliver yesterday's trading levels as today's confirmed digest.
+  for (const key of ["US", "SE"]) {
+    // On Monday morning latestAllowedDate() yields Sunday as a calendar
+    // ceiling; the actual completed cash session is Friday.
+    const ceiling = new Date(latestAllowedDate(key) + "T00:00:00Z");
+    while (ceiling.getUTCDay() === 0 || ceiling.getUTCDay() === 6)
+      ceiling.setUTCDate(ceiling.getUTCDate() - 1);
+    const expected = ceiling.toISOString().slice(0, 10);
+    const actual = data.markets[key].dataAsOf;
+    if (actual !== expected) {
+      throw new Error(
+        "DATA_NOT_READY: EdgeAI Telegram stoppad; " + key + " kursdag " + actual +
+        " avviker från senaste avslutade dag " + expected
+      );
+    }
   }
 
   const created = new Date(data.generatedAt);

@@ -18,14 +18,16 @@ on:
       - "universe-validation.js"
       - "validate-output.js"
       - "package.json"
+      - "notify.js"
       - ".github/workflows/edgeai.yml"
   schedule:
     # Three starts, as before. 23:17 UTC is after both publication cutoffs
     # (19:00 Stockholm / 17:30 New York) in winter AND summer.
     # Morning starts retry delayed provider data; GitHub can delay any cron.
-    - cron: "17 23 * * 1-5"
+    - cron: "47 23 * * 1-5"
     - cron: "17 6 * * 1-5"
     - cron: "37 9 * * 1-5"
+    - cron: "37 12 * * 1-5"
   workflow_dispatch: {}
 
 concurrency:
@@ -80,3 +82,12 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
+
+      # Never send an older watchlist if the build was blocked by stale Yahoo prices.
+      # The Telegram receipt is recorded by notify.js only after Telegram confirms delivery.
+      - name: Send verified EdgeAI Telegram digest
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node notify.js

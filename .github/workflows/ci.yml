@@ -1,0 +1,24 @@
+name: EdgeAI CI
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install pinned dependencies without market-network calls
+        run: npm install --no-package-lock --ignore-scripts
+      - name: Pure regression and browser-script syntax tests
+        run: npm test
+      - name: Check last published snapshot schema (not freshness)
+        run: npm run verify:data
