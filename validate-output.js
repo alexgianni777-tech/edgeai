@@ -11,6 +11,38 @@ const finite = (v) => typeof v === "number" && Number.isFinite(v);
 
 if (!data.generatedAt || Number.isNaN(new Date(data.generatedAt).getTime())) {
   errors.push("generatedAt is missing or invalid");
+} else if (Date.parse(data.generatedAt) > Date.now() + 5 * 60000) {
+  errors.push("generatedAt is in the future");
+}
+// Version 1 files remain viewable as historical. Version 2 publications
+// must make independent market freshness explicit and internally consistent.
+if (data.pipelineVersion === 2 && !data.demo) {
+  const { publicationStatus } = require("./publication-policy");
+  const actual = publicationStatus(data.markets || {}, new Date(data.generatedAt));
+  if (!data.publication || !data.markets?.US || !data.markets?.SE) {
+    errors.push("v2 publication requires both market records and provenance");
+  } else {
+    if (!actual.US.current && !actual.SE.current) {
+      errors.push("v2 publication must not publish two stale markets");
+    }
+    for (const key of ["US","SE"]) {
+      const m = data.markets[key];
+      const p = data.publication[key];
+      if (!p || p.dataAsOf !== actual[key].dataAsOf ||
+          p.expected !== actual[key].expected ||
+          p.current !== actual[key].current ||
+          p.status !== actual[key].status)
+        errors.push(key + ": publication status inconsistent with validated market session");
+      if (m.dataStatus === "STALE" && p?.current !== false)
+        errors.push(key + ": stale cached data incorrectly marked as current");
+      if (m.dataStatus === "STALE" && (!m.dataWarning || !/historical|historiskt/i.test(m.dataWarning)))
+        errors.push(key + ": stale data must carry a human-readable warning");
+      if (!["CURRENT","CURRENT_CACHED","STALE"].includes(m.dataStatus))
+        errors.push(key + ": unknown data status");
+      if (!m.dataAsOf || m.indexSnapshot?.asOf !== m.dataAsOf)
+        errors.push(key + ": market index and OHLC dates do not agree");
+    }
+  }
 }
 
 for (const key of ["US", "SE"]) {
