@@ -58,6 +58,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # required for safe rebasing against concurrent main updates
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
