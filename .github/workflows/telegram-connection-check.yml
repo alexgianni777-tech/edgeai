@@ -1,0 +1,19 @@
+name: Verify EdgeAI Telegram connection (no market data)
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  telegram-connection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify bot and recipient without sending or exposing secrets
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node telegram-health.js
