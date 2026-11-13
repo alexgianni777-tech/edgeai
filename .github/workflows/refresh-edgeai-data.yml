@@ -5,11 +5,16 @@ on:
   # Running two full-market Yahoo builds overnight amplified provider lag.
 permissions:
   contents: write
+  pages: write
+  id-token: write
 concurrency:
   group: edgeai-data-refresh
   cancel-in-progress: false
 jobs:
   refresh:
+    concurrency:
+      group: edgeai-pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -25,20 +30,8 @@ jobs:
         run: npm run build
       - name: Validate importer contract
         run: npm run verify:data
-      - name: Confirm new completed sessions
-        run: |
-          node - <<'NODE'
-          const fs=require('fs');
-          const {latestAllowedDate}=require('./data-freshness');
-          const d=JSON.parse(fs.readFileSync('public/data.json','utf8'));
-          if(d.demo) throw Error('Refusing demo output');
-          for(const key of ['SE','US']){
-            const expected=latestAllowedDate(key);
-            const actual=d.markets?.[key]?.dataAsOf;
-            if(!actual || actual>expected)throw Error(key+': invalid completed session '+actual+' expected <= '+expected);
-            console.log(key+': verified source session '+actual+'; cutoff '+expected);
-          }
-          NODE
+      - name: Report independent market source dates
+        run: node report-market-status.js
       - name: Commit fresh data only on successful validation
         run: |
           git config user.name "github-actions[bot]"
@@ -50,3 +43,14 @@ jobs:
             git commit -m "data: refresh verified SE and US Yahoo sessions"
             git push
           fi
+
+      - name: Stage safe Pages output
+        run: node prepare-pages.js
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy verified or explicitly stale per-market data
+        uses: actions/deploy-pages@v5
+      - name: Mark incomplete manual refresh as degraded
+        run: node report-market-status.js --strict
