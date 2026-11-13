@@ -17,6 +17,7 @@ for (const file of SOURCE_FILES) {
 execFileSync(process.execPath, ["--test", path.join(__dirname, "completed-session-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "publication-policy-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "telegram-health-tests.js")], { stdio: "inherit" });
+execFileSync(process.execPath, ["--test", path.join(__dirname, "telegram-diagnostics-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "trend-regime-tests.js")], { stdio: "inherit" });
 
 // Parse every inline browser script so dashboard syntax errors fail CI too.
