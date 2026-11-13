@@ -452,14 +452,37 @@ const fmtPrice = (v, cur) => cur === "$" ? `$${v.toFixed(2)}` : `${v.toFixed(2)}
 const rTxt = x => (x >= 0 ? "+" : "") + x.toFixed(2) + "R";
 const freshTxt = b => b === 0 ? "signalled today" : b === 1 ? "signalled yesterday" : `${b} sessions ago`;
 
+// A saved synthetic illustration must NEVER appear as today's market dashboard.
+function requiredCompletedSession(key, at = new Date()) {
+  const zone = key === "SE" ? "Europe/Stockholm" : "America/New_York";
+  const cutoff = key === "SE" ? 19 * 60 : 17 * 60 + 30;
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+    timeZone: zone, year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).formatToParts(at).filter(x => x.type !== "literal").map(x => [x.type, x.value]));
+  const date = new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day));
+  if (+parts.hour * 60 + +parts.minute < cutoff) date.setUTCDate(date.getUTCDate() - 1);
+  while (date.getUTCDay() === 0 || date.getUTCDay() === 6) date.setUTCDate(date.getUTCDate() - 1);
+  return date.toISOString().slice(0, 10);
+}
+
 async function load() {
-  renderAll();                       // render embedded immediately
+  $("#navMeta").textContent = "Hämtar verifierade kursdata…";
+  $("#asOf").textContent = "Ingen entry före verifierade priser";
   for (const url of ["data.json", "public/data.json"]) {
     try {
       const res = await fetch(url, { cache: "no-store" });
-      if (res.ok) { DATA = await res.json(); renderAll(); return; }
-    } catch (e) { /* try next */ }
+      if (!res.ok) continue;
+      const candidate = await res.json();
+      if (!candidate || candidate.demo || !candidate.markets?.US?.dataAsOf || !candidate.markets?.SE?.dataAsOf) continue;
+      DATA = candidate;
+      renderAll();
+      return;
+    } catch (e) { /* try the second verified source path */ }
   }
+  $("#navMeta").textContent = "⚠ INGEN VERIFIERAD DATA – INGA NYA ENTRIES";
+  $("#asOf").textContent = "Datafilen saknas eller är ogiltig. Kontrollera GitHub Actions.";
+  $("#setups").innerHTML = '<div class="empty">Ingen verifierad handelslista. Syntetiska demo-signaler visas inte.</div>';
 }
 
 function renderAll() {
@@ -468,9 +491,10 @@ function renderAll() {
   const dataLabel = marketDates.length
     ? marketDates.map((d, i) => `${i === 0 ? "US" : "SE"} ${d}`).join(" · ")
     : when.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+  const staleMarkets = ["US", "SE"].filter(key => DATA.markets[key]?.dataAsOf !== requiredCompletedSession(key));
   $("#navMeta").innerHTML =
     (DATA.demo ? `<span class="demo-badge">DEMO DATA</span>` : "") +
-    `<span class="freshtag ok">Data: ${dataLabel}</span>`;
+    `<span class="freshtag ${staleMarkets.length ? "warning" : "ok"}">${staleMarkets.length ? "⚠ HISTORISKT UNDERLAG – INGEN NY ENTRY" : "VERIFIERAT KURSDATUM"}: ${dataLabel}</span>`;
   $("#demoFootnote").textContent = DATA.demo ? "The figures shown are demo data — run the engine on live data to replace them." : "";
   $("#asOf").textContent = "prices through " + (DATA.markets[market]?.dataAsOf || when.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }));
 
@@ -697,6 +721,10 @@ function renderChips(m) {
 }
 function renderSetups(m, skipChips) {
   if (!skipChips) renderChips(m);
+  if (m.dataAsOf !== requiredCompletedSession(market)) {
+    $("#setups").innerHTML = `<div class="empty"><b>HISTORISKT UNDERLAG: ${esc(m.dataAsOf || "okänt")}</b><br>För en aktuell kandidat krävs senaste avslutade session ${requiredCompletedSession(market)}. Ingen ny entry – kontrollera GitHub-dataflödet.</div>`;
+    return;
+  }
   const reg = m.regime || { on: true };
   const pool0 = m.setups;
   if (!reg.on && !pool0.length) {
