@@ -23,6 +23,7 @@ on:
       - "publication-policy.js"
       - "prepare-pages.js"
       - "report-market-status.js"
+      - "safe-publish-data.sh"
       - ".github/workflows/edgeai.yml"
   schedule:
     # Three starts, as before. 23:17 UTC is after both publication cutoffs
@@ -71,13 +72,8 @@ jobs:
         run: npm run verify:data
       - name: Write per-market delivery status
         run: node report-market-status.js
-      - name: Commit data.json
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add -A public/
-          git diff --staged --quiet || git commit -m "chore: update data.json"
-          git push
+      - name: Commit validated public dataset without overwriting newer sources
+        run: bash safe-publish-data.sh
 
       # GITHUB_TOKEN pushes do not trigger another Actions workflow. Deploy
       # the exact working tree we just generated so Pages and Replit see the
