@@ -86,8 +86,9 @@ test("schedule keeps three starts and includes the verified after-close time", (
 test("daily workflow is main-only and still validates before committing or deploying", () => {
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/edgeai.yml"), "utf8");
   assert.match(workflow, /run:\s*\n\s*#.*\n\s*if: github\.ref == 'refs\/heads\/main'/);
-  assert.ok(workflow.indexOf("npm run verify:data") < workflow.indexOf("git add -A public/"));
-  assert.ok(workflow.indexOf("git add -A public/") < workflow.indexOf("uses: actions/deploy-pages"));
+  assert.ok(workflow.indexOf("npm run verify:data") < workflow.indexOf("run: bash safe-publish-data.sh"));
+  assert.ok(workflow.indexOf("run: bash safe-publish-data.sh") < workflow.indexOf("uses: actions/deploy-pages"));
+  assert.match(fs.readFileSync(path.join(__dirname, "safe-publish-data.sh"), "utf8"), /git add -A -- public\//);
   assert.match(workflow, /- "data-freshness\.js"/);
 });
 
@@ -107,4 +108,15 @@ test("push event includes a no-message Telegram connectivity probe",()=>{
 test("manual fallback workflow cannot collide with the scheduled complete-market builder", () => {
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/refresh-edgeai-data.yml"), "utf8");
   assert.doesNotMatch(workflow, /^\s+schedule:/m);
+});
+
+test("publisher refuses stale source commits and preserves existing verified data",()=>{
+ const workflow=fs.readFileSync(path.join(__dirname,".github/workflows/edgeai.yml"),"utf8");
+ const shell=fs.readFileSync(path.join(__dirname,"safe-publish-data.sh"),"utf8");
+ assert.match(workflow,/run: bash safe-publish-data\.sh/);
+ assert.match(shell,/SOURCE_CHANGED_DURING_BUILD/);
+ assert.match(shell,/DATA_PUBLICATION_CONFLICT/);
+ assert.match(shell,/git rebase origin\/main/);
+ assert.match(shell,/git diff --name-only "\$GITHUB_SHA" origin\/main/);
+ assert.doesNotMatch(shell,/git push --force|reset --hard/);
 });
