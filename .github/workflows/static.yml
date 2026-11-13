@@ -2,9 +2,20 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # UI-only changes may deploy the previous verified snapshot, explicitly
+  # labelled historical if market sessions are stale. Data-only pushes are
+  # handled by EdgeAI daily and cannot race this workflow.
   push:
     branches: ["main"]
+    paths:
+      - "edgeai.html"
+      - "index.html"
+      - "tracker.html"
+      - "manifest.json"
+      - "icon.svg"
+      - "apple-touch-icon.png"
+      - "prepare-pages.js"
+      - ".github/workflows/static.yml"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,7 +29,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: "edgeai-pages"
   cancel-in-progress: false
 
 jobs:
@@ -31,13 +42,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Stage only public UI and last verified data
+        run: node prepare-pages.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: 'dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
