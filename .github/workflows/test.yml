@@ -25,7 +25,9 @@ jobs:
         run: npm run verify:data
 
   live-smoke:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
+    # Provider lag is an operational condition, not a PR code regression.
+    # Only explicitly requested live checks should depend on Yahoo being current.
+    if: github.event_name == 'workflow_dispatch'
     needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 15
