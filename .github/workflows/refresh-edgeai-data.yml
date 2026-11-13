@@ -12,6 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   refresh:
+    if: github.ref == 'refs/heads/main'
     concurrency:
       group: edgeai-pages
       cancel-in-progress: false
