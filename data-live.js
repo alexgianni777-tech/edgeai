@@ -30,21 +30,20 @@ function normalizeQuotes(quotes = []) {
     if (q.open == null || q.high == null || q.low == null || q.close == null || !q.date) continue;
     const rawClose = Number(q.close);
     if (!(rawClose > 0)) continue;
-    const adjustedClose = Number(q.adjclose);
-    const factor = Number.isFinite(adjustedClose) && adjustedClose > 0
-      ? adjustedClose / rawClose
-      : 1;
-    if (!(factor > 0) || !Number.isFinite(factor)) continue;
-
+    // Yahoo adjclose also adjusts for past cash dividends. Multiplying the
+    // entire candle by adjclose/close produces non-tradable entry/stop/target
+    // levels. Quote OHLC is already split-adjusted by Yahoo; preserve that
+    // PRICE basis in the screener, executable-level ledger and walk-forward.
+    // Total-return/dividend-aware modelling is separate research.
     const bar = {
       t: new Date(q.date),
-      open: Number(q.open) * factor,
-      high: Number(q.high) * factor,
-      low: Number(q.low) * factor,
-      close: rawClose * factor,
+      open: Number(q.open),
+      high: Number(q.high),
+      low: Number(q.low),
+      close: rawClose,
     };
     if (Number.isNaN(bar.t.getTime())) continue;
-    if (![bar.open, bar.high, bar.low, bar.close].every(Number.isFinite)) continue;
+    if (![bar.open, bar.high, bar.low, bar.close].every(v => Number.isFinite(v) && v > 0)) continue;
     if (!(bar.high >= Math.max(bar.open, bar.close) && bar.low <= Math.min(bar.open, bar.close))) continue;
 
     const day = bar.t.toISOString().slice(0, 10);
