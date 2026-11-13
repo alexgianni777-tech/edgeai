@@ -2,7 +2,7 @@
 // EdgeAI non-trading status ping. Trigger only on the FIRST scheduled
 // morning data failure; never include stale levels or claim new signals.
 async function main() {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const token = (process.env.TELEGRAM_BOT_TOKEN || process.env.TELEGRAM_TOKEN);
   const chat = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chat) {
     console.error("EdgeAI statusnotis ej konfigurerad: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID saknas");

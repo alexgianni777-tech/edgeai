@@ -95,7 +95,7 @@ test("Telegram notification runs only after a successful validated publication",
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/edgeai.yml"), "utf8");
   assert.match(workflow, /- name: Send verified EdgeAI Telegram digest[\s\S]*?run: node notify\.js/);
   assert.ok(workflow.indexOf("uses: actions/deploy-pages@v5") < workflow.indexOf("run: node notify.js"));
-  assert.match(workflow, /TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.TELEGRAM_BOT_TOKEN \}\}/);
+  assert.match(workflow, /TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.TELEGRAM_BOT_TOKEN \|\| secrets\.TELEGRAM_TOKEN \}\}/);
 });
 
 test("manual fallback workflow cannot collide with the scheduled complete-market builder", () => {
