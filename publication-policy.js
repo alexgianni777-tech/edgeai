@@ -29,6 +29,14 @@ function previousVerifiedMarket(previous, key, at = new Date()) {
   const current = date === expected;
   return {
     ...m,
+    // Downstream importers may rely on generatedAt instead of dataAsOf.
+    // Historical research statistics can survive, but stale trade proposals
+    // must NEVER be copied into a newly published report.
+    ...(current ? {} : {
+      historicalSetupCount: m.setups.length,
+      setups: [],
+      ideaRadar: {long: [], short: [], conflicts: []}
+    }),
     dataStatus: current ? "CURRENT_CACHED" : "STALE",
     dataWarning: current
       ? "Previous verified completed session reused after an upstream refresh failed; no newly fetched quote"
