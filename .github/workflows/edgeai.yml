@@ -91,3 +91,12 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node notify.js
+
+      # One informative status notification on the first morning refresh failure.
+      # This is NOT a trading list and must never be mistaken for one.
+      - name: Warn once when morning EdgeAI data is unavailable
+        if: ${{ failure() && github.event_name == 'schedule' && github.event.schedule == '17 6 * * 1-5' }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node alert-stale.js
