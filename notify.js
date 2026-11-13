@@ -94,7 +94,7 @@ function buildMessage(data) {
 }
 
 async function send(text) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const token = (process.env.TELEGRAM_BOT_TOKEN || process.env.TELEGRAM_TOKEN);
   const chat = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chat) {
     throw new Error("Telegram-secrets saknas; kan inte markera utskicket som lyckat");
