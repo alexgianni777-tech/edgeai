@@ -20,6 +20,7 @@ const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
 const { assessMarketTrend, assessDirection } = require("./trend-regime");
 const { createHistoricalSentiment, compareSentiment } = require("./sentiment-study");
 const { refreshLagging, latestAllowedDate } = require("./data-freshness");
+const { previousVerifiedMarket, publicationStatus } = require("./publication-policy");
 const { legacyVotedParams, uniqueParamSets } = require("./proposal-params");
 
 const demo = process.argv.includes("--demo");
@@ -568,18 +569,55 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
 
 (async () => {
   const dl = require("./data-live");
-  const US = await buildMarket({
+  // Previously PUBLISHED history is not a surrogate for missing completed prices.
+  // It remains independently dated, clearly STALE, and NEVER marked as a new entry.
+  let previous = null;
+  try {
+    const p = path.join(__dirname, "public", "data.json");
+    if (fs.existsSync(p)) previous = JSON.parse(fs.readFileSync(p, "utf8"));
+  } catch (error) { console.warn("[CACHE_UNREADABLE] Prior verified snapshot unavailable:", error.message); }
+  const problems = [];
+  async function independentlyBuild(key, spec) {
+    try {
+      const fresh = await buildMarket(spec);
+      return { ...fresh, dataStatus: demo ? "DEMO" : "CURRENT", dataWarning: null };
+    } catch (error) {
+      if (demo) throw error;
+      const message = String(error?.message || error);
+      // Only recover from the VERIFIED provider-not-ready failure class.
+      // Programming errors, malformed plans and broken strategy logic MUST
+      // fail the workflow, not silently fall back to yesterday's results.
+      if (!/^\[DATA_NOT_READY\]/.test(message) &&
+          !/^Datahämtning misslyckades:/.test(message)) throw error;
+      console.error("[" + key + " DATA_NOT_READY] " + message);
+      problems.push({market:key,reason:message.slice(0,500)});
+      const historical = previousVerifiedMarket(previous, key);
+      console.warn("[" + key + " HISTORICAL_ONLY] Retaining previously published " + historical.dataAsOf +
+                   "; no new entry for this market if stale.");
+      return historical;
+    }
+  }
+  const US = await independentlyBuild("US", {
     key: "US", label: "United States", currency: "$",
     realTickers: demo ? [] : dl.US_LARGE, demoTickers: dl.US_LARGE, demoEdge: 0.9, demoSeed: 300,
     indexSymbol: dl.US_INDEX, demoIndexSeed: 9001,
   });
-  const SE = await buildMarket({
+  const SE = await independentlyBuild("SE", {
     key: "SE", label: "Sweden", currency: "kr",
     realTickers: demo ? [] : dl.OMXS30, demoTickers: dl.OMXS30.map(t => t.replace(".ST", "")), demoEdge: 0.8, demoSeed: 600,
     indexSymbol: dl.SE_INDEX, demoIndexSeed: 9002,
   });
 
-  const out = { generatedAt: new Date().toISOString(), demo, markets: { US, SE } };
+  const publishedAt = new Date();
+  const publication = demo ? null : publicationStatus({US,SE}, publishedAt);
+  if (!demo && !publication.US.current && !publication.SE.current) {
+    throw new Error("[DATA_NOT_READY] Neither market has a verified current completed session; no publication");
+  }
+  const out = {
+    pipelineVersion: 2,
+    generatedAt: publishedAt.toISOString(), demo, markets: { US, SE },
+    ...(demo ? {} : {publication, sourceIssues: problems}),
+  };
   const dir = path.join(__dirname, "public");
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "data.json"), JSON.stringify(out, null, 2));

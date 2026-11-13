@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { latestAllowedDate } = require("./data-freshness");
+const { isFreshMarket, publicationStatus } = require("./publication-policy");
 const { execFileSync } = require("child_process");
 
 const FLAG = { US: "🇺🇸", SE: "🇸🇪" };
@@ -38,7 +38,7 @@ function scoreSetup(s) {
     - s.barsAgo * 0.1;
 }
 
-function buildMessage(data) {
+function buildMessage(data, at = new Date()) {
   const date = new Date(data.generatedAt).toLocaleDateString("sv-SE", {
     day: "numeric",
     month: "short",
@@ -50,6 +50,11 @@ function buildMessage(data) {
   for (const key of ["US", "SE"]) {
     const m = data.markets[key];
     if (!m) continue;
+    if (!isFreshMarket(key,m,at)) {
+      msg += `\n${FLAG[key]} ${m.label}: ⚠ HISTORISKT UNDERLAG (${m.dataAsOf}). INGEN NY ENTRY.\n`+
+        "Datakällan har inte levererat senaste avslutade session. Tidigare entry/stop/mål skickas inte.\n";
+      continue;
+    }
     const reg = m.regime || { on: true, label: "risk-on" };
     const e = m.edge || {};
 
@@ -107,11 +112,12 @@ async function send(text) {
   });
   if (!r.ok) throw new Error("Telegram avvisade digest: HTTP " + r.status);
   const response = await r.json();
-  if (!response.ok) throw new Error("Telegram svarade utan bekräftad leverans");
-  console.log("Telegram-digest bekräftad av Telegram");
+  if (!response.ok || !response.result?.message_id)
+    throw new Error("Telegram svarade utan bekräftat meddelande-ID");
+  console.log("Telegram-digest bekräftad med meddelande-ID från Telegram");
 }
 
-(async () => {
+async function main() {
   const p = path.join(__dirname, "public", "data.json");
   let data;
   try {
@@ -122,25 +128,15 @@ async function send(text) {
   }
 
   if (data.demo || !data.markets?.US?.dataAsOf || !data.markets?.SE?.dataAsOf) {
-    throw new Error("EdgeAI-data saknar verifierat kursdatum för båda marknaderna; inget utskick");
+    throw new Error("EdgeAI-data saknar verifierade marknadsdatum; inget utskick");
   }
-  // A newly generated JSON file is not necessarily based on fresh market sessions.
-  // Never deliver yesterday's trading levels as today's confirmed digest.
-  for (const key of ["US", "SE"]) {
-    // On Monday morning latestAllowedDate() yields Sunday as a calendar
-    // ceiling; the actual completed cash session is Friday.
-    const ceiling = new Date(latestAllowedDate(key) + "T00:00:00Z");
-    while (ceiling.getUTCDay() === 0 || ceiling.getUTCDay() === 6)
-      ceiling.setUTCDate(ceiling.getUTCDate() - 1);
-    const expected = ceiling.toISOString().slice(0, 10);
-    const actual = data.markets[key].dataAsOf;
-    if (actual !== expected) {
-      throw new Error(
-        "DATA_NOT_READY: EdgeAI Telegram stoppad; " + key + " kursdag " + actual +
-        " avviker från senaste avslutade dag " + expected
-      );
-    }
+  // Exchange sessions are assessed independently. Never include stale prices
+  // from one market just because the other market has completed its update.
+  const status = publicationStatus(data.markets, new Date());
+  if (!status.US.current && !status.SE.current) {
+    throw new Error("DATA_NOT_READY: båda marknaderna saknar aktuell verifierad kursdag");
   }
+  console.log("EdgeAI Telegram market delivery:", JSON.stringify(status));
 
   const created = new Date(data.generatedAt);
   const now = new Date();
@@ -161,13 +157,17 @@ async function send(text) {
   }
 
   const day = stockholmDay(created);
-  const receipt = path.join(__dirname, "sent-digests", day + ".json");
+  // Distinct receipts for incomplete-vs-complete markets permit an update when
+  // a delayed market finally publishes, without spamming identical data states.
+  const statusKey = ["US","SE"].map(key => key + "-" + status[key].dataAsOf +
+    (status[key].current ? "-current" : "-stale")).join("_");
+  const receipt = path.join(__dirname, "sent-digests", day + "_" + statusKey + ".json");
   if (fs.existsSync(receipt)) {
     console.log("EdgeAI-digest redan levererad för " + day);
     return;
   }
 
-  await send(buildMessage(data));
+  await send(buildMessage(data, new Date()));
   fs.mkdirSync(path.dirname(receipt), { recursive: true });
   fs.writeFileSync(receipt, JSON.stringify({
     day,
@@ -176,6 +176,7 @@ async function send(text) {
       US: data.markets.US.dataAsOf,
       SE: data.markets.SE.dataAsOf,
     },
+    marketStatus: status,
     deliveredAt: new Date().toISOString(),
   }) + "\n");
 
@@ -190,9 +191,11 @@ async function send(text) {
   } else {
     console.log("Lokalt leveranskvitto sparat; omkörning på annan maskin kräver kontroll");
   }
-})().catch(error => {
-  console.error(error.message);
-  process.exitCode = 1;
-});
-
-module.exports = { buildMessage, scoreSetup, statusLabel, setupTag };
+}
+if (require.main === module) {
+  main().catch(error => {
+    console.error(error.message);
+    process.exitCode = 1;
+  });
+}
+module.exports = { buildMessage, scoreSetup, statusLabel, setupTag, main };
