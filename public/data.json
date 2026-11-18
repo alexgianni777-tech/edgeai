@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-18T04:44:44.380Z",
+  "generatedAt": "2026-11-18T15:38:20.468Z",
   "demo": false,
   "markets": {
     "US": {
@@ -13,7 +13,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-17",
         "close": 7340.53,
-        "fetchedAt": "2026-11-18T04:44:28.835Z"
+        "fetchedAt": "2026-11-18T15:37:50.251Z"
       },
       "edge": {
         "expectancyR": 0.08,
@@ -18868,7 +18868,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-17",
         "close": 3287.48,
-        "fetchedAt": "2026-11-17T21:20:15.997Z"
+        "fetchedAt": "2026-11-18T15:38:20.468Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -20852,7 +20852,7 @@
         ],
         "metrics": {
           "close": 3287.48,
-          "sma20": 3283.97,
+          "sma20": 3283.98,
           "sma50": 3272.83,
           "sma200": 3174.94,
           "return5Pct": -1.21,
@@ -26669,8 +26669,8 @@
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
       "trackRecordSource": "proposal-ledger-v3-quoted-ohlc",
-      "dataStatus": "CURRENT_CACHED",
-      "dataWarning": "Previous verified completed session reused after an upstream refresh failed; no newly fetched quote"
+      "dataStatus": "CURRENT",
+      "dataWarning": null
     }
   },
   "publication": {
@@ -26687,10 +26687,5 @@
       "status": "CURRENT"
     }
   },
-  "sourceIssues": [
-    {
-      "market": "SE",
-      "reason": "[DATA_NOT_READY] SE kräver samma avslutade session som index (2026-11-17), men 29 symboler avviker: ABB.ST=2026-11-16, ALFA.ST=2026-11-16, ASSA-B.ST=2026-11-16, ATCO-A.ST=2026-11-16, ATCO-B.ST=2026-11-16, AZN.ST=2026-11-16, BOL.ST=2026-11-16, ELUX-B.ST=2026-11-16, EQT.ST=2026-11-16, ERIC-B.ST=2026-11-16, ESSITY-B.ST=2026-11-16, EVO.ST=2026-11-16"
-    }
-  ]
+  "sourceIssues": []
 }
