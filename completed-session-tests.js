@@ -105,6 +105,16 @@ test("push event includes a no-message Telegram connectivity probe",()=>{
   assert.match(workflow,/Probe EdgeAI Telegram bot and recipient/);
 });
 
+test("Telegram is optional while strict market-data validation is independent", () => {
+  const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/edgeai.yml"), "utf8");
+  assert.match(workflow, /- name: Detect optional Telegram configuration[\s\S]*?configured=false/);
+  assert.match(workflow, /- name: Send verified EdgeAI Telegram digest\n\s*if: .*steps\.telegram_config\.outputs\.configured == 'true'/);
+  assert.match(workflow, /- name: Probe EdgeAI Telegram bot and recipient \(no message\)\n\s*if: .*steps\.telegram_config\.outputs\.configured == 'true'/);
+  assert.match(workflow, /- name: Warn once when morning EdgeAI data is unavailable\n\s*if: .*steps\.telegram_config\.outputs\.configured == 'true'/);
+  assert.match(workflow, /- name: Mark partial publication as degraded\n\s*if: .*always\(\).*steps\.deployment\.outcome/);
+  assert.ok(workflow.indexOf("node build-data.js") < workflow.indexOf("Detect optional Telegram configuration"));
+});
+
 test("manual fallback workflow cannot collide with the scheduled complete-market builder", () => {
   const workflow = fs.readFileSync(path.join(__dirname, ".github/workflows/refresh-edgeai-data.yml"), "utf8");
   assert.doesNotMatch(workflow, /^\s+schedule:/m);
