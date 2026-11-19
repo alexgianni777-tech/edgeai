@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-19T10:44:55.488Z",
+  "generatedAt": "2026-11-19T15:42:46.556Z",
   "demo": false,
   "markets": {
     "US": {
@@ -13,7 +13,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-18",
         "close": 7323.63,
-        "fetchedAt": "2026-11-19T10:44:27.139Z"
+        "fetchedAt": "2026-11-19T15:42:23.666Z"
       },
       "edge": {
         "expectancyR": 0.08,
@@ -19938,7 +19938,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-18",
         "close": 3256.21,
-        "fetchedAt": "2026-11-19T10:44:55.488Z"
+        "fetchedAt": "2026-11-19T15:42:46.556Z"
       },
       "edge": {
         "expectancyR": 0,
