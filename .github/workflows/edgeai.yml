@@ -93,10 +93,26 @@ jobs:
         uses: actions/deploy-pages@v5
 
 
-      # Code pushes validate connection without sending an unsolicited digest.
-      # Scheduled runs send the regular report after a verified build.
+      # Telegram is optional and must not fail the core market-data workflow
+      # when no bot or recipient is configured. Never print credential values.
+      - name: Detect optional Telegram configuration
+        id: telegram_config
+        shell: bash
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [[ -n "$BOT_TOKEN" && -n "$CHAT_ID" ]]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Telegram is optional and disabled (no complete bot/chat configuration). Market-data build and Pages publication are unaffected."
+          fi
+
+      # Code pushes probe only when Telegram was explicitly configured.
+      # Scheduled runs may send a digest after validated publication.
       - name: Probe EdgeAI Telegram bot and recipient (no message)
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.telegram_config.outputs.configured == 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -105,7 +121,7 @@ jobs:
       # Never send an older watchlist if the build was blocked by stale Yahoo prices.
       # The Telegram receipt is recorded by notify.js only after Telegram confirms delivery.
       - name: Send verified EdgeAI Telegram digest
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.telegram_config.outputs.configured == 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -114,7 +130,7 @@ jobs:
       # One informative status notification on the first morning refresh failure.
       # This is NOT a trading list and must never be mistaken for one.
       - name: Warn once when morning EdgeAI data is unavailable
-        if: ${{ failure() && github.event_name == 'schedule' && github.event.schedule == '17 6 * * 1-5' }}
+        if: ${{ failure() && steps.telegram_config.outputs.configured == 'true' && github.event_name == 'schedule' && github.event.schedule == '17 6 * * 1-5' }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -123,5 +139,5 @@ jobs:
       # A successfully delivered US-only snapshot is valuable, but a missing
       # Swedish close must NEVER leave a false green operational check.
       - name: Mark partial publication as degraded
-        if: success()
+        if: ${{ always() && steps.deployment.outcome == 'success' }}
         run: node report-market-status.js --strict
