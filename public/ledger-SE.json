@@ -22155,9 +22155,11 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-20T15:25:27.454Z",
-    "r": null
+    "r": -1.18,
+    "exitReason": "STOP",
+    "closedAt": "Tue Nov 17 2026 08:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SAND.ST|Trend pullback to 20EMA · RSI reset|2026-11-11",
@@ -22175,9 +22177,11 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-20T15:25:27.454Z",
-    "r": null
+    "r": -1.14,
+    "exitReason": "STOP",
+    "closedAt": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SKF-B.ST|Trend pullback to 20EMA · RSI reset|2026-11-11",
@@ -22195,9 +22199,11 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-20T15:25:27.454Z",
-    "r": null
+    "r": -1.17,
+    "exitReason": "STOP",
+    "closedAt": "Wed Nov 18 2026 08:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SWED-A.ST|Trend pullback to 20EMA · RSI reset|2026-11-19",

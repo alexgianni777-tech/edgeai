@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-20T15:25:27.569Z",
+  "generatedAt": "2026-11-20T17:59:43.507Z",
   "demo": false,
   "markets": {
     "US": {
@@ -13,7 +13,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-19",
         "close": 7175.83,
-        "fetchedAt": "2026-11-20T15:25:03.148Z"
+        "fetchedAt": "2026-11-20T17:59:18.507Z"
       },
       "edge": {
         "expectancyR": 0.09,
@@ -21531,11 +21531,11 @@
         }
       ],
       "trackRecordSummary": {
-        "closed": 41,
+        "closed": 42,
         "wins": 10,
-        "losses": 31,
-        "winRate": 24.4,
-        "netR": -15.97,
+        "losses": 32,
+        "winRate": 23.8,
+        "netR": -17.12,
         "costAdjusted": true,
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
@@ -21553,7 +21553,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-19",
         "close": 3256.72,
-        "fetchedAt": "2026-11-20T15:25:27.569Z"
+        "fetchedAt": "2026-11-20T17:59:43.507Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -29901,17 +29901,22 @@
           "r": -1.2
         },
         {
-          "ticker": "TEL2-B.ST",
-          "setup": "Burry filter — weak-stock rally short",
+          "ticker": "SKF-B.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
           "r": -1.17
+        },
+        {
+          "ticker": "NIBE-B.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "r": -1.18
         }
       ],
       "trackRecordSummary": {
-        "closed": 7,
+        "closed": 10,
         "wins": 0,
-        "losses": 7,
+        "losses": 10,
         "winRate": 0,
-        "netR": -8.59,
+        "netR": -12.08,
         "costAdjusted": true,
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },

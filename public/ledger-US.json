@@ -48227,9 +48227,11 @@
     "maxBars": 15,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-20T15:25:02.810Z",
-    "r": null
+    "r": -1.15,
+    "exitReason": "STOP",
+    "closedAt": "Thu Nov 19 2026 14:30:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "GILD|Trend pullback to 20EMA · RSI reset|2026-11-17",
