@@ -16,6 +16,7 @@ const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
 const { dailyExit, roundTripCostR } = require("./fill-model");
 const { eliteGate } = require("./elite-gate");
+const { holdsOosEvidence } = require("./base-evidence-gate");
 const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
 const { assessMarketTrend, assessDirection } = require("./trend-regime");
 const { createHistoricalSentiment, compareSentiment } = require("./sentiment-study");
@@ -334,12 +335,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
     const positiveWindowRate = filteredWindowMetrics.length
       ? positiveWindows / filteredWindowMetrics.length
       : 0;
-    const stratHolds =
-      (fm.n ?? 0) >= 30 &&
-      (fm.expectancy ?? 0) > 0.03 &&
-      (fm.profitFactor ?? 0) > 1.1 &&
-      (fm.expectancyLow95 ?? -Infinity) > -0.05 &&
-      positiveWindowRate >= 0.5;
+    const stratHolds = holdsOosEvidence(fm, positiveWindowRate);
     const promising =
       !stratHolds &&
       (fm.n ?? 0) >= 20 &&
