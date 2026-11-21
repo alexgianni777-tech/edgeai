@@ -16,6 +16,7 @@ const { screen } = require("./screener");
 const { buildCohorts, maxConcurrentTrades, realizedDrawdownR } = require("./portfolio-risk");
 const { dailyExit, roundTripCostR } = require("./fill-model");
 const { eliteGate } = require("./elite-gate");
+const { regimeFrom } = require("./market-regime");
 const { scoreSentiment, buildIdeaRadar } = require("./market-psychology");
 const { assessMarketTrend, assessDirection } = require("./trend-regime");
 const { createHistoricalSentiment, compareSentiment } = require("./sentiment-study");
@@ -105,15 +106,6 @@ function sma(vals, p) {
     if (i >= p - 1) out[i] = sum / p;
   }
   return out;
-}
-function regimeFrom(indexBars, period = 200) {
-  const closes = indexBars.map(b => b.close);
-  const ma = sma(closes, period);
-  const map = {};
-  indexBars.forEach((b, i) => { const k = dateKey(b.t); if (k) map[k] = ma[i] == null ? true : b.close > ma[i]; });
-  const last = indexBars.length - 1;
-  const on = ma[last] == null ? true : closes[last] > ma[last];
-  return { map, on };
 }
 
 // ---- Point-in-time relative strength for OOS validation ----
@@ -274,7 +266,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
           `  [${key}] DATA_NOT_READY efter försök: ${result.stillLagging.join(", ")}`);
       }
       const dataAsOf = demo ? null : assertCompleteDailyBars(key, realTickers, universe, indexSymbol, indexBars);
-  const regime = indexBars && indexBars.length > 200 ? regimeFrom(indexBars) : { map: {}, on: true };
+  const regime = regimeFrom(indexBars);
 
   // 1-3) Validera + screena VARJE strategi för sig (oberoende edge), slå ihop
   const STRATS = [require("./strategy"), require("./strategy-breakout"), require("./strategy-bollinger"), require("./strategy-momentum"), require("./strategy-short"), require("./strategy-big-short")];
@@ -400,7 +392,7 @@ async function buildMarket({ key, label, currency, realTickers, demoTickers, dem
           const closes = b.map(x => x.close);
           const ma = sma(closes, 200);
           const i = b.length - 1;
-          return i >= 0 && ma[i] != null ? closes[i] > ma[i] : true;
+          return i >= 0 && ma[i] != null ? closes[i] > ma[i] : false;
         })(),
         chart: (universe[s.ticker] || []).slice(-22).map(b => ({
           o: round(b.open), h: round(b.high), l: round(b.low), c: round(b.close)
