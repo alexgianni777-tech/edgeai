@@ -148,3 +148,5 @@ require("./data-freshness-tests")().then(() =>
   console.error(e);
   process.exitCode=1;
 });
+
+require("./oos-boundary-tests");

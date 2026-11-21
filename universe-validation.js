@@ -35,16 +35,37 @@ function runDateWindow(universeEntries, strat, params, {
   toDate,
   warmup = 220,
   tradeFilter = null,
+  futureExitBars = 0,
 } = {}) {
+  // A strategy's simulator may mark an unresolved position to market at the
+  // LAST candle of its input. Those artificial boundary exits must never
+  // count as closed in-sample or out-of-sample trades.
+  const maxBars = Number(params?.maxBars ?? strat.DEFAULT_PARAMS?.maxBars ?? 0);
+  if (!Number.isInteger(maxBars) || maxBars < 0 ||
+      !Number.isInteger(futureExitBars) || futureExitBars < 0) {
+    throw new Error("Non-negative integer exit horizons required");
+  }
   const pooled = [];
   for (const [ticker, bars] of universeEntries) {
     const bounds = boundsForDates(bars, fromDate, toDate);
     if (!bounds) continue;
 
-    const slice = bars.slice(Math.max(0, bounds.start - warmup), bounds.end);
+    // Future candles resolve historical OOS exits only. They must NOT be
+    // included when choosing parameters on the preceding in-sample period.
+    const start = Math.max(0, bounds.start - warmup);
+    const end = Math.min(bars.length, bounds.end + futureExitBars);
+    const slice = bars.slice(start, end);
     for (const trade of strat.runStrategy(slice, params)) {
       const d = dateKey(trade.t);
       if (!d || d < fromDate || d > toDate) continue;
+      const entryIdx = Number.isInteger(trade.entryIdx)
+        ? start + trade.entryIdx
+        : bars.findIndex(bar => dateKey(bar.t) === d);
+      // If the complete time-stop horizon has not yet been observed,
+      // discard the trade even if a simulator pretends to close on the
+      // truncated last bar. This deliberately favors no result over a
+      // fictional completed outcome.
+      if (entryIdx < 0 || entryIdx + maxBars >= end) continue;
       const enriched = { ...trade, ticker };
       if (!tradeFilter || tradeFilter(enriched)) pooled.push(enriched);
     }
@@ -145,6 +166,9 @@ function validateUniverse(universe, strat, {
       toDate: oosTo,
       warmup,
       tradeFilter,
+      // Entry dates stay inside OOS; later data is used only to evaluate
+      // genuine exits rather than truncating the test at a calendar edge.
+      futureExitBars: Number(chosen.params?.maxBars ?? strat.DEFAULT_PARAMS?.maxBars ?? 0),
     });
     const oosM = metrics(unseen);
     oosTrades.push(...unseen);
