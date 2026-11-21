@@ -82,6 +82,14 @@ Varje marknad SE respektive US använder sin egen **senaste avslutade börssessi
 
 **Använd bara Replits befintliga gratisresurser.** Om en ändring kräver betald AI-Agent, credits, deployment, externa tjänster, mer driftkostnad eller annan uppgradering: **STOPPA och begär ägarbeslut**. Börja med att säkerställa om aktuell Replit-app är synkad med `omxsscreener/main` (ingen destruktiv reset). Prioritera synliga börsdatum, spärr mot inaktuell import, korrekt REAL/SIMULATED/NOT_TAKEN-separation och neutral formulering av forskning; inga köporder eller derivatmotor. Publicering kräver separat verifiering av körande app och får inte påstås vara klar enbart för att en uppdatering startats.
 
+## 8B. Uppföljning: Replit-gren kräver separat färskhetsrättning
+
+**Verifierat vid källkodsgranskning 21 november 2026:** Replits arbetsgren `feature/asset-screen-2-0` ligger långt före `omxsscreener/main` i funktioner men saknar main-grenens nya börssessionskontroll. I arbetsgrenen använder EdgeAI-importen ännu rapportens `generatedAt` och föregående-handelsdag-logik för godtagande, i stället för individuell verifiering av SE/US `dataAsOf` och indexsession. Replit-Agentens tidigare muntliga påstående att exakt samma sessionsspärr redan fanns i arbetskoden räcker därför inte som verifiering.
+
+**BLOCKERAD tills test:** För inte över hela main eller feature blint; bevara befintlig journal, användarkonton och tidigare kandidater. Synka bara säkrade delar av börssessionskontrollen och testa tidszoner, helgdagar, marknadsspecifik stale-data och `force`-import innan någon publicering. Asset Screens historiska fulla CI i feature-grenen har dessutom rapporterat misslyckade tester; ett lyckat smalt test i `main` ersätter inte detta.
+
+**Kostnadsvillkor:** ändringar i Replit genomförs endast inom redan tillgängliga gratisresurser. Om kostnadsfrihet eller tjänstens gratisgräns inte kan bekräftas: avstå från betald körning och dokumentera vad som återstår.
+
 ## 9. Revisionscykel
 
 **Dagligen (handelsdag):** verifiera marknadsregim, källdatum, fem long/fem short *att bevaka*, verkliga rapportdatum manuellt och kandidaters stop/R/R i underliggande. Avstå när data saknas.
