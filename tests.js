@@ -150,3 +150,5 @@ require("./data-freshness-tests")().then(() =>
 });
 
 require("./oos-boundary-tests");
+
+require("./base-evidence-gate-tests");
