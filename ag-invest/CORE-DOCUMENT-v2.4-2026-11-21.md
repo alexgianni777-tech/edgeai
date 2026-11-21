@@ -82,6 +82,14 @@ Varje marknad SE respektive US använder sin egen **senaste avslutade börssessi
 
 **Använd bara Replits befintliga gratisresurser.** Om en ändring kräver betald AI-Agent, credits, deployment, externa tjänster, mer driftkostnad eller annan uppgradering: **STOPPA och begär ägarbeslut**. Börja med att säkerställa om aktuell Replit-app är synkad med `omxsscreener/main` (ingen destruktiv reset). Prioritera synliga börsdatum, spärr mot inaktuell import, korrekt REAL/SIMULATED/NOT_TAKEN-separation och neutral formulering av forskning; inga köporder eller derivatmotor. Publicering kräver separat verifiering av körande app och får inte påstås vara klar enbart för att en uppdatering startats.
 
+### Kontroll efter Replit-rättning, 21 november 2026
+
+**BLOCKERAD / inte publicerad som ny version:** Replit-agenten uppger att `edgeAiValidation.ts`, `edgeAiSource.ts` och ett regressionstest ändrats i arbetsytan, men inte committats eller publicerats. API-serverns typkontroll rapporterades PASS. Testkörningen kunde inte starta eftersom direkt användning av `tsx` misslyckades; produktionsbygget är inte kört. En äldre Replit-deploy är online men utgör inte bevis för aktuell kod.
+
+**GitHub CI – fullständig utvecklingsgren:** arbetsflödet `43393085031` genomförde 260 API-tester med 250 PASS, 9 FAIL och 1 SKIP. Bland kvarstående misslyckanden finns börsstängnings-/volymgrind, importkvitton, Top3-urval och revisionslogik. Äldre main-test och Replits typkontroll frikänner **inte** dessa nio regressioner. Detta är registrerat som [Asset Screen issue #8](https://github.com/alexgianni777-tech/omxsscreener/issues/8). Orsakerna till varje fel måste fastställas innan koden släpps.
+
+**Releasegräns:** ingen ny Replit-publicering förrän rättade faktiska testfel, riktiga sessionsregressioner, typkontroll och bygge passerat, och beteende verifierats i autentiserade vyer. Bevara arbetshistorik och privata data; inga betalda credits.
+
 ## 8B. Uppföljning: Replit-gren kräver separat färskhetsrättning
 
 **Verifierat vid källkodsgranskning 21 november 2026:** Replits arbetsgren `feature/asset-screen-2-0` ligger långt före `omxsscreener/main` i funktioner men saknar main-grenens nya börssessionskontroll. I arbetsgrenen använder EdgeAI-importen ännu rapportens `generatedAt` och föregående-handelsdag-logik för godtagande, i stället för individuell verifiering av SE/US `dataAsOf` och indexsession. Replit-Agentens tidigare muntliga påstående att exakt samma sessionsspärr redan fanns i arbetskoden räcker därför inte som verifiering.
