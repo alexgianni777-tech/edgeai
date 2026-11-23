@@ -13,7 +13,8 @@ for(const name of files){
 }
 const dataPath=path.join(root,"public","data.json");
 const data=JSON.parse(fs.readFileSync(dataPath,"utf8"));
-if(data.demo||!data.markets?.US?.dataAsOf||!data.markets?.SE?.dataAsOf)
+if(data.demo||!data.markets?.SE?.dataAsOf||data.strategyScope!=="OMXS30_ONLY"||
+   data.markets.US?.setups?.length)
  throw Error("Refusing to deploy missing/demo market dataset");
 fs.copyFileSync(dataPath,path.join(dist,"data.json"));
 console.log("Pages staging ready: "+files.length+" assets + data.json; no repository source uploaded");
