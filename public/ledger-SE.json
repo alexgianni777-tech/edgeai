@@ -22853,9 +22853,11 @@
     "maxBars": 20,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-23T20:16:36.218Z",
-    "r": null
+    "r": -1.11,
+    "exitReason": "STOP",
+    "closedAt": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "LIFCO-B.ST|Burry filter — weak-stock rally short|2026-11-16",
@@ -22993,9 +22995,11 @@
     "maxBars": 10,
     "costRate": 0.003,
     "ledgerMode": "published-levels",
-    "status": "open",
+    "status": "closed",
     "loggedAt": "2026-11-23T20:16:36.218Z",
-    "r": null
+    "r": 1.15,
+    "exitReason": "TARGET_GAP_CAPPED",
+    "closedAt": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)"
   },
   {
     "signalId": "SEB-A.ST|The Big Short — broader weak-stock rally short|2026-11-23",

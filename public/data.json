@@ -1,9 +1,10 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-23T20:16:36.384Z",
+  "generatedAt": "2026-11-23T20:24:07.466Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-23",
+  "scopeDecisionDate": "2026-11-23",
   "temporaryIndexExceptions": [],
   "markets": {
     "US": {
@@ -3036,7 +3037,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-23",
         "close": 3261.32,
-        "fetchedAt": "2026-11-23T20:16:36.384Z"
+        "fetchedAt": "2026-11-23T20:24:07.466Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -13022,22 +13023,22 @@
           "r": -1.16
         },
         {
-          "ticker": "TEL2-B.ST",
-          "setup": "Breakout — fresh N-day high",
-          "r": -1.23
+          "ticker": "SAAB-B.ST",
+          "setup": "Bollinger reversion in uptrend",
+          "r": -1.11
         },
         {
-          "ticker": "ESSITY-B.ST",
-          "setup": "Breakout — fresh N-day high",
-          "r": -1.27
+          "ticker": "SAND.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "r": 1.15
         }
       ],
       "trackRecordSummary": {
-        "closed": 16,
-        "wins": 1,
-        "losses": 15,
-        "winRate": 6.3,
-        "netR": -16.96,
+        "closed": 18,
+        "wins": 2,
+        "losses": 16,
+        "winRate": 11.1,
+        "netR": -16.92,
         "costAdjusted": true,
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
