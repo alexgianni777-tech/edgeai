@@ -4,13 +4,14 @@ const {publicationStatus}=require("./publication-policy");
 const d=JSON.parse(fs.readFileSync(path.join(__dirname,"public/data.json"),"utf8"));
 if(d.demo)throw Error("Live market health check received DEMO data");
 const st=publicationStatus(d.markets||{},new Date(d.generatedAt));
-const lines=["## EdgeAI data delivery",...["US","SE"].map(key=>
-  key+": "+(st[key].current?"CURRENT":"STALE")+
-  " · actual "+(st[key].dataAsOf||"missing")+" · required "+st[key].expected),
-  "STALE means: no new entry for that market. No missing market candle was synthesized."];
+const lines=["## EdgeAI OMXS30-only delivery",
+  "SE/OMXS30: "+(st.SE.current?"CURRENT":"STALE")+
+  " · actual "+(st.SE.dataAsOf||"missing")+" · required "+st.SE.expected,
+  "US: ARCHIVED / no new candidates or signals",
+  "STALE SE means no new entry. No missing OMXS30 candle was synthesized."];
 console.log(lines.join("\n"));
 if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines.join("\n")+"\n");
-if(process.argv.includes("--strict")&&(!st.US.current||!st.SE.current)){
- console.error("DEGRADED_DELIVERY: at least one market still lacks the latest completed session");
+if(process.argv.includes("--strict")&&!st.SE.current){
+ console.error("DEGRADED_DELIVERY: OMXS30 lacks the latest completed session");
  process.exitCode=1;
 }
