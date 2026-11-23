@@ -58,7 +58,8 @@ test("Telegram never repeats historical Swedish trade levels as a fresh watch",(
  const msg=buildMessage({demo:false,generatedAt:now.toISOString(),markets:{US:us,SE:se}},now);
  assert.match(msg,/HISTORISKT UNDERLAG/);
  assert.doesNotMatch(msg,/STOCK_STALE|9999/);
- assert.match(msg,/United States/);
+ assert.match(msg,/OMXS30/);
+ assert.doesNotMatch(msg,/United States|🇺🇸/);
 });
 test("GitHub Pages stages only public files and ignores stale-signal promotion",()=>{
  const stage=fs.readFileSync(path.join(__dirname,"prepare-pages.js"),"utf8");
