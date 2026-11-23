@@ -45,9 +45,9 @@ function buildMessage(data, at = new Date()) {
   });
   let msg = `📊 EdgeAI — ${date}${data.demo ? "  (demo)" : ""}\n`;
 
-  msg += `Dagskurser t.o.m. 🇺🇸 ${data.markets.US.dataAsOf} · 🇸🇪 ${data.markets.SE.dataAsOf}\n`;
+  msg += `AG Invest: enbart OMXS30 · stängningsdata 🇸🇪 ${data.markets.SE.dataAsOf}\n`;
 
-  for (const key of ["US", "SE"]) {
+  for (const key of ["SE"]) {
     const m = data.markets[key];
     if (!m) continue;
     if (!isFreshMarket(key,m,at)) {
@@ -127,14 +127,14 @@ async function main() {
     process.exit(1);
   }
 
-  if (data.demo || !data.markets?.US?.dataAsOf || !data.markets?.SE?.dataAsOf) {
+  if (data.demo || data.strategyScope !== "OMXS30_ONLY" || !data.markets?.SE?.dataAsOf || data.markets?.US?.setups?.length) {
     throw new Error("EdgeAI-data saknar verifierade marknadsdatum; inget utskick");
   }
   // Exchange sessions are assessed independently. Never include stale prices
   // from one market just because the other market has completed its update.
   const status = publicationStatus(data.markets, new Date());
-  if (!status.US.current && !status.SE.current) {
-    throw new Error("DATA_NOT_READY: båda marknaderna saknar aktuell verifierad kursdag");
+  if (!status.SE.current) {
+    throw new Error("DATA_NOT_READY: OMXS30 saknar aktuell verifierad kursdag");
   }
   console.log("EdgeAI Telegram market delivery:", JSON.stringify(status));
 
@@ -159,7 +159,7 @@ async function main() {
   const day = stockholmDay(created);
   // Distinct receipts for incomplete-vs-complete markets permit an update when
   // a delayed market finally publishes, without spamming identical data states.
-  const statusKey = ["US","SE"].map(key => key + "-" + status[key].dataAsOf +
+  const statusKey = ["SE"].map(key => key + "-" + status[key].dataAsOf +
     (status[key].current ? "-current" : "-stale")).join("_");
   const receipt = path.join(__dirname, "sent-digests", day + "_" + statusKey + ".json");
   if (fs.existsSync(receipt)) {
@@ -173,7 +173,6 @@ async function main() {
     day,
     generatedAt: data.generatedAt,
     dataAsOf: {
-      US: data.markets.US.dataAsOf,
       SE: data.markets.SE.dataAsOf,
     },
     marketStatus: status,
