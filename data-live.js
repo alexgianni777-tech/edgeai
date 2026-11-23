@@ -11,15 +11,11 @@ const _yfMod = require("yahoo-finance2");
 const _YF = _yfMod.default || _yfMod.YahooFinance || _yfMod;
 const yf = typeof _YF === "function" ? new _YF() : _YF;
 
-// OMXS30-ish (Yahoo använder .ST för Stockholmsbörsen). Sammansättningen
-// ändras — verifiera aktuella konstituenter och justera fritt.
-const OMXS30 = [
-  "ABB.ST", "ALFA.ST", "ASSA-B.ST", "ATCO-A.ST", "ATCO-B.ST", "AZN.ST",
-  "BOL.ST", "ELUX-B.ST", "EQT.ST", "ERIC-B.ST", "ESSITY-B.ST", "EVO.ST",
-  "GETI-B.ST", "HM-B.ST", "HEXA-B.ST", "INVE-B.ST", "KINV-B.ST", "NDA-SE.ST",
-  "NIBE-B.ST", "SAND.ST", "SCA-B.ST", "SEB-A.ST", "SHB-A.ST", "SINCH.ST",
-  "SKF-B.ST", "SWED-A.ST", "TEL2-B.ST", "TELIA.ST", "VOLV-B.ST",
-];
+// Tradeable equity universe is derived from the OFFICIAL index constituent list
+// for the last completed Stockholm session, never a loose Swedish stock list.
+const { tickersForSession } = require("./omxs30-universe");
+const { latestAllowedDate } = require("./data-freshness");
+const OMXS30 = tickersForSession(latestAllowedDate("SE"));
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
