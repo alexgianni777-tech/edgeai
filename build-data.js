@@ -597,11 +597,21 @@ if (require.main === module) (async () => {
       return historical;
     }
   }
-  const US = await independentlyBuild("US", {
-    key: "US", label: "United States", currency: "$",
-    realTickers: demo ? [] : dl.US_LARGE, demoTickers: dl.US_LARGE, demoEdge: 0.9, demoSeed: 300,
+  // As of 2026-11-23 AG Invest makes NO new US research proposals.
+  // Keep verified US history for audits/schema compatibility without running
+  // Yahoo US requests, ranking US symbols or re-emitting old setups.
+  const US = demo ? await independentlyBuild("US", {
+    key: "US", label: "Archived US demonstration", currency: "$",
+    realTickers: [], demoTickers: dl.US_LARGE, demoEdge: 0.9, demoSeed: 300,
     indexSymbol: dl.US_INDEX, demoIndexSeed: 9001,
-  });
+  }) : (() => {
+    const history = previousVerifiedMarket(previous, "US");
+    return {
+      ...history, dataStatus: "STALE", scopeStatus: "ARCHIVED_HISTORY_ONLY",
+      setups: [], ideaRadar: { long: [], short: [], conflicts: [] },
+      dataWarning: "Historical US research archive only. AG Invest only trades OMXS30. No US candidate or new entry.",
+    };
+  })();
   const SE = await independentlyBuild("SE", {
     key: "SE", label: "Sweden", currency: "kr",
     realTickers: demo ? [] : dl.OMXS30, demoTickers: dl.OMXS30.map(t => t.replace(".ST", "")), demoEdge: 0.8, demoSeed: 600,
@@ -610,19 +620,23 @@ if (require.main === module) (async () => {
 
   const publishedAt = new Date();
   const publication = demo ? null : publicationStatus({US,SE}, publishedAt);
-  if (!demo && !publication.US.current && !publication.SE.current) {
-    throw new Error("[DATA_NOT_READY] Neither market has a verified current completed session; no publication");
+  if (!demo && !publication.SE.current) {
+    throw new Error("[DATA_NOT_READY] OMXS30 lacks a verified completed Stockholm session; no publication");
   }
   const out = {
     pipelineVersion: 2,
-    generatedAt: publishedAt.toISOString(), demo, markets: { US, SE },
+    generatedAt: publishedAt.toISOString(), demo,
+    strategyScope: "OMXS30_ONLY",
+    scopeAsOf: SE.dataAsOf,
+    temporaryIndexExceptions: require("./omxs30-universe").temporaryIndexExceptions(SE.dataAsOf || require("./data-freshness").latestAllowedDate("SE")),
+    markets: { US, SE },
     ...(demo ? {} : {publication, sourceIssues: problems}),
   };
   const dir = path.join(__dirname, "public");
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "data.json"), JSON.stringify(out, null, 2));
   console.log(`Skrev public/data.json (demo=${demo})`);
-  for (const k of ["US", "SE"]) {
+  for (const k of ["SE"]) {
     const mk = out.markets[k];
     console.log(`  ${k}: regime ${mk.regime.label} · combined ${mk.edge.expectancyR}R ${mk.edge.winRate}% PF${mk.edge.profitFactor} n=${mk.edge.n} holds=${mk.edge.holds} · ${mk.setups.length} setups`);
     mk.strategies.forEach(s => console.log(`      - [${s.evidenceStatus}] ${s.name}: ${s.expectancyR}R ${s.winRate}% PF${s.profitFactor} n=${s.n} · WF+ ${s.positiveWindowRate}% · gap|med ${s.executionDrift?.medianAbsGapPct ?? 0}%`));
