@@ -241,8 +241,7 @@
       EdgeAI
     </div>
     <div class="market-switch" id="marketSwitch">
-      <button data-mkt="US"><span class="flag">🇺🇸</span> US <span class="cnt" id="cnt-US"></span></button>
-      <button data-mkt="SE"><span class="flag">🇸🇪</span> Sweden <span class="cnt" id="cnt-SE"></span></button>
+      <button data-mkt="SE"><span class="flag">🇸🇪</span> OMXS30 <span class="cnt" id="cnt-SE"></span></button>
     </div>
     <div class="nav-meta" id="navMeta"></div>
   </div>
@@ -252,7 +251,7 @@
   <section class="hero">
     <div class="kicker"><span class="dot"></span><span>Evidence-aware proposals · updated daily</span></div>
     <h1>An edge you can <span class="u">see</span> — not a signal you're told to trust.</h1>
-    <p class="sub">Daily stock proposals from the US and Swedish markets. Each idea carries an explicit evidence tier — A validated, B promising or WATCH — based on market-level walk-forward OOS testing. Proposal outcomes are tracked separately from the backtest. <a href="tracker.html" style="color:var(--navy);font-weight:600;white-space:nowrap;">My challenge tracker →</a></p>
+    <p class="sub">OMXS30-only Swedish stock research. No new US or non-index equity signals. Each idea carries an explicit evidence tier — A validated, B promising or WATCH — based on market-level walk-forward OOS testing. Proposal outcomes are tracked separately from the backtest. <a href="tracker.html" style="color:var(--navy);font-weight:600;white-space:nowrap;">My challenge tracker →</a></p>
   </section>
 
   <section class="sec" id="topSec" style="margin-top:28px;">
@@ -299,7 +298,7 @@
     </div>
     <p class="sec-p">Signalled in the last few sessions, ranked by recency.</p>
     <div class="acct">
-      Account size <input id="acct" class="num" type="number" value="100000" min="1000" step="1000" />
+      Account size <input id="acct" class="num" type="number" value="5000" min="1000" step="1000" />
       <span id="acctCur"></span> · position sizing at 1% risk
     </div>
     <div class="chips" id="typeChips"></div>
@@ -366,7 +365,7 @@
           <li>Today's top 3 ranked proposals (delayed)</li>
           <li>One market</li>
           <li class="off">All setups with entry/stop/target</li>
-          <li class="off">Both markets &amp; alerts</li>
+          <li class="off">OMXS30 data &amp; alerts</li>
           <li class="off">Risk planner &amp; CSV export</li>
         </ul>
         <button class="btn-ghost cta" data-plan="Free">Start free</button>
@@ -374,12 +373,12 @@
       <div class="tier best">
         <span class="ribbon">Everything unlocked</span>
         <div class="tname">Premium</div>
-        <div class="tdesc">The full daily edge — every setup, both markets, all the tools.</div>
+        <div class="tdesc">OMXS30 specialist view — validated Swedish index members only.</div>
         <div class="price"><span class="p">$29</span><span class="per">/mo</span></div>
         <ul class="feat">
           <li>Every setup with entry/stop/target</li>
           <li>Both validated edges (pullback + breakout)</li>
-          <li>US &amp; Sweden, full universe</li>
+          <li>OMXS30-only verified constituents</li>
           <li>Candlestick charts &amp; setup explanations</li>
           <li>Alerts via email &amp; Telegram</li>
           <li>Position &amp; risk sizing</li>
@@ -404,8 +403,8 @@ let DATA = EMBEDDED;
 // Då öppnar "subscribe"-knapparna formuläret — din mejl syns aldrig, spamsäkert.
 const FORM_URL = "https://tally.so/r/your-form-id";
 
-let market = "US";
-let account = 100000;
+let market = "SE";
+let account = 5000;
 let riskPct = 1;
 
 function loadJournal() { try { return JSON.parse(localStorage.getItem("edgeai-journal") || "[]"); } catch { return []; } }
@@ -489,7 +488,8 @@ async function load() {
       const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) continue;
       const candidate = await res.json();
-      if (!candidate || candidate.demo || !candidate.markets?.US?.dataAsOf || !candidate.markets?.SE?.dataAsOf) continue;
+      if (!candidate || candidate.demo || candidate.strategyScope !== "OMXS30_ONLY" ||
+          !candidate.markets?.SE?.dataAsOf || candidate.markets?.US?.setups?.length) continue;
       DATA = candidate;
       renderAll();
       return;
@@ -502,19 +502,20 @@ async function load() {
 }
 
 function renderAll() {
-  if (!DATA || DATA.demo || !DATA.markets?.US?.dataAsOf || !DATA.markets?.SE?.dataAsOf) {
+  if (!DATA || DATA.demo || DATA.strategyScope !== "OMXS30_ONLY" ||
+      !DATA.markets?.SE?.dataAsOf || DATA.markets?.US?.setups?.length) {
     $("#navMeta").textContent = "⚠ INGEN VERIFIERAD DATA – INGA NYA ENTRIES";
     $("#top3").innerHTML = '<div class="empty">Verifierad dataleverans saknas.</div>';
     $("#setups").innerHTML = '<div class="empty">Inga verifierade kandidater.</div>';
     return;
   }
   const when = new Date(DATA.generatedAt);
-  const marketDates = ["US", "SE"].map(k => DATA.markets[k]?.dataAsOf).filter(Boolean);
+  const marketDates = [DATA.markets.SE?.dataAsOf].filter(Boolean);
   const dataLabel = marketDates.length
-    ? marketDates.map((d, i) => `${i === 0 ? "US" : "SE"} ${d}`).join(" · ")
+    ? marketDates.map(d => `OMXS30 ${d}`).join(" · ")
     : when.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
-  const staleMarkets = ["US", "SE"].filter(key => !marketIsFresh(key));
-  const labels = ["US", "SE"].map(key => 
+  const staleMarkets = ["SE"].filter(key => !marketIsFresh(key));
+  const labels = ["SE"].map(key => 
     `${marketIsFresh(key) ? "✓" : "⚠"} ${key} ${esc(DATA.markets[key]?.dataAsOf || "saknas")}`).join(" · ");
   $("#navMeta").innerHTML =
     (DATA.demo ? `<span class="demo-badge">DEMO DATA</span>` : "") +
@@ -522,7 +523,7 @@ function renderAll() {
   $("#demoFootnote").textContent = DATA.demo ? "The figures shown are demo data — run the engine on live data to replace them." : "";
   $("#asOf").textContent = "prices through " + (DATA.markets[market]?.dataAsOf || when.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }));
 
-  for (const k of ["US", "SE"]) $("#cnt-" + k).textContent = "· " + (DATA.markets[k]?.setups.length ?? 0);
+  for (const k of ["SE"]) $("#cnt-" + k).textContent = "· " + (DATA.markets[k]?.setups.length ?? 0);
   document.querySelectorAll("#marketSwitch button").forEach(b => b.classList.toggle("on", b.dataset.mkt === market));
 
   const m = DATA.markets[market];
@@ -899,8 +900,8 @@ function explain(i, btn) {
   $("#ai-i" + i).innerHTML = `<div class="ai-out">${esc(explainLocal(s, m))}<div class="ai-note">Built from this setup's own numbers — free, no AI cost. Not personalized advice.</div></div>`;
 }
 
-document.querySelectorAll("#marketSwitch button").forEach(b => b.addEventListener("click", () => { market = b.dataset.mkt; renderAll(); }));
-$("#acct").addEventListener("input", e => { if(!DATA)return; account = Math.max(1000, +e.target.value || 100000); renderSetups(DATA.markets[market]); renderRisk(DATA.markets[market]); });
+document.querySelectorAll("#marketSwitch button").forEach(b => b.addEventListener("click", () => { market = "SE"; renderAll(); }));
+$("#acct").addEventListener("input", e => { if(!DATA)return; account = Math.max(1000, +e.target.value || 5000); renderSetups(DATA.markets[market]); renderRisk(DATA.markets[market]); });
 $("#csvBtn").addEventListener("click", exportCSV);
 $("#riskSlider").addEventListener("input", e => { if(!DATA)return; riskPct = +e.target.value; $("#riskVal").textContent = riskPct + "%"; renderRisk(DATA.markets[market]); });
 

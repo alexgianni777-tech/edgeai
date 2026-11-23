@@ -27,11 +27,11 @@ jobs:
           node-version: '22'
       - name: Install pinned dependencies (repository has no lockfile)
         run: npm install --no-package-lock --ignore-scripts
-      - name: Fetch Yahoo and rebuild SE/US
+      - name: Fetch Yahoo and rebuild OMXS30 (US archival only)
         run: npm run build
       - name: Validate importer contract
         run: npm run verify:data
-      - name: Report independent market source dates
+      - name: Report OMXS30 source date
         run: node report-market-status.js
       - name: Commit fresh data only on successful validation
         run: |
@@ -41,7 +41,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No data changes"
           else
-            git commit -m "data: refresh verified SE and US Yahoo sessions"
+            git commit -m "data: refresh verified OMXS30 Yahoo session"
             git push
           fi
 

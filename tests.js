@@ -16,6 +16,7 @@ for (const file of SOURCE_FILES) {
 // Pure clock/schedule tests: no Yahoo calls, ledger writes or publication.
 execFileSync(process.execPath, ["--test", path.join(__dirname, "completed-session-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "publication-policy-tests.js")], { stdio: "inherit" });
+execFileSync(process.execPath, ["--test", path.join(__dirname, "omxs30-universe-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "telegram-health-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "local-server-security-tests.js")], { stdio: "inherit" });
 execFileSync(process.execPath, ["--test", path.join(__dirname, "telegram-diagnostics-tests.js")], { stdio: "inherit" });

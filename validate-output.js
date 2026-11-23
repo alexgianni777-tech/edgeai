@@ -22,8 +22,25 @@ if (data.pipelineVersion === 2 && !data.demo) {
   if (!data.publication || !data.markets?.US || !data.markets?.SE) {
     errors.push("v2 publication requires both market records and provenance");
   } else {
-    if (!actual.US.current && !actual.SE.current) {
+    if (data.strategyScope === "OMXS30_ONLY" && !actual.SE.current) {
+      errors.push("OMXS30-only publication requires fresh completed SE session");
+    } else if (data.strategyScope !== "OMXS30_ONLY" && !actual.US.current && !actual.SE.current) {
       errors.push("v2 publication must not publish two stale markets");
+    }
+    if (data.strategyScope === "OMXS30_ONLY") {
+      if (data.markets.US.dataStatus !== "STALE" ||
+          data.markets.US.scopeStatus !== "ARCHIVED_HISTORY_ONLY" ||
+          data.markets.US.setups?.length !== 0 ||
+          (data.markets.US.ideaRadar?.long || []).length !== 0 ||
+          (data.markets.US.ideaRadar?.short || []).length !== 0)
+        errors.push("Archived US market must not emit active setups or watchlists");
+      const { tickersForSession }=require("./omxs30-universe");
+      const allowed=new Set(tickersForSession(data.markets.SE.dataAsOf));
+      if (data.markets.SE.setups?.some(x=>!allowed.has(x.ticker)))
+        errors.push("SE live setups include securities outside dated official OMXS30");
+      for (const dir of ["long","short"])
+        if ((data.markets.SE.ideaRadar?.[dir]||[]).some(x=>!allowed.has(x.ticker)))
+          errors.push("SE idea radar includes securities outside OMXS30");
     }
     for (const key of ["US","SE"]) {
       const m = data.markets[key];
