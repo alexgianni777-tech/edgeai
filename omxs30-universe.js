@@ -33,6 +33,16 @@ function validDate(date) {
     !Number.isNaN(Date.parse(date + "T12:00:00Z")) &&
     new Date(date + "T12:00:00Z").toISOString().slice(0, 10) === date;
 }
+/** Date on which a prospective order could be entered, not the date of D-1 quotes.
+ * At 00:17 Stockholm on Dec 1, the latest quote is Nov 30 but SOBI is
+ * already the next eligible index member and LIFCO B is no longer eligible.
+ */
+function stockholmDecisionDate(at = new Date()) {
+  if (!(at instanceof Date) || !Number.isFinite(at.getTime())) throw Error("Valid instant required");
+  return new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Stockholm", year: "numeric", month: "2-digit", day: "2-digit",
+  }).format(at);
+}
 function tickersForSession(date) {
   if (!validDate(date)) throw Error("Verified completed SE session date required");
   return [...(date >= "2026-12-01" ? DECEMBER_2026 : NOVEMBER_2026)];
@@ -48,4 +58,4 @@ function isTradeEligible(ticker, date) {
   return typeof ticker === "string" && tickersForSession(date).includes(ticker.toUpperCase());
 }
 module.exports = {NOVEMBER_2026, DECEMBER_2026, OFFICIAL_SOURCE, RECONSTITUTION_NOTICE,
-  SCOPE, tickersForSession, temporaryIndexExceptions, isTradeEligible};
+  SCOPE, stockholmDecisionDate, tickersForSession, temporaryIndexExceptions, isTradeEligible};
