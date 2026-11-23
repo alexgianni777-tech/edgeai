@@ -1,4 +1,6 @@
 # AG INVEST — CORE DOCUMENT v2.4
+> **ARKIVERAD VERSION:** Från 23 november 2026 är [Core Document v2.5 – Ground Zero 2.0](./CORE-DOCUMENT-v2.5-2026-11-23-GROUND-ZERO.md) det aktuella styrdokumentet. Fasstart 23 november 2026; projektslut 1 januari 2030. Äldre v2.4 bevaras för historik och teknisk spårbarhet.
+
 **Datum:** 21 november 2026 · **Giltighet:** till och med bokslutet 2030 · **Status:** beslutad konstitution från v2.3, kompletterad med verifierade tekniska ändringar och uttryckligt åtskilda forskningsregler.
 
 > Great Defence. Stick to what you are good at. Regim före aktie, verklig nettoavkastning före snygga signaler. Inga automatiska affärer.
