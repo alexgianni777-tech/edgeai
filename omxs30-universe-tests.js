@@ -2,7 +2,7 @@
 const assert=require("node:assert/strict");
 const test=require("node:test");
 const {NOVEMBER_2026, DECEMBER_2026, tickersForSession,
- temporaryIndexExceptions, isTradeEligible, SCOPE}=require("./omxs30-universe");
+ temporaryIndexExceptions, isTradeEligible, SCOPE, stockholmDecisionDate}=require("./omxs30-universe");
 test("official Nov 2026 OMXS30 list has 30 distinct constituents",()=>{
  assert.equal(NOVEMBER_2026.length,30);
  assert.equal(new Set(NOVEMBER_2026).size,30);
@@ -10,6 +10,13 @@ test("official Nov 2026 OMXS30 list has 30 distinct constituents",()=>{
    assert.ok(isTradeEligible(t,"2026-11-23"),t);
  for(const t of ["GETI-B.ST","ELUX-B.ST","SSAB-A.ST","NVDA","AMZN","SOBI.ST"])
    assert.equal(isTradeEligible(t,"2026-11-23"),false,t);
+});
+test("index membership uses Stockholm decision day rather than D-1 candle day",()=>{
+ const switchover = new Date("2026-11-30T23:17:00.000Z");
+ assert.equal(stockholmDecisionDate(switchover), "2026-12-01");
+ assert.ok(tickersForSession(stockholmDecisionDate(switchover)).includes("SOBI.ST"));
+ assert.ok(!tickersForSession(stockholmDecisionDate(switchover)).includes("LIFCO-B.ST"));
+ assert.equal(stockholmDecisionDate(new Date("2026-11-30T17:30:00.000Z")),"2026-11-30");
 });
 test("switch from Lifco to Sobi only after effective December 1 session",()=>{
  assert.ok(tickersForSession("2026-11-30").includes("LIFCO-B.ST"));

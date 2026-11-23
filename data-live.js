@@ -13,9 +13,9 @@ const yf = typeof _YF === "function" ? new _YF() : _YF;
 
 // Tradeable equity universe is derived from the OFFICIAL index constituent list
 // for the last completed Stockholm session, never a loose Swedish stock list.
-const { tickersForSession } = require("./omxs30-universe");
-const { latestAllowedDate } = require("./data-freshness");
-const OMXS30 = tickersForSession(latestAllowedDate("SE"));
+const { tickersForSession, stockholmDecisionDate } = require("./omxs30-universe");
+// Membership is for the NEXT trading decision, not the previous completed bar.
+const OMXS30 = tickersForSession(stockholmDecisionDate());
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 

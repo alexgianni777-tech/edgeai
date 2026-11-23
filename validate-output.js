@@ -35,7 +35,7 @@ if (data.pipelineVersion === 2 && !data.demo) {
           (data.markets.US.ideaRadar?.short || []).length !== 0)
         errors.push("Archived US market must not emit active setups or watchlists");
       const { tickersForSession }=require("./omxs30-universe");
-      const allowed=new Set(tickersForSession(data.markets.SE.dataAsOf));
+      const allowed=new Set(tickersForSession(data.scopeDecisionDate || data.scopeAsOf || data.markets.SE.dataAsOf));
       if (data.markets.SE.setups?.some(x=>!allowed.has(x.ticker)))
         errors.push("SE live setups include securities outside dated official OMXS30");
       for (const dir of ["long","short"])

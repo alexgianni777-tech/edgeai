@@ -628,7 +628,8 @@ if (require.main === module) (async () => {
     generatedAt: publishedAt.toISOString(), demo,
     strategyScope: "OMXS30_ONLY",
     scopeAsOf: SE.dataAsOf,
-    temporaryIndexExceptions: require("./omxs30-universe").temporaryIndexExceptions(SE.dataAsOf || require("./data-freshness").latestAllowedDate("SE")),
+    scopeDecisionDate: require("./omxs30-universe").stockholmDecisionDate(publishedAt),
+    temporaryIndexExceptions: require("./omxs30-universe").temporaryIndexExceptions(require("./omxs30-universe").stockholmDecisionDate(publishedAt)),
     markets: { US, SE },
     ...(demo ? {} : {publication, sourceIssues: problems}),
   };
