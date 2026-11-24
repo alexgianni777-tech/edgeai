@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-24T20:19:51.724Z",
+  "generatedAt": "2026-11-24T22:45:04.008Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-24",
@@ -3038,7 +3038,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-24",
         "close": 3214.14,
-        "fetchedAt": "2026-11-24T20:19:51.724Z"
+        "fetchedAt": "2026-11-24T22:45:04.008Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -11635,7 +11635,7 @@
   "publication": {
     "US": {
       "dataAsOf": "2026-11-20",
-      "expected": "2026-11-23",
+      "expected": "2026-11-24",
       "current": false,
       "status": "STALE"
     },
