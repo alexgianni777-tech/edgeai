@@ -1,10 +1,10 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-23T21:39:19.610Z",
+  "generatedAt": "2026-11-24T00:20:11.275Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-23",
-  "scopeDecisionDate": "2026-11-23",
+  "scopeDecisionDate": "2026-11-24",
   "temporaryIndexExceptions": [],
   "markets": {
     "US": {
@@ -3025,7 +3025,8 @@
       "trackRecordSource": "proposal-ledger-v3-quoted-ohlc",
       "dataStatus": "STALE",
       "dataWarning": "Historical US research archive only. AG Invest only trades OMXS30. No US candidate or new entry.",
-      "scopeStatus": "ARCHIVED_HISTORY_ONLY"
+      "scopeStatus": "ARCHIVED_HISTORY_ONLY",
+      "historicalSetupCount": 0
     },
     "SE": {
       "label": "Sweden",
@@ -13043,14 +13044,14 @@
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
       "trackRecordSource": "proposal-ledger-v3-quoted-ohlc",
-      "dataStatus": "CURRENT",
-      "dataWarning": null
+      "dataStatus": "CURRENT_CACHED",
+      "dataWarning": "Previous verified completed session reused after an upstream refresh failed; no newly fetched quote"
     }
   },
   "publication": {
     "US": {
       "dataAsOf": "2026-11-20",
-      "expected": "2026-11-20",
+      "expected": "2026-11-23",
       "current": false,
       "status": "STALE"
     },
@@ -13061,5 +13062,10 @@
       "status": "CURRENT"
     }
   },
-  "sourceIssues": []
+  "sourceIssues": [
+    {
+      "market": "SE",
+      "reason": "[DATA_NOT_READY] SE senaste verifierade session 2026-11-20; förväntar senaste avslutade handelsdag kring 2026-11-23. Publicering stoppad tills färsk data finns."
+    }
+  ]
 }
