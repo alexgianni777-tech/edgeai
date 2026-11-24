@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-24T00:20:11.275Z",
+  "generatedAt": "2026-11-24T07:06:33.763Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-23",
@@ -13065,7 +13065,7 @@
   "sourceIssues": [
     {
       "market": "SE",
-      "reason": "[DATA_NOT_READY] SE senaste verifierade session 2026-11-20; förväntar senaste avslutade handelsdag kring 2026-11-23. Publicering stoppad tills färsk data finns."
+      "reason": "[DATA_NOT_READY] SE kräver samma avslutade session som index (2026-11-23), men 30 symboler avviker: ABB.ST=2026-11-20, ADDT-B.ST=2026-11-20, ALFA.ST=2026-11-20, ASSA-B.ST=2026-11-20, AZN.ST=2026-11-20, ATCO-A.ST=2026-11-20, BOL.ST=2026-11-20, EPI-A.ST=2026-11-20, EQT.ST=2026-11-20, ERIC-B.ST=2026-11-20, ESSITY-B.ST=2026-11-20, EVO.ST=2026-11-20"
     }
   ]
 }
