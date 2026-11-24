@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-24T07:06:33.763Z",
+  "generatedAt": "2026-11-24T17:38:40.645Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-23",
@@ -3038,7 +3038,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-23",
         "close": 3261.32,
-        "fetchedAt": "2026-11-23T21:39:19.610Z"
+        "fetchedAt": "2026-11-24T17:38:40.645Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -3056,21 +3056,21 @@
       "strategies": [
         {
           "name": "Trend pullback to 20EMA · RSI reset",
-          "expectancyR": -0.02,
-          "winRate": 46,
-          "profitFactor": 0.97,
-          "n": 218,
+          "expectancyR": -0.08,
+          "winRate": 40,
+          "profitFactor": 0.88,
+          "n": 233,
           "holds": false,
           "evidenceStatus": "WATCH",
-          "expectancyLow95": -0.2,
-          "expectancyHigh95": 0.16,
-          "positiveWindowRate": 50,
+          "expectancyLow95": -0.26,
+          "expectancyHigh95": 0.1,
+          "positiveWindowRate": 0,
           "walkForwardWindows": 2,
           "executionDrift": {
-            "n": 218,
+            "n": 233,
             "medianGapPct": 0.06,
-            "medianAbsGapPct": 0.33,
-            "p90AbsGapPct": 1.35
+            "medianAbsGapPct": 0.3,
+            "p90AbsGapPct": 1.25
           },
           "params": {
             "rrTarget": 2,
@@ -3078,9 +3078,9 @@
             "rsiReset": 50
           },
           "proposalParams": {
-            "rrTarget": 3,
+            "rrTarget": 2,
             "atrMult": 1.5,
-            "rsiReset": 55
+            "rsiReset": 50
           },
           "elite": {
             "qualified": false,
@@ -3096,13 +3096,13 @@
               "minPositiveWindowRate": 0.6666666666666666
             },
             "observed": {
-              "n": 218,
+              "n": 233,
               "windows": 2,
-              "winRate": 0.45871559633027525,
-              "realizedPayoff": 1.1436953343759613,
+              "winRate": 0.4034334763948498,
+              "realizedPayoff": 1.300369910854218,
               "plannedRR": 2,
               "maxHoldingBars": 15,
-              "positiveWindowRate": 0.5
+              "positiveWindowRate": 0
             },
             "reasons": [
               "TRAFFSAKERHET_UNDER_80",
@@ -3117,48 +3117,48 @@
             "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
             "validatedAlpha": false,
             "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-            "totalTrades": 218,
+            "totalTrades": 233,
             "unknownSentiment": 0,
             "bySide": {
               "long": {
-                "sourceN": 218,
-                "datedN": 218,
-                "blockedN": 184,
+                "sourceN": 233,
+                "datedN": 233,
+                "blockedN": 206,
                 "withoutFilter": {
-                  "n": 218,
-                  "winRatePct": 45.9,
-                  "avgR": -0.02,
-                  "totalR": -4.27,
-                  "profitFactor": 0.969
+                  "n": 233,
+                  "winRatePct": 40.3,
+                  "avgR": -0.081,
+                  "totalR": -18.94,
+                  "profitFactor": 0.879
                 },
                 "withFilter": {
-                  "n": 34,
-                  "winRatePct": 41.2,
-                  "avgR": -0.037,
-                  "totalR": -1.25,
-                  "profitFactor": 0.944
+                  "n": 27,
+                  "winRatePct": 40.7,
+                  "avgR": -0.029,
+                  "totalR": -0.79,
+                  "profitFactor": 0.957
                 },
                 "blocked": {
-                  "n": 184,
-                  "winRatePct": 46.7,
-                  "avgR": -0.016,
-                  "totalR": -3.02,
-                  "profitFactor": 0.974
+                  "n": 206,
+                  "winRatePct": 40.3,
+                  "avgR": -0.088,
+                  "totalR": -18.15,
+                  "profitFactor": 0.869
                 },
                 "held2to4": {
                   "withoutFilter": {
-                    "n": 52,
-                    "winRatePct": 23.1,
-                    "avgR": -0.543,
-                    "totalR": -28.21,
-                    "profitFactor": 0.432
+                    "n": 50,
+                    "winRatePct": 18,
+                    "avgR": -0.62,
+                    "totalR": -30.99,
+                    "profitFactor": 0.364
                   },
                   "withFilter": {
-                    "n": 17,
-                    "winRatePct": 35.3,
-                    "avgR": -0.13,
-                    "totalR": -2.21,
-                    "profitFactor": 0.831
+                    "n": 13,
+                    "winRatePct": 30.8,
+                    "avgR": -0.247,
+                    "totalR": -3.21,
+                    "profitFactor": 0.698
                   }
                 }
               },
@@ -3208,223 +3208,238 @@
           },
           "equityCurve": [
             -1.19,
-            -2.35,
-            -3.54,
-            -4.78,
-            -3,
-            -4.15,
-            -2.38,
-            -3.55,
-            -1.75,
-            0.01,
-            -1.18,
-            -2.33,
-            -1.43,
-            -0.39,
-            0.4,
-            0.84,
-            2.57,
-            4.38,
-            6.15,
-            7.98,
-            8.34,
-            7.95,
-            9.73,
-            8.6,
-            7.5,
-            7.99,
-            6.81,
-            7.64,
-            6.65,
-            7.03,
-            5.71,
-            7.44,
-            8.95,
-            8.61,
-            10.33,
-            12.12,
-            13.88,
-            15.59,
-            16.52,
-            15.28,
-            17.09,
-            15.8,
-            17.35,
-            16.15,
-            14.99,
-            13.8,
-            12.62,
-            14.51,
-            13.28,
-            11.98,
-            10.68,
-            12.39,
-            14.1,
-            12.83,
-            13.15,
-            14.95,
-            13.7,
-            12.99,
-            14.74,
-            16.47,
-            18.24,
-            17.01,
-            15.87,
-            14.75,
-            15.24,
-            14.1,
-            15.9,
-            12.56,
-            12.65,
-            14.43,
-            13.23,
-            12.06,
-            10.8,
-            11.06,
-            9.92,
-            11.69,
-            10.51,
-            9.27,
-            8.05,
-            6.88,
-            5.51,
-            4.3,
-            3.11,
-            1.85,
-            0.19,
-            -1.1,
-            -2.3,
-            -2.58,
-            -0.84,
-            0.91,
-            -0.36,
-            1.38,
-            2.03,
-            2.44,
-            4.28,
-            4.78,
-            6.51,
-            6.11,
-            7.87,
-            6.78,
-            7.72,
-            6.55,
-            6.7,
-            8.51,
-            10.25,
-            12.06,
-            12.29,
-            14.07,
-            15.83,
-            14.56,
-            13.36,
-            15.07,
-            16.81,
-            18.53,
-            20.33,
-            22.1,
-            23.98,
-            25.73,
-            24.55,
-            23.28,
-            24.19,
-            23.01,
-            21.78,
-            20.59,
-            19.4,
-            18.15,
-            19.89,
-            18.64,
-            17.5,
-            19.33,
-            21.11,
-            22.86,
-            24.62,
-            26.43,
-            28.25,
-            27.05,
-            25.86,
-            27.7,
-            28.7,
-            27.25,
-            26.05,
-            24.85,
-            23.64,
-            22.43,
-            23,
-            21.53,
-            20.36,
-            19.27,
-            18.09,
-            16.87,
-            15.68,
-            14.53,
-            12.79,
-            11.38,
-            10.2,
-            8.81,
-            7.68,
-            6.49,
-            4.99,
-            4.63,
-            4.11,
-            2.97,
-            1.82,
-            3.63,
-            2.49,
-            4.29,
-            6.16,
-            7.99,
-            9.82,
-            8.74,
-            10.61,
-            12.48,
-            11.33,
-            10.11,
-            9,
-            9.05,
-            9.19,
-            8.61,
-            8.66,
-            7.19,
-            6.03,
-            4.82,
-            6.61,
-            6.92,
-            5.76,
-            7.61,
-            6.42,
-            5.22,
-            5.74,
-            4.47,
-            3.25,
-            2.08,
-            0.95,
-            -0.18,
+            1.08,
+            -0.08,
+            -1.29,
+            -2.53,
+            -0.25,
+            -1.4,
+            0.72,
+            3.02,
+            1.8,
+            4.05,
+            2.81,
+            5.07,
+            3.88,
+            4.62,
+            3.54,
+            2.42,
+            2.82,
+            3.48,
+            2.69,
+            3.44,
+            4.35,
+            3.22,
+            3.08,
+            1.9,
+            1.81,
+            2.74,
+            3.04,
+            2.65,
+            1.36,
+            1.14,
+            1.08,
+            -0.01,
+            -1.22,
+            -2.41,
+            -3.61,
+            -4.85,
+            -5.95,
+            -7.14,
+            -8.34,
+            -6.75,
+            -4.45,
+            -2.15,
+            -1.22,
+            -2.49,
+            -3.73,
+            -5.06,
+            -5.33,
+            -5.43,
+            -3.18,
+            -4.43,
+            -5.68,
+            -3.45,
+            -4.69,
+            -2.95,
+            -4.26,
+            -5.52,
+            -4.31,
+            -5.52,
+            -6.67,
+            -7.96,
+            -9.11,
+            -6.87,
+            -8.17,
+            -9.47,
+            -10.74,
+            -8.49,
+            -6.19,
+            -3.98,
+            -4.69,
+            -5.87,
+            -3.76,
+            -1.49,
+            0.71,
+            -0.52,
+            -1.67,
+            0.56,
+            2.73,
+            1.46,
+            0.14,
+            -1.08,
+            -2.37,
+            -0.15,
             -1.36,
-            -2.48,
-            -3.67,
-            -4.82,
-            -5.97,
-            -4.12,
-            -5.21,
-            -6.32,
-            -6.3,
-            -4.53,
-            -4.05,
-            -3.88,
-            -3.85,
-            -4.99,
-            -6.18,
-            -6.08,
-            -7.25,
+            -0.44,
+            -1.62,
+            -1.07,
+            1.21,
+            1.27,
+            0.07,
+            -1.1,
+            -2.36,
+            -3.51,
+            -3.49,
+            -4.75,
+            -2.47,
+            -3.62,
+            -4.86,
+            -6.13,
+            -7.34,
+            -8.52,
+            -10.17,
+            -11.33,
+            -12.51,
+            -13.66,
+            -15,
+            -16.12,
+            -13.82,
+            -13.52,
+            -12.54,
+            -12.6,
+            -13.5,
+            -11.18,
+            -12.43,
+            -10.21,
+            -9.69,
+            -8.73,
+            -7.92,
+            -6.17,
+            -4.37,
+            -4.13,
+            -2.35,
+            -0.59,
+            -1.86,
+            -3.06,
+            -1.35,
+            0.39,
+            2.11,
+            3.9,
+            5.68,
+            7.56,
+            9.31,
+            8.13,
+            6.86,
+            7.77,
+            6.59,
+            5.36,
+            4.17,
+            2.98,
+            1.72,
+            3.46,
+            2.22,
+            1.08,
+            2.91,
+            4.69,
+            6.44,
+            8.2,
+            10.01,
+            11.83,
+            10.62,
+            9.44,
+            11.28,
+            12.28,
+            10.83,
+            9.63,
+            8.43,
+            7.21,
+            6.01,
+            6.58,
+            5.1,
+            3.94,
+            2.85,
+            1.67,
+            0.45,
+            -0.75,
+            -1.89,
+            -3.63,
+            -5.04,
+            -6.22,
+            -7.61,
+            -8.74,
+            -9.93,
+            -11.43,
+            -11.79,
+            -12.31,
+            -13.45,
+            -14.61,
+            -12.79,
+            -13.93,
+            -12.13,
+            -10.26,
             -8.43,
-            -9.53,
-            -7.67,
-            -8.8,
-            -6.96,
-            -6.02,
-            -4.27
+            -6.6,
+            -7.69,
+            -5.81,
+            -3.94,
+            -5.1,
+            -6.31,
+            -7.42,
+            -7.37,
+            -7.23,
+            -7.81,
+            -7.76,
+            -9.24,
+            -10.39,
+            -11.61,
+            -9.81,
+            -9.5,
+            -10.66,
+            -8.82,
+            -10.01,
+            -11.2,
+            -10.68,
+            -11.96,
+            -13.17,
+            -14.34,
+            -15.47,
+            -16.6,
+            -17.78,
+            -18.9,
+            -20.09,
+            -21.24,
+            -22.39,
+            -20.54,
+            -21.63,
+            -22.74,
+            -22.73,
+            -20.95,
+            -20.48,
+            -20.3,
+            -20.27,
+            -21.42,
+            -22.6,
+            -22.51,
+            -23.68,
+            -24.85,
+            -25.95,
+            -24.09,
+            -25.22,
+            -23.39,
+            -22.44,
+            -20.69,
+            -18.94
           ]
         },
         {
@@ -3472,7 +3487,7 @@
               "n": 140,
               "windows": 2,
               "winRate": 0.4928571428571429,
-              "realizedPayoff": 1.1597004392188202,
+              "realizedPayoff": 1.1597004393449994,
               "plannedRR": 1.5,
               "maxHoldingBars": 20,
               "positiveWindowRate": 0.5
@@ -3725,21 +3740,21 @@
         },
         {
           "name": "Bollinger reversion in uptrend",
-          "expectancyR": 0.08,
+          "expectancyR": 0.07,
           "winRate": 46,
-          "profitFactor": 1.14,
-          "n": 121,
+          "profitFactor": 1.12,
+          "n": 122,
           "holds": false,
           "evidenceStatus": "PROMISING",
-          "expectancyLow95": -0.19,
-          "expectancyHigh95": 0.35,
+          "expectancyLow95": -0.2,
+          "expectancyHigh95": 0.34,
           "positiveWindowRate": 50,
           "walkForwardWindows": 2,
           "executionDrift": {
-            "n": 121,
+            "n": 122,
             "medianGapPct": 0,
             "medianAbsGapPct": 0.31,
-            "p90AbsGapPct": 1.41
+            "p90AbsGapPct": 1.4
           },
           "params": {
             "rrTarget": 3,
@@ -3765,10 +3780,10 @@
               "minPositiveWindowRate": 0.6666666666666666
             },
             "observed": {
-              "n": 121,
+              "n": 122,
               "windows": 2,
-              "winRate": 0.4628099173553719,
-              "realizedPayoff": 1.3202439693723607,
+              "winRate": 0.45901639344262296,
+              "realizedPayoff": 1.3196147479573903,
               "plannedRR": 3,
               "maxHoldingBars": 20,
               "positiveWindowRate": 0.5
@@ -3786,19 +3801,19 @@
             "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
             "validatedAlpha": false,
             "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-            "totalTrades": 121,
+            "totalTrades": 122,
             "unknownSentiment": 0,
             "bySide": {
               "long": {
-                "sourceN": 121,
-                "datedN": 121,
-                "blockedN": 91,
+                "sourceN": 122,
+                "datedN": 122,
+                "blockedN": 92,
                 "withoutFilter": {
-                  "n": 121,
-                  "winRatePct": 46.3,
-                  "avgR": 0.083,
-                  "totalR": 10.04,
-                  "profitFactor": 1.137
+                  "n": 122,
+                  "winRatePct": 45.9,
+                  "avgR": 0.073,
+                  "totalR": 8.88,
+                  "profitFactor": 1.12
                 },
                 "withFilter": {
                   "n": 30,
@@ -3808,11 +3823,11 @@
                   "profitFactor": 1.294
                 },
                 "blocked": {
-                  "n": 91,
-                  "winRatePct": 45.1,
-                  "avgR": 0.054,
-                  "totalR": 4.95,
-                  "profitFactor": 1.089
+                  "n": 92,
+                  "winRatePct": 44.6,
+                  "avgR": 0.041,
+                  "totalR": 3.79,
+                  "profitFactor": 1.067
                 },
                 "held2to4": {
                   "withoutFilter": {
@@ -3996,7 +4011,8 @@
             9.81,
             10.15,
             9.08,
-            10.04
+            10.04,
+            8.88
           ]
         },
         {
@@ -4206,17 +4222,17 @@
         {
           "name": "Burry filter — weak-stock rally short",
           "expectancyR": -0.29,
-          "winRate": 34,
-          "profitFactor": 0.52,
-          "n": 83,
+          "winRate": 33,
+          "profitFactor": 0.51,
+          "n": 84,
           "holds": false,
           "evidenceStatus": "WATCH",
-          "expectancyLow95": -0.51,
+          "expectancyLow95": -0.5,
           "expectancyHigh95": -0.07,
           "positiveWindowRate": 0,
           "walkForwardWindows": 2,
           "executionDrift": {
-            "n": 83,
+            "n": 84,
             "medianGapPct": 0,
             "medianAbsGapPct": 0.4,
             "p90AbsGapPct": 1.36
@@ -4245,10 +4261,10 @@
               "minPositiveWindowRate": 0.6666666666666666
             },
             "observed": {
-              "n": 83,
+              "n": 84,
               "windows": 2,
-              "winRate": 0.3373493975903614,
-              "realizedPayoff": 1.0138288637319839,
+              "winRate": 0.3333333333333333,
+              "realizedPayoff": 1.028588942154412,
               "plannedRR": 2.5,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -4267,7 +4283,7 @@
             "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
             "validatedAlpha": false,
             "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-            "totalTrades": 83,
+            "totalTrades": 84,
             "unknownSentiment": 0,
             "bySide": {
               "long": {
@@ -4313,22 +4329,22 @@
                 }
               },
               "short": {
-                "sourceN": 83,
-                "datedN": 83,
+                "sourceN": 84,
+                "datedN": 84,
                 "blockedN": 4,
                 "withoutFilter": {
-                  "n": 83,
-                  "winRatePct": 33.7,
-                  "avgR": -0.29,
-                  "totalR": -24.11,
-                  "profitFactor": 0.516
+                  "n": 84,
+                  "winRatePct": 33.3,
+                  "avgR": -0.289,
+                  "totalR": -24.29,
+                  "profitFactor": 0.514
                 },
                 "withFilter": {
-                  "n": 79,
-                  "winRatePct": 35.4,
-                  "avgR": -0.256,
-                  "totalR": -20.21,
-                  "profitFactor": 0.56
+                  "n": 80,
+                  "winRatePct": 35,
+                  "avgR": -0.255,
+                  "totalR": -20.39,
+                  "profitFactor": 0.558
                 },
                 "blocked": {
                   "n": 4,
@@ -4439,15 +4455,16 @@
             -24.96,
             -24.4,
             -22.97,
-            -24.11
+            -24.11,
+            -24.29
           ]
         },
         {
           "name": "The Big Short — broader weak-stock rally short",
           "expectancyR": -0.36,
-          "winRate": 34,
+          "winRate": 33,
           "profitFactor": 0.41,
-          "n": 155,
+          "n": 156,
           "holds": false,
           "evidenceStatus": "WATCH",
           "expectancyLow95": -0.5,
@@ -4455,9 +4472,9 @@
           "positiveWindowRate": 0,
           "walkForwardWindows": 2,
           "executionDrift": {
-            "n": 155,
+            "n": 156,
             "medianGapPct": 0,
-            "medianAbsGapPct": 0.36,
+            "medianAbsGapPct": 0.35,
             "p90AbsGapPct": 1.35
           },
           "params": {
@@ -4488,10 +4505,10 @@
               "minPositiveWindowRate": 0.6666666666666666
             },
             "observed": {
-              "n": 155,
+              "n": 156,
               "windows": 2,
-              "winRate": 0.33548387096774196,
-              "realizedPayoff": 0.8190669613065968,
+              "winRate": 0.3333333333333333,
+              "realizedPayoff": 0.8254630119931436,
               "plannedRR": 2,
               "maxHoldingBars": 10,
               "positiveWindowRate": 0
@@ -4509,7 +4526,7 @@
             "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
             "validatedAlpha": false,
             "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-            "totalTrades": 155,
+            "totalTrades": 156,
             "unknownSentiment": 0,
             "bySide": {
               "long": {
@@ -4555,22 +4572,22 @@
                 }
               },
               "short": {
-                "sourceN": 155,
-                "datedN": 155,
+                "sourceN": 156,
+                "datedN": 156,
                 "blockedN": 4,
                 "withoutFilter": {
-                  "n": 155,
-                  "winRatePct": 33.5,
-                  "avgR": -0.357,
-                  "totalR": -55.36,
-                  "profitFactor": 0.414
+                  "n": 156,
+                  "winRatePct": 33.3,
+                  "avgR": -0.356,
+                  "totalR": -55.54,
+                  "profitFactor": 0.413
                 },
                 "withFilter": {
-                  "n": 151,
-                  "winRatePct": 33.8,
-                  "avgR": -0.357,
-                  "totalR": -53.92,
-                  "profitFactor": 0.414
+                  "n": 152,
+                  "winRatePct": 33.6,
+                  "avgR": -0.356,
+                  "totalR": -54.1,
+                  "profitFactor": 0.413
                 },
                 "blocked": {
                   "n": 4,
@@ -4753,7 +4770,8 @@
             -57.78,
             -57.08,
             -56.17,
-            -55.36
+            -55.36,
+            -55.54
           ]
         }
       ],
@@ -4784,59 +4802,59 @@
       "ideaRadar": {
         "long": [
           {
-            "ticker": "AZN.ST",
-            "setup": "Trend pullback to 20EMA · RSI reset",
-            "direction": "long",
-            "entry": 1813.5,
-            "stop": 1756.56,
-            "target": 1984.31,
-            "rr": 3,
-            "barsAgo": 0,
-            "evidenceStatus": "WATCH",
-            "psychologyStatus": "WATCH",
-            "warnings": [
-              "NOT_VALIDATED_TO_80_3"
-            ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
-            "marketTrendGate": {
-              "status": "WATCH_CAUTION",
-              "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-23",
-              "tradeApproved": false,
-              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-            }
-          },
-          {
-            "ticker": "SKA-B.ST",
-            "setup": "Trend pullback to 20EMA · RSI reset",
-            "direction": "long",
-            "entry": 302.3,
-            "stop": 293.7,
-            "target": 328.1,
-            "rr": 3,
-            "barsAgo": 0,
-            "evidenceStatus": "WATCH",
-            "psychologyStatus": "WATCH",
-            "warnings": [
-              "NOT_VALIDATED_TO_80_3"
-            ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
-            "marketTrendGate": {
-              "status": "WATCH_CAUTION",
-              "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-23",
-              "tradeApproved": false,
-              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-            }
-          },
-          {
             "ticker": "ASSA-B.ST",
             "setup": "Trend pullback to 20EMA · RSI reset",
             "direction": "long",
             "entry": 390.9,
             "stop": 379.61,
-            "target": 424.77,
-            "rr": 3,
+            "target": 413.48,
+            "rr": 2,
+            "barsAgo": 0,
+            "evidenceStatus": "WATCH",
+            "psychologyStatus": "WATCH",
+            "warnings": [
+              "NOT_VALIDATED_TO_80_3"
+            ],
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-23",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
+          },
+          {
+            "ticker": "SWED-A.ST",
+            "setup": "Trend pullback to 20EMA · RSI reset",
+            "direction": "long",
+            "entry": 410.4,
+            "stop": 399.96,
+            "target": 431.28,
+            "rr": 2,
+            "barsAgo": 0,
+            "evidenceStatus": "WATCH",
+            "psychologyStatus": "WATCH",
+            "warnings": [
+              "NOT_VALIDATED_TO_80_3"
+            ],
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-23",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
+          },
+          {
+            "ticker": "ERIC-B.ST",
+            "setup": "Trend pullback to 20EMA · RSI reset",
+            "direction": "long",
+            "entry": 104.7,
+            "stop": 100.9,
+            "target": 112.29,
+            "rr": 2,
             "barsAgo": 0,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
@@ -4937,68 +4955,68 @@
         "policy": "Do not short when price/breadth proxy is FEAR or EXTREME_FEAR; do not open new longs in GREED or EXTREME_GREED; no optimization was performed.",
         "validatedAlpha": false,
         "featureSelection": "ex-post hypothesis on prior OOS strategy trades; requires future holdout",
-        "totalTrades": 764,
+        "totalTrades": 782,
         "unknownSentiment": 0,
         "bySide": {
           "long": {
-            "sourceN": 526,
-            "datedN": 526,
-            "blockedN": 451,
+            "sourceN": 542,
+            "datedN": 542,
+            "blockedN": 474,
             "withoutFilter": {
-              "n": 526,
-              "winRatePct": 44.9,
-              "avgR": 0.023,
-              "totalR": 11.93,
-              "profitFactor": 1.04
+              "n": 542,
+              "winRatePct": 42.4,
+              "avgR": -0.007,
+              "totalR": -3.9,
+              "profitFactor": 0.988
             },
             "withFilter": {
-              "n": 75,
-              "winRatePct": 41.3,
-              "avgR": -0.021,
-              "totalR": -1.61,
-              "profitFactor": 0.965
+              "n": 68,
+              "winRatePct": 41.2,
+              "avgR": -0.017,
+              "totalR": -1.15,
+              "profitFactor": 0.973
             },
             "blocked": {
-              "n": 451,
-              "winRatePct": 45.5,
-              "avgR": 0.03,
-              "totalR": 13.53,
-              "profitFactor": 1.054
+              "n": 474,
+              "winRatePct": 42.6,
+              "avgR": -0.006,
+              "totalR": -2.75,
+              "profitFactor": 0.99
             },
             "held2to4": {
               "withoutFilter": {
-                "n": 97,
-                "winRatePct": 16.5,
-                "avgR": -0.718,
-                "totalR": -69.6,
-                "profitFactor": 0.279
+                "n": 95,
+                "winRatePct": 13.7,
+                "avgR": -0.762,
+                "totalR": -72.37,
+                "profitFactor": 0.243
               },
               "withFilter": {
-                "n": 20,
-                "winRatePct": 30,
-                "avgR": -0.237,
-                "totalR": -4.73,
-                "profitFactor": 0.698
+                "n": 16,
+                "winRatePct": 25,
+                "avgR": -0.358,
+                "totalR": -5.73,
+                "profitFactor": 0.565
               }
             }
           },
           "short": {
-            "sourceN": 238,
-            "datedN": 238,
+            "sourceN": 240,
+            "datedN": 240,
             "blockedN": 8,
             "withoutFilter": {
-              "n": 238,
-              "winRatePct": 33.6,
-              "avgR": -0.334,
-              "totalR": -79.47,
-              "profitFactor": 0.449
+              "n": 240,
+              "winRatePct": 33.3,
+              "avgR": -0.333,
+              "totalR": -79.82,
+              "profitFactor": 0.448
             },
             "withFilter": {
-              "n": 230,
-              "winRatePct": 34.3,
-              "avgR": -0.322,
-              "totalR": -74.13,
-              "profitFactor": 0.463
+              "n": 232,
+              "winRatePct": 34.1,
+              "avgR": -0.321,
+              "totalR": -74.49,
+              "profitFactor": 0.461
             },
             "blocked": {
               "n": 8,
@@ -5106,1259 +5124,6 @@
       "setups": [
         {
           "dir": "long",
-          "ticker": "ASSA-B.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 12,
-          "rs": 90,
-          "entry": 390.9,
-          "stop": 379.61,
-          "target": 424.77,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 88,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 365.8,
-              "h": 369.8,
-              "l": 362,
-              "c": 369.5
-            },
-            {
-              "o": 369.8,
-              "h": 373.6,
-              "l": 368,
-              "c": 372.9
-            },
-            {
-              "o": 373.5,
-              "h": 381.4,
-              "l": 368.8,
-              "c": 381.3
-            },
-            {
-              "o": 380.2,
-              "h": 385,
-              "l": 379.6,
-              "c": 382.5
-            },
-            {
-              "o": 382.4,
-              "h": 387.3,
-              "l": 381,
-              "c": 386.8
-            },
-            {
-              "o": 385.9,
-              "h": 393.1,
-              "l": 383.9,
-              "c": 393.1
-            },
-            {
-              "o": 390,
-              "h": 396.6,
-              "l": 386.7,
-              "c": 396.3
-            },
-            {
-              "o": 390,
-              "h": 395.4,
-              "l": 387.6,
-              "c": 392.6
-            },
-            {
-              "o": 392.2,
-              "h": 401.9,
-              "l": 389.9,
-              "c": 398.7
-            },
-            {
-              "o": 400.7,
-              "h": 403.9,
-              "l": 399.5,
-              "c": 401.8
-            },
-            {
-              "o": 395,
-              "h": 395.5,
-              "l": 385.5,
-              "c": 394.6
-            },
-            {
-              "o": 392.6,
-              "h": 396.1,
-              "l": 391.9,
-              "c": 393
-            },
-            {
-              "o": 394.3,
-              "h": 394.6,
-              "l": 385.8,
-              "c": 388.7
-            },
-            {
-              "o": 389,
-              "h": 392.5,
-              "l": 387.1,
-              "c": 392.5
-            },
-            {
-              "o": 394.3,
-              "h": 397.8,
-              "l": 389,
-              "c": 394.8
-            },
-            {
-              "o": 394.4,
-              "h": 396.5,
-              "l": 393.1,
-              "c": 395.7
-            },
-            {
-              "o": 396.6,
-              "h": 398,
-              "l": 394.4,
-              "c": 396.5
-            },
-            {
-              "o": 395.1,
-              "h": 395.1,
-              "l": 387.2,
-              "c": 389.9
-            },
-            {
-              "o": 389.5,
-              "h": 390.4,
-              "l": 386.9,
-              "c": 387.4
-            },
-            {
-              "o": 390.4,
-              "h": 391.6,
-              "l": 386,
-              "c": 387.4
-            },
-            {
-              "o": 384.7,
-              "h": 385.2,
-              "l": 377.8,
-              "c": 380.2
-            },
-            {
-              "o": 379.9,
-              "h": 391.9,
-              "l": 379.9,
-              "c": 390.9
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "AZN.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 12,
-          "rs": 100,
-          "entry": 1813.5,
-          "stop": 1756.56,
-          "target": 1984.31,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 17,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 1713.5,
-              "h": 1715,
-              "l": 1682.5,
-              "c": 1692.5
-            },
-            {
-              "o": 1705,
-              "h": 1721,
-              "l": 1701.5,
-              "c": 1708
-            },
-            {
-              "o": 1708,
-              "h": 1712.5,
-              "l": 1685,
-              "c": 1698
-            },
-            {
-              "o": 1688.5,
-              "h": 1708,
-              "l": 1669,
-              "c": 1691
-            },
-            {
-              "o": 1694,
-              "h": 1732.5,
-              "l": 1691,
-              "c": 1720.5
-            },
-            {
-              "o": 1760,
-              "h": 1801,
-              "l": 1754.5,
-              "c": 1800
-            },
-            {
-              "o": 1800,
-              "h": 1821.5,
-              "l": 1794,
-              "c": 1814
-            },
-            {
-              "o": 1821.5,
-              "h": 1836,
-              "l": 1811,
-              "c": 1811
-            },
-            {
-              "o": 1813.5,
-              "h": 1849,
-              "l": 1783,
-              "c": 1842.5
-            },
-            {
-              "o": 1855,
-              "h": 1887,
-              "l": 1836.5,
-              "c": 1860.5
-            },
-            {
-              "o": 1817,
-              "h": 1839.5,
-              "l": 1781.5,
-              "c": 1838.5
-            },
-            {
-              "o": 1835,
-              "h": 1868,
-              "l": 1835,
-              "c": 1853.5
-            },
-            {
-              "o": 1855,
-              "h": 1860,
-              "l": 1833.5,
-              "c": 1838
-            },
-            {
-              "o": 1836.5,
-              "h": 1850,
-              "l": 1826.5,
-              "c": 1840
-            },
-            {
-              "o": 1851,
-              "h": 1862.5,
-              "l": 1839,
-              "c": 1848
-            },
-            {
-              "o": 1848,
-              "h": 1872,
-              "l": 1840.5,
-              "c": 1866
-            },
-            {
-              "o": 1867,
-              "h": 1890,
-              "l": 1860,
-              "c": 1870.5
-            },
-            {
-              "o": 1860,
-              "h": 1860,
-              "l": 1834.5,
-              "c": 1838
-            },
-            {
-              "o": 1840,
-              "h": 1851,
-              "l": 1817.5,
-              "c": 1823.5
-            },
-            {
-              "o": 1824,
-              "h": 1825.5,
-              "l": 1775.5,
-              "c": 1777.5
-            },
-            {
-              "o": 1790,
-              "h": 1811,
-              "l": 1784.5,
-              "c": 1796
-            },
-            {
-              "o": 1788,
-              "h": 1817,
-              "l": 1782,
-              "c": 1813.5
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "ESSITY-B.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
-          "typicalDays": 12,
-          "rs": 69,
-          "entry": 286.5,
-          "stop": 279.72,
-          "target": 306.83,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 147,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 276.2,
-              "h": 278.5,
-              "l": 274.7,
-              "c": 276.6
-            },
-            {
-              "o": 276.6,
-              "h": 276.7,
-              "l": 272.8,
-              "c": 276.3
-            },
-            {
-              "o": 274.5,
-              "h": 275,
-              "l": 272.1,
-              "c": 274.5
-            },
-            {
-              "o": 273.3,
-              "h": 275.4,
-              "l": 271.7,
-              "c": 274.5
-            },
-            {
-              "o": 275.6,
-              "h": 278.5,
-              "l": 274,
-              "c": 274
-            },
-            {
-              "o": 276.6,
-              "h": 280.7,
-              "l": 276.6,
-              "c": 280
-            },
-            {
-              "o": 278,
-              "h": 280.2,
-              "l": 277,
-              "c": 280
-            },
-            {
-              "o": 281,
-              "h": 281.7,
-              "l": 278.5,
-              "c": 280.8
-            },
-            {
-              "o": 281.6,
-              "h": 289.8,
-              "l": 279.6,
-              "c": 287
-            },
-            {
-              "o": 290,
-              "h": 293.8,
-              "l": 286.8,
-              "c": 292.5
-            },
-            {
-              "o": 287.7,
-              "h": 290.2,
-              "l": 285.3,
-              "c": 289.8
-            },
-            {
-              "o": 288.6,
-              "h": 290.3,
-              "l": 287.5,
-              "c": 288.7
-            },
-            {
-              "o": 289.8,
-              "h": 293.1,
-              "l": 288.9,
-              "c": 291.5
-            },
-            {
-              "o": 290.1,
-              "h": 291,
-              "l": 286.5,
-              "c": 286.5
-            },
-            {
-              "o": 288.1,
-              "h": 290.8,
-              "l": 288,
-              "c": 289.8
-            },
-            {
-              "o": 291,
-              "h": 293.2,
-              "l": 289.5,
-              "c": 292.4
-            },
-            {
-              "o": 293.1,
-              "h": 295.8,
-              "l": 292.5,
-              "c": 294.4
-            },
-            {
-              "o": 294.4,
-              "h": 294.7,
-              "l": 290.9,
-              "c": 291.2
-            },
-            {
-              "o": 290.6,
-              "h": 292,
-              "l": 289,
-              "c": 289.2
-            },
-            {
-              "o": 287.2,
-              "h": 288,
-              "l": 282.9,
-              "c": 285.2
-            },
-            {
-              "o": 287.3,
-              "h": 287.9,
-              "l": 285.6,
-              "c": 286.5
-            },
-            {
-              "o": 283.5,
-              "h": 287.9,
-              "l": 283,
-              "c": 287
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "NIBE-B.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Fri Nov 13 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 12,
-          "rs": 76,
-          "entry": 46.19,
-          "stop": 44.67,
-          "target": 50.75,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 657,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 44.42,
-              "h": 44.79,
-              "l": 44.01,
-              "c": 44.44
-            },
-            {
-              "o": 44.43,
-              "h": 44.84,
-              "l": 44.19,
-              "c": 44.84
-            },
-            {
-              "o": 44.75,
-              "h": 45.48,
-              "l": 44.46,
-              "c": 45.45
-            },
-            {
-              "o": 45.6,
-              "h": 46.28,
-              "l": 45.38,
-              "c": 45.63
-            },
-            {
-              "o": 45.63,
-              "h": 45.94,
-              "l": 45.2,
-              "c": 45.61
-            },
-            {
-              "o": 45.6,
-              "h": 45.88,
-              "l": 45.22,
-              "c": 45.56
-            },
-            {
-              "o": 45.41,
-              "h": 45.88,
-              "l": 45.16,
-              "c": 45.66
-            },
-            {
-              "o": 45.41,
-              "h": 46.36,
-              "l": 44.97,
-              "c": 46
-            },
-            {
-              "o": 45.92,
-              "h": 46.47,
-              "l": 45.08,
-              "c": 45.08
-            },
-            {
-              "o": 45.18,
-              "h": 46.44,
-              "l": 45.15,
-              "c": 46.03
-            },
-            {
-              "o": 45.2,
-              "h": 45.58,
-              "l": 44.71,
-              "c": 44.94
-            },
-            {
-              "o": 44.8,
-              "h": 45.03,
-              "l": 44.28,
-              "c": 44.8
-            },
-            {
-              "o": 44.92,
-              "h": 45.19,
-              "l": 44.73,
-              "c": 44.87
-            },
-            {
-              "o": 43.65,
-              "h": 44.75,
-              "l": 43.1,
-              "c": 44.74
-            },
-            {
-              "o": 44.87,
-              "h": 45.5,
-              "l": 44.87,
-              "c": 45.18
-            },
-            {
-              "o": 45.8,
-              "h": 46.28,
-              "l": 45.52,
-              "c": 46.19
-            },
-            {
-              "o": 46.3,
-              "h": 46.69,
-              "l": 45.85,
-              "c": 46.15
-            },
-            {
-              "o": 45.99,
-              "h": 46.7,
-              "l": 43.35,
-              "c": 44.4
-            },
-            {
-              "o": 44.5,
-              "h": 45.17,
-              "l": 44.11,
-              "c": 45.17
-            },
-            {
-              "o": 45.16,
-              "h": 45.78,
-              "l": 44.66,
-              "c": 44.66
-            },
-            {
-              "o": 44,
-              "h": 44.1,
-              "l": 43.23,
-              "c": 43.31
-            },
-            {
-              "o": 43.35,
-              "h": 44.55,
-              "l": 43.35,
-              "c": 44.46
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "SKA-B.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 12,
-          "rs": 93,
-          "entry": 302.3,
-          "stop": 293.7,
-          "target": 328.1,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 116,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 268,
-              "h": 270.7,
-              "l": 266.9,
-              "c": 270.7
-            },
-            {
-              "o": 270.7,
-              "h": 274.2,
-              "l": 270,
-              "c": 273.6
-            },
-            {
-              "o": 272,
-              "h": 278,
-              "l": 272,
-              "c": 277.6
-            },
-            {
-              "o": 277.9,
-              "h": 279.3,
-              "l": 276.5,
-              "c": 278.2
-            },
-            {
-              "o": 277.5,
-              "h": 282.9,
-              "l": 277.4,
-              "c": 282.7
-            },
-            {
-              "o": 282,
-              "h": 282.4,
-              "l": 280.3,
-              "c": 282.4
-            },
-            {
-              "o": 280.9,
-              "h": 285,
-              "l": 280.4,
-              "c": 283.9
-            },
-            {
-              "o": 281.3,
-              "h": 287.5,
-              "l": 281,
-              "c": 284.6
-            },
-            {
-              "o": 284.6,
-              "h": 290.8,
-              "l": 283.9,
-              "c": 286.4
-            },
-            {
-              "o": 286,
-              "h": 288.7,
-              "l": 279.3,
-              "c": 282.5
-            },
-            {
-              "o": 281.7,
-              "h": 288.9,
-              "l": 279.8,
-              "c": 288.5
-            },
-            {
-              "o": 287.2,
-              "h": 295,
-              "l": 287.2,
-              "c": 294.8
-            },
-            {
-              "o": 297.5,
-              "h": 302.7,
-              "l": 297.2,
-              "c": 301.9
-            },
-            {
-              "o": 301.9,
-              "h": 305.1,
-              "l": 301,
-              "c": 305
-            },
-            {
-              "o": 303,
-              "h": 307,
-              "l": 302.9,
-              "c": 305.3
-            },
-            {
-              "o": 305,
-              "h": 307.6,
-              "l": 304.4,
-              "c": 306
-            },
-            {
-              "o": 306,
-              "h": 308.8,
-              "l": 305.7,
-              "c": 307
-            },
-            {
-              "o": 306.3,
-              "h": 306.3,
-              "l": 302.2,
-              "c": 304.4
-            },
-            {
-              "o": 304.7,
-              "h": 306,
-              "l": 301.3,
-              "c": 302.4
-            },
-            {
-              "o": 304,
-              "h": 305,
-              "l": 301.2,
-              "c": 302.7
-            },
-            {
-              "o": 299.9,
-              "h": 299.9,
-              "l": 292.6,
-              "c": 293.8
-            },
-            {
-              "o": 295,
-              "h": 302.9,
-              "l": 295,
-              "c": 302.3
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "SWED-A.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Thu Nov 19 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
-          "typicalDays": 12,
-          "rs": 86,
-          "entry": 412.4,
-          "stop": 402.47,
-          "target": 442.2,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 100,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 380.3,
-              "h": 381.8,
-              "l": 373.3,
-              "c": 379
-            },
-            {
-              "o": 381.1,
-              "h": 383.7,
-              "l": 379.4,
-              "c": 381.7
-            },
-            {
-              "o": 380.6,
-              "h": 388,
-              "l": 379.2,
-              "c": 387.7
-            },
-            {
-              "o": 387.9,
-              "h": 391.5,
-              "l": 387.7,
-              "c": 391.3
-            },
-            {
-              "o": 391.3,
-              "h": 394.6,
-              "l": 389.9,
-              "c": 390.4
-            },
-            {
-              "o": 389,
-              "h": 389.2,
-              "l": 385.4,
-              "c": 388.5
-            },
-            {
-              "o": 386.1,
-              "h": 388.8,
-              "l": 384.7,
-              "c": 388.8
-            },
-            {
-              "o": 386.9,
-              "h": 393.3,
-              "l": 385.1,
-              "c": 392
-            },
-            {
-              "o": 393.3,
-              "h": 402.9,
-              "l": 392.5,
-              "c": 402.2
-            },
-            {
-              "o": 402.2,
-              "h": 409.8,
-              "l": 402,
-              "c": 406.2
-            },
-            {
-              "o": 400.7,
-              "h": 405.2,
-              "l": 399.6,
-              "c": 401.8
-            },
-            {
-              "o": 402.8,
-              "h": 413.9,
-              "l": 402.2,
-              "c": 413.9
-            },
-            {
-              "o": 416.9,
-              "h": 419.2,
-              "l": 415.6,
-              "c": 418.3
-            },
-            {
-              "o": 420,
-              "h": 420.7,
-              "l": 417.1,
-              "c": 419.3
-            },
-            {
-              "o": 419.6,
-              "h": 422.1,
-              "l": 418.8,
-              "c": 420.7
-            },
-            {
-              "o": 421.1,
-              "h": 424.8,
-              "l": 420.2,
-              "c": 423.9
-            },
-            {
-              "o": 423.1,
-              "h": 424.6,
-              "l": 418.2,
-              "c": 421.5
-            },
-            {
-              "o": 419.5,
-              "h": 422.5,
-              "l": 416.7,
-              "c": 418.1
-            },
-            {
-              "o": 418.1,
-              "h": 419.9,
-              "l": 410.3,
-              "c": 410.5
-            },
-            {
-              "o": 412.1,
-              "h": 415,
-              "l": 410.9,
-              "c": 412.4
-            },
-            {
-              "o": 409.5,
-              "h": 410.4,
-              "l": 402.5,
-              "c": 403.5
-            },
-            {
-              "o": 403.8,
-              "h": 411.8,
-              "l": 403.7,
-              "c": 410.4
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "TELIA.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
-          "typicalDays": 12,
-          "rs": 97,
-          "entry": 49.45,
-          "stop": 48.19,
-          "target": 53.23,
-          "rr": 3,
-          "maxBars": 15,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 793,
-          "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 47.8,
-              "h": 48.24,
-              "l": 47.2,
-              "c": 48.23
-            },
-            {
-              "o": 48.24,
-              "h": 48.26,
-              "l": 47.58,
-              "c": 47.83
-            },
-            {
-              "o": 47.8,
-              "h": 48.06,
-              "l": 47.16,
-              "c": 47.89
-            },
-            {
-              "o": 46.9,
-              "h": 48,
-              "l": 46.4,
-              "c": 48
-            },
-            {
-              "o": 48.17,
-              "h": 48.68,
-              "l": 48.17,
-              "c": 48.4
-            },
-            {
-              "o": 48.7,
-              "h": 49.37,
-              "l": 48.6,
-              "c": 49.37
-            },
-            {
-              "o": 49.27,
-              "h": 49.37,
-              "l": 48.43,
-              "c": 48.88
-            },
-            {
-              "o": 49.3,
-              "h": 49.52,
-              "l": 48.76,
-              "c": 49.03
-            },
-            {
-              "o": 49.11,
-              "h": 49.78,
-              "l": 48.78,
-              "c": 49.57
-            },
-            {
-              "o": 49.8,
-              "h": 50.1,
-              "l": 49.17,
-              "c": 49.78
-            },
-            {
-              "o": 49.58,
-              "h": 49.66,
-              "l": 48.56,
-              "c": 49.1
-            },
-            {
-              "o": 49.04,
-              "h": 49.14,
-              "l": 48.79,
-              "c": 48.95
-            },
-            {
-              "o": 48.83,
-              "h": 49.04,
-              "l": 48.55,
-              "c": 48.81
-            },
-            {
-              "o": 48.54,
-              "h": 48.99,
-              "l": 48.5,
-              "c": 48.98
-            },
-            {
-              "o": 49.25,
-              "h": 49.64,
-              "l": 49.04,
-              "c": 49.35
-            },
-            {
-              "o": 49.46,
-              "h": 49.93,
-              "l": 49.1,
-              "c": 49.89
-            },
-            {
-              "o": 50.5,
-              "h": 50.6,
-              "l": 49.91,
-              "c": 50.34
-            },
-            {
-              "o": 50.34,
-              "h": 50.64,
-              "l": 49.88,
-              "c": 50.04
-            },
-            {
-              "o": 50.02,
-              "h": 50.12,
-              "l": 49.37,
-              "c": 49.49
-            },
-            {
-              "o": 49.36,
-              "h": 49.38,
-              "l": 48.65,
-              "c": 48.79
-            },
-            {
-              "o": 49.06,
-              "h": 49.47,
-              "l": 48.9,
-              "c": 49.45
-            },
-            {
-              "o": 49.75,
-              "h": 50.28,
-              "l": 49.38,
-              "c": 49.73
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-23",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
           "ticker": "ADDT-B.ST",
           "setup": "Trend pullback to 20EMA · RSI reset",
           "grade": "WATCH",
@@ -6375,10 +5140,10 @@
           ],
           "validatedEdge": false,
           "regimeAligned": true,
-          "proposalSource": "market-wf",
+          "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
-          "typicalDays": 12,
+          "typicalDays": 13,
           "rs": 38,
           "entry": 326.2,
           "stop": 314.59,
@@ -6389,9 +5154,9 @@
           "ledgerMode": "published-levels",
           "size": 86,
           "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
           },
           "above200": false,
           "chart": [
@@ -6538,6 +5303,185 @@
         },
         {
           "dir": "long",
+          "ticker": "ASSA-B.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 0,
+          "typicalDays": 13,
+          "rs": 90,
+          "entry": 390.9,
+          "stop": 379.61,
+          "target": 413.48,
+          "rr": 2,
+          "maxBars": 15,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 88,
+          "edge": {
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
+          },
+          "above200": true,
+          "chart": [
+            {
+              "o": 365.8,
+              "h": 369.8,
+              "l": 362,
+              "c": 369.5
+            },
+            {
+              "o": 369.8,
+              "h": 373.6,
+              "l": 368,
+              "c": 372.9
+            },
+            {
+              "o": 373.5,
+              "h": 381.4,
+              "l": 368.8,
+              "c": 381.3
+            },
+            {
+              "o": 380.2,
+              "h": 385,
+              "l": 379.6,
+              "c": 382.5
+            },
+            {
+              "o": 382.4,
+              "h": 387.3,
+              "l": 381,
+              "c": 386.8
+            },
+            {
+              "o": 385.9,
+              "h": 393.1,
+              "l": 383.9,
+              "c": 393.1
+            },
+            {
+              "o": 390,
+              "h": 396.6,
+              "l": 386.7,
+              "c": 396.3
+            },
+            {
+              "o": 390,
+              "h": 395.4,
+              "l": 387.6,
+              "c": 392.6
+            },
+            {
+              "o": 392.2,
+              "h": 401.9,
+              "l": 389.9,
+              "c": 398.7
+            },
+            {
+              "o": 400.7,
+              "h": 403.9,
+              "l": 399.5,
+              "c": 401.8
+            },
+            {
+              "o": 395,
+              "h": 395.5,
+              "l": 385.5,
+              "c": 394.6
+            },
+            {
+              "o": 392.6,
+              "h": 396.1,
+              "l": 391.9,
+              "c": 393
+            },
+            {
+              "o": 394.3,
+              "h": 394.6,
+              "l": 385.8,
+              "c": 388.7
+            },
+            {
+              "o": 389,
+              "h": 392.5,
+              "l": 387.1,
+              "c": 392.5
+            },
+            {
+              "o": 394.3,
+              "h": 397.8,
+              "l": 389,
+              "c": 394.8
+            },
+            {
+              "o": 394.4,
+              "h": 396.5,
+              "l": 393.1,
+              "c": 395.7
+            },
+            {
+              "o": 396.6,
+              "h": 398,
+              "l": 394.4,
+              "c": 396.5
+            },
+            {
+              "o": 395.1,
+              "h": 395.1,
+              "l": 387.2,
+              "c": 389.9
+            },
+            {
+              "o": 389.5,
+              "h": 390.4,
+              "l": 386.9,
+              "c": 387.4
+            },
+            {
+              "o": 390.4,
+              "h": 391.6,
+              "l": 386,
+              "c": 387.4
+            },
+            {
+              "o": 384.7,
+              "h": 385.2,
+              "l": 377.8,
+              "c": 380.2
+            },
+            {
+              "o": 379.9,
+              "h": 391.9,
+              "l": 379.9,
+              "c": 390.9
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-23",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "long",
           "ticker": "ERIC-B.ST",
           "setup": "Trend pullback to 20EMA · RSI reset",
           "grade": "WATCH",
@@ -6554,10 +5498,10 @@
           ],
           "validatedEdge": false,
           "regimeAligned": true,
-          "proposalSource": "market-wf",
+          "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
-          "typicalDays": 12,
+          "typicalDays": 13,
           "rs": 83,
           "entry": 104.7,
           "stop": 100.9,
@@ -6568,9 +5512,9 @@
           "ledgerMode": "published-levels",
           "size": 263,
           "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
           },
           "above200": true,
           "chart": [
@@ -6717,6 +5661,185 @@
         },
         {
           "dir": "long",
+          "ticker": "NIBE-B.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Wed Nov 18 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 3,
+          "typicalDays": 13,
+          "rs": 76,
+          "entry": 45.17,
+          "stop": 43.43,
+          "target": 48.65,
+          "rr": 2,
+          "maxBars": 15,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 574,
+          "edge": {
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
+          },
+          "above200": true,
+          "chart": [
+            {
+              "o": 44.42,
+              "h": 44.79,
+              "l": 44.01,
+              "c": 44.44
+            },
+            {
+              "o": 44.43,
+              "h": 44.84,
+              "l": 44.19,
+              "c": 44.84
+            },
+            {
+              "o": 44.75,
+              "h": 45.48,
+              "l": 44.46,
+              "c": 45.45
+            },
+            {
+              "o": 45.6,
+              "h": 46.28,
+              "l": 45.38,
+              "c": 45.63
+            },
+            {
+              "o": 45.63,
+              "h": 45.94,
+              "l": 45.2,
+              "c": 45.61
+            },
+            {
+              "o": 45.6,
+              "h": 45.88,
+              "l": 45.22,
+              "c": 45.56
+            },
+            {
+              "o": 45.41,
+              "h": 45.88,
+              "l": 45.16,
+              "c": 45.66
+            },
+            {
+              "o": 45.41,
+              "h": 46.36,
+              "l": 44.97,
+              "c": 46
+            },
+            {
+              "o": 45.92,
+              "h": 46.47,
+              "l": 45.08,
+              "c": 45.08
+            },
+            {
+              "o": 45.18,
+              "h": 46.44,
+              "l": 45.15,
+              "c": 46.03
+            },
+            {
+              "o": 45.2,
+              "h": 45.58,
+              "l": 44.71,
+              "c": 44.94
+            },
+            {
+              "o": 44.8,
+              "h": 45.03,
+              "l": 44.28,
+              "c": 44.8
+            },
+            {
+              "o": 44.92,
+              "h": 45.19,
+              "l": 44.73,
+              "c": 44.87
+            },
+            {
+              "o": 43.65,
+              "h": 44.75,
+              "l": 43.1,
+              "c": 44.74
+            },
+            {
+              "o": 44.87,
+              "h": 45.5,
+              "l": 44.87,
+              "c": 45.18
+            },
+            {
+              "o": 45.8,
+              "h": 46.28,
+              "l": 45.52,
+              "c": 46.19
+            },
+            {
+              "o": 46.3,
+              "h": 46.69,
+              "l": 45.85,
+              "c": 46.15
+            },
+            {
+              "o": 45.99,
+              "h": 46.7,
+              "l": 43.35,
+              "c": 44.4
+            },
+            {
+              "o": 44.5,
+              "h": 45.17,
+              "l": 44.11,
+              "c": 45.17
+            },
+            {
+              "o": 45.16,
+              "h": 45.78,
+              "l": 44.66,
+              "c": 44.66
+            },
+            {
+              "o": 44,
+              "h": 44.1,
+              "l": 43.23,
+              "c": 43.31
+            },
+            {
+              "o": 43.35,
+              "h": 44.55,
+              "l": 43.35,
+              "c": 44.46
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-23",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "long",
           "ticker": "SKF-B.ST",
           "setup": "Trend pullback to 20EMA · RSI reset",
           "grade": "WATCH",
@@ -6733,10 +5856,10 @@
           ],
           "validatedEdge": false,
           "regimeAligned": true,
-          "proposalSource": "market-wf",
+          "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 19 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 2,
-          "typicalDays": 12,
+          "typicalDays": 13,
           "rs": 52,
           "entry": 274.7,
           "stop": 265.36,
@@ -6747,9 +5870,9 @@
           "ledgerMode": "published-levels",
           "size": 107,
           "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
           },
           "above200": true,
           "chart": [
@@ -6912,10 +6035,10 @@
           ],
           "validatedEdge": false,
           "regimeAligned": true,
-          "proposalSource": "market-wf",
+          "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
-          "typicalDays": 12,
+          "typicalDays": 13,
           "rs": 79,
           "entry": 160.15,
           "stop": 156.55,
@@ -6926,9 +6049,9 @@
           "ledgerMode": "published-levels",
           "size": 277,
           "edge": {
-            "expectancyR": -0.02,
-            "winRate": 46,
-            "sample": 218
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
           },
           "above200": true,
           "chart": [
@@ -7063,6 +6186,185 @@
               "h": 160.75,
               "l": 158.9,
               "c": 160.15
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-23",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "long",
+          "ticker": "SWED-A.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 0,
+          "typicalDays": 13,
+          "rs": 86,
+          "entry": 410.4,
+          "stop": 399.96,
+          "target": 431.28,
+          "rr": 2,
+          "maxBars": 15,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 95,
+          "edge": {
+            "expectancyR": -0.08,
+            "winRate": 40,
+            "sample": 233
+          },
+          "above200": true,
+          "chart": [
+            {
+              "o": 380.3,
+              "h": 381.8,
+              "l": 373.3,
+              "c": 379
+            },
+            {
+              "o": 381.1,
+              "h": 383.7,
+              "l": 379.4,
+              "c": 381.7
+            },
+            {
+              "o": 380.6,
+              "h": 388,
+              "l": 379.2,
+              "c": 387.7
+            },
+            {
+              "o": 387.9,
+              "h": 391.5,
+              "l": 387.7,
+              "c": 391.3
+            },
+            {
+              "o": 391.3,
+              "h": 394.6,
+              "l": 389.9,
+              "c": 390.4
+            },
+            {
+              "o": 389,
+              "h": 389.2,
+              "l": 385.4,
+              "c": 388.5
+            },
+            {
+              "o": 386.1,
+              "h": 388.8,
+              "l": 384.7,
+              "c": 388.8
+            },
+            {
+              "o": 386.9,
+              "h": 393.3,
+              "l": 385.1,
+              "c": 392
+            },
+            {
+              "o": 393.3,
+              "h": 402.9,
+              "l": 392.5,
+              "c": 402.2
+            },
+            {
+              "o": 402.2,
+              "h": 409.8,
+              "l": 402,
+              "c": 406.2
+            },
+            {
+              "o": 400.7,
+              "h": 405.2,
+              "l": 399.6,
+              "c": 401.8
+            },
+            {
+              "o": 402.8,
+              "h": 413.9,
+              "l": 402.2,
+              "c": 413.9
+            },
+            {
+              "o": 416.9,
+              "h": 419.2,
+              "l": 415.6,
+              "c": 418.3
+            },
+            {
+              "o": 420,
+              "h": 420.7,
+              "l": 417.1,
+              "c": 419.3
+            },
+            {
+              "o": 419.6,
+              "h": 422.1,
+              "l": 418.8,
+              "c": 420.7
+            },
+            {
+              "o": 421.1,
+              "h": 424.8,
+              "l": 420.2,
+              "c": 423.9
+            },
+            {
+              "o": 423.1,
+              "h": 424.6,
+              "l": 418.2,
+              "c": 421.5
+            },
+            {
+              "o": 419.5,
+              "h": 422.5,
+              "l": 416.7,
+              "c": 418.1
+            },
+            {
+              "o": 418.1,
+              "h": 419.9,
+              "l": 410.3,
+              "c": 410.5
+            },
+            {
+              "o": 412.1,
+              "h": 415,
+              "l": 410.9,
+              "c": 412.4
+            },
+            {
+              "o": 409.5,
+              "h": 410.4,
+              "l": 402.5,
+              "c": 403.5
+            },
+            {
+              "o": 403.8,
+              "h": 411.8,
+              "l": 403.7,
+              "c": 410.4
             }
           ],
           "marketTrendGate": {
@@ -7645,9 +6947,9 @@
           "ledgerMode": "published-levels",
           "size": 92,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -7824,9 +7126,9 @@
           "ledgerMode": "published-levels",
           "size": 87,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": false,
           "chart": [
@@ -8003,9 +7305,9 @@
           "ledgerMode": "published-levels",
           "size": 274,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -8182,9 +7484,9 @@
           "ledgerMode": "published-levels",
           "size": 312,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -8361,9 +7663,9 @@
           "ledgerMode": "published-levels",
           "size": 72,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -8540,9 +7842,9 @@
           "ledgerMode": "published-levels",
           "size": 101,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -8719,9 +8021,9 @@
           "ledgerMode": "published-levels",
           "size": 564,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -8898,9 +8200,9 @@
           "ledgerMode": "published-levels",
           "size": 30,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": false,
           "chart": [
@@ -9077,9 +8379,9 @@
           "ledgerMode": "published-levels",
           "size": 98,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -9256,9 +8558,9 @@
           "ledgerMode": "published-levels",
           "size": 291,
           "edge": {
-            "expectancyR": 0.08,
+            "expectancyR": 0.07,
             "winRate": 46,
-            "sample": 121
+            "sample": 122
           },
           "above200": true,
           "chart": [
@@ -9437,8 +8739,8 @@
           "size": 45,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -9617,8 +8919,8 @@
           "size": 90,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": true,
           "chart": [
@@ -9797,8 +9099,8 @@
           "size": 27,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -9977,8 +9279,8 @@
           "size": 72,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -10157,8 +9459,8 @@
           "size": 23,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -10337,8 +9639,8 @@
           "size": 48,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -10517,8 +9819,8 @@
           "size": 179,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -10697,8 +9999,8 @@
           "size": 78,
           "edge": {
             "expectancyR": -0.29,
-            "winRate": 34,
-            "sample": 83
+            "winRate": 33,
+            "sample": 84
           },
           "above200": false,
           "chart": [
@@ -10876,8 +10178,8 @@
           "size": 20,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -11055,8 +10357,8 @@
           "size": 64,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -11234,8 +10536,8 @@
           "size": 45,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -11413,8 +10715,8 @@
           "size": 90,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": true,
           "chart": [
@@ -11592,8 +10894,8 @@
           "size": 27,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -11771,8 +11073,8 @@
           "size": 50,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": true,
           "chart": [
@@ -11950,8 +11252,8 @@
           "size": 72,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -12129,8 +11431,8 @@
           "size": 158,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": true,
           "chart": [
@@ -12308,8 +11610,8 @@
           "size": 49,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -12487,8 +11789,8 @@
           "size": 131,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": true,
           "chart": [
@@ -12666,8 +11968,8 @@
           "size": 183,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -12845,8 +12147,8 @@
           "size": 78,
           "edge": {
             "expectancyR": -0.36,
-            "winRate": 34,
-            "sample": 155
+            "winRate": 33,
+            "sample": 156
           },
           "above200": false,
           "chart": [
@@ -13044,8 +12346,8 @@
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
       "trackRecordSource": "proposal-ledger-v3-quoted-ohlc",
-      "dataStatus": "CURRENT_CACHED",
-      "dataWarning": "Previous verified completed session reused after an upstream refresh failed; no newly fetched quote"
+      "dataStatus": "CURRENT",
+      "dataWarning": null
     }
   },
   "publication": {
@@ -13062,10 +12364,5 @@
       "status": "CURRENT"
     }
   },
-  "sourceIssues": [
-    {
-      "market": "SE",
-      "reason": "[DATA_NOT_READY] SE kräver samma avslutade session som index (2026-11-23), men 30 symboler avviker: ABB.ST=2026-11-20, ADDT-B.ST=2026-11-20, ALFA.ST=2026-11-20, ASSA-B.ST=2026-11-20, AZN.ST=2026-11-20, ATCO-A.ST=2026-11-20, BOL.ST=2026-11-20, EPI-A.ST=2026-11-20, EQT.ST=2026-11-20, ERIC-B.ST=2026-11-20, ESSITY-B.ST=2026-11-20, EVO.ST=2026-11-20"
-    }
-  ]
+  "sourceIssues": []
 }
