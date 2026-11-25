@@ -1,0 +1,31 @@
+"use strict";
+const test=require("node:test"), assert=require("node:assert/strict");
+const {MANDATE,mandateStatus,estimateInstrumentStake}=require("./risk-mandate-20261125");
+test("8x 20/40 mandate has a fixed earlier-of end condition and no auto order",()=>{
+ assert.equal(MANDATE.targetEntryLeverage,8);
+ assert.equal(MANDATE.illustrativeInstrumentStopPct,20);
+ assert.equal(MANDATE.illustrativeInstrumentTargetPct,40);
+ assert.equal(MANDATE.manualBoardApprovalRequired,true);
+ assert.equal(mandateStatus({day:"2026-11-25",navSEK:5000}),"HALTED_NO_NEW_TRADES");
+ assert.equal(mandateStatus({day:"2026-11-27",navSEK:5000}),"HALTED_NO_NEW_TRADES");
+ assert.equal(mandateStatus({day:"2026-11-30",navSEK:5000}),"BOARD_REVIEW_REQUIRED");
+ assert.equal(mandateStatus({day:"2027-06-30",navSEK:999999}),"BOARD_REVIEW_REQUIRED");
+ assert.equal(mandateStatus({day:"2027-07-01",navSEK:5000}),"EXPIRED_DATE");
+ assert.equal(mandateStatus({day:"2026-12-01",navSEK:1000000}),"EXPIRED_MILLION_REACHED");
+ assert.equal(mandateStatus({day:"2027-03-01",navSEK:5000,hasEverReachedMillion:true}),"EXPIRED_MILLION_REACHED");
+});
+test("4% NAV risk includes explicit full round-trip friction",()=>{
+ const free=estimateInstrumentStake({navSEK:5000});
+ assert.equal(free.maxPlannedLossSEK,200);
+ assert.equal(free.maxIllustrativeStakeSEK,1000);
+ assert.equal(free.estimatedAllInLossSEK,200);
+ const cost=estimateInstrumentStake({navSEK:5000,roundTripFrictionSEK:38});
+ assert.equal(cost.maxIllustrativeStakeSEK,810);
+ assert.equal(cost.nominalStopLossSEK,162);
+ assert.equal(cost.estimatedAllInLossSEK,200);
+ assert.equal(cost.estimatedNetTargetProfitSEK,286);
+ assert.equal(cost.underlyingStopMovePctAtEntryLeverage,2.5);
+ assert.equal(estimateInstrumentStake({navSEK:5000,roundTripFrictionSEK:201}).maxIllustrativeStakeSEK,0);
+ assert.throws(()=>estimateInstrumentStake({navSEK:0}),/Valid NAV/);
+ assert.throws(()=>mandateStatus({day:"2026-02-30",navSEK:5000}),/Valid dated/);
+});
