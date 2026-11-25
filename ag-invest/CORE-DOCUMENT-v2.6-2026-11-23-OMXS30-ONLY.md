@@ -1,4 +1,6 @@
 # AG INVEST — CORE DOCUMENT v2.6 · OMXS30-ONLY
+> **HISTORISK VERSION:** Riskreglerna om normal hävstång 4× / villkorad upptrappning är ersatta av ägarens 25 november-beslut i [Core Document v2.7](./CORE-DOCUMENT-v2.7-2026-11-25-8X-20SL-40TP.md). Gamla regler bevaras här som historik, inte som dagens riskmandat.
+
 **Beslut:** 23 november 2026 · **Fasstart:** 23 november 2026 · **Projektslut:** 1 januari 2030 · **Status:** OMXS30-only ersätter äldre mandat om Nasdaq 100, USA-affärer och andra svenska aktier; historik och redan genomförda affärer bevaras.
 
 ## 0. NYTT OÅTERKALLELIGT-INOM-DETTA-DOKUMENT MANDAT (kan ändras bara genom ett nytt ägarbeslut)
