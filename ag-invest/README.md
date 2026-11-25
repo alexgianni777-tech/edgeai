@@ -1,4 +1,10 @@
-# AG Invest – rapportjournal (v1)
+# AG Invest – styrning och historisk rapportjournal
+
+**Aktuellt styrdokument:** [Core v2.7 – OMXS30, 8× / −20 % / +40 %](./CORE-DOCUMENT-v2.7-2026-11-25-8X-20SL-40TP.md). Ägarbeslut 25 november 2026. Det ursprungliga materialet nedan beskriver endast historiska rapportjournaler; inga nya rapporttrades tillåts innan kapitalgränsen och separat styrelsebeslut. Core v2.7 och senare uttryckliga ägarbeslut har företräde.
+
+**Tillfälligt mandat:** 8× som eftersträvad ingångshävstång för godkända mini futures; planerad instrumentstop −20 %, mål +40 %, 4 % maximal planerad kontorisk inklusive uppskattad spread/slippage/avgifter. Gäller till juni 2027 eller till kontot första gången når 1 Mkr, det som inträffar först. Ingen autoorder. Handelsstopp 23–27 november 2026 kvarstår.
+
+**Manual riskkalkyl:** `risk-mandate-20261125.js` är en konservativ *illustration*, inte köp-/säljorder. Instrumentvillkor och styrelsebeslut är alltid obligatoriska.
 
 Syfte: dokumentera hypoteser före rapport, undvika efterhandskonstruktion och mäta om rapportkedjor har positivt förväntat värde efter kostnader.
 
@@ -19,7 +25,7 @@ Syfte: dokumentera hypoteser före rapport, undvika efterhandskonstruktion och m
 - Jämför även mot en enkel referensstrategi och mot perioder utan affärer.
 
 ## Risk och tolkning
-20 % per vecka är ett **aspirationsmål**, inte en statistiskt verifierad förväntan. 100 % är ett extremt scenario, inte en normalbudget. Att en aktie rör sig 10 % och ett instrument ger 100 % betyder inte att hela portföljen gör det. Stoppar, warranter och mini futures kan ge förlust av hela insatsen. Ingen automatisk orderläggning. Ingen Replit.
+**10 % netto per vecka** är AG Invests offensiva aspirationsmål, inte en statistiskt verifierad förväntan. 100 % är ett extremt scenario, inte en normalbudget. Att en aktie rör sig 10 % och ett instrument ger 100 % betyder inte att hela portföljen gör det. Stoppar, warranter och mini futures kan ge förlust av hela insatsen. Ingen automatisk orderläggning. Replit är enbart forsknings- och journalplattform, inte ett mäklarsystem.
 
 ## Journalformat
 Använd `ag-invest/trades-template.csv`. En rad per idé/affär. Lämna okända fält tomma, aldrig påhittade värden. `status`: WATCH, READY, OPEN, CLOSED, REJECTED. `direction`: LONG eller SHORT. `decision`: AVVAKTA, KÖP, SHORT, BEHÅLL, STÄNG.
