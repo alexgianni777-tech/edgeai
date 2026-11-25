@@ -142,6 +142,7 @@ require("./fill-model-tests");
 require("./elite-gate-tests");
 require("./market-psychology-tests");
 require("./ag-invest/risk-card-tests");
+require("./ag-invest/risk-mandate-20261125-tests");
 require("./sentiment-study-tests");
 require("./data-freshness-tests")().then(() =>
   console.log("EdgeAI regression tests passed")
