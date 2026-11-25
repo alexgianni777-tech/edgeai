@@ -1,10 +1,10 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-24T22:45:04.008Z",
+  "generatedAt": "2026-11-25T05:41:21.183Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-24",
-  "scopeDecisionDate": "2026-11-24",
+  "scopeDecisionDate": "2026-11-25",
   "temporaryIndexExceptions": [],
   "markets": {
     "US": {
@@ -11628,8 +11628,8 @@
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
       "trackRecordSource": "proposal-ledger-v3-quoted-ohlc",
-      "dataStatus": "CURRENT",
-      "dataWarning": null
+      "dataStatus": "CURRENT_CACHED",
+      "dataWarning": "Previous verified completed session reused after an upstream refresh failed; no newly fetched quote"
     }
   },
   "publication": {
@@ -11646,5 +11646,10 @@
       "status": "CURRENT"
     }
   },
-  "sourceIssues": []
+  "sourceIssues": [
+    {
+      "market": "SE",
+      "reason": "[DATA_NOT_READY] SE kräver samma avslutade session som index (2026-11-24), men 30 symboler avviker: ABB.ST=2026-11-23, ADDT-B.ST=2026-11-23, ALFA.ST=2026-11-23, ASSA-B.ST=2026-11-23, AZN.ST=2026-11-23, ATCO-A.ST=2026-11-23, BOL.ST=2026-11-23, EPI-A.ST=2026-11-23, EQT.ST=2026-11-23, ERIC-B.ST=2026-11-23, ESSITY-B.ST=2026-11-23, EVO.ST=2026-11-23"
+    }
+  ]
 }
