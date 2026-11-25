@@ -1,9 +1,9 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-25T17:09:41.181Z",
+  "generatedAt": "2026-11-25T19:33:17.408Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
-  "scopeAsOf": "2026-11-24",
+  "scopeAsOf": "2026-11-25",
   "scopeDecisionDate": "2026-11-25",
   "temporaryIndexExceptions": [],
   "markets": {
@@ -3031,14 +3031,14 @@
     "SE": {
       "label": "Sweden",
       "currency": "kr",
-      "dataAsOf": "2026-11-24",
+      "dataAsOf": "2026-11-25",
       "indexSnapshot": {
         "symbol": "^OMX",
         "source": "YAHOO_FINANCE",
         "priceType": "COMPLETED_DAILY_CLOSE",
-        "asOf": "2026-11-24",
-        "close": 3214.14,
-        "fetchedAt": "2026-11-25T17:09:41.181Z"
+        "asOf": "2026-11-25",
+        "close": 3188.11,
+        "fetchedAt": "2026-11-25T19:33:17.408Z"
       },
       "edge": {
         "expectancyR": 0,
@@ -4778,23 +4778,23 @@
       "psychology": {
         "source": "PRICE_BREADTH_PROXY",
         "status": "OK",
-        "asOf": "2026-11-24",
-        "score": 52,
+        "asOf": "2026-11-25",
+        "score": 50,
         "label": "NEUTRAL",
         "components": {
-          "momentum20": 45,
-          "drawdown63": 72,
-          "volatility": 42,
-          "breadth200": 57,
+          "momentum20": 40,
+          "drawdown63": 67,
+          "volatility": 41,
+          "breadth200": 53,
           "breadth20": 47,
           "trend": 50
         },
         "breadthSample": 30,
         "metrics": {
-          "indexReturn20Pct": -1.3,
-          "indexDrawdown63Pct": -4.34,
-          "volatilityRatio": 1.32,
-          "breadthAbove200Pct": 56.7,
+          "indexReturn20Pct": -2.42,
+          "indexDrawdown63Pct": -5.12,
+          "volatilityRatio": 1.35,
+          "breadthAbove200Pct": 53.3,
           "breadthPositive20Pct": 46.7
         },
         "interpretation": "Heuristisk marknadspositionering, inte CNN-index eller bevisad köp-/säljsignal."
@@ -4802,14 +4802,14 @@
       "ideaRadar": {
         "long": [
           {
-            "ticker": "SWED-A.ST",
+            "ticker": "ASSA-B.ST",
             "setup": "Trend pullback to 20EMA · RSI reset",
             "direction": "long",
-            "entry": 410.4,
-            "stop": 399.96,
-            "target": 431.28,
+            "entry": 390.9,
+            "stop": 379.61,
+            "target": 413.48,
             "rr": 2,
-            "barsAgo": 1,
+            "barsAgo": 2,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
             "warnings": [
@@ -4819,7 +4819,30 @@
             "marketTrendGate": {
               "status": "WATCH_CAUTION",
               "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-24",
+              "asOf": "2026-11-25",
+              "tradeApproved": false,
+              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+            }
+          },
+          {
+            "ticker": "ERIC-B.ST",
+            "setup": "Trend pullback to 20EMA · RSI reset",
+            "direction": "long",
+            "entry": 104.7,
+            "stop": 100.9,
+            "target": 112.29,
+            "rr": 2,
+            "barsAgo": 2,
+            "evidenceStatus": "WATCH",
+            "psychologyStatus": "WATCH",
+            "warnings": [
+              "NOT_VALIDATED_TO_80_3"
+            ],
+            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
+            "marketTrendGate": {
+              "status": "WATCH_CAUTION",
+              "code": "TREND_NEUTRAL_WAIT",
+              "asOf": "2026-11-25",
               "tradeApproved": false,
               "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
             }
@@ -4832,7 +4855,7 @@
             "stop": 156.55,
             "target": 167.36,
             "rr": 2,
-            "barsAgo": 1,
+            "barsAgo": 2,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
             "warnings": [
@@ -4842,30 +4865,7 @@
             "marketTrendGate": {
               "status": "WATCH_CAUTION",
               "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-24",
-              "tradeApproved": false,
-              "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-            }
-          },
-          {
-            "ticker": "ASSA-B.ST",
-            "setup": "Trend pullback to 20EMA · RSI reset",
-            "direction": "long",
-            "entry": 390.9,
-            "stop": 379.61,
-            "target": 413.48,
-            "rr": 2,
-            "barsAgo": 1,
-            "evidenceStatus": "WATCH",
-            "psychologyStatus": "WATCH",
-            "warnings": [
-              "NOT_VALIDATED_TO_80_3"
-            ],
-            "rationale": "Bevaka bekräftad trend/pullback, undvik att jaga.",
-            "marketTrendGate": {
-              "status": "WATCH_CAUTION",
-              "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-24",
+              "asOf": "2026-11-25",
               "tradeApproved": false,
               "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
             }
@@ -4873,12 +4873,12 @@
         ],
         "short": [
           {
-            "ticker": "ATCO-A.ST",
+            "ticker": "NDA-SE.ST",
             "setup": "Burry filter — weak-stock rally short",
             "direction": "short",
-            "entry": 182.8,
-            "stop": 194.47,
-            "target": 153.64,
+            "entry": 177.2,
+            "stop": 183.95,
+            "target": 160.32,
             "rr": 2.5,
             "barsAgo": 0,
             "evidenceStatus": "WATCH",
@@ -4890,7 +4890,7 @@
             "marketTrendGate": {
               "status": "WATCH_CAUTION",
               "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-24",
+              "asOf": "2026-11-25",
               "tradeApproved": false,
               "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
             }
@@ -4899,9 +4899,9 @@
             "ticker": "VOLV-B.ST",
             "setup": "Burry filter — weak-stock rally short",
             "direction": "short",
-            "entry": 311.5,
-            "stop": 325.09,
-            "target": 277.54,
+            "entry": 315.6,
+            "stop": 329.43,
+            "target": 281.03,
             "rr": 2.5,
             "barsAgo": 0,
             "evidenceStatus": "WATCH",
@@ -4913,19 +4913,19 @@
             "marketTrendGate": {
               "status": "WATCH_CAUTION",
               "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-24",
+              "asOf": "2026-11-25",
               "tradeApproved": false,
               "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
             }
           },
           {
-            "ticker": "ABB.ST",
-            "setup": "The Big Short — broader weak-stock rally short",
+            "ticker": "ATCO-A.ST",
+            "setup": "Burry filter — weak-stock rally short",
             "direction": "short",
-            "entry": 835.2,
-            "stop": 884.21,
-            "target": 773.93,
-            "rr": 1.25,
+            "entry": 182.8,
+            "stop": 194.47,
+            "target": 153.64,
+            "rr": 2.5,
             "barsAgo": 1,
             "evidenceStatus": "WATCH",
             "psychologyStatus": "WATCH",
@@ -4936,7 +4936,7 @@
             "marketTrendGate": {
               "status": "WATCH_CAUTION",
               "code": "TREND_NEUTRAL_WAIT",
-              "asOf": "2026-11-24",
+              "asOf": "2026-11-25",
               "tradeApproved": false,
               "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
             }
@@ -4944,11 +4944,9 @@
         ],
         "basis": "research-watchlist",
         "scoreMeaning": "Heuristisk prioritet, ej sannolikhet eller verifierad alpha",
-        "asOf": "2026-11-24",
+        "asOf": "2026-11-25",
         "conflicts": [
-          "ADDT-B.ST",
-          "INDU-C.ST",
-          "SKF-B.ST"
+          "ADDT-B.ST"
         ]
       },
       "psychologyStudy": {
@@ -5048,7 +5046,7 @@
       "marketTrendV2": {
         "version": 1,
         "status": "OK",
-        "asOf": "2026-11-24",
+        "asOf": "2026-11-25",
         "source": "COMPLETED_DAILY_OHLC_BREADTH",
         "indexSymbol": "^OMX",
         "regime": "NEUTRAL",
@@ -5059,17 +5057,17 @@
           "TREND_NOT_ALIGNED"
         ],
         "metrics": {
-          "close": 3214.14,
-          "sma20": 3288.92,
-          "sma50": 3272.15,
-          "sma200": 3177.75,
-          "return5Pct": -2.23,
-          "return20Pct": -1.3,
-          "breadthAbove50Pct": 36.7,
-          "breadthAbove200Pct": 56.7,
+          "close": 3188.11,
+          "sma20": 3284.96,
+          "sma50": 3270.9,
+          "sma200": 3177.96,
+          "return5Pct": -2.09,
+          "return20Pct": -2.42,
+          "breadthAbove50Pct": 33.3,
+          "breadthAbove200Pct": 53.3,
           "breadthSample": 30,
           "breadthExpected": 30,
-          "realizedVol20Pct": 17.7,
+          "realizedVol20Pct": 17.8,
           "realizedVolRatio20v60": 1.31
         },
         "tradeApproved": false,
@@ -5080,7 +5078,7 @@
         "on": true,
         "label": "risk-on",
         "basis": "index vs 200-day average",
-        "breadth": 57
+        "breadth": 53
       },
       "risk": null,
       "validation": {
@@ -5143,9 +5141,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 13,
-          "rs": 38,
+          "rs": 34,
           "entry": 326.2,
           "stop": 314.59,
           "target": 349.42,
@@ -5161,12 +5159,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 301.2,
-              "h": 304.8,
-              "l": 300.2,
-              "c": 303
-            },
             {
               "o": 301,
               "h": 309.6,
@@ -5292,12 +5284,18 @@
               "h": 326.4,
               "l": 318.4,
               "c": 319.6
+            },
+            {
+              "o": 319.8,
+              "h": 324,
+              "l": 316.6,
+              "c": 317.2
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -5322,9 +5320,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 13,
-          "rs": 83,
+          "rs": 93,
           "entry": 390.9,
           "stop": 379.61,
           "target": 413.48,
@@ -5340,12 +5338,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 369.8,
-              "h": 373.6,
-              "l": 368,
-              "c": 372.9
-            },
             {
               "o": 373.5,
               "h": 381.4,
@@ -5471,12 +5463,18 @@
               "h": 392.2,
               "l": 384.4,
               "c": 385
+            },
+            {
+              "o": 387.4,
+              "h": 390.9,
+              "l": 385.8,
+              "c": 385.8
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -5501,9 +5499,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 13,
-          "rs": 79,
+          "rs": 86,
           "entry": 104.7,
           "stop": 100.9,
           "target": 112.29,
@@ -5519,12 +5517,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 105.5,
-              "h": 108.6,
-              "l": 104.95,
-              "c": 108.6
-            },
             {
               "o": 108,
               "h": 110.35,
@@ -5650,12 +5642,18 @@
               "h": 105.3,
               "l": 103.4,
               "c": 103.75
+            },
+            {
+              "o": 103.4,
+              "h": 104.25,
+              "l": 102.85,
+              "c": 103.1
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -5680,7 +5678,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Wed Nov 18 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 4,
+          "barsAgo": 5,
           "typicalDays": 13,
           "rs": 66,
           "entry": 45.17,
@@ -5698,12 +5696,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 44.43,
-              "h": 44.84,
-              "l": 44.19,
-              "c": 44.84
-            },
             {
               "o": 44.75,
               "h": 45.48,
@@ -5829,12 +5821,18 @@
               "h": 44.85,
               "l": 43.96,
               "c": 44.04
+            },
+            {
+              "o": 44.2,
+              "h": 44.95,
+              "l": 44.06,
+              "c": 44.06
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -5859,9 +5857,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Thu Nov 19 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 3,
+          "barsAgo": 4,
           "typicalDays": 13,
-          "rs": 31,
+          "rs": 48,
           "entry": 274.7,
           "stop": 265.36,
           "target": 293.39,
@@ -5877,12 +5875,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 269.5,
-              "h": 275.4,
-              "l": 266.4,
-              "c": 275.4
-            },
             {
               "o": 273,
               "h": 276.9,
@@ -6008,12 +6000,18 @@
               "h": 273.2,
               "l": 259.9,
               "c": 259.9
+            },
+            {
+              "o": 260,
+              "h": 268.2,
+              "l": 260,
+              "c": 263.4
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -6038,9 +6036,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 13,
-          "rs": 86,
+          "rs": 83,
           "entry": 160.15,
           "stop": 156.55,
           "target": 167.36,
@@ -6056,12 +6054,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 150.05,
-              "h": 152.25,
-              "l": 149.65,
-              "c": 152.2
-            },
             {
               "o": 152,
               "h": 154.45,
@@ -6187,12 +6179,18 @@
               "h": 161.35,
               "l": 159.5,
               "c": 159.55
+            },
+            {
+              "o": 160,
+              "h": 160.2,
+              "l": 157.4,
+              "c": 157.55
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -6217,9 +6215,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "barsAgo": 2,
           "typicalDays": 13,
-          "rs": 93,
+          "rs": 79,
           "entry": 410.4,
           "stop": 399.96,
           "target": 431.28,
@@ -6235,12 +6233,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 381.1,
-              "h": 383.7,
-              "l": 379.4,
-              "c": 381.7
-            },
             {
               "o": 380.6,
               "h": 388,
@@ -6366,372 +6358,18 @@
               "h": 414.5,
               "l": 408.2,
               "c": 409
+            },
+            {
+              "o": 409.3,
+              "h": 410.2,
+              "l": 397.1,
+              "c": 397.1
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "ESSITY-B.ST",
-          "setup": "Breakout — fresh N-day high",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "PROMISING",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 16,
-          "rs": 69,
-          "entry": 294.4,
-          "stop": 287.33,
-          "target": 315.61,
-          "rr": 3,
-          "maxBars": 20,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 141,
-          "edge": {
-            "expectancyR": 0.06,
-            "winRate": 49,
-            "sample": 140
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 276.6,
-              "h": 276.7,
-              "l": 272.8,
-              "c": 276.3
-            },
-            {
-              "o": 274.5,
-              "h": 275,
-              "l": 272.1,
-              "c": 274.5
-            },
-            {
-              "o": 273.3,
-              "h": 275.4,
-              "l": 271.7,
-              "c": 274.5
-            },
-            {
-              "o": 275.6,
-              "h": 278.5,
-              "l": 274,
-              "c": 274
-            },
-            {
-              "o": 276.6,
-              "h": 280.7,
-              "l": 276.6,
-              "c": 280
-            },
-            {
-              "o": 278,
-              "h": 280.2,
-              "l": 277,
-              "c": 280
-            },
-            {
-              "o": 281,
-              "h": 281.7,
-              "l": 278.5,
-              "c": 280.8
-            },
-            {
-              "o": 281.6,
-              "h": 289.8,
-              "l": 279.6,
-              "c": 287
-            },
-            {
-              "o": 290,
-              "h": 293.8,
-              "l": 286.8,
-              "c": 292.5
-            },
-            {
-              "o": 287.7,
-              "h": 290.2,
-              "l": 285.3,
-              "c": 289.8
-            },
-            {
-              "o": 288.6,
-              "h": 290.3,
-              "l": 287.5,
-              "c": 288.7
-            },
-            {
-              "o": 289.8,
-              "h": 293.1,
-              "l": 288.9,
-              "c": 291.5
-            },
-            {
-              "o": 290.1,
-              "h": 291,
-              "l": 286.5,
-              "c": 286.5
-            },
-            {
-              "o": 288.1,
-              "h": 290.8,
-              "l": 288,
-              "c": 289.8
-            },
-            {
-              "o": 291,
-              "h": 293.2,
-              "l": 289.5,
-              "c": 292.4
-            },
-            {
-              "o": 293.1,
-              "h": 295.8,
-              "l": 292.5,
-              "c": 294.4
-            },
-            {
-              "o": 294.4,
-              "h": 294.7,
-              "l": 290.9,
-              "c": 291.2
-            },
-            {
-              "o": 290.6,
-              "h": 292,
-              "l": 289,
-              "c": 289.2
-            },
-            {
-              "o": 287.2,
-              "h": 288,
-              "l": 282.9,
-              "c": 285.2
-            },
-            {
-              "o": 287.3,
-              "h": 287.9,
-              "l": 285.6,
-              "c": 286.5
-            },
-            {
-              "o": 283.5,
-              "h": 287.9,
-              "l": 283,
-              "c": 287
-            },
-            {
-              "o": 287,
-              "h": 290.2,
-              "l": 286,
-              "c": 289.8
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "TELIA.ST",
-          "setup": "Breakout — fresh N-day high",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "PROMISING",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 16,
-          "rs": 97,
-          "entry": 50.34,
-          "stop": 49.04,
-          "target": 54.25,
-          "rr": 3,
-          "maxBars": 20,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 769,
-          "edge": {
-            "expectancyR": 0.06,
-            "winRate": 49,
-            "sample": 140
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 48.24,
-              "h": 48.26,
-              "l": 47.58,
-              "c": 47.83
-            },
-            {
-              "o": 47.8,
-              "h": 48.06,
-              "l": 47.16,
-              "c": 47.89
-            },
-            {
-              "o": 46.9,
-              "h": 48,
-              "l": 46.4,
-              "c": 48
-            },
-            {
-              "o": 48.17,
-              "h": 48.68,
-              "l": 48.17,
-              "c": 48.4
-            },
-            {
-              "o": 48.7,
-              "h": 49.37,
-              "l": 48.6,
-              "c": 49.37
-            },
-            {
-              "o": 49.27,
-              "h": 49.37,
-              "l": 48.43,
-              "c": 48.88
-            },
-            {
-              "o": 49.3,
-              "h": 49.52,
-              "l": 48.76,
-              "c": 49.03
-            },
-            {
-              "o": 49.11,
-              "h": 49.78,
-              "l": 48.78,
-              "c": 49.57
-            },
-            {
-              "o": 49.8,
-              "h": 50.1,
-              "l": 49.17,
-              "c": 49.78
-            },
-            {
-              "o": 49.58,
-              "h": 49.66,
-              "l": 48.56,
-              "c": 49.1
-            },
-            {
-              "o": 49.04,
-              "h": 49.14,
-              "l": 48.79,
-              "c": 48.95
-            },
-            {
-              "o": 48.83,
-              "h": 49.04,
-              "l": 48.55,
-              "c": 48.81
-            },
-            {
-              "o": 48.54,
-              "h": 48.99,
-              "l": 48.5,
-              "c": 48.98
-            },
-            {
-              "o": 49.25,
-              "h": 49.64,
-              "l": 49.04,
-              "c": 49.35
-            },
-            {
-              "o": 49.46,
-              "h": 49.93,
-              "l": 49.1,
-              "c": 49.89
-            },
-            {
-              "o": 50.5,
-              "h": 50.6,
-              "l": 49.91,
-              "c": 50.34
-            },
-            {
-              "o": 50.34,
-              "h": 50.64,
-              "l": 49.88,
-              "c": 50.04
-            },
-            {
-              "o": 50.02,
-              "h": 50.12,
-              "l": 49.37,
-              "c": 49.49
-            },
-            {
-              "o": 49.36,
-              "h": 49.38,
-              "l": 48.65,
-              "c": 48.79
-            },
-            {
-              "o": 49.06,
-              "h": 49.47,
-              "l": 48.9,
-              "c": 49.45
-            },
-            {
-              "o": 49.75,
-              "h": 50.28,
-              "l": 49.38,
-              "c": 49.73
-            },
-            {
-              "o": 49.85,
-              "h": 50.6,
-              "l": 49.65,
-              "c": 50.5
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -6756,9 +6394,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
-          "rs": 83,
+          "rs": 93,
           "entry": 380.2,
           "stop": 369.43,
           "target": 396.36,
@@ -6774,12 +6412,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 369.8,
-              "h": 373.6,
-              "l": 368,
-              "c": 372.9
-            },
             {
               "o": 373.5,
               "h": 381.4,
@@ -6905,12 +6537,18 @@
               "h": 392.2,
               "l": 384.4,
               "c": 385
+            },
+            {
+              "o": 387.4,
+              "h": 390.9,
+              "l": 385.8,
+              "c": 385.8
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -6935,9 +6573,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
-          "rs": 17,
+          "rs": 14,
           "entry": 288.1,
           "stop": 276.62,
           "target": 305.32,
@@ -6953,12 +6591,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 300,
-              "h": 303.8,
-              "l": 298.3,
-              "c": 302.4
-            },
             {
               "o": 300,
               "h": 305,
@@ -7084,12 +6716,18 @@
               "h": 301.8,
               "l": 295.7,
               "c": 299.1
+            },
+            {
+              "o": 295.2,
+              "h": 295.3,
+              "l": 288.3,
+              "c": 289.2
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -7114,9 +6752,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
-          "rs": 79,
+          "rs": 86,
           "entry": 101.7,
           "stop": 98.06,
           "target": 107.17,
@@ -7132,12 +6770,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 105.5,
-              "h": 108.6,
-              "l": 104.95,
-              "c": 108.6
-            },
             {
               "o": 108,
               "h": 110.35,
@@ -7263,12 +6895,18 @@
               "h": 105.3,
               "l": 103.4,
               "c": 103.75
+            },
+            {
+              "o": 103.4,
+              "h": 104.25,
+              "l": 102.85,
+              "c": 103.1
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -7293,9 +6931,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Tue Nov 17 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 5,
+          "barsAgo": 6,
           "typicalDays": 21,
-          "rs": 55,
+          "rs": 62,
           "entry": 104.35,
           "stop": 101.15,
           "target": 109.15,
@@ -7311,12 +6949,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 107.2,
-              "h": 109.6,
-              "l": 106.4,
-              "c": 109.45
-            },
             {
               "o": 109.25,
               "h": 109.65,
@@ -7442,12 +7074,18 @@
               "h": 102.1,
               "l": 100.25,
               "c": 100.75
+            },
+            {
+              "o": 100.8,
+              "h": 103,
+              "l": 100.8,
+              "c": 102.2
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -7472,9 +7110,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
-          "rs": 34,
+          "rs": 38,
           "entry": 501.2,
           "stop": 487.42,
           "target": 521.87,
@@ -7490,12 +7128,6 @@
           },
           "above200": false,
           "chart": [
-            {
-              "o": 503.2,
-              "h": 511.8,
-              "l": 502.8,
-              "c": 510.8
-            },
             {
               "o": 508,
               "h": 516.4,
@@ -7621,12 +7253,18 @@
               "h": 520,
               "l": 508.2,
               "c": 509
+            },
+            {
+              "o": 508,
+              "h": 513,
+              "l": 504.2,
+              "c": 505
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -7651,9 +7289,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
-          "rs": 62,
+          "rs": 55,
           "entry": 408.25,
           "stop": 398.43,
           "target": 422.99,
@@ -7669,12 +7307,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 413.5,
-              "h": 418.45,
-              "l": 412.8,
-              "c": 418.45
-            },
             {
               "o": 417,
               "h": 423.55,
@@ -7800,12 +7432,18 @@
               "h": 420.7,
               "l": 412.65,
               "c": 414.05
+            },
+            {
+              "o": 414.05,
+              "h": 417.3,
+              "l": 412,
+              "c": 412
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -7830,7 +7468,7 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
           "rs": 66,
           "entry": 43.31,
@@ -7848,12 +7486,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 44.43,
-              "h": 44.84,
-              "l": 44.19,
-              "c": 44.84
-            },
             {
               "o": 44.75,
               "h": 45.48,
@@ -7979,12 +7611,18 @@
               "h": 44.85,
               "l": 43.96,
               "c": 44.04
+            },
+            {
+              "o": 44.2,
+              "h": 44.95,
+              "l": 44.06,
+              "c": 44.06
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -8009,9 +7647,9 @@
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
           "signalT": "Fri Nov 20 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 2,
+          "barsAgo": 3,
           "typicalDays": 21,
-          "rs": 31,
+          "rs": 48,
           "entry": 261.2,
           "stop": 251.08,
           "target": 276.38,
@@ -8027,12 +7665,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 269.5,
-              "h": 275.4,
-              "l": 266.4,
-              "c": 275.4
-            },
             {
               "o": 273,
               "h": 276.9,
@@ -8158,191 +7790,18 @@
               "h": 273.2,
               "l": 259.9,
               "c": 259.9
+            },
+            {
+              "o": 260,
+              "h": 268.2,
+              "l": 260,
+              "c": 263.4
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "long",
-          "ticker": "SCA-B.ST",
-          "setup": "Bollinger reversion in uptrend",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "PROMISING",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "HALLTID_OVER_3_VECKOR",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 21,
-          "rs": 59,
-          "entry": 116.9,
-          "stop": 113.47,
-          "target": 122.04,
-          "rr": 1.5,
-          "maxBars": 20,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 291,
-          "edge": {
-            "expectancyR": 0.07,
-            "winRate": 46,
-            "sample": 122
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 123.55,
-              "h": 124.55,
-              "l": 121.7,
-              "c": 124.35
-            },
-            {
-              "o": 123.85,
-              "h": 124.85,
-              "l": 123.25,
-              "c": 124.6
-            },
-            {
-              "o": 124.15,
-              "h": 124.15,
-              "l": 122.35,
-              "c": 122.7
-            },
-            {
-              "o": 122.7,
-              "h": 123.2,
-              "l": 121.95,
-              "c": 122.4
-            },
-            {
-              "o": 120.6,
-              "h": 121.7,
-              "l": 119.8,
-              "c": 120.4
-            },
-            {
-              "o": 119.8,
-              "h": 120.75,
-              "l": 119.5,
-              "c": 120.05
-            },
-            {
-              "o": 120.4,
-              "h": 121.45,
-              "l": 119.35,
-              "c": 121.15
-            },
-            {
-              "o": 121.15,
-              "h": 125.1,
-              "l": 121.1,
-              "c": 124.05
-            },
-            {
-              "o": 124.8,
-              "h": 125.7,
-              "l": 123.2,
-              "c": 124.15
-            },
-            {
-              "o": 123,
-              "h": 123.55,
-              "l": 121.6,
-              "c": 122.75
-            },
-            {
-              "o": 122.6,
-              "h": 123,
-              "l": 121.85,
-              "c": 121.85
-            },
-            {
-              "o": 122.4,
-              "h": 122.7,
-              "l": 119.65,
-              "c": 119.65
-            },
-            {
-              "o": 119.8,
-              "h": 120.1,
-              "l": 118.9,
-              "c": 119
-            },
-            {
-              "o": 119,
-              "h": 120.35,
-              "l": 119,
-              "c": 120
-            },
-            {
-              "o": 120.35,
-              "h": 121.6,
-              "l": 119.95,
-              "c": 121.05
-            },
-            {
-              "o": 118.5,
-              "h": 118.8,
-              "l": 116.65,
-              "c": 116.9
-            },
-            {
-              "o": 116.5,
-              "h": 116.5,
-              "l": 114.2,
-              "c": 114.45
-            },
-            {
-              "o": 114.3,
-              "h": 115.2,
-              "l": 113.45,
-              "c": 114.25
-            },
-            {
-              "o": 114.2,
-              "h": 114.35,
-              "l": 112.2,
-              "c": 112.35
-            },
-            {
-              "o": 111.8,
-              "h": 112.65,
-              "l": 111.1,
-              "c": 111.75
-            },
-            {
-              "o": 111.2,
-              "h": 112.7,
-              "l": 111.2,
-              "c": 112.05
-            },
-            {
-              "o": 112.4,
-              "h": 112.65,
-              "l": 111.25,
-              "c": 111.7
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -8367,9 +7826,9 @@
           "regimeAligned": true,
           "proposalSource": "market-wf",
           "signalT": "Tue Nov 17 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 5,
+          "barsAgo": 6,
           "typicalDays": 21,
-          "rs": 48,
+          "rs": 52,
           "entry": 615.3,
           "stop": 572.44,
           "target": 743.89,
@@ -8385,12 +7844,6 @@
           },
           "above200": true,
           "chart": [
-            {
-              "o": 643.6,
-              "h": 653.4,
-              "l": 618.9,
-              "c": 651.9
-            },
             {
               "o": 653,
               "h": 657.4,
@@ -8516,1271 +7969,18 @@
               "h": 614.8,
               "l": 596.9,
               "c": 613.8
+            },
+            {
+              "o": 614.3,
+              "h": 620,
+              "l": 604.3,
+              "c": 607
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "ALFA.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 28,
-          "entry": 546.4,
-          "stop": 568.56,
-          "target": 490.99,
-          "rr": 2.5,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 45,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 33,
-            "sample": 84
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 540.4,
-              "h": 549.6,
-              "l": 540.4,
-              "c": 549.6
-            },
-            {
-              "o": 535.8,
-              "h": 559.2,
-              "l": 535,
-              "c": 553.6
-            },
-            {
-              "o": 553.4,
-              "h": 560.2,
-              "l": 549.6,
-              "c": 551.8
-            },
-            {
-              "o": 549.6,
-              "h": 551.4,
-              "l": 542.2,
-              "c": 550
-            },
-            {
-              "o": 546,
-              "h": 548.2,
-              "l": 542.2,
-              "c": 545.6
-            },
-            {
-              "o": 541.8,
-              "h": 544.8,
-              "l": 537,
-              "c": 542.2
-            },
-            {
-              "o": 535,
-              "h": 548.4,
-              "l": 533.2,
-              "c": 543.4
-            },
-            {
-              "o": 543.4,
-              "h": 547,
-              "l": 537,
-              "c": 543
-            },
-            {
-              "o": 545.2,
-              "h": 550.8,
-              "l": 532.8,
-              "c": 539.4
-            },
-            {
-              "o": 532,
-              "h": 537.2,
-              "l": 527,
-              "c": 532
-            },
-            {
-              "o": 530.8,
-              "h": 539,
-              "l": 529.2,
-              "c": 536.2
-            },
-            {
-              "o": 540,
-              "h": 546.8,
-              "l": 536,
-              "c": 536
-            },
-            {
-              "o": 540.8,
-              "h": 546.8,
-              "l": 540.4,
-              "c": 546.4
-            },
-            {
-              "o": 546.4,
-              "h": 554.2,
-              "l": 543.6,
-              "c": 547.2
-            },
-            {
-              "o": 547.6,
-              "h": 551.6,
-              "l": 545.8,
-              "c": 548
-            },
-            {
-              "o": 547.6,
-              "h": 551.4,
-              "l": 545,
-              "c": 546.4
-            },
-            {
-              "o": 542.8,
-              "h": 542.8,
-              "l": 536.2,
-              "c": 536.2
-            },
-            {
-              "o": 538.8,
-              "h": 538.8,
-              "l": 528.4,
-              "c": 528.4
-            },
-            {
-              "o": 532,
-              "h": 536.4,
-              "l": 528.6,
-              "c": 529
-            },
-            {
-              "o": 520.8,
-              "h": 521.4,
-              "l": 509.2,
-              "c": 510
-            },
-            {
-              "o": 511.4,
-              "h": 531,
-              "l": 511.4,
-              "c": 529.6
-            },
-            {
-              "o": 531.6,
-              "h": 537,
-              "l": 526.8,
-              "c": 527.6
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "ATCO-A.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 11,
-          "rs": 14,
-          "entry": 182.8,
-          "stop": 194.47,
-          "target": 153.64,
-          "rr": 2.5,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 85,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 33,
-            "sample": 84
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 176.4,
-              "h": 182.3,
-              "l": 176.15,
-              "c": 182.3
-            },
-            {
-              "o": 181.35,
-              "h": 186.7,
-              "l": 180,
-              "c": 186.7
-            },
-            {
-              "o": 187.95,
-              "h": 187.95,
-              "l": 185.65,
-              "c": 187.55
-            },
-            {
-              "o": 185.85,
-              "h": 189.5,
-              "l": 185.45,
-              "c": 188.35
-            },
-            {
-              "o": 185.45,
-              "h": 186.25,
-              "l": 183.6,
-              "c": 183.9
-            },
-            {
-              "o": 182.75,
-              "h": 187.9,
-              "l": 182.3,
-              "c": 187.15
-            },
-            {
-              "o": 181.85,
-              "h": 190.15,
-              "l": 181.6,
-              "c": 188.7
-            },
-            {
-              "o": 187.75,
-              "h": 189.15,
-              "l": 185.45,
-              "c": 185.9
-            },
-            {
-              "o": 186.3,
-              "h": 189.95,
-              "l": 183,
-              "c": 185.25
-            },
-            {
-              "o": 182.5,
-              "h": 185.05,
-              "l": 180.6,
-              "c": 184.1
-            },
-            {
-              "o": 184.1,
-              "h": 189.1,
-              "l": 183.5,
-              "c": 187.7
-            },
-            {
-              "o": 189.9,
-              "h": 192.3,
-              "l": 188.7,
-              "c": 189.9
-            },
-            {
-              "o": 193,
-              "h": 195,
-              "l": 192.65,
-              "c": 194.65
-            },
-            {
-              "o": 193.3,
-              "h": 195.7,
-              "l": 192.1,
-              "c": 194
-            },
-            {
-              "o": 192.45,
-              "h": 194.95,
-              "l": 192.2,
-              "c": 192.25
-            },
-            {
-              "o": 191.3,
-              "h": 192.7,
-              "l": 190.75,
-              "c": 191.9
-            },
-            {
-              "o": 190.15,
-              "h": 191.5,
-              "l": 188.35,
-              "c": 189.2
-            },
-            {
-              "o": 191.6,
-              "h": 191.6,
-              "l": 188.15,
-              "c": 188.75
-            },
-            {
-              "o": 191.7,
-              "h": 193.95,
-              "l": 190.1,
-              "c": 190.25
-            },
-            {
-              "o": 184.9,
-              "h": 185.4,
-              "l": 181.05,
-              "c": 181.95
-            },
-            {
-              "o": 183.9,
-              "h": 192,
-              "l": 183.9,
-              "c": 190.9
-            },
-            {
-              "o": 190.95,
-              "h": 192.85,
-              "l": 182.65,
-              "c": 182.8
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "INDU-C.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 17 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 5,
-          "typicalDays": 11,
-          "rs": 34,
-          "entry": 522.8,
-          "stop": 540.91,
-          "target": 477.52,
-          "rr": 2.5,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 55,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 33,
-            "sample": 84
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 503.2,
-              "h": 511.8,
-              "l": 502.8,
-              "c": 510.8
-            },
-            {
-              "o": 508,
-              "h": 516.4,
-              "l": 507,
-              "c": 516.4
-            },
-            {
-              "o": 515.4,
-              "h": 522,
-              "l": 514.4,
-              "c": 522
-            },
-            {
-              "o": 520.4,
-              "h": 524,
-              "l": 518.2,
-              "c": 522.6
-            },
-            {
-              "o": 519.4,
-              "h": 521.2,
-              "l": 516.6,
-              "c": 519.2
-            },
-            {
-              "o": 518.4,
-              "h": 524.2,
-              "l": 515.6,
-              "c": 522
-            },
-            {
-              "o": 515,
-              "h": 528,
-              "l": 512.6,
-              "c": 523.6
-            },
-            {
-              "o": 525,
-              "h": 534.8,
-              "l": 523,
-              "c": 531.4
-            },
-            {
-              "o": 535.6,
-              "h": 542.4,
-              "l": 529.4,
-              "c": 532.2
-            },
-            {
-              "o": 523.6,
-              "h": 531.8,
-              "l": 521.8,
-              "c": 527.6
-            },
-            {
-              "o": 527.6,
-              "h": 537.6,
-              "l": 525.6,
-              "c": 536.6
-            },
-            {
-              "o": 542.2,
-              "h": 546,
-              "l": 541.6,
-              "c": 542.6
-            },
-            {
-              "o": 545.2,
-              "h": 548.6,
-              "l": 543.2,
-              "c": 546.4
-            },
-            {
-              "o": 546.4,
-              "h": 548.4,
-              "l": 542.2,
-              "c": 544.6
-            },
-            {
-              "o": 544,
-              "h": 544.8,
-              "l": 539.8,
-              "c": 540.6
-            },
-            {
-              "o": 541.2,
-              "h": 541.6,
-              "l": 536.4,
-              "c": 537.2
-            },
-            {
-              "o": 531.2,
-              "h": 532.6,
-              "l": 521.6,
-              "c": 522.8
-            },
-            {
-              "o": 522.8,
-              "h": 523,
-              "l": 516,
-              "c": 516.8
-            },
-            {
-              "o": 519.8,
-              "h": 522,
-              "l": 514.6,
-              "c": 515.2
-            },
-            {
-              "o": 507.6,
-              "h": 510.6,
-              "l": 501,
-              "c": 501.2
-            },
-            {
-              "o": 502.4,
-              "h": 519.4,
-              "l": 502.4,
-              "c": 518.2
-            },
-            {
-              "o": 518.2,
-              "h": 520,
-              "l": 508.2,
-              "c": 509
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "LIFCO-B.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 21,
-          "entry": 290.6,
-          "stop": 304.3,
-          "target": 256.36,
-          "rr": 2.5,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 72,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 33,
-            "sample": 84
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 278,
-              "h": 281,
-              "l": 274,
-              "c": 274
-            },
-            {
-              "o": 271.8,
-              "h": 283.4,
-              "l": 271.8,
-              "c": 283.4
-            },
-            {
-              "o": 283.4,
-              "h": 284,
-              "l": 279.4,
-              "c": 279.4
-            },
-            {
-              "o": 278.4,
-              "h": 279.6,
-              "l": 275.4,
-              "c": 278
-            },
-            {
-              "o": 277.2,
-              "h": 278.8,
-              "l": 276.2,
-              "c": 276.8
-            },
-            {
-              "o": 274.6,
-              "h": 279.2,
-              "l": 273.8,
-              "c": 278
-            },
-            {
-              "o": 275.2,
-              "h": 283.8,
-              "l": 274,
-              "c": 279.4
-            },
-            {
-              "o": 279.8,
-              "h": 291,
-              "l": 279,
-              "c": 289.2
-            },
-            {
-              "o": 290.6,
-              "h": 294,
-              "l": 286.6,
-              "c": 287.8
-            },
-            {
-              "o": 284.2,
-              "h": 285.6,
-              "l": 279.6,
-              "c": 283.2
-            },
-            {
-              "o": 283,
-              "h": 285.2,
-              "l": 281.4,
-              "c": 285
-            },
-            {
-              "o": 288.2,
-              "h": 291.6,
-              "l": 286.6,
-              "c": 286.6
-            },
-            {
-              "o": 287.2,
-              "h": 289,
-              "l": 282.6,
-              "c": 288.2
-            },
-            {
-              "o": 288.2,
-              "h": 290.8,
-              "l": 287.4,
-              "c": 287.8
-            },
-            {
-              "o": 288,
-              "h": 291,
-              "l": 285.8,
-              "c": 290.4
-            },
-            {
-              "o": 291.4,
-              "h": 292.8,
-              "l": 290,
-              "c": 290.6
-            },
-            {
-              "o": 290.6,
-              "h": 290.6,
-              "l": 286.6,
-              "c": 286.8
-            },
-            {
-              "o": 287,
-              "h": 289.2,
-              "l": 285.6,
-              "c": 285.6
-            },
-            {
-              "o": 287.8,
-              "h": 290,
-              "l": 283.2,
-              "c": 283.6
-            },
-            {
-              "o": 281.2,
-              "h": 281.2,
-              "l": 275.6,
-              "c": 276.8
-            },
-            {
-              "o": 276.6,
-              "h": 285.4,
-              "l": 276.6,
-              "c": 284.4
-            },
-            {
-              "o": 284.4,
-              "h": 286.6,
-              "l": 282.4,
-              "c": 282.4
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "SKF-B.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 11,
-          "rs": 31,
-          "entry": 259.9,
-          "stop": 275.15,
-          "target": 221.78,
-          "rr": 2.5,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 65,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 33,
-            "sample": 84
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 269.5,
-              "h": 275.4,
-              "l": 266.4,
-              "c": 275.4
-            },
-            {
-              "o": 273,
-              "h": 276.9,
-              "l": 272.2,
-              "c": 275.4
-            },
-            {
-              "o": 276.7,
-              "h": 279.4,
-              "l": 275.4,
-              "c": 278.5
-            },
-            {
-              "o": 276.2,
-              "h": 280,
-              "l": 275.7,
-              "c": 279.7
-            },
-            {
-              "o": 277,
-              "h": 278.6,
-              "l": 274.8,
-              "c": 275.2
-            },
-            {
-              "o": 273.9,
-              "h": 279.9,
-              "l": 272,
-              "c": 279.9
-            },
-            {
-              "o": 275,
-              "h": 279.4,
-              "l": 273.8,
-              "c": 275.5
-            },
-            {
-              "o": 275,
-              "h": 280.5,
-              "l": 273.3,
-              "c": 274.8
-            },
-            {
-              "o": 276.8,
-              "h": 280.9,
-              "l": 270.5,
-              "c": 273.7
-            },
-            {
-              "o": 268.7,
-              "h": 274.4,
-              "l": 268,
-              "c": 271.2
-            },
-            {
-              "o": 271.5,
-              "h": 276.8,
-              "l": 271.2,
-              "c": 275.2
-            },
-            {
-              "o": 279.3,
-              "h": 279.7,
-              "l": 274.7,
-              "c": 274.8
-            },
-            {
-              "o": 278.3,
-              "h": 281.2,
-              "l": 277.2,
-              "c": 279.1
-            },
-            {
-              "o": 279.9,
-              "h": 284.9,
-              "l": 279.9,
-              "c": 281.4
-            },
-            {
-              "o": 283,
-              "h": 284.3,
-              "l": 280,
-              "c": 280.2
-            },
-            {
-              "o": 279.3,
-              "h": 279.3,
-              "l": 274.9,
-              "c": 274.9
-            },
-            {
-              "o": 272.9,
-              "h": 275.1,
-              "l": 271,
-              "c": 271.6
-            },
-            {
-              "o": 272.5,
-              "h": 272.7,
-              "l": 268.2,
-              "c": 271.3
-            },
-            {
-              "o": 275,
-              "h": 280.4,
-              "l": 274.6,
-              "c": 274.7
-            },
-            {
-              "o": 269.3,
-              "h": 270,
-              "l": 261.2,
-              "c": 261.2
-            },
-            {
-              "o": 263.3,
-              "h": 274.1,
-              "l": 263.3,
-              "c": 271.3
-            },
-            {
-              "o": 272.7,
-              "h": 273.2,
-              "l": 259.9,
-              "c": 259.9
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "VOLV-B.ST",
-          "setup": "Burry filter — weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "FOR_FA_OOS_AFFARER",
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 11,
-          "rs": 24,
-          "entry": 311.5,
-          "stop": 325.09,
-          "target": 277.54,
-          "rr": 2.5,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 73,
-          "edge": {
-            "expectancyR": -0.29,
-            "winRate": 33,
-            "sample": 84
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 306.4,
-              "h": 312.5,
-              "l": 305.8,
-              "c": 311.9
-            },
-            {
-              "o": 310.3,
-              "h": 313.1,
-              "l": 308,
-              "c": 309.9
-            },
-            {
-              "o": 310,
-              "h": 314,
-              "l": 308.3,
-              "c": 311.7
-            },
-            {
-              "o": 309.4,
-              "h": 312.2,
-              "l": 308.3,
-              "c": 310.1
-            },
-            {
-              "o": 308.4,
-              "h": 310.6,
-              "l": 306.8,
-              "c": 310
-            },
-            {
-              "o": 303.5,
-              "h": 309.3,
-              "l": 303,
-              "c": 309
-            },
-            {
-              "o": 306.2,
-              "h": 312.4,
-              "l": 304.7,
-              "c": 308.1
-            },
-            {
-              "o": 305.6,
-              "h": 314.1,
-              "l": 303.8,
-              "c": 311.5
-            },
-            {
-              "o": 313.9,
-              "h": 320.7,
-              "l": 313.6,
-              "c": 316.8
-            },
-            {
-              "o": 311,
-              "h": 318.2,
-              "l": 306.7,
-              "c": 312.8
-            },
-            {
-              "o": 312.2,
-              "h": 317.8,
-              "l": 311.3,
-              "c": 316.3
-            },
-            {
-              "o": 318.8,
-              "h": 323.5,
-              "l": 318.7,
-              "c": 321.2
-            },
-            {
-              "o": 322.8,
-              "h": 324.5,
-              "l": 320.5,
-              "c": 323.1
-            },
-            {
-              "o": 323.7,
-              "h": 325.2,
-              "l": 321.4,
-              "c": 324
-            },
-            {
-              "o": 323,
-              "h": 324.6,
-              "l": 321.2,
-              "c": 323.4
-            },
-            {
-              "o": 323.4,
-              "h": 325.9,
-              "l": 322.5,
-              "c": 322.7
-            },
-            {
-              "o": 320.6,
-              "h": 325.7,
-              "l": 318.5,
-              "c": 319.7
-            },
-            {
-              "o": 320,
-              "h": 320.2,
-              "l": 315.7,
-              "c": 318
-            },
-            {
-              "o": 320.2,
-              "h": 323.9,
-              "l": 320,
-              "c": 320.2
-            },
-            {
-              "o": 315.3,
-              "h": 315.6,
-              "l": 310.6,
-              "c": 313.7
-            },
-            {
-              "o": 315,
-              "h": 321,
-              "l": 314.6,
-              "c": 321
-            },
-            {
-              "o": 322.6,
-              "h": 322.9,
-              "l": 310.9,
-              "c": 311.5
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "ABB.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
-          "typicalDays": 11,
-          "rs": 10,
-          "entry": 835.2,
-          "stop": 884.21,
-          "target": 773.93,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 20,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 820.4,
-              "h": 840.4,
-              "l": 819,
-              "c": 839.4
-            },
-            {
-              "o": 840.8,
-              "h": 861.2,
-              "l": 837.2,
-              "c": 861.2
-            },
-            {
-              "o": 865,
-              "h": 877.4,
-              "l": 862.4,
-              "c": 874.2
-            },
-            {
-              "o": 876,
-              "h": 883.8,
-              "l": 867.4,
-              "c": 878
-            },
-            {
-              "o": 854.8,
-              "h": 860.6,
-              "l": 850,
-              "c": 852
-            },
-            {
-              "o": 851,
-              "h": 854.6,
-              "l": 838.6,
-              "c": 851.4
-            },
-            {
-              "o": 836.2,
-              "h": 871.8,
-              "l": 835,
-              "c": 866.2
-            },
-            {
-              "o": 859.6,
-              "h": 870.2,
-              "l": 843.6,
-              "c": 847.6
-            },
-            {
-              "o": 831.2,
-              "h": 841.8,
-              "l": 800.6,
-              "c": 810.8
-            },
-            {
-              "o": 803.2,
-              "h": 816.4,
-              "l": 796.8,
-              "c": 808.2
-            },
-            {
-              "o": 809.8,
-              "h": 828.6,
-              "l": 807.6,
-              "c": 826
-            },
-            {
-              "o": 831.2,
-              "h": 840.2,
-              "l": 821,
-              "c": 827
-            },
-            {
-              "o": 839.6,
-              "h": 851.8,
-              "l": 838,
-              "c": 846.8
-            },
-            {
-              "o": 837.4,
-              "h": 853,
-              "l": 835,
-              "c": 844.6
-            },
-            {
-              "o": 841.8,
-              "h": 850,
-              "l": 838,
-              "c": 842.6
-            },
-            {
-              "o": 838.8,
-              "h": 840.4,
-              "l": 829.2,
-              "c": 832.2
-            },
-            {
-              "o": 825.8,
-              "h": 832.2,
-              "l": 814.4,
-              "c": 818.8
-            },
-            {
-              "o": 827.4,
-              "h": 832.8,
-              "l": 817.6,
-              "c": 823.2
-            },
-            {
-              "o": 833.2,
-              "h": 842.2,
-              "l": 821.8,
-              "c": 826.4
-            },
-            {
-              "o": 801.4,
-              "h": 804,
-              "l": 791,
-              "c": 796
-            },
-            {
-              "o": 807.6,
-              "h": 836.8,
-              "l": 803,
-              "c": 835.2
-            },
-            {
-              "o": 836,
-              "h": 837,
-              "l": 799.6,
-              "c": 803.2
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -9788,13 +7988,14 @@
         {
           "dir": "short",
           "ticker": "ADDT-B.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
+          "setup": "Burry filter — weak-stock rally short",
           "grade": "WATCH",
           "evidenceStatus": "WATCH",
           "baseEvidenceStatus": "WATCH",
           "eliteStatus": "RESEARCH_ONLY",
           "eliteQualified": false,
           "eliteReasonCodes": [
+            "FOR_FA_OOS_AFFARER",
             "TRAFFSAKERHET_UNDER_80",
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
@@ -9804,31 +8005,25 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Wed Nov 25 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 38,
-          "entry": 319.6,
-          "stop": 335.11,
-          "target": 300.21,
-          "rr": 1.25,
+          "rs": 34,
+          "entry": 317.2,
+          "stop": 332.66,
+          "target": 278.54,
+          "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
           "size": 64,
           "edge": {
-            "expectancyR": -0.36,
+            "expectancyR": -0.29,
             "winRate": 33,
-            "sample": 156
+            "sample": 84
           },
           "above200": false,
           "chart": [
-            {
-              "o": 301.2,
-              "h": 304.8,
-              "l": 300.2,
-              "c": 303
-            },
             {
               "o": 301,
               "h": 309.6,
@@ -9954,191 +8149,18 @@
               "h": 326.4,
               "l": 318.4,
               "c": 319.6
+            },
+            {
+              "o": 319.8,
+              "h": 324,
+              "l": 316.6,
+              "c": 317.2
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "ALFA.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 28,
-          "entry": 546.4,
-          "stop": 568.56,
-          "target": 518.7,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 45,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 540.4,
-              "h": 549.6,
-              "l": 540.4,
-              "c": 549.6
-            },
-            {
-              "o": 535.8,
-              "h": 559.2,
-              "l": 535,
-              "c": 553.6
-            },
-            {
-              "o": 553.4,
-              "h": 560.2,
-              "l": 549.6,
-              "c": 551.8
-            },
-            {
-              "o": 549.6,
-              "h": 551.4,
-              "l": 542.2,
-              "c": 550
-            },
-            {
-              "o": 546,
-              "h": 548.2,
-              "l": 542.2,
-              "c": 545.6
-            },
-            {
-              "o": 541.8,
-              "h": 544.8,
-              "l": 537,
-              "c": 542.2
-            },
-            {
-              "o": 535,
-              "h": 548.4,
-              "l": 533.2,
-              "c": 543.4
-            },
-            {
-              "o": 543.4,
-              "h": 547,
-              "l": 537,
-              "c": 543
-            },
-            {
-              "o": 545.2,
-              "h": 550.8,
-              "l": 532.8,
-              "c": 539.4
-            },
-            {
-              "o": 532,
-              "h": 537.2,
-              "l": 527,
-              "c": 532
-            },
-            {
-              "o": 530.8,
-              "h": 539,
-              "l": 529.2,
-              "c": 536.2
-            },
-            {
-              "o": 540,
-              "h": 546.8,
-              "l": 536,
-              "c": 536
-            },
-            {
-              "o": 540.8,
-              "h": 546.8,
-              "l": 540.4,
-              "c": 546.4
-            },
-            {
-              "o": 546.4,
-              "h": 554.2,
-              "l": 543.6,
-              "c": 547.2
-            },
-            {
-              "o": 547.6,
-              "h": 551.6,
-              "l": 545.8,
-              "c": 548
-            },
-            {
-              "o": 547.6,
-              "h": 551.4,
-              "l": 545,
-              "c": 546.4
-            },
-            {
-              "o": 542.8,
-              "h": 542.8,
-              "l": 536.2,
-              "c": 536.2
-            },
-            {
-              "o": 538.8,
-              "h": 538.8,
-              "l": 528.4,
-              "c": 528.4
-            },
-            {
-              "o": 532,
-              "h": 536.4,
-              "l": 528.6,
-              "c": 529
-            },
-            {
-              "o": 520.8,
-              "h": 521.4,
-              "l": 509.2,
-              "c": 510
-            },
-            {
-              "o": 511.4,
-              "h": 531,
-              "l": 511.4,
-              "c": 529.6
-            },
-            {
-              "o": 531.6,
-              "h": 537,
-              "l": 526.8,
-              "c": 527.6
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -10146,13 +8168,14 @@
         {
           "dir": "short",
           "ticker": "ATCO-A.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
+          "setup": "Burry filter — weak-stock rally short",
           "grade": "WATCH",
           "evidenceStatus": "WATCH",
           "baseEvidenceStatus": "WATCH",
           "eliteStatus": "RESEARCH_ONLY",
           "eliteQualified": false,
           "eliteReasonCodes": [
+            "FOR_FA_OOS_AFFARER",
             "TRAFFSAKERHET_UNDER_80",
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
@@ -10162,31 +8185,25 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 1,
           "typicalDays": 11,
-          "rs": 14,
-          "entry": 190.9,
-          "stop": 201.89,
-          "target": 177.16,
-          "rr": 1.25,
+          "rs": 17,
+          "entry": 182.8,
+          "stop": 194.47,
+          "target": 153.64,
+          "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 90,
+          "size": 85,
           "edge": {
-            "expectancyR": -0.36,
+            "expectancyR": -0.29,
             "winRate": 33,
-            "sample": 156
+            "sample": 84
           },
           "above200": false,
           "chart": [
-            {
-              "o": 176.4,
-              "h": 182.3,
-              "l": 176.15,
-              "c": 182.3
-            },
             {
               "o": 181.35,
               "h": 186.7,
@@ -10312,370 +8329,18 @@
               "h": 192.85,
               "l": 182.65,
               "c": 182.8
+            },
+            {
+              "o": 181.65,
+              "h": 184.45,
+              "l": 178.75,
+              "c": 179.15
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "INDU-C.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
-          "typicalDays": 11,
-          "rs": 34,
-          "entry": 518.2,
-          "stop": 537.86,
-          "target": 493.62,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 50,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 503.2,
-              "h": 511.8,
-              "l": 502.8,
-              "c": 510.8
-            },
-            {
-              "o": 508,
-              "h": 516.4,
-              "l": 507,
-              "c": 516.4
-            },
-            {
-              "o": 515.4,
-              "h": 522,
-              "l": 514.4,
-              "c": 522
-            },
-            {
-              "o": 520.4,
-              "h": 524,
-              "l": 518.2,
-              "c": 522.6
-            },
-            {
-              "o": 519.4,
-              "h": 521.2,
-              "l": 516.6,
-              "c": 519.2
-            },
-            {
-              "o": 518.4,
-              "h": 524.2,
-              "l": 515.6,
-              "c": 522
-            },
-            {
-              "o": 515,
-              "h": 528,
-              "l": 512.6,
-              "c": 523.6
-            },
-            {
-              "o": 525,
-              "h": 534.8,
-              "l": 523,
-              "c": 531.4
-            },
-            {
-              "o": 535.6,
-              "h": 542.4,
-              "l": 529.4,
-              "c": 532.2
-            },
-            {
-              "o": 523.6,
-              "h": 531.8,
-              "l": 521.8,
-              "c": 527.6
-            },
-            {
-              "o": 527.6,
-              "h": 537.6,
-              "l": 525.6,
-              "c": 536.6
-            },
-            {
-              "o": 542.2,
-              "h": 546,
-              "l": 541.6,
-              "c": 542.6
-            },
-            {
-              "o": 545.2,
-              "h": 548.6,
-              "l": 543.2,
-              "c": 546.4
-            },
-            {
-              "o": 546.4,
-              "h": 548.4,
-              "l": 542.2,
-              "c": 544.6
-            },
-            {
-              "o": 544,
-              "h": 544.8,
-              "l": 539.8,
-              "c": 540.6
-            },
-            {
-              "o": 541.2,
-              "h": 541.6,
-              "l": 536.4,
-              "c": 537.2
-            },
-            {
-              "o": 531.2,
-              "h": 532.6,
-              "l": 521.6,
-              "c": 522.8
-            },
-            {
-              "o": 522.8,
-              "h": 523,
-              "l": 516,
-              "c": 516.8
-            },
-            {
-              "o": 519.8,
-              "h": 522,
-              "l": 514.6,
-              "c": 515.2
-            },
-            {
-              "o": 507.6,
-              "h": 510.6,
-              "l": 501,
-              "c": 501.2
-            },
-            {
-              "o": 502.4,
-              "h": 519.4,
-              "l": 502.4,
-              "c": 518.2
-            },
-            {
-              "o": 518.2,
-              "h": 520,
-              "l": 508.2,
-              "c": 509
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "LIFCO-B.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 21,
-          "entry": 290.6,
-          "stop": 304.3,
-          "target": 273.48,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 72,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 278,
-              "h": 281,
-              "l": 274,
-              "c": 274
-            },
-            {
-              "o": 271.8,
-              "h": 283.4,
-              "l": 271.8,
-              "c": 283.4
-            },
-            {
-              "o": 283.4,
-              "h": 284,
-              "l": 279.4,
-              "c": 279.4
-            },
-            {
-              "o": 278.4,
-              "h": 279.6,
-              "l": 275.4,
-              "c": 278
-            },
-            {
-              "o": 277.2,
-              "h": 278.8,
-              "l": 276.2,
-              "c": 276.8
-            },
-            {
-              "o": 274.6,
-              "h": 279.2,
-              "l": 273.8,
-              "c": 278
-            },
-            {
-              "o": 275.2,
-              "h": 283.8,
-              "l": 274,
-              "c": 279.4
-            },
-            {
-              "o": 279.8,
-              "h": 291,
-              "l": 279,
-              "c": 289.2
-            },
-            {
-              "o": 290.6,
-              "h": 294,
-              "l": 286.6,
-              "c": 287.8
-            },
-            {
-              "o": 284.2,
-              "h": 285.6,
-              "l": 279.6,
-              "c": 283.2
-            },
-            {
-              "o": 283,
-              "h": 285.2,
-              "l": 281.4,
-              "c": 285
-            },
-            {
-              "o": 288.2,
-              "h": 291.6,
-              "l": 286.6,
-              "c": 286.6
-            },
-            {
-              "o": 287.2,
-              "h": 289,
-              "l": 282.6,
-              "c": 288.2
-            },
-            {
-              "o": 288.2,
-              "h": 290.8,
-              "l": 287.4,
-              "c": 287.8
-            },
-            {
-              "o": 288,
-              "h": 291,
-              "l": 285.8,
-              "c": 290.4
-            },
-            {
-              "o": 291.4,
-              "h": 292.8,
-              "l": 290,
-              "c": 290.6
-            },
-            {
-              "o": 290.6,
-              "h": 290.6,
-              "l": 286.6,
-              "c": 286.8
-            },
-            {
-              "o": 287,
-              "h": 289.2,
-              "l": 285.6,
-              "c": 285.6
-            },
-            {
-              "o": 287.8,
-              "h": 290,
-              "l": 283.2,
-              "c": 283.6
-            },
-            {
-              "o": 281.2,
-              "h": 281.2,
-              "l": 275.6,
-              "c": 276.8
-            },
-            {
-              "o": 276.6,
-              "h": 285.4,
-              "l": 276.6,
-              "c": 284.4
-            },
-            {
-              "o": 284.4,
-              "h": 286.6,
-              "l": 282.4,
-              "c": 282.4
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -10683,13 +8348,14 @@
         {
           "dir": "short",
           "ticker": "NDA-SE.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
+          "setup": "Burry filter — weak-stock rally short",
           "grade": "WATCH",
           "evidenceStatus": "WATCH",
           "baseEvidenceStatus": "WATCH",
           "eliteStatus": "RESEARCH_ONLY",
           "eliteQualified": false,
           "eliteReasonCodes": [
+            "FOR_FA_OOS_AFFARER",
             "TRAFFSAKERHET_UNDER_80",
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
@@ -10699,31 +8365,25 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "signalT": "Wed Nov 25 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
           "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 45,
-          "entry": 183.65,
-          "stop": 189.93,
-          "target": 175.8,
-          "rr": 1.25,
+          "rs": 28,
+          "entry": 177.2,
+          "stop": 183.95,
+          "target": 160.32,
+          "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 159,
+          "size": 148,
           "edge": {
-            "expectancyR": -0.36,
+            "expectancyR": -0.29,
             "winRate": 33,
-            "sample": 156
+            "sample": 84
           },
-          "above200": true,
+          "above200": false,
           "chart": [
-            {
-              "o": 171.05,
-              "h": 173.75,
-              "l": 170.8,
-              "c": 173.35
-            },
             {
               "o": 172.1,
               "h": 175.4,
@@ -10849,549 +8509,18 @@
               "h": 186.25,
               "l": 183.35,
               "c": 183.65
+            },
+            {
+              "o": 183.05,
+              "h": 183.5,
+              "l": 177.2,
+              "c": 177.2
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "SAND.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 16 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 6,
-          "typicalDays": 11,
-          "rs": 7,
-          "entry": 355.4,
-          "stop": 375.52,
-          "target": 330.25,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 49,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 348.7,
-              "h": 352.5,
-              "l": 345.4,
-              "c": 352.2
-            },
-            {
-              "o": 351.9,
-              "h": 357,
-              "l": 350.6,
-              "c": 353.3
-            },
-            {
-              "o": 356,
-              "h": 364.2,
-              "l": 352.8,
-              "c": 361.4
-            },
-            {
-              "o": 357.4,
-              "h": 365.5,
-              "l": 357,
-              "c": 364.1
-            },
-            {
-              "o": 357.5,
-              "h": 360.7,
-              "l": 356.1,
-              "c": 358.9
-            },
-            {
-              "o": 357.2,
-              "h": 366,
-              "l": 353.7,
-              "c": 364.1
-            },
-            {
-              "o": 356.1,
-              "h": 366.3,
-              "l": 355,
-              "c": 361.3
-            },
-            {
-              "o": 360.1,
-              "h": 366.2,
-              "l": 358.5,
-              "c": 362.1
-            },
-            {
-              "o": 363.7,
-              "h": 371.2,
-              "l": 354.6,
-              "c": 358.9
-            },
-            {
-              "o": 351.6,
-              "h": 360.3,
-              "l": 349.8,
-              "c": 357.4
-            },
-            {
-              "o": 357.2,
-              "h": 365.8,
-              "l": 356.3,
-              "c": 362.9
-            },
-            {
-              "o": 367.7,
-              "h": 374.2,
-              "l": 366.2,
-              "c": 366.2
-            },
-            {
-              "o": 371.6,
-              "h": 375.9,
-              "l": 371.4,
-              "c": 373.7
-            },
-            {
-              "o": 372.2,
-              "h": 376.1,
-              "l": 366.7,
-              "c": 369.3
-            },
-            {
-              "o": 367.7,
-              "h": 367.7,
-              "l": 360.4,
-              "c": 362.1
-            },
-            {
-              "o": 358.4,
-              "h": 359.6,
-              "l": 355,
-              "c": 355.4
-            },
-            {
-              "o": 350.4,
-              "h": 352,
-              "l": 345.6,
-              "c": 347.8
-            },
-            {
-              "o": 345.6,
-              "h": 345.6,
-              "l": 333.5,
-              "c": 333.9
-            },
-            {
-              "o": 338.6,
-              "h": 341.3,
-              "l": 335.6,
-              "c": 336.6
-            },
-            {
-              "o": 324.7,
-              "h": 328.6,
-              "l": 322.6,
-              "c": 324.3
-            },
-            {
-              "o": 327.7,
-              "h": 341.4,
-              "l": 327.7,
-              "c": 341.4
-            },
-            {
-              "o": 340,
-              "h": 340,
-              "l": 323.3,
-              "c": 323.3
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "SEB-A.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 11,
-          "rs": 52,
-          "entry": 214.1,
-          "stop": 221.55,
-          "target": 204.79,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 134,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": true,
-          "chart": [
-            {
-              "o": 202,
-              "h": 205.8,
-              "l": 202,
-              "c": 205.8
-            },
-            {
-              "o": 204.8,
-              "h": 208.5,
-              "l": 203.6,
-              "c": 208.5
-            },
-            {
-              "o": 208.3,
-              "h": 208.9,
-              "l": 207.2,
-              "c": 208.4
-            },
-            {
-              "o": 208,
-              "h": 210.1,
-              "l": 207.6,
-              "c": 209
-            },
-            {
-              "o": 208.4,
-              "h": 208.4,
-              "l": 206.8,
-              "c": 207.8
-            },
-            {
-              "o": 206.5,
-              "h": 209.5,
-              "l": 205.9,
-              "c": 208.8
-            },
-            {
-              "o": 207.8,
-              "h": 211.1,
-              "l": 207,
-              "c": 209
-            },
-            {
-              "o": 210.8,
-              "h": 215.5,
-              "l": 210,
-              "c": 214.7
-            },
-            {
-              "o": 215.7,
-              "h": 218.2,
-              "l": 214.6,
-              "c": 216.2
-            },
-            {
-              "o": 213.6,
-              "h": 215.4,
-              "l": 212.6,
-              "c": 214.8
-            },
-            {
-              "o": 214.8,
-              "h": 218.8,
-              "l": 214.2,
-              "c": 218.8
-            },
-            {
-              "o": 220,
-              "h": 222.5,
-              "l": 219.8,
-              "c": 221.4
-            },
-            {
-              "o": 222.7,
-              "h": 223,
-              "l": 220.9,
-              "c": 222.2
-            },
-            {
-              "o": 222.4,
-              "h": 223.3,
-              "l": 221.8,
-              "c": 222.6
-            },
-            {
-              "o": 222.6,
-              "h": 223.8,
-              "l": 222.3,
-              "c": 222.7
-            },
-            {
-              "o": 223.4,
-              "h": 223.6,
-              "l": 221.6,
-              "c": 222.2
-            },
-            {
-              "o": 220.3,
-              "h": 221.7,
-              "l": 218.3,
-              "c": 219
-            },
-            {
-              "o": 219.6,
-              "h": 219.8,
-              "l": 215.4,
-              "c": 215.7
-            },
-            {
-              "o": 217.6,
-              "h": 218,
-              "l": 216,
-              "c": 216.2
-            },
-            {
-              "o": 214.8,
-              "h": 214.9,
-              "l": 210.7,
-              "c": 211.3
-            },
-            {
-              "o": 211.6,
-              "h": 215.3,
-              "l": 211.6,
-              "c": 214.7
-            },
-            {
-              "o": 215.5,
-              "h": 216.2,
-              "l": 213.5,
-              "c": 214.1
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
-            "tradeApproved": false,
-            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
-          }
-        },
-        {
-          "dir": "short",
-          "ticker": "TEL2-B.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "grade": "WATCH",
-          "evidenceStatus": "WATCH",
-          "baseEvidenceStatus": "WATCH",
-          "eliteStatus": "RESEARCH_ONLY",
-          "eliteQualified": false,
-          "eliteReasonCodes": [
-            "TRAFFSAKERHET_UNDER_80",
-            "VERKLIG_PAYOFF_UNDER_3",
-            "PLANERAD_RR_UNDER_3",
-            "FOR_FA_POSITIVA_OOS_PERIODER",
-            "OSAKER_POSITIV_FORVANTAN"
-          ],
-          "validatedEdge": false,
-          "regimeAligned": true,
-          "proposalSource": "legacy-vote",
-          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 0,
-          "typicalDays": 11,
-          "rs": 41,
-          "entry": 161.25,
-          "stop": 166.89,
-          "target": 154.2,
-          "rr": 1.25,
-          "maxBars": 10,
-          "costRate": 0.003,
-          "ledgerMode": "published-levels",
-          "size": 177,
-          "edge": {
-            "expectancyR": -0.36,
-            "winRate": 33,
-            "sample": 156
-          },
-          "above200": false,
-          "chart": [
-            {
-              "o": 159.3,
-              "h": 159.4,
-              "l": 156.4,
-              "c": 157.3
-            },
-            {
-              "o": 156.9,
-              "h": 157.85,
-              "l": 155.35,
-              "c": 157.45
-            },
-            {
-              "o": 155.85,
-              "h": 159.15,
-              "l": 155.85,
-              "c": 158.95
-            },
-            {
-              "o": 159.5,
-              "h": 160.55,
-              "l": 158.65,
-              "c": 158.65
-            },
-            {
-              "o": 159.6,
-              "h": 160.35,
-              "l": 158.55,
-              "c": 159.6
-            },
-            {
-              "o": 158,
-              "h": 159.8,
-              "l": 157.8,
-              "c": 158.6
-            },
-            {
-              "o": 159.65,
-              "h": 160.25,
-              "l": 158.2,
-              "c": 159
-            },
-            {
-              "o": 159.25,
-              "h": 161.35,
-              "l": 158.25,
-              "c": 160.25
-            },
-            {
-              "o": 160.9,
-              "h": 162.8,
-              "l": 159.75,
-              "c": 162.15
-            },
-            {
-              "o": 161.55,
-              "h": 161.55,
-              "l": 158.9,
-              "c": 160.9
-            },
-            {
-              "o": 160.95,
-              "h": 161.75,
-              "l": 160.15,
-              "c": 160.85
-            },
-            {
-              "o": 160.85,
-              "h": 163.35,
-              "l": 160.6,
-              "c": 162.25
-            },
-            {
-              "o": 162,
-              "h": 163,
-              "l": 161.9,
-              "c": 162.85
-            },
-            {
-              "o": 163.5,
-              "h": 165.15,
-              "l": 163.15,
-              "c": 164.15
-            },
-            {
-              "o": 164.35,
-              "h": 165.85,
-              "l": 162.7,
-              "c": 165.7
-            },
-            {
-              "o": 166.15,
-              "h": 167.5,
-              "l": 165.1,
-              "c": 167.05
-            },
-            {
-              "o": 167.1,
-              "h": 167.5,
-              "l": 165.25,
-              "c": 165.7
-            },
-            {
-              "o": 165.7,
-              "h": 166.05,
-              "l": 163.15,
-              "c": 163.4
-            },
-            {
-              "o": 163.8,
-              "h": 163.8,
-              "l": 160.75,
-              "c": 161.35
-            },
-            {
-              "o": 162,
-              "h": 163.1,
-              "l": 160.95,
-              "c": 162.3
-            },
-            {
-              "o": 159.25,
-              "h": 162,
-              "l": 158.7,
-              "c": 158.7
-            },
-            {
-              "o": 159.8,
-              "h": 161.9,
-              "l": 158.8,
-              "c": 161.25
-            }
-          ],
-          "marketTrendGate": {
-            "status": "WATCH_CAUTION",
-            "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
@@ -11399,13 +8528,14 @@
         {
           "dir": "short",
           "ticker": "VOLV-B.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
+          "setup": "Burry filter — weak-stock rally short",
           "grade": "WATCH",
           "evidenceStatus": "WATCH",
           "baseEvidenceStatus": "WATCH",
           "eliteStatus": "RESEARCH_ONLY",
           "eliteQualified": false,
           "eliteReasonCodes": [
+            "FOR_FA_OOS_AFFARER",
             "TRAFFSAKERHET_UNDER_80",
             "VERKLIG_PAYOFF_UNDER_3",
             "PLANERAD_RR_UNDER_3",
@@ -11415,31 +8545,25 @@
           "validatedEdge": false,
           "regimeAligned": true,
           "proposalSource": "legacy-vote",
-          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
-          "barsAgo": 1,
+          "signalT": "Wed Nov 25 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 0,
           "typicalDays": 11,
-          "rs": 24,
-          "entry": 321,
-          "stop": 333.78,
-          "target": 305.02,
-          "rr": 1.25,
+          "rs": 31,
+          "entry": 315.6,
+          "stop": 329.43,
+          "target": 281.03,
+          "rr": 2.5,
           "maxBars": 10,
           "costRate": 0.003,
           "ledgerMode": "published-levels",
-          "size": 78,
+          "size": 72,
           "edge": {
-            "expectancyR": -0.36,
+            "expectancyR": -0.29,
             "winRate": 33,
-            "sample": 156
+            "sample": 84
           },
           "above200": false,
           "chart": [
-            {
-              "o": 306.4,
-              "h": 312.5,
-              "l": 305.8,
-              "c": 311.9
-            },
             {
               "o": 310.3,
               "h": 313.1,
@@ -11565,18 +8689,1476 @@
               "h": 322.9,
               "l": 310.9,
               "c": 311.5
+            },
+            {
+              "o": 312.7,
+              "h": 320,
+              "l": 312.7,
+              "c": 315.6
             }
           ],
           "marketTrendGate": {
             "status": "WATCH_CAUTION",
             "code": "TREND_NEUTRAL_WAIT",
-            "asOf": "2026-11-24",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "ABB.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 2,
+          "typicalDays": 11,
+          "rs": 10,
+          "entry": 835.2,
+          "stop": 884.21,
+          "target": 773.93,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 20,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 840.8,
+              "h": 861.2,
+              "l": 837.2,
+              "c": 861.2
+            },
+            {
+              "o": 865,
+              "h": 877.4,
+              "l": 862.4,
+              "c": 874.2
+            },
+            {
+              "o": 876,
+              "h": 883.8,
+              "l": 867.4,
+              "c": 878
+            },
+            {
+              "o": 854.8,
+              "h": 860.6,
+              "l": 850,
+              "c": 852
+            },
+            {
+              "o": 851,
+              "h": 854.6,
+              "l": 838.6,
+              "c": 851.4
+            },
+            {
+              "o": 836.2,
+              "h": 871.8,
+              "l": 835,
+              "c": 866.2
+            },
+            {
+              "o": 859.6,
+              "h": 870.2,
+              "l": 843.6,
+              "c": 847.6
+            },
+            {
+              "o": 831.2,
+              "h": 841.8,
+              "l": 800.6,
+              "c": 810.8
+            },
+            {
+              "o": 803.2,
+              "h": 816.4,
+              "l": 796.8,
+              "c": 808.2
+            },
+            {
+              "o": 809.8,
+              "h": 828.6,
+              "l": 807.6,
+              "c": 826
+            },
+            {
+              "o": 831.2,
+              "h": 840.2,
+              "l": 821,
+              "c": 827
+            },
+            {
+              "o": 839.6,
+              "h": 851.8,
+              "l": 838,
+              "c": 846.8
+            },
+            {
+              "o": 837.4,
+              "h": 853,
+              "l": 835,
+              "c": 844.6
+            },
+            {
+              "o": 841.8,
+              "h": 850,
+              "l": 838,
+              "c": 842.6
+            },
+            {
+              "o": 838.8,
+              "h": 840.4,
+              "l": 829.2,
+              "c": 832.2
+            },
+            {
+              "o": 825.8,
+              "h": 832.2,
+              "l": 814.4,
+              "c": 818.8
+            },
+            {
+              "o": 827.4,
+              "h": 832.8,
+              "l": 817.6,
+              "c": 823.2
+            },
+            {
+              "o": 833.2,
+              "h": 842.2,
+              "l": 821.8,
+              "c": 826.4
+            },
+            {
+              "o": 801.4,
+              "h": 804,
+              "l": 791,
+              "c": 796
+            },
+            {
+              "o": 807.6,
+              "h": 836.8,
+              "l": 803,
+              "c": 835.2
+            },
+            {
+              "o": 836,
+              "h": 837,
+              "l": 799.6,
+              "c": 803.2
+            },
+            {
+              "o": 800,
+              "h": 810.6,
+              "l": 782.8,
+              "c": 784.2
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "ADDT-B.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Wed Nov 25 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 0,
+          "typicalDays": 11,
+          "rs": 34,
+          "entry": 317.2,
+          "stop": 332.66,
+          "target": 297.87,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 64,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 301,
+              "h": 309.6,
+              "l": 300.4,
+              "c": 309.2
+            },
+            {
+              "o": 308.4,
+              "h": 310.8,
+              "l": 307.8,
+              "c": 310
+            },
+            {
+              "o": 309,
+              "h": 312.2,
+              "l": 306.4,
+              "c": 309
+            },
+            {
+              "o": 305.6,
+              "h": 310.6,
+              "l": 305.4,
+              "c": 310.6
+            },
+            {
+              "o": 307.6,
+              "h": 314.8,
+              "l": 307,
+              "c": 313.6
+            },
+            {
+              "o": 308.4,
+              "h": 320.2,
+              "l": 307.4,
+              "c": 316.2
+            },
+            {
+              "o": 316.2,
+              "h": 321.6,
+              "l": 314.8,
+              "c": 319.2
+            },
+            {
+              "o": 319.6,
+              "h": 324.8,
+              "l": 317.2,
+              "c": 320.2
+            },
+            {
+              "o": 316.4,
+              "h": 317.4,
+              "l": 311.4,
+              "c": 314.2
+            },
+            {
+              "o": 316.8,
+              "h": 323.4,
+              "l": 316,
+              "c": 322
+            },
+            {
+              "o": 325.4,
+              "h": 329.4,
+              "l": 325.4,
+              "c": 326
+            },
+            {
+              "o": 327.6,
+              "h": 335,
+              "l": 326.2,
+              "c": 334.8
+            },
+            {
+              "o": 335,
+              "h": 338.4,
+              "l": 332.8,
+              "c": 333.4
+            },
+            {
+              "o": 333.8,
+              "h": 336,
+              "l": 332,
+              "c": 332.2
+            },
+            {
+              "o": 332.2,
+              "h": 335,
+              "l": 331,
+              "c": 331.8
+            },
+            {
+              "o": 329.4,
+              "h": 329.4,
+              "l": 323,
+              "c": 323.8
+            },
+            {
+              "o": 327,
+              "h": 328.4,
+              "l": 324,
+              "c": 324.6
+            },
+            {
+              "o": 327.2,
+              "h": 329.8,
+              "l": 323.8,
+              "c": 324.6
+            },
+            {
+              "o": 318.2,
+              "h": 320.4,
+              "l": 312.4,
+              "c": 314.6
+            },
+            {
+              "o": 315,
+              "h": 326.4,
+              "l": 315,
+              "c": 326.2
+            },
+            {
+              "o": 326.2,
+              "h": 326.4,
+              "l": 318.4,
+              "c": 319.6
+            },
+            {
+              "o": 319.8,
+              "h": 324,
+              "l": 316.6,
+              "c": 317.2
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "ATCO-A.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 2,
+          "typicalDays": 11,
+          "rs": 17,
+          "entry": 190.9,
+          "stop": 201.89,
+          "target": 177.16,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 90,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 181.35,
+              "h": 186.7,
+              "l": 180,
+              "c": 186.7
+            },
+            {
+              "o": 187.95,
+              "h": 187.95,
+              "l": 185.65,
+              "c": 187.55
+            },
+            {
+              "o": 185.85,
+              "h": 189.5,
+              "l": 185.45,
+              "c": 188.35
+            },
+            {
+              "o": 185.45,
+              "h": 186.25,
+              "l": 183.6,
+              "c": 183.9
+            },
+            {
+              "o": 182.75,
+              "h": 187.9,
+              "l": 182.3,
+              "c": 187.15
+            },
+            {
+              "o": 181.85,
+              "h": 190.15,
+              "l": 181.6,
+              "c": 188.7
+            },
+            {
+              "o": 187.75,
+              "h": 189.15,
+              "l": 185.45,
+              "c": 185.9
+            },
+            {
+              "o": 186.3,
+              "h": 189.95,
+              "l": 183,
+              "c": 185.25
+            },
+            {
+              "o": 182.5,
+              "h": 185.05,
+              "l": 180.6,
+              "c": 184.1
+            },
+            {
+              "o": 184.1,
+              "h": 189.1,
+              "l": 183.5,
+              "c": 187.7
+            },
+            {
+              "o": 189.9,
+              "h": 192.3,
+              "l": 188.7,
+              "c": 189.9
+            },
+            {
+              "o": 193,
+              "h": 195,
+              "l": 192.65,
+              "c": 194.65
+            },
+            {
+              "o": 193.3,
+              "h": 195.7,
+              "l": 192.1,
+              "c": 194
+            },
+            {
+              "o": 192.45,
+              "h": 194.95,
+              "l": 192.2,
+              "c": 192.25
+            },
+            {
+              "o": 191.3,
+              "h": 192.7,
+              "l": 190.75,
+              "c": 191.9
+            },
+            {
+              "o": 190.15,
+              "h": 191.5,
+              "l": 188.35,
+              "c": 189.2
+            },
+            {
+              "o": 191.6,
+              "h": 191.6,
+              "l": 188.15,
+              "c": 188.75
+            },
+            {
+              "o": 191.7,
+              "h": 193.95,
+              "l": 190.1,
+              "c": 190.25
+            },
+            {
+              "o": 184.9,
+              "h": 185.4,
+              "l": 181.05,
+              "c": 181.95
+            },
+            {
+              "o": 183.9,
+              "h": 192,
+              "l": 183.9,
+              "c": 190.9
+            },
+            {
+              "o": 190.95,
+              "h": 192.85,
+              "l": 182.65,
+              "c": 182.8
+            },
+            {
+              "o": 181.65,
+              "h": 184.45,
+              "l": 178.75,
+              "c": 179.15
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "INDU-C.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Mon Nov 23 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 2,
+          "typicalDays": 11,
+          "rs": 38,
+          "entry": 518.2,
+          "stop": 537.86,
+          "target": 493.62,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 50,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 508,
+              "h": 516.4,
+              "l": 507,
+              "c": 516.4
+            },
+            {
+              "o": 515.4,
+              "h": 522,
+              "l": 514.4,
+              "c": 522
+            },
+            {
+              "o": 520.4,
+              "h": 524,
+              "l": 518.2,
+              "c": 522.6
+            },
+            {
+              "o": 519.4,
+              "h": 521.2,
+              "l": 516.6,
+              "c": 519.2
+            },
+            {
+              "o": 518.4,
+              "h": 524.2,
+              "l": 515.6,
+              "c": 522
+            },
+            {
+              "o": 515,
+              "h": 528,
+              "l": 512.6,
+              "c": 523.6
+            },
+            {
+              "o": 525,
+              "h": 534.8,
+              "l": 523,
+              "c": 531.4
+            },
+            {
+              "o": 535.6,
+              "h": 542.4,
+              "l": 529.4,
+              "c": 532.2
+            },
+            {
+              "o": 523.6,
+              "h": 531.8,
+              "l": 521.8,
+              "c": 527.6
+            },
+            {
+              "o": 527.6,
+              "h": 537.6,
+              "l": 525.6,
+              "c": 536.6
+            },
+            {
+              "o": 542.2,
+              "h": 546,
+              "l": 541.6,
+              "c": 542.6
+            },
+            {
+              "o": 545.2,
+              "h": 548.6,
+              "l": 543.2,
+              "c": 546.4
+            },
+            {
+              "o": 546.4,
+              "h": 548.4,
+              "l": 542.2,
+              "c": 544.6
+            },
+            {
+              "o": 544,
+              "h": 544.8,
+              "l": 539.8,
+              "c": 540.6
+            },
+            {
+              "o": 541.2,
+              "h": 541.6,
+              "l": 536.4,
+              "c": 537.2
+            },
+            {
+              "o": 531.2,
+              "h": 532.6,
+              "l": 521.6,
+              "c": 522.8
+            },
+            {
+              "o": 522.8,
+              "h": 523,
+              "l": 516,
+              "c": 516.8
+            },
+            {
+              "o": 519.8,
+              "h": 522,
+              "l": 514.6,
+              "c": 515.2
+            },
+            {
+              "o": 507.6,
+              "h": 510.6,
+              "l": 501,
+              "c": 501.2
+            },
+            {
+              "o": 502.4,
+              "h": 519.4,
+              "l": 502.4,
+              "c": 518.2
+            },
+            {
+              "o": 518.2,
+              "h": 520,
+              "l": 508.2,
+              "c": 509
+            },
+            {
+              "o": 508,
+              "h": 513,
+              "l": 504.2,
+              "c": 505
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "NDA-SE.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 1,
+          "typicalDays": 11,
+          "rs": 28,
+          "entry": 183.65,
+          "stop": 189.93,
+          "target": 175.8,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 159,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 172.1,
+              "h": 175.4,
+              "l": 172.1,
+              "c": 174.6
+            },
+            {
+              "o": 174.75,
+              "h": 175.8,
+              "l": 174.6,
+              "c": 175.05
+            },
+            {
+              "o": 175.3,
+              "h": 177.2,
+              "l": 174.75,
+              "c": 176.45
+            },
+            {
+              "o": 176.2,
+              "h": 176.2,
+              "l": 174.15,
+              "c": 175
+            },
+            {
+              "o": 173.15,
+              "h": 173.65,
+              "l": 171.8,
+              "c": 173.15
+            },
+            {
+              "o": 171.8,
+              "h": 174.6,
+              "l": 171.15,
+              "c": 173.7
+            },
+            {
+              "o": 174.25,
+              "h": 179.95,
+              "l": 174.2,
+              "c": 179.45
+            },
+            {
+              "o": 180,
+              "h": 183.15,
+              "l": 179.75,
+              "c": 181.25
+            },
+            {
+              "o": 179.45,
+              "h": 181.75,
+              "l": 178.8,
+              "c": 180.3
+            },
+            {
+              "o": 180.1,
+              "h": 184.65,
+              "l": 179.65,
+              "c": 184.3
+            },
+            {
+              "o": 185.5,
+              "h": 187.95,
+              "l": 185.5,
+              "c": 187.55
+            },
+            {
+              "o": 188,
+              "h": 188.7,
+              "l": 187.15,
+              "c": 187.45
+            },
+            {
+              "o": 188,
+              "h": 189.9,
+              "l": 187.45,
+              "c": 189.1
+            },
+            {
+              "o": 189.5,
+              "h": 190.85,
+              "l": 188.95,
+              "c": 190.35
+            },
+            {
+              "o": 190.05,
+              "h": 191.2,
+              "l": 189.25,
+              "c": 189.45
+            },
+            {
+              "o": 189,
+              "h": 189.2,
+              "l": 186.5,
+              "c": 187.05
+            },
+            {
+              "o": 187.1,
+              "h": 187.95,
+              "l": 185.7,
+              "c": 185.75
+            },
+            {
+              "o": 186.55,
+              "h": 187.75,
+              "l": 185.95,
+              "c": 186.35
+            },
+            {
+              "o": 184.95,
+              "h": 185.2,
+              "l": 182,
+              "c": 182.2
+            },
+            {
+              "o": 182.8,
+              "h": 185.85,
+              "l": 182.8,
+              "c": 185.2
+            },
+            {
+              "o": 185.7,
+              "h": 186.25,
+              "l": 183.35,
+              "c": 183.65
+            },
+            {
+              "o": 183.05,
+              "h": 183.5,
+              "l": 177.2,
+              "c": 177.2
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "SEB-A.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Tue Nov 24 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 1,
+          "typicalDays": 11,
+          "rs": 41,
+          "entry": 214.1,
+          "stop": 221.55,
+          "target": 204.79,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 134,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": true,
+          "chart": [
+            {
+              "o": 204.8,
+              "h": 208.5,
+              "l": 203.6,
+              "c": 208.5
+            },
+            {
+              "o": 208.3,
+              "h": 208.9,
+              "l": 207.2,
+              "c": 208.4
+            },
+            {
+              "o": 208,
+              "h": 210.1,
+              "l": 207.6,
+              "c": 209
+            },
+            {
+              "o": 208.4,
+              "h": 208.4,
+              "l": 206.8,
+              "c": 207.8
+            },
+            {
+              "o": 206.5,
+              "h": 209.5,
+              "l": 205.9,
+              "c": 208.8
+            },
+            {
+              "o": 207.8,
+              "h": 211.1,
+              "l": 207,
+              "c": 209
+            },
+            {
+              "o": 210.8,
+              "h": 215.5,
+              "l": 210,
+              "c": 214.7
+            },
+            {
+              "o": 215.7,
+              "h": 218.2,
+              "l": 214.6,
+              "c": 216.2
+            },
+            {
+              "o": 213.6,
+              "h": 215.4,
+              "l": 212.6,
+              "c": 214.8
+            },
+            {
+              "o": 214.8,
+              "h": 218.8,
+              "l": 214.2,
+              "c": 218.8
+            },
+            {
+              "o": 220,
+              "h": 222.5,
+              "l": 219.8,
+              "c": 221.4
+            },
+            {
+              "o": 222.7,
+              "h": 223,
+              "l": 220.9,
+              "c": 222.2
+            },
+            {
+              "o": 222.4,
+              "h": 223.3,
+              "l": 221.8,
+              "c": 222.6
+            },
+            {
+              "o": 222.6,
+              "h": 223.8,
+              "l": 222.3,
+              "c": 222.7
+            },
+            {
+              "o": 223.4,
+              "h": 223.6,
+              "l": 221.6,
+              "c": 222.2
+            },
+            {
+              "o": 220.3,
+              "h": 221.7,
+              "l": 218.3,
+              "c": 219
+            },
+            {
+              "o": 219.6,
+              "h": 219.8,
+              "l": 215.4,
+              "c": 215.7
+            },
+            {
+              "o": 217.6,
+              "h": 218,
+              "l": 216,
+              "c": 216.2
+            },
+            {
+              "o": 214.8,
+              "h": 214.9,
+              "l": 210.7,
+              "c": 211.3
+            },
+            {
+              "o": 211.6,
+              "h": 215.3,
+              "l": 211.6,
+              "c": 214.7
+            },
+            {
+              "o": 215.5,
+              "h": 216.2,
+              "l": 213.5,
+              "c": 214.1
+            },
+            {
+              "o": 214.3,
+              "h": 214.6,
+              "l": 208.3,
+              "c": 208.3
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "TEL2-B.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Wed Nov 25 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 0,
+          "typicalDays": 11,
+          "rs": 45,
+          "entry": 161.45,
+          "stop": 166.87,
+          "target": 154.67,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 184,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 156.9,
+              "h": 157.85,
+              "l": 155.35,
+              "c": 157.45
+            },
+            {
+              "o": 155.85,
+              "h": 159.15,
+              "l": 155.85,
+              "c": 158.95
+            },
+            {
+              "o": 159.5,
+              "h": 160.55,
+              "l": 158.65,
+              "c": 158.65
+            },
+            {
+              "o": 159.6,
+              "h": 160.35,
+              "l": 158.55,
+              "c": 159.6
+            },
+            {
+              "o": 158,
+              "h": 159.8,
+              "l": 157.8,
+              "c": 158.6
+            },
+            {
+              "o": 159.65,
+              "h": 160.25,
+              "l": 158.2,
+              "c": 159
+            },
+            {
+              "o": 159.25,
+              "h": 161.35,
+              "l": 158.25,
+              "c": 160.25
+            },
+            {
+              "o": 160.9,
+              "h": 162.8,
+              "l": 159.75,
+              "c": 162.15
+            },
+            {
+              "o": 161.55,
+              "h": 161.55,
+              "l": 158.9,
+              "c": 160.9
+            },
+            {
+              "o": 160.95,
+              "h": 161.75,
+              "l": 160.15,
+              "c": 160.85
+            },
+            {
+              "o": 160.85,
+              "h": 163.35,
+              "l": 160.6,
+              "c": 162.25
+            },
+            {
+              "o": 162,
+              "h": 163,
+              "l": 161.9,
+              "c": 162.85
+            },
+            {
+              "o": 163.5,
+              "h": 165.15,
+              "l": 163.15,
+              "c": 164.15
+            },
+            {
+              "o": 164.35,
+              "h": 165.85,
+              "l": 162.7,
+              "c": 165.7
+            },
+            {
+              "o": 166.15,
+              "h": 167.5,
+              "l": 165.1,
+              "c": 167.05
+            },
+            {
+              "o": 167.1,
+              "h": 167.5,
+              "l": 165.25,
+              "c": 165.7
+            },
+            {
+              "o": 165.7,
+              "h": 166.05,
+              "l": 163.15,
+              "c": 163.4
+            },
+            {
+              "o": 163.8,
+              "h": 163.8,
+              "l": 160.75,
+              "c": 161.35
+            },
+            {
+              "o": 162,
+              "h": 163.1,
+              "l": 160.95,
+              "c": 162.3
+            },
+            {
+              "o": 159.25,
+              "h": 162,
+              "l": 158.7,
+              "c": 158.7
+            },
+            {
+              "o": 159.8,
+              "h": 161.9,
+              "l": 158.8,
+              "c": 161.25
+            },
+            {
+              "o": 161.65,
+              "h": 162.35,
+              "l": 161.05,
+              "c": 161.45
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
+            "tradeApproved": false,
+            "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
+          }
+        },
+        {
+          "dir": "short",
+          "ticker": "VOLV-B.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "grade": "WATCH",
+          "evidenceStatus": "WATCH",
+          "baseEvidenceStatus": "WATCH",
+          "eliteStatus": "RESEARCH_ONLY",
+          "eliteQualified": false,
+          "eliteReasonCodes": [
+            "TRAFFSAKERHET_UNDER_80",
+            "VERKLIG_PAYOFF_UNDER_3",
+            "PLANERAD_RR_UNDER_3",
+            "FOR_FA_POSITIVA_OOS_PERIODER",
+            "OSAKER_POSITIV_FORVANTAN"
+          ],
+          "validatedEdge": false,
+          "regimeAligned": true,
+          "proposalSource": "legacy-vote",
+          "signalT": "Wed Nov 25 2026 08:00:00 GMT+0000 (Coordinated Universal Time)",
+          "barsAgo": 0,
+          "typicalDays": 11,
+          "rs": 31,
+          "entry": 315.6,
+          "stop": 329.43,
+          "target": 298.31,
+          "rr": 1.25,
+          "maxBars": 10,
+          "costRate": 0.003,
+          "ledgerMode": "published-levels",
+          "size": 72,
+          "edge": {
+            "expectancyR": -0.36,
+            "winRate": 33,
+            "sample": 156
+          },
+          "above200": false,
+          "chart": [
+            {
+              "o": 310.3,
+              "h": 313.1,
+              "l": 308,
+              "c": 309.9
+            },
+            {
+              "o": 310,
+              "h": 314,
+              "l": 308.3,
+              "c": 311.7
+            },
+            {
+              "o": 309.4,
+              "h": 312.2,
+              "l": 308.3,
+              "c": 310.1
+            },
+            {
+              "o": 308.4,
+              "h": 310.6,
+              "l": 306.8,
+              "c": 310
+            },
+            {
+              "o": 303.5,
+              "h": 309.3,
+              "l": 303,
+              "c": 309
+            },
+            {
+              "o": 306.2,
+              "h": 312.4,
+              "l": 304.7,
+              "c": 308.1
+            },
+            {
+              "o": 305.6,
+              "h": 314.1,
+              "l": 303.8,
+              "c": 311.5
+            },
+            {
+              "o": 313.9,
+              "h": 320.7,
+              "l": 313.6,
+              "c": 316.8
+            },
+            {
+              "o": 311,
+              "h": 318.2,
+              "l": 306.7,
+              "c": 312.8
+            },
+            {
+              "o": 312.2,
+              "h": 317.8,
+              "l": 311.3,
+              "c": 316.3
+            },
+            {
+              "o": 318.8,
+              "h": 323.5,
+              "l": 318.7,
+              "c": 321.2
+            },
+            {
+              "o": 322.8,
+              "h": 324.5,
+              "l": 320.5,
+              "c": 323.1
+            },
+            {
+              "o": 323.7,
+              "h": 325.2,
+              "l": 321.4,
+              "c": 324
+            },
+            {
+              "o": 323,
+              "h": 324.6,
+              "l": 321.2,
+              "c": 323.4
+            },
+            {
+              "o": 323.4,
+              "h": 325.9,
+              "l": 322.5,
+              "c": 322.7
+            },
+            {
+              "o": 320.6,
+              "h": 325.7,
+              "l": 318.5,
+              "c": 319.7
+            },
+            {
+              "o": 320,
+              "h": 320.2,
+              "l": 315.7,
+              "c": 318
+            },
+            {
+              "o": 320.2,
+              "h": 323.9,
+              "l": 320,
+              "c": 320.2
+            },
+            {
+              "o": 315.3,
+              "h": 315.6,
+              "l": 310.6,
+              "c": 313.7
+            },
+            {
+              "o": 315,
+              "h": 321,
+              "l": 314.6,
+              "c": 321
+            },
+            {
+              "o": 322.6,
+              "h": 322.9,
+              "l": 310.9,
+              "c": 311.5
+            },
+            {
+              "o": 312.7,
+              "h": 320,
+              "l": 312.7,
+              "c": 315.6
+            }
+          ],
+          "marketTrendGate": {
+            "status": "WATCH_CAUTION",
+            "code": "TREND_NEUTRAL_WAIT",
+            "asOf": "2026-11-25",
             "tradeApproved": false,
             "note": "Trend alignment is not proof of edge, entry or acceptable portfolio/instrument risk."
           }
         }
       ],
       "trackRecord": [
+        {
+          "ticker": "SAND.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "r": 1.9
+        },
+        {
+          "ticker": "ATCO-A.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "r": 1.14
+        },
+        {
+          "ticker": "SWED-A.ST",
+          "setup": "Trend pullback to 20EMA · RSI reset",
+          "r": -1.25
+        },
+        {
+          "ticker": "NDA-SE.ST",
+          "setup": "The Big Short — broader weak-stock rally short",
+          "r": 1.08
+        },
         {
           "ticker": "NDA-SE.ST",
           "setup": "Breakout — fresh N-day high",
@@ -11596,34 +10178,14 @@
           "ticker": "SKF-B.ST",
           "setup": "Bollinger reversion in uptrend",
           "r": -1.18
-        },
-        {
-          "ticker": "SKF-B.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "r": -1.13
-        },
-        {
-          "ticker": "ERIC-B.ST",
-          "setup": "Trend pullback to 20EMA · RSI reset",
-          "r": -1.16
-        },
-        {
-          "ticker": "SAAB-B.ST",
-          "setup": "Bollinger reversion in uptrend",
-          "r": -1.11
-        },
-        {
-          "ticker": "SAND.ST",
-          "setup": "The Big Short — broader weak-stock rally short",
-          "r": 1.15
         }
       ],
       "trackRecordSummary": {
-        "closed": 18,
-        "wins": 2,
-        "losses": 16,
-        "winRate": 11.1,
-        "netR": -16.92,
+        "closed": 22,
+        "wins": 5,
+        "losses": 17,
+        "winRate": 22.7,
+        "netR": -14.05,
         "costAdjusted": true,
         "basis": "gap-aware-v1: displayed proposal levels, future OHLC gap-aware exit, round-trip costs; historical legacy outcomes excluded"
       },
@@ -11640,8 +10202,8 @@
       "status": "STALE"
     },
     "SE": {
-      "dataAsOf": "2026-11-24",
-      "expected": "2026-11-24",
+      "dataAsOf": "2026-11-25",
+      "expected": "2026-11-25",
       "current": true,
       "status": "CURRENT"
     }
