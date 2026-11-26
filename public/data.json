@@ -1,6 +1,6 @@
 {
   "pipelineVersion": 2,
-  "generatedAt": "2026-11-26T19:15:17.802Z",
+  "generatedAt": "2026-11-26T21:54:33.775Z",
   "demo": false,
   "strategyScope": "OMXS30_ONLY",
   "scopeAsOf": "2026-11-26",
@@ -3044,7 +3044,7 @@
         "priceType": "COMPLETED_DAILY_CLOSE",
         "asOf": "2026-11-26",
         "close": 3251.38,
-        "fetchedAt": "2026-11-26T19:15:17.802Z"
+        "fetchedAt": "2026-11-26T21:54:33.775Z"
       },
       "edge": {
         "expectancyR": 0,
